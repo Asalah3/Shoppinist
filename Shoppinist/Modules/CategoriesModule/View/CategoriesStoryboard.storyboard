@@ -111,8 +111,8 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PVj-2o-gbC" secondAttribute="trailing" constant="10" id="Ft5-DW-nU2"/>
                             <constraint firstItem="PVj-2o-gbC" firstAttribute="top" secondItem="ZRF-1x-HGO" secondAttribute="bottom" constant="8" symbolic="YES" id="IYn-4a-aCo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZRF-1x-HGO" secondAttribute="trailing" constant="10" id="a0s-Hz-ssr"/>
+                            <constraint firstItem="PVj-2o-gbC" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.757042" id="d3S-IL-PPf"/>
                             <constraint firstItem="PVj-2o-gbC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="f9P-pO-jhe"/>
-                            <constraint firstItem="PVj-2o-gbC" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-31" id="s2v-8S-tHK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nVa-DF-szQ">
