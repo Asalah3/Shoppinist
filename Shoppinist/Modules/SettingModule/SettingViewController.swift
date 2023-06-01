@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Reachability
 
 class SettingViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
-  
+    let appDelegate = UIApplication.shared.windows.first
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us" , "Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,26 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath.row){
+        case 1 :
+             let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
+             
+             
+             alert.addAction(UIAlertAction(title: "EGP", style: .default ,handler: {  [weak self ] _ in
+                 UserDefaults.standard.set("EGP", forKey: "Currency")
+             }))
+            alert.addAction(UIAlertAction(title: "USD", style: .cancel ,handler: {  [weak self] _ in
+                UserDefaults.standard.set("USD", forKey: "Currency")
+            }))
+             
+             present(alert, animated: true)
+            
+        default:
+            break
+        }
+        print(UserDefaults.standard.string(forKey: "Currency"))
+    }
    
 
 }
