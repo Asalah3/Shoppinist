@@ -26,6 +26,10 @@
 		C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */; };
 		C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */; };
 		CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */; };
+		DB7BEF0D2A292C8300E3246F /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7BEF0C2A292C8300E3246F /* Setting.storyboard */; };
+		DB7BEF0F2A292CA800E3246F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF0E2A292CA800E3246F /* SettingViewController.swift */; };
+		DB7BEF112A292CC300E3246F /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF102A292CC300E3246F /* SettingTableViewCell.swift */; };
+		DB7BEF132A293A4D00E3246F /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF122A293A4D00E3246F /* MeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeStoryboard.storyboard; sourceTree = "<group>"; };
 		C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesStoryboard.storyboard; sourceTree = "<group>"; };
 		DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist_ShoppinistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7BEF0C2A292C8300E3246F /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		DB7BEF0E2A292CA800E3246F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DB7BEF102A292CC300E3246F /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		DB7BEF122A293A4D00E3246F /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		F1086DC2D32699D525F554BF /* Pods_ShoppinistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppinistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF480C7AA20DA2D324C41217 /* Pods-ShoppinistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppinistTests.release.xcconfig"; path = "Target Support Files/Pods-ShoppinistTests/Pods-ShoppinistTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +200,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB7BEF0A2A292A7800E3246F /* Setting */,
 				C98726592A27DD7C00EB0A40 /* MeModule */,
 				C98726582A27DD5E00EB0A40 /* CategoriesModule */,
 				C98726572A27DD4800EB0A40 /* HomeModule */,
@@ -296,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */,
+				DB7BEF122A293A4D00E3246F /* MeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +316,24 @@
 				C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DB7BEF0A2A292A7800E3246F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				DB7BEF0B2A292C0600E3246F /* Views */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		DB7BEF0B2A292C0600E3246F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB7BEF0C2A292C8300E3246F /* Setting.storyboard */,
+				DB7BEF0E2A292CA800E3246F /* SettingViewController.swift */,
+				DB7BEF102A292CC300E3246F /* SettingTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +447,7 @@
 			files = (
 				C98726252A27CF0C00EB0A40 /* LaunchScreen.storyboard in Resources */,
 				C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */,
+				DB7BEF0D2A292C8300E3246F /* Setting.storyboard in Resources */,
 				C98726222A27CF0B00EB0A40 /* Assets.xcassets in Resources */,
 				C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */,
 				C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */,
@@ -550,9 +579,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7BEF132A293A4D00E3246F /* MeViewController.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
+				DB7BEF112A292CC300E3246F /* SettingTableViewCell.swift in Sources */,
+				DB7BEF0F2A292CA800E3246F /* SettingViewController.swift in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
 				C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */,
