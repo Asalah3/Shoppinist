@@ -6,23 +6,20 @@
 //
 
 import UIKit
-struct BrandModel{
-    var brandName: String
-    var brandImage: String
-}
+//struct BrandModel{
+//    var brandName: String
+//    var brandImage: String
+//}
 class HomeViewController: UIViewController {
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     @IBOutlet weak var CouponsCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     var currentCellIndex = 0
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    var remoteDataSource: RemoteDataSourceProtocol?
+    var homeViewModel : HomeViewModel?
     var timer: Timer?
-    var brandsList:[BrandModel] = [BrandModel(brandName: "Brand", brandImage: "Brand"),
-                                   BrandModel(brandName: "Brand", brandImage: "Brand"),
-                                   BrandModel(brandName: "Brand", brandImage: "Brand"),
-                                   BrandModel(brandName: "Brand", brandImage: "Brand"),
-                                   BrandModel(brandName: "Brand", brandImage: "Brand"),
-                                   BrandModel(brandName: "Brand", brandImage: "Brand"),
-                                   BrandModel(brandName: "Brand", brandImage: "Brand")]
+    var brandsList: BrandModel?
     var couponsList:[String] = ["10Offer","20Offer","30Offer","40Offer","50Offer"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +36,16 @@ class HomeViewController: UIViewController {
         self.brandsCollectionView.collectionViewLayout = brandsLayout
         brandsCollectionView.showsVerticalScrollIndicator = false
         brandsCollectionView.showsHorizontalScrollIndicator = false
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+                activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+        remoteDataSource = RemoteDataSource()
+        homeViewModel = HomeViewModel(remoteDataSource: remoteDataSource ?? RemoteDataSource())
+        homeViewModel?.fetchHomeData(resourse: "")
+        homeViewModel?.fetchBrandsToHomeViewController = {() in self.renderView()}
+        
         timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
     }
     @objc func slideToNext(){
@@ -53,9 +60,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == brandsCollectionView{
-            return brandsList.count
+            return brandsList?.smartCollections?.count ?? 0
         }
         return couponsList.count
     }
@@ -66,7 +74,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             cell?.layer.borderWidth = 1
             cell?.layer.cornerRadius = 25
             cell?.layer.borderColor = UIColor.systemGray.cgColor
-            cell?.setUpCell(brandImage: brandsList[indexPath.row].brandImage, brandName: brandsList[indexPath.row].brandName)
+            cell?.setUpCell(brandImage: brandsList?.smartCollections?[indexPath.row].image?.src ?? "", brandName: brandsList?.smartCollections?[indexPath.row].title ?? "")
             return cell!
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponsCollectionViewCell", for: indexPath) as? CouponsCollectionViewCell
@@ -88,6 +96,13 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             return 0
         }else{
             return 10
+        }
+    }
+    func renderView(){
+        DispatchQueue.main.async {
+            self.brandsList = self.homeViewModel?.fetchHomeData
+            self.brandsCollectionView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
 }
