@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		69BBF2357126C2E1FE5043B2 /* Pods_ShoppinistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1086DC2D32699D525F554BF /* Pods_ShoppinistTests.framework */; };
 		9EA66756829F561A1A69A388 /* Pods_Shoppinist_ShoppinistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */; };
+		C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97A2A2927680071DAD6 /* BrandModel.swift */; };
+		C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97D2A2928940071DAD6 /* HomeViewModel.swift */; };
 		C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98726152A27CF0900EB0A40 /* AppDelegate.swift */; };
 		C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98726172A27CF0900EB0A40 /* SceneDelegate.swift */; };
 		C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98726192A27CF0900EB0A40 /* ViewController.swift */; };
@@ -60,6 +62,8 @@
 		5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388E8610DD2F414054C502D /* Pods-Shoppinist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppinist.release.xcconfig"; path = "Target Support Files/Pods-Shoppinist/Pods-Shoppinist.release.xcconfig"; sourceTree = "<group>"; };
 		C54958C093B8786E2AB2788F /* Pods-Shoppinist-ShoppinistUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppinist-ShoppinistUITests.debug.xcconfig"; path = "Target Support Files/Pods-Shoppinist-ShoppinistUITests/Pods-Shoppinist-ShoppinistUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C930A97A2A2927680071DAD6 /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
+		C930A97D2A2928940071DAD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C98726122A27CF0900EB0A40 /* Shoppinist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppinist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98726152A27CF0900EB0A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C98726172A27CF0900EB0A40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,22 @@
 				F1086DC2D32699D525F554BF /* Pods_ShoppinistTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C930A9792A2927270071DAD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C930A97A2A2927680071DAD6 /* BrandModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C930A97C2A2928750071DAD6 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C930A97D2A2928940071DAD6 /* HomeViewModel.swift */,
+			);
+			path = HomeViewModel;
 			sourceTree = "<group>";
 		};
 		C98726092A27CF0900EB0A40 = {
@@ -280,6 +300,8 @@
 		C98726572A27DD4800EB0A40 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				C930A97C2A2928750071DAD6 /* HomeViewModel */,
+				C930A9792A2927270071DAD6 /* Model */,
 				C987265A2A27DDA100EB0A40 /* View */,
 			);
 			path = HomeModule;
@@ -586,6 +608,7 @@
 				C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */,
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
+				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
@@ -595,6 +618,7 @@
 				C9B2C9E52A28936100ED8AF8 /* HomeViewController.swift in Sources */,
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
 				C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */,
+				C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */,
 				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
 			);
