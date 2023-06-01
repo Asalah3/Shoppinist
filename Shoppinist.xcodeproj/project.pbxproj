@@ -585,11 +585,8 @@
 			files = (
 				C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */,
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
-<<<<<<< HEAD
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
-=======
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
->>>>>>> main
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
