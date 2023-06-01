@@ -22,10 +22,8 @@ class RemoteDataSource: RemoteDataSourceProtocol{
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request){ data,response , error in
             do{
-                print(data)
                 let result = try JSONDecoder().decode(BrandModel.self, from: data ?? Data())
                 compilitionHandler(result)
-                print(result.smartCollections?.first?.title)
                 print("sucsses ")
             } catch let error{
                 print(error)
