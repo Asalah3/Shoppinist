@@ -427,6 +427,10 @@
 			isa = PBXGroup;
 			children = (
 				CF1F4D562A2A94E3006F0E07 /* SignViewModel.swift */,
+            );
+            path = ViewModel;
+            sourceTree = "<group>";
+        };
 		C9A724C22A2A88FD00B0D37E /* BrandProductsModule */ = {
 			isa = PBXGroup;
 			children = (
