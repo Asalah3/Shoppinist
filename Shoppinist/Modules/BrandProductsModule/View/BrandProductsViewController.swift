@@ -41,7 +41,7 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         cell?.layer.borderWidth = 1
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
-        var product = productsList?.products?[indexPath.row]
+        let product = productsList?.products?[indexPath.row]
         cell?.setUpCell(productImage: product?.image?.src ?? "", productName: product?.title ?? "", productPrice: "\(product?.variants[0].price ?? "")")
         return cell ?? ProductsCollectionViewCell()
     }
