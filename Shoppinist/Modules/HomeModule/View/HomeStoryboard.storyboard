@@ -249,13 +249,6 @@
                             <constraint firstItem="VnB-dk-60I" firstAttribute="top" secondItem="jgt-Tx-mtD" secondAttribute="top" id="x0q-AH-zto"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GTQ-GD-f0d">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="Eys-by-oBc"/>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="heart.fill" catalog="system" id="mgN-1H-NJk"/>
-                            <barButtonItem title="Item" image="cart.fill" catalog="system" id="Wrg-ew-X6h"/>
-                        </rightBarButtonItems>
-                    </navigationItem>
                     <connections>
                         <outlet property="productsCollectionView" destination="VnB-dk-60I" id="dzf-dU-IGA"/>
                     </connections>
