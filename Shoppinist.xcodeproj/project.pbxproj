@@ -35,6 +35,7 @@
 		CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */; };
 		CFC01BEB2A2A3963002BAB4C /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC01BEA2A2A3963002BAB4C /* SignViewController.swift */; };
 		CFC01BED2A2A396F002BAB4C /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFC01BEC2A2A396F002BAB4C /* SignUpView.storyboard */; };
+		CFC01BEF2A2A3A9D002BAB4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC01BEE2A2A3A9C002BAB4C /* LoginViewController.swift */; };
 		DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B312A29819900DF9D10 /* Setting.storyboard */; };
 		DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */; };
 		DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B352A29874300DF9D10 /* MeViewController.swift */; };
@@ -96,6 +97,7 @@
 		C9B2C9E82A28D44200ED8AF8 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFC01BEA2A2A3963002BAB4C /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignViewController.swift; path = ../../../../../SignViewController.swift; sourceTree = "<group>"; };
 		CFC01BEC2A2A396F002BAB4C /* SignUpView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignUpView.storyboard; path = ../../../../../SignUpView.storyboard; sourceTree = "<group>"; };
+		CFC01BEE2A2A3A9C002BAB4C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../../../../LoginViewController.swift; sourceTree = "<group>"; };
 		DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist_ShoppinistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1B4B312A29819900DF9D10 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		CFC01BE72A2A386E002BAB4C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CFC01BEE2A2A3A9C002BAB4C /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
+				CFC01BEF2A2A3A9D002BAB4C /* LoginViewController.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
 				CFC01BEB2A2A3963002BAB4C /* SignViewController.swift in Sources */,
