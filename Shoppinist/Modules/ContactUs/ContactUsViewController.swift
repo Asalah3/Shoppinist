@@ -9,6 +9,7 @@ import UIKit
 
 class ContactUsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
+
     
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class ContactUsViewController: UIViewController , UITableViewDelegate , UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactUsCell", for: indexPath) as! ContactUsTableViewCell
+        
         switch indexPath.row {
         case 0:
             cell.emailLabel.text = "esraa4255@gmail.com"

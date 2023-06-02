@@ -69,6 +69,14 @@
             </objects>
             <point key="canvasLocation" x="254" y="6"/>
         </scene>
+        <!--AboutUsViewController-->
+        <scene sceneID="U6e-Gl-a0w">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AboutUsViewController" storyboardName="AboutUs " referencedIdentifier="AboutUsViewController" id="Z3S-t7-Zh4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG1-mD-gwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896" y="-178"/>
+        </scene>
         <!--ContactUsViewController-->
         <scene sceneID="ZBn-5m-gVw">
             <objects>

@@ -46,6 +46,8 @@
 		DB1B4B392A29B12800DF9D10 /* ContactUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */; };
 		DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */; };
 		DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */; };
+		DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */; };
+		DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactUs.storyboard; sourceTree = "<group>"; };
 		DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
+		DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "AboutUs .storyboard"; sourceTree = "<group>"; };
+		DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		F1086DC2D32699D525F554BF /* Pods_ShoppinistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppinistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF480C7AA20DA2D324C41217 /* Pods-ShoppinistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppinistTests.release.xcconfig"; path = "Target Support Files/Pods-ShoppinistTests/Pods-ShoppinistTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A724C22A2A88FD00B0D37E /* BrandProductsModule */,
+				DB6A8CDC2A2AFD4400142BBC /* AboutUs */,
 				CFC01BE82A2A3879002BAB4C /* ChooseAuthWayModules */,
 				CFC01BE62A2A3862002BAB4C /* LoginModules */,
 				CFC01BE42A2A384A002BAB4C /* SignUpModules */,
@@ -472,6 +477,15 @@
 			path = ContactUs;
 			sourceTree = "<group>";
 		};
+		DB6A8CDC2A2AFD4400142BBC /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */,
+				DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -586,6 +600,7 @@
 				DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */,
 				CF7A7A0E2A2A4F61005ADCED /* SignUpV.storyboard in Resources */,
 				C98726222A27CF0B00EB0A40 /* Assets.xcassets in Resources */,
+				DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */,
 				C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */,
 				C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */,
 				C987261D2A27CF0900EB0A40 /* Main.storyboard in Resources */,
@@ -738,6 +753,7 @@
 				C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */,
 				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
 				DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */,
+				DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
 				C9A724CA2A2A8E2400B0D37E /* BrandProductsViewModel.swift in Sources */,
 				C9A724C72A2A8DD400B0D37E /* ProductModel.swift in Sources */,
