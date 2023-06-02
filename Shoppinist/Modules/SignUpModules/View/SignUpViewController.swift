@@ -16,6 +16,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signPassword: UITextField!
     @IBOutlet weak var signConfirmPassword: UITextField!
     
+    var signViewModel:SignViewModel?
+    var newCustomer:Customer?
+    var checkConfirmPassword :String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +31,56 @@ class SignUpViewController: UIViewController {
         signConfirmPassword.setupLeftSideImage(imageViewName: "key")
         signPassword.setupRightSideImage(imageViewOpened: "eye")
         signConfirmPassword.setupRightSideImage(imageViewOpened: "eye")
+        
+        signViewModel = SignViewModel()
+        newCustomer = Customer()
 
     }
 
     @IBAction func signUpCustomer(_ sender: Any) {
+        newCustomer?.first_name = signFirstName.text
+        newCustomer?.last_name = signLastName.text
+        newCustomer?.email = signEmail.text
+        newCustomer?.note = signPassword.text
+        checkConfirmPassword = signConfirmPassword.text
+        
+        guard let customer = newCustomer else{
+            return
+        }
+        
+        
+        if signFirstName.text != "" && signLastName.text != "" && signEmail.text != "" && signPassword.text != "" && signConfirmPassword.text != "" {
+            
+            if newCustomer?.note == checkConfirmPassword {
+               signViewModel?.insertCustomer(customer: customer)
+            }
+            else{
+                Utilites.displayToast(message: "Confirm Password and Password must be identical", seconds: 2.0, controller: self)
+            }
+        }else{
+            Utilites.displayToast(message: "Enter Full Data", seconds: 2.0, controller: self)
+        }
+        
+        
+        
+        signViewModel?.bindingSignUp = { [weak self] in
+            DispatchQueue.main.async {
+                                
+                if self?.signViewModel?.ObservableSignUp  == 201{
+                    
+                    let tabBar = self?.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
+                    tabBar?.modalTransitionStyle = .crossDissolve
+                    tabBar?.modalPresentationStyle = .fullScreen
+                    self?.present(tabBar!, animated: true)
+                }
+                else{
+                    Utilites.displayToast(message: "This email was used before", seconds: 2.0, controller: self ?? UIViewController())
+                }
+                
+            }
+            
+        }
+        
     }
     
     @IBAction func navigateToLogin(_ sender: Any) {

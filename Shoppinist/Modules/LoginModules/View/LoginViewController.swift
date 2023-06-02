@@ -25,8 +25,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginCustomer(_ sender: Any) {
-//        let tabBar = self.storyboard?.instantiateViewController(withIdentifier: "tabBar") as?
-//        navigationController?.pushViewController(tabBar, animated: true)
+
         let tabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
         tabBar?.modalTransitionStyle = .crossDissolve
         tabBar?.modalPresentationStyle = .fullScreen
