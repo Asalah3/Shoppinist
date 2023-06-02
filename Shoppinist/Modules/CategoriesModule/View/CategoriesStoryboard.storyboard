@@ -25,6 +25,9 @@
                                     <segment title="Kids"/>
                                     <segment title="Sale"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeCategory:" destination="Y6W-OH-hqX" eventType="valueChanged" id="iif-ux-Ogx"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PVj-2o-gbC">
                                 <rect key="frame" x="10" y="142" width="373" height="645"/>

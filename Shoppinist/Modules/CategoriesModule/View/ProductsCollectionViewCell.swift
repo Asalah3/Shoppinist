@@ -22,8 +22,8 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productPrice.layer.borderWidth = 1
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
         self.productPrice.text = productPrice
-//        self.productImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
-//        self.productImage.sd_setImage(with: URL(string:productImage), placeholderImage: UIImage(named: "placeHolder"))
+        self.productImage.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+        self.productImage.sd_setImage(with: URL(string:productImage), placeholderImage: UIImage(named: "placeHolder"))
         self.productImage.image = UIImage(named: productImage)
     }
 }

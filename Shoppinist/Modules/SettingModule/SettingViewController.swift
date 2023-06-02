@@ -75,6 +75,10 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
             }))
              
              present(alert, animated: true)
+        case 2:
+            let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
+            self.present(contactVC, animated: true)
+            
         case 3 :
             let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "ContactUsViewController") as! ContactUsViewController
             self.present(contactVC, animated: true)
