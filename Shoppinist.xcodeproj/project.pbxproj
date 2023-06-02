@@ -25,6 +25,9 @@
 		C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C987265B2A27DDB900EB0A40 /* HomeStoryboard.storyboard */; };
 		C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */; };
 		C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */; };
+		C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E02A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift */; };
+		C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E22A28910B00ED8AF8 /* BrandsCollectionViewCell.swift */; };
+		C9B2C9E52A28936100ED8AF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E42A28936100ED8AF8 /* HomeViewController.swift */; };
 		CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */; };
 		DB7BEF0D2A292C8300E3246F /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7BEF0C2A292C8300E3246F /* Setting.storyboard */; };
 		DB7BEF0F2A292CA800E3246F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF0E2A292CA800E3246F /* SettingViewController.swift */; };
@@ -76,6 +79,9 @@
 		C987265B2A27DDB900EB0A40 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeStoryboard.storyboard; sourceTree = "<group>"; };
 		C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesStoryboard.storyboard; sourceTree = "<group>"; };
+		C9B2C9E02A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9B2C9E22A28910B00ED8AF8 /* BrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9B2C9E42A28936100ED8AF8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist_ShoppinistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7BEF0C2A292C8300E3246F /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DB7BEF0E2A292CA800E3246F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +303,9 @@
 			isa = PBXGroup;
 			children = (
 				C987265B2A27DDB900EB0A40 /* HomeStoryboard.storyboard */,
+				C9B2C9E02A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift */,
+				C9B2C9E22A28910B00ED8AF8 /* BrandsCollectionViewCell.swift */,
+				C9B2C9E42A28936100ED8AF8 /* HomeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,8 +595,10 @@
 				DB7BEF112A292CC300E3246F /* SettingTableViewCell.swift in Sources */,
 				DB7BEF0F2A292CA800E3246F /* SettingViewController.swift in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
+				C9B2C9E52A28936100ED8AF8 /* HomeViewController.swift in Sources */,
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
 				C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */,
+				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
