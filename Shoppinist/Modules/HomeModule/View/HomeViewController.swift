@@ -105,4 +105,9 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             self.activityIndicator.stopAnimating()
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let brandProductsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
+        brandProductsViewController.brandId = brandsList?.smartCollections?[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(brandProductsViewController, animated: true)
+    }
 }
