@@ -33,6 +33,11 @@
 		C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E62A28D41500ED8AF8 /* CategoriesViewController.swift */; };
 		C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E82A28D44200ED8AF8 /* ProductsCollectionViewCell.swift */; };
 		CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */; };
+		CF1F4D502A2A7D8D006F0E07 /* SignUpNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F4D4F2A2A7D8D006F0E07 /* SignUpNetworkService.swift */; };
+		CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F4D512A2A7EE3006F0E07 /* LoginedCustomerModel.swift */; };
+		CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F4D532A2A9011006F0E07 /* SignCustomerModel.swift */; };
+		CF1F4D572A2A94E3006F0E07 /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F4D562A2A94E3006F0E07 /* SignViewModel.swift */; };
+		CF1F4D5A2A2A9D76006F0E07 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F4D592A2A9D76006F0E07 /* Utilites.swift */; };
 		CF7A7A0E2A2A4F61005ADCED /* SignUpV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF7A7A0D2A2A4F61005ADCED /* SignUpV.storyboard */; };
 		CF7A7A102A2A50AC005ADCED /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A0F2A2A50AC005ADCED /* SignUpViewController.swift */; };
 		CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A112A2A5218005ADCED /* LoginViewController.swift */; };
@@ -96,6 +101,11 @@
 		C9B2C9E42A28936100ED8AF8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C9B2C9E62A28D41500ED8AF8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		C9B2C9E82A28D44200ED8AF8 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CF1F4D4F2A2A7D8D006F0E07 /* SignUpNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkService.swift; sourceTree = "<group>"; };
+		CF1F4D512A2A7EE3006F0E07 /* LoginedCustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginedCustomerModel.swift; sourceTree = "<group>"; };
+		CF1F4D532A2A9011006F0E07 /* SignCustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCustomerModel.swift; sourceTree = "<group>"; };
+		CF1F4D562A2A94E3006F0E07 /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
+		CF1F4D592A2A9D76006F0E07 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		CF7A7A0D2A2A4F61005ADCED /* SignUpV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpV.storyboard; sourceTree = "<group>"; };
 		CF7A7A0F2A2A50AC005ADCED /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CF7A7A112A2A5218005ADCED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +213,7 @@
 		C98726142A27CF0900EB0A40 /* Shoppinist */ = {
 			isa = PBXGroup;
 			children = (
+				CF1F4D582A2A9D57006F0E07 /* Utilites */,
 				C98726522A27D1D300EB0A40 /* GenericViews */,
 				C987264A2A27D0DB00EB0A40 /* Services */,
 				C98726492A27D0C400EB0A40 /* Modules */,
@@ -371,9 +382,44 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CF1F4D4D2A2A75A9006F0E07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF1F4D512A2A7EE3006F0E07 /* LoginedCustomerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF1F4D4E2A2A75D4006F0E07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF1F4D4F2A2A7D8D006F0E07 /* SignUpNetworkService.swift */,
+				CF1F4D532A2A9011006F0E07 /* SignCustomerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF1F4D552A2A9448006F0E07 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF1F4D562A2A94E3006F0E07 /* SignViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CF1F4D582A2A9D57006F0E07 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				CF1F4D592A2A9D76006F0E07 /* Utilites.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
 		CFC01BE42A2A384A002BAB4C /* SignUpModules */ = {
 			isa = PBXGroup;
 			children = (
+				CF1F4D552A2A9448006F0E07 /* ViewModel */,
+				CF1F4D4E2A2A75D4006F0E07 /* Model */,
 				CFC01BE52A2A385A002BAB4C /* View */,
 			);
 			path = SignUpModules;
@@ -391,6 +437,7 @@
 		CFC01BE62A2A3862002BAB4C /* LoginModules */ = {
 			isa = PBXGroup;
 			children = (
+				CF1F4D4D2A2A75A9006F0E07 /* Model */,
 				CFC01BE72A2A386E002BAB4C /* View */,
 			);
 			path = LoginModules;
@@ -690,13 +737,17 @@
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
 				DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */,
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
+				CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
 				CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
+				CF1F4D5A2A2A9D76006F0E07 /* Utilites.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
+				CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
+				CF1F4D572A2A94E3006F0E07 /* SignViewModel.swift in Sources */,
 				DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */,
 				C9B2C9E52A28936100ED8AF8 /* HomeViewController.swift in Sources */,
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
@@ -704,6 +755,7 @@
 				C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */,
 				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
 				DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */,
+				CF1F4D502A2A7D8D006F0E07 /* SignUpNetworkService.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
