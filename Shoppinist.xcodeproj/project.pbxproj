@@ -33,6 +33,7 @@
 		C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E62A28D41500ED8AF8 /* CategoriesViewController.swift */; };
 		C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2C9E82A28D44200ED8AF8 /* ProductsCollectionViewCell.swift */; };
 		CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */; };
+		CF7A7A0E2A2A4F61005ADCED /* SignUpV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF7A7A0D2A2A4F61005ADCED /* SignUpV.storyboard */; };
 		CFC01BEB2A2A3963002BAB4C /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC01BEA2A2A3963002BAB4C /* SignViewController.swift */; };
 		CFC01BED2A2A396F002BAB4C /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFC01BEC2A2A396F002BAB4C /* SignUpView.storyboard */; };
 		CFC01BEF2A2A3A9D002BAB4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC01BEE2A2A3A9C002BAB4C /* LoginViewController.swift */; };
@@ -96,6 +97,7 @@
 		C9B2C9E42A28936100ED8AF8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C9B2C9E62A28D41500ED8AF8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		C9B2C9E82A28D44200ED8AF8 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CF7A7A0D2A2A4F61005ADCED /* SignUpV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpV.storyboard; sourceTree = "<group>"; };
 		CFC01BEA2A2A3963002BAB4C /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignViewController.swift; path = ../../../../../SignViewController.swift; sourceTree = "<group>"; };
 		CFC01BEC2A2A396F002BAB4C /* SignUpView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignUpView.storyboard; path = ../../../../../SignUpView.storyboard; sourceTree = "<group>"; };
 		CFC01BEE2A2A3A9C002BAB4C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../../../../LoginViewController.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				CFC01BEC2A2A396F002BAB4C /* SignUpView.storyboard */,
 				CFC01BEA2A2A3963002BAB4C /* SignViewController.swift */,
+				CF7A7A0D2A2A4F61005ADCED /* SignUpV.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				C98726252A27CF0C00EB0A40 /* LaunchScreen.storyboard in Resources */,
 				C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */,
 				DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */,
+				CF7A7A0E2A2A4F61005ADCED /* SignUpV.storyboard in Resources */,
 				C98726222A27CF0B00EB0A40 /* Assets.xcassets in Resources */,
 				C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */,
 				CFC01BED2A2A396F002BAB4C /* SignUpView.storyboard in Resources */,
