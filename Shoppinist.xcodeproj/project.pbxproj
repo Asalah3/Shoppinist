@@ -234,6 +234,9 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CFC01BE82A2A3879002BAB4C /* ChooseAuthWayModules */,
+				CFC01BE62A2A3862002BAB4C /* LoginModules */,
+				CFC01BE42A2A384A002BAB4C /* SignUpModules */,
 				DB1B4B372A29B0E500DF9D10 /* ContactUs */,
 				DB1B4B302A29817000DF9D10 /* SettingModule */,
 				C98726592A27DD7C00EB0A40 /* MeModule */,
@@ -356,6 +359,51 @@
 				C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */,
 				C9B2C9E62A28D41500ED8AF8 /* CategoriesViewController.swift */,
 				C9B2C9E82A28D44200ED8AF8 /* ProductsCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFC01BE42A2A384A002BAB4C /* SignUpModules */ = {
+			isa = PBXGroup;
+			children = (
+				CFC01BE52A2A385A002BAB4C /* View */,
+			);
+			path = SignUpModules;
+			sourceTree = "<group>";
+		};
+		CFC01BE52A2A385A002BAB4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFC01BE62A2A3862002BAB4C /* LoginModules */ = {
+			isa = PBXGroup;
+			children = (
+				CFC01BE72A2A386E002BAB4C /* View */,
+			);
+			path = LoginModules;
+			sourceTree = "<group>";
+		};
+		CFC01BE72A2A386E002BAB4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFC01BE82A2A3879002BAB4C /* ChooseAuthWayModules */ = {
+			isa = PBXGroup;
+			children = (
+				CFC01BE92A2A388D002BAB4C /* View */,
+			);
+			path = ChooseAuthWayModules;
+			sourceTree = "<group>";
+		};
+		CFC01BE92A2A388D002BAB4C /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
