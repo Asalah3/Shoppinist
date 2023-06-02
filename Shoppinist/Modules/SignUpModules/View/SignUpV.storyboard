@@ -61,6 +61,9 @@
                                                     </backgroundConfiguration>
                                                     <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="navigateToSignUp:" destination="SNg-UE-4s1" eventType="touchUpInside" id="1ck-jU-Lxg"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="l8G-au-9Up">
                                                 <rect key="frame" x="0.0" y="108.99999999999999" width="228" height="44.333333333333329"/>
@@ -110,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="188.54961832061068" y="-23.239436619718312"/>
         </scene>
-        <!--Sign View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="vUf-IQ-AGW">
             <objects>
-                <viewController storyboardIdentifier="SignViewController" id="4w6-SZ-fDV" customClass="SignViewController" customModule="Shoppinist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="4w6-SZ-fDV" customClass="SignUpViewController" customModule="Shoppinist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ixr-fM-RWr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,12 +220,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="signConfirmPassword" destination="4y6-Ps-EQE" id="aCG-ml-c0g"/>
-                        <outlet property="signEmail" destination="ju9-lF-xUy" id="D1L-8R-1fW"/>
-                        <outlet property="signFirstName" destination="WjB-yP-evl" id="BJ2-6m-rTP"/>
-                        <outlet property="signImage" destination="rlZ-pU-aoD" id="c2c-V6-bXC"/>
-                        <outlet property="signLastName" destination="TFH-0a-d3A" id="yBB-k4-TMy"/>
-                        <outlet property="signPassword" destination="6Go-rD-Blh" id="zfh-55-u1d"/>
+                        <outlet property="signConfirmPassword" destination="4y6-Ps-EQE" id="FA1-zJ-Sm8"/>
+                        <outlet property="signEmail" destination="ju9-lF-xUy" id="LVS-Fy-iUg"/>
+                        <outlet property="signFirstName" destination="WjB-yP-evl" id="zLi-lM-qDP"/>
+                        <outlet property="signImage" destination="rlZ-pU-aoD" id="yGn-dq-zDL"/>
+                        <outlet property="signLastName" destination="TFH-0a-d3A" id="7fZ-3V-gVp"/>
+                        <outlet property="signPassword" destination="6Go-rD-Blh" id="tPZ-ma-ahQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zik-Wq-cXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
