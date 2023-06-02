@@ -34,6 +34,9 @@
 		DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B312A29819900DF9D10 /* Setting.storyboard */; };
 		DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */; };
 		DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B352A29874300DF9D10 /* MeViewController.swift */; };
+		DB1B4B392A29B12800DF9D10 /* ContactUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */; };
+		DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */; };
+		DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		DB1B4B312A29819900DF9D10 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DB1B4B352A29874300DF9D10 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactUs.storyboard; sourceTree = "<group>"; };
+		DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
 		F1086DC2D32699D525F554BF /* Pods_ShoppinistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppinistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF480C7AA20DA2D324C41217 /* Pods-ShoppinistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppinistTests.release.xcconfig"; path = "Target Support Files/Pods-ShoppinistTests/Pods-ShoppinistTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +214,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB1B4B372A29B0E500DF9D10 /* ContactUs */,
 				DB1B4B302A29817000DF9D10 /* SettingModule */,
 				C98726592A27DD7C00EB0A40 /* MeModule */,
 				C98726582A27DD5E00EB0A40 /* CategoriesModule */,
@@ -340,6 +347,16 @@
 			path = SettingModule;
 			sourceTree = "<group>";
 		};
+		DB1B4B372A29B0E500DF9D10 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */,
+				DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */,
+				DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +473,7 @@
 				C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */,
 				C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */,
 				C987261D2A27CF0900EB0A40 /* Main.storyboard in Resources */,
+				DB1B4B392A29B12800DF9D10 /* ContactUs.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +603,7 @@
 			files = (
 				C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */,
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
+				DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */,
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
@@ -596,6 +615,7 @@
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
 				C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */,
 				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
+				DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
