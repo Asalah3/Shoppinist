@@ -30,7 +30,7 @@ class LoginViewModel{
     }
     
     func checkCustomerAuth(customerEmail:String,customerPasssword:String)->String{
-        var returnedValue = ""
+        var returnedValue = "Uncorrect Email or Password"
         
         if let observable = observableLogin {
             print(observable.customers.count)
@@ -42,12 +42,7 @@ class LoginViewModel{
                     UserDefaults.standard.set(observable.customers[i].email, forKey: "customerEmail")
                     let userDefultId =  UserDefaults.standard.integer(forKey:"customerID")
                     print("User id is", userDefultId)
-                }
-               else if customerEmail != observable.customers[i].email && customerPasssword == observable.customers[i].note{
-                   returnedValue = "Invalid Mail"
-                }
-                else if customerEmail == observable.customers[i].email && customerPasssword != observable.customers[i].note{
-                    returnedValue = "Wrong Password"
+                    break
                 }
             }
         }

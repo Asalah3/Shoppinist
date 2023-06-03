@@ -74,10 +74,8 @@ class SignUpViewController: UIViewController {
                                 
                 if self?.signViewModel?.ObservableSignUp  == 201{
                     
-                    let tabBar = self?.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
-                    tabBar?.modalTransitionStyle = .crossDissolve
-                    tabBar?.modalPresentationStyle = .fullScreen
-                    self?.present(tabBar!, animated: true)
+                    let loginViewController = self?.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self?.navigationController?.pushViewController(loginViewController, animated: true)
                 }
                 else{
                     Utilites.displayToast(message: "This email was used before", seconds: 2.0, controller: self ?? UIViewController())

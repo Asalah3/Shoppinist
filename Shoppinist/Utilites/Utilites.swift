@@ -53,6 +53,7 @@ class Utilites{
     static func setUpTextFeildStyle(textField:UITextField){
         textField.layer.cornerRadius = 15.0
         textField.layer.borderWidth = 2.0
+        textField.tintColor = .gray
         textField.layer.borderColor = UIColor(named: "move")?.cgColor
     }
 

@@ -35,7 +35,6 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginCustomer(_ sender: Any) {
 
-        print("clicked")
         loginViewModel?.getAllCustomers()
         loginViewModel?.bindingLogin = { [weak self] in
             DispatchQueue.main.async {
@@ -48,12 +47,13 @@ class LoginViewController: UIViewController {
                     self?.present(tabBar!, animated: true)
                         
                 }
-                if self?.loginViewModel?.checkCustomerAuth(customerEmail: self?.loginEmail.text ?? "", customerPasssword: self?.loginPassword.text ?? "") == self?.invalidMail{
-                    Utilites.displayToast(message: self?.invalidMail ?? "", seconds: 2.0, controller: self ?? UIViewController())
+                else if self?.loginViewModel?.checkCustomerAuth(customerEmail: self?.loginEmail.text ?? "", customerPasssword: self?.loginPassword.text ?? "") == "Uncorrect Email or Password"{
+                    Utilites.displayToast(message: "Uncorrect Email or Password" , seconds: 2.0, controller: self ?? UIViewController())
                 }
-                if self?.loginViewModel?.checkCustomerAuth(customerEmail: self?.loginEmail.text ?? "", customerPasssword: self?.loginPassword.text ?? "") == self?.wrongPass{
-                    Utilites.displayToast(message: self?.wrongPass ?? "", seconds: 2.0, controller: self ?? UIViewController())
+                else{
+                    Utilites.displayToast(message: "Enter Full data" , seconds: 2.0, controller: self ?? UIViewController())
                 }
+                
             }
         }
         
