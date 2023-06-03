@@ -32,6 +32,12 @@ class SignUpViewController: UIViewController {
         signPassword.setupRightSideImage(imageViewOpened: "eye")
         signConfirmPassword.setupRightSideImage(imageViewOpened: "eye")
         
+        Utilites.setUpTextFeildStyle(textField: signFirstName)
+        Utilites.setUpTextFeildStyle(textField: signLastName)
+        Utilites.setUpTextFeildStyle(textField: signEmail)
+        Utilites.setUpTextFeildStyle(textField: signPassword)
+        Utilites.setUpTextFeildStyle(textField: signConfirmPassword)
+        
         signViewModel = SignViewModel()
         newCustomer = Customer()
 
@@ -98,7 +104,7 @@ extension UITextField {
         imageViewContainerView.addSubview(imageView)
         leftView = imageViewContainerView
         leftViewMode = .always
-        self.tintColor = .lightGray
+        self.tintColor = .gray
     }
     
     func setupRightSideImage(imageViewOpened: String){
@@ -108,7 +114,7 @@ extension UITextField {
         imageViewContainerView.addSubview(imageView)
         rightView = imageViewContainerView
         rightViewMode = .always
-        self.tintColor = .lightGray
+        self.tintColor = .gray
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
