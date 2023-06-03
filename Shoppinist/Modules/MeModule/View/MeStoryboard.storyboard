@@ -19,8 +19,9 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJI-Dt-jSw">
                                 <rect key="frame" x="0.0" y="78" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <navigationItem title="Me" id="a6G-D0-zrO">
+                                    <navigationItem id="a6G-D0-zrO">
                                         <rightBarButtonItems>
                                             <barButtonItem image="gearshape" catalog="system" id="liL-J1-r1B">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

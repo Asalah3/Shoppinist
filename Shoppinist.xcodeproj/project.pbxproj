@@ -57,6 +57,9 @@
 		DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */; };
 		DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */; };
 		DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */; };
+		DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */; };
+		DBAE209C2A2C48E600FD40FE /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE209B2A2C48E600FD40FE /* AddressModel.swift */; };
+		DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */; };
 		DBDA68232A2B3DB500F99BC0 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDA68222A2B3DB500F99BC0 /* Address.storyboard */; };
 		DBFC42C72A2B9974005E7F74 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC42C62A2B9974005E7F74 /* AddressViewController.swift */; };
 		DBFC42C92A2B9C6F005E7F74 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC42C82A2B9C6F005E7F74 /* AddressTableViewCell.swift */; };
@@ -140,6 +143,9 @@
 		DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
 		DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "AboutUs .storyboard"; sourceTree = "<group>"; };
 		DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		DBAE209B2A2C48E600FD40FE /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNetWorkServices.swift; sourceTree = "<group>"; };
 		DBDA68222A2B3DB500F99BC0 /* Address.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
 		DBFC42C62A2B9974005E7F74 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		DBFC42C82A2B9C6F005E7F74 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -573,11 +579,26 @@
 			path = AboutUs;
 			sourceTree = "<group>";
 		};
+		DBAE20972A2C48AE00FD40FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBAE209A2A2C48D700FD40FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBAE209B2A2C48E600FD40FE /* AddressModel.swift */,
+				DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DBDA681E2A2B3CB500F99BC0 /* AddressModule */ = {
 			isa = PBXGroup;
 			children = (
-				DBDA68212A2B3CEC00F99BC0 /* ViewModel */,
-				DBDA68202A2B3CE000F99BC0 /* Model */,
 				DBDA681F2A2B3CD500F99BC0 /* View */,
 			);
 			path = AddressModule;
@@ -593,25 +614,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DBDA68202A2B3CE000F99BC0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DBDA68212A2B3CEC00F99BC0 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		DBFC42CA2A2BAE4B005E7F74 /* AddNewAddress */ = {
 			isa = PBXGroup;
 			children = (
-				DBFC42D22A2BAF30005E7F74 /* ViewModel */,
-				DBFC42D12A2BAF27005E7F74 /* Model */,
+				DBAE20972A2C48AE00FD40FE /* ViewModel */,
+				DBAE209A2A2C48D700FD40FE /* Model */,
 				DBFC42CB2A2BAE5C005E7F74 /* View */,
 			);
 			path = AddNewAddress;
@@ -624,20 +631,6 @@
 				DBFC42CF2A2BAEE7005E7F74 /* AddNewAddressViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		DBFC42D12A2BAF27005E7F74 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DBFC42D22A2BAF30005E7F74 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -897,10 +890,12 @@
 				DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */,
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
 				CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */,
+				DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
 				CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */,
 				CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
+				DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C9A724C52A2A893900B0D37E /* BrandProductsViewController.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
@@ -910,6 +905,7 @@
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
 				CF1F4D572A2A94E3006F0E07 /* SignViewModel.swift in Sources */,
 				DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */,
+				DBAE209C2A2C48E600FD40FE /* AddressModel.swift in Sources */,
 				C9B2C9E52A28936100ED8AF8 /* HomeViewController.swift in Sources */,
 				DBFC42D02A2BAEE7005E7F74 /* AddNewAddressViewController.swift in Sources */,
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
