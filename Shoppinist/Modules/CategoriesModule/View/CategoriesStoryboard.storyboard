@@ -17,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="JXK-Vk-R7Z" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="10" y="103" width="373" height="645"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZRF-1x-HGO">
                                 <rect key="frame" x="10" y="103" width="373" height="32"/>
                                 <segments>
@@ -128,6 +135,7 @@
                     <connections>
                         <outlet property="categoriesCollectionView" destination="PVj-2o-gbC" id="kSO-Ip-B9H"/>
                         <outlet property="categoriesSegment" destination="ZRF-1x-HGO" id="j5u-Xm-wAV"/>
+                        <outlet property="noData" destination="JXK-Vk-R7Z" id="1F7-qd-XwM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
