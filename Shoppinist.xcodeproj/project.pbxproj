@@ -48,6 +48,12 @@
 		CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */; };
 		CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */; };
 		CF96A6B72A2AC4A700AA029A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */; };
+		CFDFC8C42A2BAB2300CDB4D2 /* FavouriteView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDFC8C32A2BAB2300CDB4D2 /* FavouriteView.storyboard */; };
+		CFDFC8C62A2BAB3500CDB4D2 /* DetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDFC8C52A2BAB3500CDB4D2 /* DetailsView.storyboard */; };
+		CFDFC8C82A2BAB5D00CDB4D2 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8C72A2BAB5D00CDB4D2 /* DetailsViewController.swift */; };
+		CFDFC8CA2A2BAB6C00CDB4D2 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8C92A2BAB6C00CDB4D2 /* FavouriteViewController.swift */; };
+		CFDFC8CC2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8CB2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift */; };
+		CFDFC8CE2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8CD2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift */; };
 		DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B312A29819900DF9D10 /* Setting.storyboard */; };
 		DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */; };
 		DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B352A29874300DF9D10 /* MeViewController.swift */; };
@@ -129,6 +135,12 @@
 		CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingAuthWayViewController.swift; sourceTree = "<group>"; };
 		CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkService.swift; sourceTree = "<group>"; };
 		CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CFDFC8C32A2BAB2300CDB4D2 /* FavouriteView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouriteView.storyboard; sourceTree = "<group>"; };
+		CFDFC8C52A2BAB3500CDB4D2 /* DetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsView.storyboard; sourceTree = "<group>"; };
+		CFDFC8C72A2BAB5D00CDB4D2 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		CFDFC8C92A2BAB6C00CDB4D2 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		CFDFC8CB2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		CFDFC8CD2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist_ShoppinistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1B4B312A29819900DF9D10 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +300,8 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CFDFC8BE2A2BAAC100CDB4D2 /* DetailsModule */,
+				CFDFC8BD2A2BAAB200CDB4D2 /* FavouriteModule */,
 				DBFC42CA2A2BAE4B005E7F74 /* AddNewAddress */,
 				DBDA681E2A2B3CB500F99BC0 /* AddressModule */,
 				C9A724C22A2A88FD00B0D37E /* BrandProductsModule */,
@@ -542,6 +556,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CFDFC8BD2A2BAAB200CDB4D2 /* FavouriteModule */ = {
+			isa = PBXGroup;
+			children = (
+				CFDFC8BF2A2BAAD300CDB4D2 /* View */,
+			);
+			path = FavouriteModule;
+			sourceTree = "<group>";
+		};
+		CFDFC8BE2A2BAAC100CDB4D2 /* DetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				CFDFC8C02A2BAADA00CDB4D2 /* View */,
+			);
+			path = DetailsModule;
+			sourceTree = "<group>";
+		};
+		CFDFC8BF2A2BAAD300CDB4D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDFC8C32A2BAB2300CDB4D2 /* FavouriteView.storyboard */,
+				CFDFC8C92A2BAB6C00CDB4D2 /* FavouriteViewController.swift */,
+				CFDFC8CB2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDFC8C02A2BAADA00CDB4D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDFC8C52A2BAB3500CDB4D2 /* DetailsView.storyboard */,
+				CFDFC8C72A2BAB5D00CDB4D2 /* DetailsViewController.swift */,
+				CFDFC8CD2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DB1B4B302A29817000DF9D10 /* SettingModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,8 +798,10 @@
 			files = (
 				C98726252A27CF0C00EB0A40 /* LaunchScreen.storyboard in Resources */,
 				C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */,
+				CFDFC8C62A2BAB3500CDB4D2 /* DetailsView.storyboard in Resources */,
 				DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */,
 				CF7A7A0E2A2A4F61005ADCED /* SignUpV.storyboard in Resources */,
+				CFDFC8C42A2BAB2300CDB4D2 /* FavouriteView.storyboard in Resources */,
 				DBFC42CE2A2BAEA9005E7F74 /* AddNewAddress.storyboard in Resources */,
 				DBDA68232A2B3DB500F99BC0 /* Address.storyboard in Resources */,
 				C98726222A27CF0B00EB0A40 /* Assets.xcassets in Resources */,
@@ -892,7 +944,9 @@
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
 				DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */,
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
+				CFDFC8CE2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift in Sources */,
 				CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */,
+				CFDFC8C82A2BAB5D00CDB4D2 /* DetailsViewController.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
 				CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */,
 				CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */,
@@ -900,6 +954,7 @@
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				C9A724C52A2A893900B0D37E /* BrandProductsViewController.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
+				CFDFC8CA2A2BAB6C00CDB4D2 /* FavouriteViewController.swift in Sources */,
 				CF1F4D5A2A2A9D76006F0E07 /* Utilites.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
 				CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */,
@@ -920,6 +975,7 @@
 				C94EB6D52A2A9C1E000E7681 /* CategoriesViewModel.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
 				C9A724CA2A2A8E2400B0D37E /* BrandProductsViewModel.swift in Sources */,
+				CFDFC8CC2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift in Sources */,
 				C9A724C72A2A8DD400B0D37E /* ProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
