@@ -8,6 +8,7 @@ target 'Shoppinist' do
   # Pods for Shoppinist
 	pod 'SDWebImage', '~> 5.0'
 	pod 'lottie-ios'
+	pod 'JJFloatingActionButton'
 
   target 'ShoppinistTests' do
     inherit! :search_paths
