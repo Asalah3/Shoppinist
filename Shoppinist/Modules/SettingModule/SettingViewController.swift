@@ -9,12 +9,43 @@ import UIKit
 import Reachability
 
 class SettingViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
+    @IBOutlet weak var modeSwitch: UISwitch!
+    @IBOutlet weak var modeLabel: UILabel!
+    let reachability = try! Reachability()
+    
     let appDelegate = UIApplication.shared.windows.first
+    
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us" , "Logout"]
+    
+    @objc func reachabilityChanged(note: Notification){
+        let reachability = note.object as! Reachability
+    }
+    override func viewWillAppear( _ animated: Bool){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do {
+            try reachability.stopNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+        
+        if UserDefaults.standard.bool(forKey: "Dark"){
+            modeSwitch.isOn = true
+            appDelegate?.overrideUserInterfaceStyle = .dark
 
-        // Do any additional setup after loading the view.
+        }
+        else{
+            modeSwitch.isOn = false
+            appDelegate?.overrideUserInterfaceStyle = .light
+
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +93,8 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         return 70
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch reachability.connection {
+    case .wifi , .cellular:
         switch (indexPath.row){
         case 1 :
              let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
@@ -85,9 +118,39 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
             
         default:
             break
+            
         }
+            
+        case .unavailable , .none :
+                    let alert = UIAlertController(title: "No internet !" , message: "make sure of internet connection" ,preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok" , style: .default , handler: nil))
+                    self.present(alert, animated: true )
+                    self.tabBarController!.tabBar.isHidden = true
+                    navigationController?.setNavigationBarHidden(true ,animated: false)
+                }
         print(UserDefaults.standard.string(forKey: "Currency"))
     }
    
 
+    @IBAction func modeButton(_ sender: UISwitch) {
+        
+        if #available(iOS 13, *){
+            if sender.isOn{
+                UserDefaults.standard.set(true, forKey: "Dark")
+                appDelegate?.overrideUserInterfaceStyle = .dark
+                modeLabel.text = "Dark Mode"
+                return
+            }
+            else{
+                UserDefaults.standard.set(false, forKey: "Dark")
+                appDelegate?.overrideUserInterfaceStyle = .light
+                modeLabel.text = "light Mode"
+            }
+            
+        }else{
+            print("DarkMode is unAvailable")
+        }
+    }
+    
 }
+
