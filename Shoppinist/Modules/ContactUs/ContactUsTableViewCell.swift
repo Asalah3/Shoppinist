@@ -9,6 +9,7 @@ import UIKit
 
 class ContactUsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewBack: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,13 +25,13 @@ class ContactUsTableViewCell: UITableViewCell {
     override func layoutSubviews() {
        
         
-        self.contactimage.layer.cornerRadius = contactimage.frame.size.width/2
-        self.contactimage.layer.cornerRadius = contactimage.frame.size.height/2
-        self.contactimage.layer.borderColor = UIColor.gray.cgColor
-        self.contactimage.clipsToBounds = true
-        self.layer.shadowColor = UIColor.white.cgColor
-        self.layer.shadowRadius = 0.5
-        self.contactimage.layer.borderWidth = 2
+//        self.contactimage.layer.cornerRadius = contactimage.frame.size.width/2
+//        self.contactimage.layer.cornerRadius = contactimage.frame.size.height/2
+//        self.contactimage.layer.borderColor = UIColor.gray.cgColor
+//        self.contactimage.clipsToBounds = true
+//        self.layer.shadowColor = UIColor.white.cgColor
+//        self.layer.shadowRadius = 0.5
+//        self.contactimage.layer.borderWidth = 2
     }
 
 }

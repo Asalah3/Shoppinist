@@ -67,6 +67,7 @@
                                         <connections>
                                             <outlet property="contactimage" destination="eKL-bt-9NF" id="M6B-Yo-Q1x"/>
                                             <outlet property="emailLabel" destination="hsQ-Nf-abf" id="0lf-4z-35D"/>
+                                            <outlet property="viewBack" destination="I0F-Vn-N3z" id="WpE-8g-Zkh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
