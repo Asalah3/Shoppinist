@@ -46,6 +46,8 @@
 		CF7A7A102A2A50AC005ADCED /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A0F2A2A50AC005ADCED /* SignUpViewController.swift */; };
 		CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A112A2A5218005ADCED /* LoginViewController.swift */; };
 		CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */; };
+		CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */; };
+		CF96A6B72A2AC4A700AA029A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */; };
 		DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B312A29819900DF9D10 /* Setting.storyboard */; };
 		DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */; };
 		DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B352A29874300DF9D10 /* MeViewController.swift */; };
@@ -125,6 +127,8 @@
 		CF7A7A0F2A2A50AC005ADCED /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CF7A7A112A2A5218005ADCED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingAuthWayViewController.swift; sourceTree = "<group>"; };
+		CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkService.swift; sourceTree = "<group>"; };
+		CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist_ShoppinistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1B4B312A29819900DF9D10 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -447,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				CF1F4D512A2A7EE3006F0E07 /* LoginedCustomerModel.swift */,
+				CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,6 +481,14 @@
 			path = Utilites;
 			sourceTree = "<group>";
 		};
+		CF96A6B52A2AC48500AA029A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CFC01BE42A2A384A002BAB4C /* SignUpModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +511,7 @@
 		CFC01BE62A2A3862002BAB4C /* LoginModules */ = {
 			isa = PBXGroup;
 			children = (
+				CF96A6B52A2AC48500AA029A /* ViewModel */,
 				CF1F4D4D2A2A75A9006F0E07 /* Model */,
 				CFC01BE72A2A386E002BAB4C /* View */,
 			);
@@ -873,12 +887,14 @@
 			files = (
 				CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */,
 				CF7A7A102A2A50AC005ADCED /* SignUpViewController.swift in Sources */,
+				CF96A6B72A2AC4A700AA029A /* LoginViewModel.swift in Sources */,
 				C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */,
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
 				DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */,
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
 				CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
+				CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */,
 				CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,

@@ -32,6 +32,12 @@ class SignUpViewController: UIViewController {
         signPassword.setupRightSideImage(imageViewOpened: "eye")
         signConfirmPassword.setupRightSideImage(imageViewOpened: "eye")
         
+        Utilites.setUpTextFeildStyle(textField: signFirstName)
+        Utilites.setUpTextFeildStyle(textField: signLastName)
+        Utilites.setUpTextFeildStyle(textField: signEmail)
+        Utilites.setUpTextFeildStyle(textField: signPassword)
+        Utilites.setUpTextFeildStyle(textField: signConfirmPassword)
+        
         signViewModel = SignViewModel()
         newCustomer = Customer()
 
@@ -68,10 +74,8 @@ class SignUpViewController: UIViewController {
                                 
                 if self?.signViewModel?.ObservableSignUp  == 201{
                     
-                    let tabBar = self?.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
-                    tabBar?.modalTransitionStyle = .crossDissolve
-                    tabBar?.modalPresentationStyle = .fullScreen
-                    self?.present(tabBar!, animated: true)
+                    let loginViewController = self?.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self?.navigationController?.pushViewController(loginViewController, animated: true)
                 }
                 else{
                     Utilites.displayToast(message: "This email was used before", seconds: 2.0, controller: self ?? UIViewController())
@@ -98,7 +102,7 @@ extension UITextField {
         imageViewContainerView.addSubview(imageView)
         leftView = imageViewContainerView
         leftViewMode = .always
-        self.tintColor = .lightGray
+        self.tintColor = .gray
     }
     
     func setupRightSideImage(imageViewOpened: String){
@@ -108,7 +112,7 @@ extension UITextField {
         imageViewContainerView.addSubview(imageView)
         rightView = imageViewContainerView
         rightViewMode = .always
-        self.tintColor = .lightGray
+        self.tintColor = .gray
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
