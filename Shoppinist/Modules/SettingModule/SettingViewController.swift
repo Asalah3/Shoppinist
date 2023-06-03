@@ -96,6 +96,9 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         switch reachability.connection {
     case .wifi , .cellular:
         switch (indexPath.row){
+        case 0:
+            let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+            navigationController?.pushViewController(addressVC, animated: true)
         case 1 :
              let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
              
@@ -109,8 +112,8 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
              
              present(alert, animated: true)
         case 2:
-            let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
-            self.present(contactVC, animated: true)
+            let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
+            self.present(aboutVC, animated: true)
             
         case 3 :
             let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "ContactUsViewController") as! ContactUsViewController
