@@ -55,6 +55,7 @@
 		DB1B4B392A29B12800DF9D10 /* ContactUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */; };
 		DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */; };
 		DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */; };
+		DB5D6CE02A2C81B9004BB927 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */; };
 		DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */; };
 		DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */; };
 		DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */; };
@@ -141,6 +142,7 @@
 		DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactUs.storyboard; sourceTree = "<group>"; };
 		DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
+		DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "AboutUs .storyboard"; sourceTree = "<group>"; };
 		DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
@@ -570,6 +572,14 @@
 			path = ContactUs;
 			sourceTree = "<group>";
 		};
+		DB5D6CDE2A2C8197004BB927 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DB6A8CDC2A2AFD4400142BBC /* AboutUs */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +609,7 @@
 		DBDA681E2A2B3CB500F99BC0 /* AddressModule */ = {
 			isa = PBXGroup;
 			children = (
+				DB5D6CDE2A2C8197004BB927 /* ViewModel */,
 				DBDA681F2A2B3CD500F99BC0 /* View */,
 			);
 			path = AddressModule;
@@ -885,6 +896,7 @@
 				CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */,
 				CF7A7A102A2A50AC005ADCED /* SignUpViewController.swift in Sources */,
 				CF96A6B72A2AC4A700AA029A /* LoginViewModel.swift in Sources */,
+				DB5D6CE02A2C81B9004BB927 /* AddressViewModel.swift in Sources */,
 				C9B2C9E92A28D44200ED8AF8 /* ProductsCollectionViewCell.swift in Sources */,
 				C9B2C9E12A2890FB00ED8AF8 /* CouponsCollectionViewCell.swift in Sources */,
 				DB1B4B3B2A29B32B00DF9D10 /* ContactUsViewController.swift in Sources */,

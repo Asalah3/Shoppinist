@@ -16,6 +16,8 @@ protocol AddressProtocol{
     static func deleteAddress(Address_Id : Int ,Customer_Id : Int ,complication:@escaping (Int) -> Void)
     
     static func updateAddress(customer_id : Int , address_id : Int , address : String,complication:@escaping (Int) -> Void)
+    
+    static func getAddress(completion: @escaping ((CustomerAddress)?, Error?) -> Void)
 }
 
 class AddressNetworkServices : AddressProtocol{
@@ -122,5 +124,27 @@ class AddressNetworkServices : AddressProtocol{
                 }
                }.resume()
     }
+    
+    static func getAddress(completion: @escaping ((CustomerAddress)?, Error?) -> Void){
+        let id = UserDefaults.standard.integer(forKey:"customerID")
+        let url =  URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/customers/\(id)/addresses.json")
+        guard let url = url else { return }
+        var request = URLRequest(url: url)
+        request.httpShouldHandleCookies = false
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request) { data, response, error in
+
+            if let error = error{
+                completion(nil, error)
+            }else{
+                let json = try? JSONDecoder().decode(CustomerAddress.self, from: data!)
+                completion(json, nil)
+            }
+            
+                
+        }
+        task.resume()
+    }
+    
     
 }
