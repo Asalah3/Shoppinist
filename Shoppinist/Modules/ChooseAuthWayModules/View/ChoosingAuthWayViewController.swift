@@ -16,6 +16,10 @@ class ChoosingAuthWayViewController: UIViewController {
     }
 
     @IBAction func enterAsGuest(_ sender: Any) {
+        let tabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
+        tabBar?.modalTransitionStyle = .crossDissolve
+        tabBar?.modalPresentationStyle = .fullScreen
+        self.present(tabBar!, animated: true)
     }
     
     @IBAction func navigateToSignUp(_ sender: Any) {

@@ -7,26 +7,41 @@
 
 import UIKit
 import SDWebImage
+import CoreData
 
 class FavouriteCollectionViewCell: UICollectionViewCell {
+    
+    var favouriteViewModel : FavViewModelProtocol?
+    var favItem : NSManagedObject?
+    var favouriteCollectionView: UICollectionView?
     
     @IBOutlet weak var favName: UILabel!
     @IBOutlet weak var favPrice: UILabel!
     @IBOutlet weak var favImage: UIImageView!
     @IBOutlet weak var favButton: UIButton!
-    
+        
     @IBAction func deleteFromFavourites(_ sender: Any) {
+        favouriteViewModel?.deleteFavouriteItem(favouriteItem: favItem ?? NSManagedObject())
+        favouriteCollectionView?.reloadData()
     }
     
-    func setUpCell(favouriteImage: String, favouriteName:String, favouritePrice:String){
-        self.favName.text = favouriteName
+    func setViewModel(favouriteViewModel : FavViewModelProtocol, favCollection: UICollectionView){
+        self.favouriteViewModel = favouriteViewModel
+        self.favouriteCollectionView = favCollection
+    }
+    
+    func setUpCell(favouriteItem: NSManagedObject){
         self.favPrice.layer.borderWidth = 1
         self.favPrice.layer.cornerRadius = self.favPrice.frame.height / 2
-        self.favPrice.text = favouritePrice
-        self.favImage.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
-        self.favImage.sd_setImage(with: URL(string:favouriteImage), placeholderImage: UIImage(named: "placeHolder"))
-        self.favImage.image = UIImage(named: favouriteImage)
+        
+        self.favItem = favouriteItem
+        
+        favButton.tintColor = UIColor.red
+        let image : String = favouriteItem.value(forKey: "image") as? String ?? ""
+        favImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "placeHolder"))
+        favName.text = favouriteItem.value(forKey: "name") as? String
+        favPrice.text = favouriteItem.value(forKey: "price") as? String
+        
     }
-    
     
 }
