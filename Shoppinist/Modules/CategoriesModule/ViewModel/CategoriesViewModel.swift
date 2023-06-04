@@ -45,4 +45,10 @@ class CategoriesViewModel : CategoriesViewModelProtocol {
             self?.fetchCategoryData = result
         }
     }
+    
+    func filterBySubFilter(filter : String) -> [Product]{
+        let productsList : [Product] = self.fetchCategoryData?.products ?? []
+        let filterdList = productsList.filter{ $0.productType == filter}
+        return filterdList
+    }
 }

@@ -24,6 +24,5 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productPrice.text = productPrice
         self.productImage.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
         self.productImage.sd_setImage(with: URL(string:productImage), placeholderImage: UIImage(named: "placeHolder"))
-        self.productImage.image = UIImage(named: productImage)
     }
 }

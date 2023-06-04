@@ -16,21 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wH-HY-gRd">
-                                <rect key="frame" x="0.0" y="81" width="393" height="44"/>
-                                <items>
-                                    <navigationItem title="Your Adresses" id="25O-JU-GVa">
-                                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="IkD-Av-3ff">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="addNewaddress:" destination="Y6W-OH-hqX" id="tdc-Zi-ocD"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zz2-fB-K07">
-                                <rect key="frame" x="0.0" y="156" width="393" height="696"/>
+                                <rect key="frame" x="0.0" y="116" width="393" height="736"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addressCell" rowHeight="303" id="s5r-Jz-Uc1" customClass="AddressTableViewCell" customModule="Shoppinist" customModuleProvider="target">
@@ -74,7 +61,6 @@
                                                 <constraint firstItem="pDC-ve-ZFb" firstAttribute="top" secondItem="Tb5-G5-IOZ" secondAttribute="bottom" constant="32" id="SPk-gE-Nht"/>
                                                 <constraint firstItem="Y65-K0-inv" firstAttribute="top" secondItem="IRt-LE-WZv" secondAttribute="bottom" constant="24" id="Ww3-rq-64w"/>
                                                 <constraint firstAttribute="trailing" secondItem="Tb5-G5-IOZ" secondAttribute="trailing" constant="114" id="Yc7-AM-kqs"/>
-                                                <constraint firstAttribute="trailing" secondItem="IRt-LE-WZv" secondAttribute="trailing" constant="130" id="Ykb-we-BxJ"/>
                                                 <constraint firstItem="Y65-K0-inv" firstAttribute="leading" secondItem="AxF-fV-GMf" secondAttribute="leading" constant="34" id="bGm-7l-Ap6"/>
                                                 <constraint firstItem="pDC-ve-ZFb" firstAttribute="leading" secondItem="AxF-fV-GMf" secondAttribute="leading" constant="34" id="eYY-UO-cWZ"/>
                                                 <constraint firstItem="Y65-K0-inv" firstAttribute="height" secondItem="AxF-fV-GMf" secondAttribute="height" multiplier="0.0671067" constant="27.666666666666657" id="h1n-at-tSN"/>
@@ -95,21 +81,38 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="Shd-4K-fp0"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wH-HY-gRd">
+                                <rect key="frame" x="0.0" y="72" width="393" height="44"/>
+                                <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem id="25O-JU-GVa">
+                                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="IkD-Av-3ff">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="addNewaddress:" destination="Y6W-OH-hqX" id="tdc-Zi-ocD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="zz2-fB-K07" secondAttribute="bottom" id="CxU-Ld-7vE"/>
-                            <constraint firstItem="7wH-HY-gRd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="22" id="FcC-Vr-Cnl"/>
+                            <constraint firstItem="7wH-HY-gRd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="13" id="FcC-Vr-Cnl"/>
                             <constraint firstItem="zz2-fB-K07" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="I4p-nX-AyK"/>
                             <constraint firstItem="zz2-fB-K07" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JUL-03-qGx"/>
                             <constraint firstItem="7wH-HY-gRd" firstAttribute="leading" secondItem="zz2-fB-K07" secondAttribute="leading" id="NYa-h3-w6p"/>
-                            <constraint firstItem="zz2-fB-K07" firstAttribute="top" secondItem="7wH-HY-gRd" secondAttribute="bottom" constant="31" id="a3T-Nn-XE9"/>
+                            <constraint firstItem="zz2-fB-K07" firstAttribute="top" secondItem="7wH-HY-gRd" secondAttribute="bottom" id="a3T-Nn-XE9"/>
                             <constraint firstItem="7wH-HY-gRd" firstAttribute="trailing" secondItem="zz2-fB-K07" secondAttribute="trailing" id="y3T-HX-788"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addressTableView" destination="zz2-fB-K07" id="xAD-Rb-gPL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
