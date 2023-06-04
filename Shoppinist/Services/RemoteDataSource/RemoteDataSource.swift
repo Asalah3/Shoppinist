@@ -73,6 +73,7 @@ class RemoteDataSource: RemoteDataSourceProtocol{
             do{
                 let result = try JSONDecoder().decode(ProductModel.self, from: data ?? Data())
                 compilitionHandler(result)
+                print(result.products?[0].id)
                 print("sucsses ")
             } catch let error{
                 print(error)

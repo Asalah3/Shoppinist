@@ -161,6 +161,9 @@
             <point key="canvasLocation" x="110.68702290076335" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="JXK-Vk-R7Z"/>
+    </designables>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
