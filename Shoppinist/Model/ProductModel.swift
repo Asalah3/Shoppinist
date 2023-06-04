@@ -20,6 +20,7 @@ struct Product: Codable {
     let variants: [Variant]
     let images: [ProductImage]?
     let image: ProductImage?
+    
 
     enum CodingKeys: String, CodingKey {
         case id, title
