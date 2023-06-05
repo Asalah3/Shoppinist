@@ -11,7 +11,7 @@ import CoreData
 
 protocol FavLocalDataSourceProtocol{
     func fetchFavouriteItems() -> [NSManagedObject]
-    func InsertItem(favouriteName : String , favouriteId : Int , favouriteImage : String, favouritePrice: String)
+    func insertItem(favouriteName : String , favouriteId : Int , favouriteImage : String, favouritePrice: String)
     func deleteItem(favouriteItem : NSManagedObject)
     func deleteItemById(favouriteId : Int)
     func checkIfInserted(favouriteId : Int) -> Bool
@@ -27,7 +27,7 @@ class FavLocalDataSource: FavLocalDataSourceProtocol{
     }
     
     
-    func InsertItem(favouriteName : String , favouriteId : Int , favouriteImage : String, favouritePrice: String){
+    func insertItem(favouriteName : String , favouriteId : Int , favouriteImage : String, favouritePrice: String){
         let newItem = NSManagedObject(entity: entity ?? NSEntityDescription(), insertInto: context)
         newItem.setValue(favouriteId, forKey: "id")
         newItem.setValue(favouriteName, forKey: "name")

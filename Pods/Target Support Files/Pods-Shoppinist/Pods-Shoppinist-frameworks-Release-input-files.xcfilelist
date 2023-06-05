@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-Shoppinist/Pods-Shoppinist-frameworks.sh
+${BUILT_PRODUCTS_DIR}/JJFloatingActionButton/JJFloatingActionButton.framework
+${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

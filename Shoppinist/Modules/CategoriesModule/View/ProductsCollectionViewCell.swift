@@ -15,14 +15,39 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     
-    @IBAction func addTofavouriteButton(_ sender: Any) {
+    var favObject : Product?
+    var favouriteViewModel: FavViewModel?
+    
+    func setVieModel(favViewModel: FavViewModel) {
+        self.favouriteViewModel = favViewModel
+        
     }
-    func setUpCell(productImage: String, productName:String, productPrice:String){
-        self.productName.text = productName
+    
+    @IBAction func addTofavouriteButton(_ sender: Any) {
+        
+        if let favouriteViewModel = favouriteViewModel,
+           favouriteViewModel.isExist(favouriteId: favObject?.id ?? 0){
+            favouriteButton.tintColor = UIColor.darkGray
+            favouriteViewModel.deleteItemById(favouriteId: favObject?.id ?? 0)
+        } else {
+            favouriteButton.tintColor = UIColor.red
+            favouriteViewModel?.localDataSource?.insertItem(favouriteName: favObject?.title ?? "", favouriteId: favObject?.id ?? 0, favouriteImage: favObject?.image?.src ?? "", favouritePrice: productPrice.text ?? "")
+        }
+        
+    }
+    func setUpCell(product: Product){
+        favObject = product
+        if let favID = favObject?.id,
+           let favouriteViewModel = favouriteViewModel, favouriteViewModel.isExist(favouriteId:favID){
+            favouriteButton.tintColor = UIColor.red
+        } else {
+            favouriteButton.tintColor = UIColor.darkGray
+            
+        }
+        self.productName.text = product.title
         self.productPrice.layer.borderWidth = 1
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
-        self.productPrice.text = productPrice
-        self.productImage.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
-        self.productImage.sd_setImage(with: URL(string:productImage), placeholderImage: UIImage(named: "placeHolder"))
+        self.productPrice.text = product.variants?[0].price
+        self.productImage.sd_setImage(with: URL(string:product.image?.src ?? ""), placeholderImage: UIImage(named: "placeHolder"))
     }
 }

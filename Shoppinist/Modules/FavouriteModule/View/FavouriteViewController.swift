@@ -15,15 +15,21 @@ class FavouriteViewController: UIViewController{
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     var favouriteViewModel: FavViewModel?
     var favouritesList : [NSManagedObject]?
+    var localData : FavLocalDataSourceProtocol?
+    var remoteData : ProductDetailsDataSourceProtocol?
 
     
     override func viewWillAppear(_ animated: Bool) {
-        favouriteViewModel = FavViewModel(localDataSource: FavLocalDataSource(), remoteDataSource: ProductDetailsDataSource())
+        localData = FavLocalDataSource()
+        remoteData = ProductDetailsDataSource()
+        favouriteViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
         favouritesList = favouriteViewModel?.getFavouritesResult()
-        
-        if favouritesList?.count == 0{
+        if favouritesList?.count == 0 || favouritesList == nil{
             favouriteCollectionView.isHidden = true
-            favouriteCollectionView.isHidden = false
+            noFavImage.isHidden = false
+            noFavImage.contentMode = .scaleAspectFit
+            noFavImage.loopMode = .loop
+            noFavImage.play()
         }else{
             favouriteCollectionView.isHidden = false
             noFavImage.isHidden = true
@@ -57,13 +63,14 @@ extension FavouriteViewController : UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (favouriteCollectionView.frame.size.width - 10)/2
+        let size = (view.frame.size.width - 10)/2
         return CGSize(width: size, height: size * 1.2)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         favouriteViewModel?.getProductDetails(productID: (favouritesList?[indexPath.row].value(forKey: "id") as? Int) ?? 0)
@@ -73,9 +80,11 @@ extension FavouriteViewController : UICollectionViewDataSource, UICollectionView
     func renderView(){
         DispatchQueue.main.async {
             let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-            detailsViewController.product = self.favouriteViewModel?.fetchProductData
-            self.navigationController?.pushViewController(detailsViewController, animated: true)
             
+            detailsViewController.product = self.favouriteViewModel?.fetchProductData
+            print("iditem \(String(describing: self.favouriteViewModel?.fetchProductData))")
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+
             
         }
     }

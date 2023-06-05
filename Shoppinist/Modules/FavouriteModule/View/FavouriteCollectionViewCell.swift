@@ -41,6 +41,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
         favImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "placeHolder"))
         favName.text = favouriteItem.value(forKey: "name") as? String
         favPrice.text = favouriteItem.value(forKey: "price") as? String
+        print("favcellid \(favouriteItem.value(forKey: "id") as? Int)")
         
     }
     

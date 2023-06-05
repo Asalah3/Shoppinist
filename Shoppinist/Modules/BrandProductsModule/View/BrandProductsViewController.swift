@@ -12,10 +12,16 @@ class BrandProductsViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: RemoteDataSourceProtocol?
     var brandProductsViewModel : BrandProductsViewModel?
+    var localData: FavLocalDataSourceProtocol?
+    var remoteData : ProductDetailsDataSourceProtocol?
+    var favViewModel : FavViewModel?
     var productsList : ProductModel?
     var brandId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        localData = FavLocalDataSource()
+        remoteData = ProductDetailsDataSource()
+        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
         let brandsLayout = UICollectionViewFlowLayout()
         brandsLayout.scrollDirection = .vertical
         self.productsCollectionView.collectionViewLayout = brandsLayout
@@ -42,7 +48,8 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
         let product = productsList?.products?[indexPath.row]
-        cell?.setUpCell(productImage: product?.image?.src ?? "", productName: product?.title ?? "", productPrice: "\(product?.variants[0].price ?? "")")
+        cell?.setVieModel(favViewModel:favViewModel!)
+        cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -52,6 +59,13 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+//        detailsViewController.product = self.productsList?.products?[indexPath.row]
+//        self.navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
     func renderView(){
         DispatchQueue.main.async {
             self.productsList = self.brandProductsViewModel?.fetchProductsData
