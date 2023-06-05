@@ -14,10 +14,10 @@ struct ProductModel: Codable {
 // MARK: - Product
 struct Product: Codable {
     let id: Int?
-    let title, vendor, productType: String?
+    let title, bodyHTML, vendor, productType: String?
     let handle: String?
     let status, publishedScope, tags: String?
-    let variants: [Variant]
+    let variants: [Variant]?
     let images: [ProductImage]?
     let image: ProductImage?
     
@@ -25,6 +25,7 @@ struct Product: Codable {
     enum CodingKeys: String, CodingKey {
         case id, title
         case vendor
+        case bodyHTML = "body_html"
         case productType = "product_type"
         case handle
         case status

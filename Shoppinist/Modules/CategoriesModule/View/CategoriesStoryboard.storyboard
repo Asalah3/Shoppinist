@@ -64,10 +64,9 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-mb-OWU">
                                                     <rect key="frame" x="100" y="178.33333333333334" width="75" height="27"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
-                                                        <color key="baseForegroundColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </buttonConfiguration>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="addTofavouriteButton:" destination="qgK-l9-YX9" eventType="touchUpInside" id="NWz-no-QNI"/>
                                                     </connections>
@@ -128,7 +127,11 @@
                     <navigationItem key="navigationItem" id="nVa-DF-szQ">
                         <barButtonItem key="leftBarButtonItem" title="Search" image="magnifyingglass" catalog="system" id="BL7-Wf-EJa"/>
                         <rightBarButtonItems>
-                            <barButtonItem title="Favourits" image="heart.fill" catalog="system" id="Ckt-tj-Dbd"/>
+                            <barButtonItem title="Favourits" image="heart.fill" catalog="system" id="Ckt-tj-Dbd">
+                                <connections>
+                                    <segue destination="nzh-ui-dpR" kind="show" id="fey-2K-ZjV"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Cart" image="cart.fill" catalog="system" id="IFO-Zd-xkn"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -141,6 +144,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1037.4045801526718" y="-27.464788732394368"/>
+        </scene>
+        <!--FavouriteView-->
+        <scene sceneID="OO7-7h-3j5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FavouriteView" id="nzh-ui-dpR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KcM-xr-AtF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OO4-5v-5UH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ab8-re-EUJ">

@@ -38,7 +38,8 @@ class FavViewModel : FavViewModelProtocol{
     func getProductDetails(productID : Int) {
         remoteDataSource?.fetchProductDetails(product_id: productID){ result in
             guard let result = result else {return}
-            self.fetchProductData = result
+            print("itemdata \(result)")
+            self.fetchProductData = result.product
         }
     }
     

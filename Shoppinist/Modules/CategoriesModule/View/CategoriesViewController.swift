@@ -20,6 +20,9 @@ class CategoriesViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: RemoteDataSourceProtocol?
     var categoriesViewModel : CategoriesViewModel?
+    var localData: FavLocalDataSourceProtocol?
+    var remoteData : ProductDetailsDataSourceProtocol?
+    var favViewModel : FavViewModel?
     var productsList : [Product]?
     var filteredList : [Product]?
     var isFiltered : Bool = false
@@ -28,6 +31,9 @@ class CategoriesViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        localData = FavLocalDataSource()
+        remoteData = ProductDetailsDataSource()
+        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
         let actionButton = JJFloatingActionButton()
         actionButton.buttonColor = UIColor(red: CGFloat(0.61), green: CGFloat(0.45), blue: CGFloat(0.84), alpha: CGFloat(1.0))
         actionButton.buttonImage = UIImage(named: "filter")
@@ -121,7 +127,8 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         }else{
             product = productsList?[indexPath.row]
         }
-        cell?.setUpCell(productImage: product?.image?.src ?? "", productName: product?.title ?? "", productPrice: "\(product?.variants[0].price ?? "")")
+        cell?.setVieModel(favViewModel:favViewModel!)
+        cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -131,6 +138,18 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+//        if isFiltered == true{
+//            detailsViewController.product = self.filteredList?[indexPath.row]
+//        }else{
+//            detailsViewController.product = self.productsList?[indexPath.row]
+//        }
+//
+//        self.navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
     func renderView(){
         DispatchQueue.main.async {
             self.productsList = self.categoriesViewModel?.fetchCategoryData.products

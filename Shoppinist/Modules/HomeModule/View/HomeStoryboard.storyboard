@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fsJ-D5-xyr">
-                                <rect key="frame" x="10" y="102.99999999999999" width="373" height="214.66666666666663"/>
+                                <rect key="frame" x="10" y="103" width="373" height="214.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vgi-q4-Qxu">
                                     <size key="itemSize" width="360" height="220"/>
@@ -141,7 +141,11 @@
                     <navigationItem key="navigationItem" id="czI-vo-61d">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="cUG-48-v7d"/>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="heart.fill" catalog="system" id="aP5-4c-ah7"/>
+                            <barButtonItem title="Item" image="heart.fill" catalog="system" id="aP5-4c-ah7">
+                                <connections>
+                                    <segue destination="TB7-S7-6Nb" kind="show" id="Hhi-Eb-eMC"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="cart.fill" catalog="system" id="Zy3-XD-rTd"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -154,6 +158,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
+        </scene>
+        <!--FavouriteView-->
+        <scene sceneID="90u-DN-qIi">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Fav" storyboardName="FavouriteView" id="TB7-S7-6Nb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BZa-A5-iHe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KGU-Rh-FbW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="-192"/>
         </scene>
         <!--Brand Products View Controller-->
         <scene sceneID="dhB-dZ-xuG">
@@ -191,10 +205,9 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-Iy-fgM">
                                                     <rect key="frame" x="100" y="178.33333333333334" width="75" height="27"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
-                                                        <color key="baseForegroundColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </buttonConfiguration>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="addTofavouriteButton:" destination="5gS-Ct-8Lx" eventType="touchUpInside" id="Htr-DF-ioo"/>
                                                     </connections>
@@ -255,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhq-9v-ld3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917" y="-27"/>
+            <point key="canvasLocation" x="2071" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WAa-UH-Q96">
