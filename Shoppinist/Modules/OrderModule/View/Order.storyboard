@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Order Module View Controller-->
         <scene sceneID="RfO-7C-FO8">
             <objects>
-                <viewController id="e0a-7e-xfJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderModuleViewController" id="e0a-7e-xfJ" customClass="OrderModuleViewController" customModule="Shoppinist" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" id="F5p-iK-2Ze">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -243,6 +243,9 @@
                                                     </backgroundConfiguration>
                                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="placeOrderButton:" destination="e0a-7e-xfJ" eventType="touchUpInside" id="PMz-BR-aO5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -264,6 +267,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fGk-TI-2dr"/>
                     </stackView>
+                    <connections>
+                        <outlet property="coupon" destination="1ul-46-t4W" id="WxF-Z9-36x"/>
+                        <outlet property="deliveryTime" destination="Hrq-k1-8gQ" id="Nxv-f9-JiW"/>
+                        <outlet property="discountAmount" destination="Dbr-ok-O3H" id="WIS-is-ngt"/>
+                        <outlet property="grandTotal" destination="mAf-JM-z7z" id="Mse-62-Hxe"/>
+                        <outlet property="paymentType" destination="2h9-9N-XEs" id="Fgx-OS-YMr"/>
+                        <outlet property="shippingFees" destination="3DI-2u-FgB" id="z0o-Et-emK"/>
+                        <outlet property="subTotal" destination="d2y-fb-eE5" id="Eeg-AU-alZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZg-Pq-J40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
