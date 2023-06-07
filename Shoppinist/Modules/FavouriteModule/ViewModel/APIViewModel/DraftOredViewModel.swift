@@ -1,10 +1,10 @@
+////
+////  DraftOredViewModel.swift
+////  Shoppinist
+////
+////  Created by Soha Ahmed Hamdy on 06/06/2023.
+////
 //
-//  DraftOredViewModel.swift
-//  Shoppinist
-//
-//  Created by Soha Ahmed Hamdy on 06/06/2023.
-//
-
 import Foundation
 
 class DraftViewModel{
@@ -30,7 +30,7 @@ class DraftViewModel{
     
     //-----------for retrieve drafts-----------
     var bindingAllDrafts:(()->()) = {}
-    var observableAllDrafts : AllDrafts? {
+    var observableAllDrafts : ShoppingCart? {
         didSet {
             bindingAllDrafts()
         }
@@ -61,14 +61,14 @@ class DraftViewModel{
     
     //-----------for retrieve my fav-----------
     
-    func getMyFavourites()->[DraftOrder]{
-        var returnedValue = [DraftOrder]()
+    func getMyFavourites()->[DrafOrder]{
+        var returnedValue = [DrafOrder]()
         
         if let observable = observableAllDrafts {
-            print(observable.draftOrders?.count ?? 0)
-            for i in 0..<(observable.draftOrders?.count ?? 0){
-                if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id {
-                    returnedValue.append((observable.draftOrders?[i])!)
+            print(observable.draft_orders?.count ?? 0)
+            for i in 0..<(observable.draft_orders?.count ?? 0){
+                if UserDefaults.standard.integer(forKey:"customerID") == observable.draft_orders?[i].customer?.id {
+                    returnedValue.append((observable.draft_orders?[i])!)
                 }
             }
         }
@@ -81,9 +81,9 @@ class DraftViewModel{
         var returnedValue = false
         
         if let observable = observableAllDrafts {
-            print(observable.draftOrders?.count ?? 0)
-            for i in 0..<(observable.draftOrders?.count ?? 0){
-                if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id  && product.title == observable.draftOrders?[i].lineItems?[0].title {
+            print(observable.draft_orders?.count ?? 0)
+            for i in 0..<(observable.draft_orders?.count ?? 0){
+                if UserDefaults.standard.integer(forKey:"customerID") == observable.draft_orders?[i].customer?.id  && product.title == observable.draft_orders?[i].line_items?[0].title {
                     returnedValue = true
                     break
                 }

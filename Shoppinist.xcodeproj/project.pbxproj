@@ -80,6 +80,11 @@
 		DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */; };
 		DBAE209C2A2C48E600FD40FE /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE209B2A2C48E600FD40FE /* AddressModel.swift */; };
 		DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */; };
+		DBBAC2F02A2FD20C00A5723B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2EF2A2FD20C00A5723B /* CardModel.swift */; };
+		DBBAC2F32A2FD24F00A5723B /* CardNetWorkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F22A2FD24F00A5723B /* CardNetWorkServices.swift */; };
+		DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */; };
+		DBBAC2F82A2FD60900A5723B /* ConstantURls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */; };
+		DBBAC2FA2A2FE64A00A5723B /* UserDefultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */; };
 		DBDA68232A2B3DB500F99BC0 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDA68222A2B3DB500F99BC0 /* Address.storyboard */; };
 		DBFC42C72A2B9974005E7F74 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC42C62A2B9974005E7F74 /* AddressViewController.swift */; };
 		DBFC42C92A2B9C6F005E7F74 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC42C82A2B9C6F005E7F74 /* AddressTableViewCell.swift */; };
@@ -186,6 +191,11 @@
 		DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		DBAE209B2A2C48E600FD40FE /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNetWorkServices.swift; sourceTree = "<group>"; };
+		DBBAC2EF2A2FD20C00A5723B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		DBBAC2F22A2FD24F00A5723B /* CardNetWorkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNetWorkServices.swift; sourceTree = "<group>"; };
+		DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantURls.swift; sourceTree = "<group>"; };
+		DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultManager.swift; sourceTree = "<group>"; };
 		DBDA68222A2B3DB500F99BC0 /* Address.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
 		DBFC42C62A2B9974005E7F74 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		DBFC42C82A2B9C6F005E7F74 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -742,6 +752,8 @@
 		DB4869122A2D9A1200045739 /* ShoppingCard */ = {
 			isa = PBXGroup;
 			children = (
+				DBBAC2F42A2FD26400A5723B /* ViewModel */,
+				DBBAC2EE2A2FD1F100A5723B /* Model */,
 				DB4869132A2D9A2B00045739 /* view */,
 			);
 			path = ShoppingCard;
@@ -789,6 +801,33 @@
 				DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DBBAC2EE2A2FD1F100A5723B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBBAC2F12A2FD21E00A5723B /* CardServices */,
+				DBBAC2EF2A2FD20C00A5723B /* CardModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBBAC2F12A2FD21E00A5723B /* CardServices */ = {
+			isa = PBXGroup;
+			children = (
+				DBBAC2F22A2FD24F00A5723B /* CardNetWorkServices.swift */,
+				DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */,
+				DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */,
+			);
+			path = CardServices;
+			sourceTree = "<group>";
+		};
+		DBBAC2F42A2FD26400A5723B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DBDA681E2A2B3CB500F99BC0 /* AddressModule */ = {
@@ -1083,6 +1122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */,
+				DBBAC2F82A2FD60900A5723B /* ConstantURls.swift in Sources */,
 				CF7A7A102A2A50AC005ADCED /* SignUpViewController.swift in Sources */,
 				CF96A6B72A2AC4A700AA029A /* LoginViewModel.swift in Sources */,
 				DB5D6CE02A2C81B9004BB927 /* AddressViewModel.swift in Sources */,
@@ -1095,6 +1135,7 @@
 				C9B2C9E72A28D41500ED8AF8 /* CategoriesViewController.swift in Sources */,
 				CFDFC8CE2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift in Sources */,
 				DB4869192A2DAFBE00045739 /* ShoppingCardTableViewCell.swift in Sources */,
+				DBBAC2F32A2FD24F00A5723B /* CardNetWorkServices.swift in Sources */,
 				CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */,
 				CFDFC8C82A2BAB5D00CDB4D2 /* DetailsViewController.swift in Sources */,
 				DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */,
@@ -1105,6 +1146,7 @@
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */,
 				CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */,
+				DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
 				DB4869172A2D9BBE00045739 /* ShoppingCardViewController.swift in Sources */,
 				CF04D6B12A2D630700B0B27F /* ProductDetailsModel.swift in Sources */,
@@ -1127,9 +1169,11 @@
 				C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */,
 				C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */,
 				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
+				DBBAC2F02A2FD20C00A5723B /* CardModel.swift in Sources */,
 				DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */,
 				CF1F4D502A2A7D8D006F0E07 /* SignUpNetworkService.swift in Sources */,
 				DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */,
+				DBBAC2FA2A2FE64A00A5723B /* UserDefultManager.swift in Sources */,
 				DBFC42C92A2B9C6F005E7F74 /* AddressTableViewCell.swift in Sources */,
 				DBFC42C72A2B9974005E7F74 /* AddressViewController.swift in Sources */,
 				C94EB6D52A2A9C1E000E7681 /* CategoriesViewModel.swift in Sources */,

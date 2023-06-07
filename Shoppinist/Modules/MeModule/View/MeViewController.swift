@@ -15,8 +15,12 @@ class MeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
+    //ShoppingCard
     @IBAction func shoppingButton(_ sender: Any) {
+        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShoppingCard") as! ShoppingCardViewController
+        
+        navigationController?.pushViewController(cart, animated: true)
+        
     }
     @IBAction func settingButton(_ sender: Any) {
         let setting = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController

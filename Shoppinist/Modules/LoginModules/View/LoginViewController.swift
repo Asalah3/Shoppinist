@@ -18,6 +18,9 @@ class LoginViewController: UIViewController {
     let invalidMail = "Invalid Mail"
     let wrongPass = "Wrong Password"
     
+    var cartVM = ShoppingCartViewModel()
+    var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
+    var cartcount = ShoppingCart()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,15 @@ class LoginViewController: UIViewController {
         
         Utilites.setUpTextFeildStyle(textField: loginEmail)
         Utilites.setUpTextFeildStyle(textField: loginPassword)
-
+        
+        cartVM.cartsUrl = self.AllDraftsUrl
+        cartVM.getAllDrafts()
+        cartVM.bindingCartt = {()in
+            self.renderCart()
+            
+        }
+        getCartId()
+     
     }
 
     @IBAction func loginCustomer(_ sender: Any) {
@@ -45,6 +56,9 @@ class LoginViewController: UIViewController {
                     tabBar?.modalTransitionStyle = .crossDissolve
                     tabBar?.modalPresentationStyle = .fullScreen
                     self?.present(tabBar!, animated: true)
+                    
+                
+                    self?.getCartId()
                         
                 }
                 else if self?.loginViewModel?.checkCustomerAuth(customerEmail: self?.loginEmail.text ?? "", customerPasssword: self?.loginPassword.text ?? "") == "Uncorrect Email or Password"{
@@ -67,3 +81,33 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(signViewController, animated: true)
     }
 }
+extension LoginViewController {
+    func renderCart() {
+        DispatchQueue.main.async {
+            self.cartcount = self.cartVM.cartResult!
+        }
+  
+    }
+    
+}
+
+extension LoginViewController {
+    func getCartId()
+    {
+        
+        cartcount.draft_orders?.forEach({ email in
+            
+            if  email.email ==  loginEmail.text ?? ""
+            {
+                UserDefaultsManager.sharedInstance.setUserCart(cartId: email.id)
+                UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+
+            }
+            else {
+                UserDefaultsManager.sharedInstance.setCartState(cartState: false)
+            }
+            
+            
+            
+        })}
+                                        }
