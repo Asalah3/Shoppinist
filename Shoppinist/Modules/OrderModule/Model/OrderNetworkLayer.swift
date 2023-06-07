@@ -7,7 +7,7 @@
 
 import Foundation
 protocol OrderNetworkProtocol{
-    func CreateOrder(product: Product, complication:@escaping (Int) -> Void)
+    func createOrder(order: PostOrdersModel, complication:@escaping (Int) -> Void)
     func deleteOrder(orderID: Int, complication:@escaping (Int) -> Void)
     func getAllOrders( completionHandeler: @escaping ((OrdersModel?)) -> Void)
 }
@@ -50,48 +50,14 @@ class OrderNetwork:OrderNetworkProtocol{
         task.resume()
     }
     
-    func CreateOrder(product: Product, complication:@escaping (Int) -> Void) {
+    func createOrder(order: PostOrdersModel, complication:@escaping (Int) -> Void) {
         let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/orders.json")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
-        let userDictionary = [
-            "order": [
-                "line_items": [
-                    [
-                        "title": "\(product.title ?? "")",
-                        "quantity": 1,
-                        "price": "\(product.variants?.first?.price ?? "")",
-                        "product_id": product.id ?? 0,
-                        "variant_id": product.variants?.first?.id ?? 0,
-                        "tax_lines": [
-                            [
-                                "price": "13.50",
-                                "rate": 0.06,
-                                "title": "State tax"
-                            ]
-                        ]
-                    ]
-                ],
-                "applied_discount": [
-                    "description": "Custom discount",
-                    "value": "10.0",
-                    "title": "Custom",
-                    "amount": "10.00",
-                    "value_type": "fixed_amount"
-                ],
-                "customer": [
-                    "id": UserDefaults.standard.integer(forKey:"customerID"),
-                    "default_address": [
-                        "default": true
-                    ]
-                ]
-            ]
-        ]
-        
         urlRequest.httpShouldHandleCookies = false
         do {
-            
-            let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary,options: .prettyPrinted)
+            let userDictionary = try? order.asDictionary()
+            let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary ?? [],options: .prettyPrinted)
             urlRequest.httpBody = bodyDictionary
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         } catch let error {
@@ -107,6 +73,5 @@ class OrderNetwork:OrderNetworkProtocol{
             }
         }.resume()
     }
-    
 }
 
