@@ -29,6 +29,8 @@
 		C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C987265B2A27DDB900EB0A40 /* HomeStoryboard.storyboard */; };
 		C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */; };
 		C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */; };
+		C987F95B2A310A9A008733F4 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987F95A2A310A9A008733F4 /* OrderModel.swift */; };
+		C987F95D2A310B4E008733F4 /* OrderNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987F95C2A310B4E008733F4 /* OrderNetworkLayer.swift */; };
 		C999112A2A30AF8B00EEA6B7 /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99911292A30AF8B00EEA6B7 /* OnBoardingCollectionViewCell.swift */; };
 		C999112D2A30AFC700EEA6B7 /* OnBoardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C999112C2A30AFC700EEA6B7 /* OnBoardingSlide.swift */; };
 		C999112F2A30B1E000EEA6B7 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C999112E2A30B1E000EEA6B7 /* OnBoardingViewController.swift */; };
@@ -143,6 +145,8 @@
 		C987265B2A27DDB900EB0A40 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		C987265E2A27DE1A00EB0A40 /* MeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeStoryboard.storyboard; sourceTree = "<group>"; };
 		C98726612A27DE6200EB0A40 /* CategoriesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesStoryboard.storyboard; sourceTree = "<group>"; };
+		C987F95A2A310A9A008733F4 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		C987F95C2A310B4E008733F4 /* OrderNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNetworkLayer.swift; sourceTree = "<group>"; };
 		C99911292A30AF8B00EEA6B7 /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C999112C2A30AFC700EEA6B7 /* OnBoardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSlide.swift; sourceTree = "<group>"; };
 		C999112E2A30B1E000EEA6B7 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -494,6 +498,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C987F9592A310A8A008733F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C987F95A2A310A9A008733F4 /* OrderModel.swift */,
+				C987F95C2A310B4E008733F4 /* OrderNetworkLayer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C999112B2A30AFB400EEA6B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +543,7 @@
 		C9CF17132A2E13AA00C5F723 /* OrderModule */ = {
 			isa = PBXGroup;
 			children = (
+				C987F9592A310A8A008733F4 /* Model */,
 				C9CF17152A2E13C400C5F723 /* View */,
 				C9CF17142A2E13B800C5F723 /* ViewModel */,
 			);
@@ -1162,6 +1176,7 @@
 				CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */,
 				C999112A2A30AF8B00EEA6B7 /* OnBoardingCollectionViewCell.swift in Sources */,
 				CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */,
+				C987F95B2A310A9A008733F4 /* OrderModel.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */,
 				CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */,
@@ -1198,6 +1213,7 @@
 				DBFC42C72A2B9974005E7F74 /* AddressViewController.swift in Sources */,
 				C94EB6D52A2A9C1E000E7681 /* CategoriesViewModel.swift in Sources */,
 				C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */,
+				C987F95D2A310B4E008733F4 /* OrderNetworkLayer.swift in Sources */,
 				C9A724CA2A2A8E2400B0D37E /* BrandProductsViewModel.swift in Sources */,
 				CFDFC8CC2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift in Sources */,
 				C9A724C72A2A8DD400B0D37E /* ProductModel.swift in Sources */,
