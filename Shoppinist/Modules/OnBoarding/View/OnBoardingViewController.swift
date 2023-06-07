@@ -47,7 +47,7 @@ class OnBoardingViewController: UIViewController {
             choosingAuthWayViewController?.modalTransitionStyle = .crossDissolve
             choosingAuthWayViewController?.modalPresentationStyle = .fullScreen
 //            UserDefaults.standard.hasOnboarded = true
-            self.present(choosingAuthWayViewController!, animated: true)
+            self.navigationController?.pushViewController(choosingAuthWayViewController!, animated: true)
         }else{
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)

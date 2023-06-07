@@ -12,7 +12,7 @@ class ChoosingAuthWayViewController: UIViewController {
     @IBOutlet weak var choosingAuthImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     @IBAction func enterAsGuest(_ sender: Any) {
