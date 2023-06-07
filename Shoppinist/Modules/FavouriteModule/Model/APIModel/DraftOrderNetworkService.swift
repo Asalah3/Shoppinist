@@ -10,7 +10,7 @@ import Foundation
 protocol DraftNetworkProtocol{
     static func CreateDraft(product: Product, complication:@escaping (Int) -> Void)
     static func deleteDraft(draftID: Int, complication:@escaping (Int) -> Void)
-    static func getAllDraftOrders( completionHandeler: @escaping ((AllDrafts?), Error?) -> Void)
+    static func getAllDraftOrders( completionHandeler: @escaping ((ShoppingCart?), Error?) -> Void)
 }
 class DraftNetwork:DraftNetworkProtocol{
     static func deleteDraft(draftID: Int, complication: @escaping (Int) -> Void) {
@@ -24,18 +24,18 @@ class DraftNetwork:DraftNetworkProtocol{
                     let response = String(data:data!,encoding: .utf8)
                      print(response!)
                     complication(httpResponse.statusCode)
-                    
+
                    }
             }
-            
+
         }.resume()
-        
-        
-        
-        
+
+
+
+
     }
-    
-    static func getAllDraftOrders(completionHandeler: @escaping ((AllDrafts?), Error?) -> Void) {
+
+    static func getAllDraftOrders(completionHandeler: @escaping ((ShoppingCart?), Error?) -> Void) {
         let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
         guard let newUrl = url else {
             return
@@ -45,7 +45,7 @@ class DraftNetwork:DraftNetworkProtocol{
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request){ data ,response , error in
             do{
-                let result = try JSONDecoder().decode(AllDrafts.self, from: data ?? Data())
+                let result = try JSONDecoder().decode(ShoppingCart.self, from: data ?? Data())
                 completionHandeler(result, nil)
                 print("success in getDrafts")
 
@@ -55,13 +55,13 @@ class DraftNetwork:DraftNetworkProtocol{
                 print("error in getDrafts")
                 completionHandeler(nil, error)
             }
-            
+
         }
         task.resume()
     }
-    
 
-    
+
+
     static func CreateDraft(product: Product, complication:@escaping (Int) -> Void) {
 
         let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
@@ -78,7 +78,7 @@ class DraftNetwork:DraftNetworkProtocol{
                     "price": (product.variants?[0].price!)!
                 ]
               ],
-              
+
               "applied_discount": [
                 "description": "Custom discount",
                 "value": "10.0",
@@ -86,12 +86,12 @@ class DraftNetwork:DraftNetworkProtocol{
                 "amount": "10.00",
                 "value_type": "fixed_amount"
               ],
-              
+
               "customer": [
                 "id": UserDefaults.standard.integer(forKey:"customerID"),
-                
+
                 "default_address": [
-                  
+
                   "default": true
                 ]
               ]
@@ -100,7 +100,7 @@ class DraftNetwork:DraftNetworkProtocol{
 
         urlRequest.httpShouldHandleCookies = false
         do {
-            
+
             let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary,options: .prettyPrinted)
             urlRequest.httpBody = bodyDictionary
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -113,16 +113,16 @@ class DraftNetwork:DraftNetworkProtocol{
                     let response = String(data:data!,encoding: .utf8)
                      print(response!)
                     complication(httpResponse.statusCode)
-                    
+
                    }
             }
-            
+
         }.resume()
-        
-        
-        
-        
+
+
+
+
     }
-    
+
 }
 

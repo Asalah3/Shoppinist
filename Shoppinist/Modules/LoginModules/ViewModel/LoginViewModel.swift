@@ -37,9 +37,9 @@ class LoginViewModel{
             for i in 0..<(observable.customers.count){
                 if customerEmail == observable.customers[i].email && customerPasssword == observable.customers[i].note{
                     returnedValue = "Login Success"
-                    UserDefaults.standard.set(observable.customers[i].id, forKey: "customerID")
                     UserDefaults.standard.set(observable.customers[i].first_name, forKey: "customerFirsttName")
-                    UserDefaults.standard.set(observable.customers[i].email, forKey: "customerEmail")
+                    UserDefaultsManager.sharedInstance.setUserEmail(userEmail: observable.customers[i].email)
+                    UserDefaultsManager.sharedInstance.setUserID(customerID: observable.customers[i].id)
                     let userDefultId =  UserDefaults.standard.integer(forKey:"customerID")
                     print("User id is", userDefultId)
                     break

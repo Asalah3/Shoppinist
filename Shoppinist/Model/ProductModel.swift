@@ -68,11 +68,13 @@ struct Variant: Codable {
     let title, price, sku: String?
     let position: Int?
     let weight: Int?
+    let inventory_quantity : Int?
 
     enum CodingKeys: String, CodingKey {
         case id
         case productID = "product_id"
         case title, price, sku, position
         case weight
+        case inventory_quantity
     }
 }

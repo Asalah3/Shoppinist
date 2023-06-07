@@ -44,6 +44,9 @@
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="minusButton:" destination="dTx-8Y-caM" eventType="touchUpInside" id="5Nr-wb-684"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvx-6U-Owk">
                                                     <rect key="frame" x="229" y="120" width="47" height="53"/>
@@ -59,6 +62,9 @@
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="plusButton:" destination="dTx-8Y-caM" eventType="touchUpInside" id="qNe-OO-vCL"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000.EG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kid-bc-xd7">
                                                     <rect key="frame" x="158" y="181" width="155" height="32"/>
@@ -92,6 +98,15 @@
                                                 <constraint firstItem="zEx-s8-tKh" firstAttribute="leading" secondItem="psL-rO-Vbd" secondAttribute="leadingMargin" id="xOS-c9-5Ln"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="decreseItem" destination="IAT-pM-02B" id="5wT-Eh-7ch"/>
+                                            <outlet property="img" destination="zEx-s8-tKh" id="FKd-gI-YXR"/>
+                                            <outlet property="increaseItem" destination="U6b-qo-ZKo" id="zN7-th-Iog"/>
+                                            <outlet property="name" destination="1wK-U0-SG9" id="6V0-sq-bCz"/>
+                                            <outlet property="plusButton" destination="psL-rO-Vbd" id="eVM-g1-KhR"/>
+                                            <outlet property="priceButton" destination="Kid-bc-xd7" id="J2T-b9-eXO"/>
+                                            <outlet property="quantity" destination="Yvx-6U-Owk" id="ada-ZG-9l7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -129,7 +144,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="qzo-fF-DSt" secondAttribute="leading" id="1iD-zW-jd3"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qzo-fF-DSt" secondAttribute="trailing" constant="111" id="3Xw-3b-Cac"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.435115" id="43X-7R-OzW"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="111" id="5Hg-1M-v0q"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="top" secondItem="eJR-Tk-LU5" secondAttribute="bottom" constant="38" id="Caw-xw-HQ5"/>
@@ -146,6 +160,10 @@
                             <constraint firstItem="Dim-8e-hIf" firstAttribute="top" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="45" id="xR6-MR-Mpf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cardTableView" destination="YV9-gt-Dzu" id="foN-IT-q0r"/>
+                        <outlet property="subTotalPrice" destination="eJR-Tk-LU5" id="BZc-mx-9KH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

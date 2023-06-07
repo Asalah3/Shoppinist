@@ -57,6 +57,14 @@
             </objects>
             <point key="canvasLocation" x="1523.6641221374045" y="-189.43661971830986"/>
         </scene>
+        <!--ShoppingCard-->
+        <scene sceneID="KEF-s7-WVu">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ShoppingCard" storyboardName="ShoppingCard" id="IKJ-AP-MBH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNM-gQ-ctt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432" y="-83"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
