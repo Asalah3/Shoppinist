@@ -91,6 +91,8 @@
 		DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */; };
 		DBBAC2F82A2FD60900A5723B /* ConstantURls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */; };
 		DBBAC2FA2A2FE64A00A5723B /* UserDefultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */; };
+		DBC240052A32A05A00583211 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC240042A32A05A00583211 /* PaymentViewController.swift */; };
+		DBC240072A32A09000583211 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC240062A32A08F00583211 /* Payment.storyboard */; };
 		DBDA3F402A3276FB00A5C15F /* SelectAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDA3F3F2A3276FB00A5C15F /* SelectAddress.storyboard */; };
 		DBDA3F422A32772F00A5C15F /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDA3F412A32772F00A5C15F /* SelectAddressViewController.swift */; };
 		DBDA3F442A327A9F00A5C15F /* SelectAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDA3F432A327A9F00A5C15F /* SelectAddressTableViewCell.swift */; };
@@ -211,6 +213,8 @@
 		DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantURls.swift; sourceTree = "<group>"; };
 		DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultManager.swift; sourceTree = "<group>"; };
+		DBC240042A32A05A00583211 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		DBC240062A32A08F00583211 /* Payment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
 		DBDA3F3F2A3276FB00A5C15F /* SelectAddress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectAddress.storyboard; sourceTree = "<group>"; };
 		DBDA3F412A32772F00A5C15F /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
 		DBDA3F432A327A9F00A5C15F /* SelectAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DBC240022A32A02200583211 /* Payment */,
 				DBDA3F3D2A3276C800A5C15F /* SelectAddress */,
 				C9CF17132A2E13AA00C5F723 /* OrderModule */,
 				DB4869122A2D9A1200045739 /* ShoppingCard */,
@@ -871,6 +876,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DBC240022A32A02200583211 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				DBC240032A32A02F00583211 /* View */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		DBC240032A32A02F00583211 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBC240042A32A05A00583211 /* PaymentViewController.swift */,
+				DBC240062A32A08F00583211 /* Payment.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DBDA3F3D2A3276C800A5C15F /* SelectAddress */ = {
 			isa = PBXGroup;
 			children = (
@@ -1037,6 +1059,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9CF171B2A2E197200C5F723 /* Order.storyboard in Resources */,
+				DBC240072A32A09000583211 /* Payment.storyboard in Resources */,
 				DB4869152A2D9A5200045739 /* ShoppingCard.storyboard in Resources */,
 				C98726252A27CF0C00EB0A40 /* LaunchScreen.storyboard in Resources */,
 				C98726622A27DE6200EB0A40 /* CategoriesStoryboard.storyboard in Resources */,
@@ -1203,6 +1226,7 @@
 				CFA37DF62A2EDC9500106370 /* DraftOredViewModel.swift in Sources */,
 				C987F9612A311E5B008733F4 /* PostOrdersModel.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
+				DBC240052A32A05A00583211 /* PaymentViewController.swift in Sources */,
 				CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */,
 				C999112A2A30AF8B00EEA6B7 /* OnBoardingCollectionViewCell.swift in Sources */,
 				CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */,

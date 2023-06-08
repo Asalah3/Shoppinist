@@ -114,6 +114,14 @@
             </objects>
             <point key="canvasLocation" x="544" y="-126"/>
         </scene>
+        <!--Payment-->
+        <scene sceneID="ODO-Kb-qC9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PaymentViewController" storyboardName="Payment" id="4uV-mG-TmH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90I-bK-Ljw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="544" y="-52"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
