@@ -79,7 +79,7 @@ extension FavouriteViewController : UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (view.frame.size.width - 10)/4
+        let size = (view.frame.size.width - 10)/2
         return CGSize(width: size, height: size * 1.2)
     }
     

@@ -27,19 +27,21 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
     @IBAction func deleteFromFavourites(_ sender: Any) {
         //delProduct(itemId: myFavDraft?.quantity ?? 0)
         //favouriteViewModel?.deleteFavouriteItem(favouriteItem: favItem ?? NSManagedObject())
-        favDraftViewModel?.getAllDrafts()
-        favDraftViewModel?.bindingAllDrafts = { [weak self] in
+        let sku = (self.myFavDraft?.sku!)!
+        let itemId = Int(sku)
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
-                let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                let favDraft = self?.favViewModel?.getMyFavouriteDraft()
+                let isHasDraft = self?.favViewModel?.checkIfCustomerHasFavDraft()
                 if isHasDraft ?? false{
                     if favDraft?[0].lineItems?.count == 1{
-                        self?.favDraftViewModel?.delDraft(draftId: (favDraft?[0].id)!)
-                        self?.favDraftViewModel?.bindingDraftDelete = { [weak self] in
+                        self?.favViewModel?.delDraft(draftId: (favDraft?[0].id)!)
+                        self?.favViewModel?.bindingDraftDelete = { [weak self] in
                             print("view created")
                             DispatchQueue.main.async {
                                 
-                                if self?.favDraftViewModel?.ObservableDraftDelete  == 200{
+                                if self?.favViewModel?.ObservableDraftDelete  == 200{
                                     print("deleted succeess")
                                 }
                                 else{
@@ -54,7 +56,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
                         self?.draft?.draftOrder?.lineItems?.removeAll(where: { item in
                             item.quantity == itemId
                         })
-                        self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
+                        self?.favViewModel?.updateDraft(updatedDraft: (self?.draft)!)
                         print("item deleted")
                         
                     }
@@ -94,19 +96,19 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
     }
     
     func delProduct(itemId: Int){
-        favDraftViewModel?.getAllDrafts()
-        favDraftViewModel?.bindingAllDrafts = { [weak self] in
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
-                let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                let favDraft = self?.favViewModel?.getMyFavouriteDraft()
+                let isHasDraft = self?.favViewModel?.checkIfCustomerHasFavDraft()
                 if isHasDraft ?? false{
                     if favDraft?[0].lineItems?.count == 1{
-                        self?.favDraftViewModel?.delDraft(draftId: (favDraft?[0].id)!)
-                        self?.favDraftViewModel?.bindingDraftDelete = { [weak self] in
+                        self?.favViewModel?.delDraft(draftId: (favDraft?[0].id)!)
+                        self?.favViewModel?.bindingDraftDelete = { [weak self] in
                             print("view created")
                             DispatchQueue.main.async {
                                 
-                                if self?.favDraftViewModel?.ObservableDraftDelete  == 200{
+                                if self?.favViewModel?.ObservableDraftDelete  == 200{
                                     print("deleted succeess")
                                 }
                                 else{
@@ -121,7 +123,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
                         self?.draft?.draftOrder?.lineItems?.removeAll(where: { item in
                             item.quantity == itemId
                         })
-                        self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
+                        self?.favViewModel?.updateDraft(updatedDraft: (self?.draft)!)
                         print("item deleted")
                         
                     }
