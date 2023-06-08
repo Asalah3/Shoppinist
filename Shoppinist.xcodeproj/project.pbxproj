@@ -91,6 +91,9 @@
 		DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */; };
 		DBBAC2F82A2FD60900A5723B /* ConstantURls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */; };
 		DBBAC2FA2A2FE64A00A5723B /* UserDefultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */; };
+		DBDA3F402A3276FB00A5C15F /* SelectAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDA3F3F2A3276FB00A5C15F /* SelectAddress.storyboard */; };
+		DBDA3F422A32772F00A5C15F /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDA3F412A32772F00A5C15F /* SelectAddressViewController.swift */; };
+		DBDA3F442A327A9F00A5C15F /* SelectAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDA3F432A327A9F00A5C15F /* SelectAddressTableViewCell.swift */; };
 		DBDA68232A2B3DB500F99BC0 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDA68222A2B3DB500F99BC0 /* Address.storyboard */; };
 		DBFC42C72A2B9974005E7F74 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC42C62A2B9974005E7F74 /* AddressViewController.swift */; };
 		DBFC42C92A2B9C6F005E7F74 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC42C82A2B9C6F005E7F74 /* AddressTableViewCell.swift */; };
@@ -208,6 +211,9 @@
 		DBBAC2F52A2FD28800A5723B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		DBBAC2F72A2FD60900A5723B /* ConstantURls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantURls.swift; sourceTree = "<group>"; };
 		DBBAC2F92A2FE64A00A5723B /* UserDefultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultManager.swift; sourceTree = "<group>"; };
+		DBDA3F3F2A3276FB00A5C15F /* SelectAddress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectAddress.storyboard; sourceTree = "<group>"; };
+		DBDA3F412A32772F00A5C15F /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
+		DBDA3F432A327A9F00A5C15F /* SelectAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressTableViewCell.swift; sourceTree = "<group>"; };
 		DBDA68222A2B3DB500F99BC0 /* Address.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
 		DBFC42C62A2B9974005E7F74 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		DBFC42C82A2B9C6F005E7F74 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DBDA3F3D2A3276C800A5C15F /* SelectAddress */,
 				C9CF17132A2E13AA00C5F723 /* OrderModule */,
 				DB4869122A2D9A1200045739 /* ShoppingCard */,
 				CFDFC8BE2A2BAAC100CDB4D2 /* DetailsModule */,
@@ -864,6 +871,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DBDA3F3D2A3276C800A5C15F /* SelectAddress */ = {
+			isa = PBXGroup;
+			children = (
+				DBDA3F3E2A3276D600A5C15F /* View */,
+			);
+			path = SelectAddress;
+			sourceTree = "<group>";
+		};
+		DBDA3F3E2A3276D600A5C15F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBDA3F3F2A3276FB00A5C15F /* SelectAddress.storyboard */,
+				DBDA3F412A32772F00A5C15F /* SelectAddressViewController.swift */,
+				DBDA3F432A327A9F00A5C15F /* SelectAddressTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DBDA681E2A2B3CB500F99BC0 /* AddressModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1051,7 @@
 				C97CA70D2A2BB84B00A67A6F /* no-data-found.json in Resources */,
 				C987265C2A27DDB900EB0A40 /* HomeStoryboard.storyboard in Resources */,
 				C987265F2A27DE1A00EB0A40 /* MeStoryboard.storyboard in Resources */,
+				DBDA3F402A3276FB00A5C15F /* SelectAddress.storyboard in Resources */,
 				C987261D2A27CF0900EB0A40 /* Main.storyboard in Resources */,
 				DB1B4B392A29B12800DF9D10 /* ContactUs.storyboard in Resources */,
 			);
@@ -1183,6 +1209,7 @@
 				C987F95B2A310A9A008733F4 /* OrderModel.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */,
+				DBDA3F442A327A9F00A5C15F /* SelectAddressTableViewCell.swift in Sources */,
 				CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */,
 				DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */,
 				C98726542A27D25200EB0A40 /* Model.swift in Sources */,
@@ -1196,6 +1223,7 @@
 				CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
 				CF1F4D572A2A94E3006F0E07 /* SignViewModel.swift in Sources */,
+				DBDA3F422A32772F00A5C15F /* SelectAddressViewController.swift in Sources */,
 				CFA37DF22A2EDB9D00106370 /* DraftOrderNetworkService.swift in Sources */,
 				DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */,
 				CF5E42412A2CCE44009A5B56 /* FavViewModel.swift in Sources */,

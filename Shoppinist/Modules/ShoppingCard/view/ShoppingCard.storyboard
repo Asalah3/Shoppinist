@@ -129,6 +129,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="CheckOutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3wV-52-PCa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000.EG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-Tk-LU5">
                                 <rect key="frame" x="111" y="649" width="236" height="47"/>
@@ -168,6 +171,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="-2.1126760563380285"/>
+        </scene>
+        <!--SelectAddress-->
+        <scene sceneID="Zzc-f7-NPF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SelectedAddress" storyboardName="SelectAddress" id="Wia-rY-wSR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfK-L2-ytv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="-72"/>
         </scene>
     </scenes>
     <resources>

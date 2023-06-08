@@ -9,7 +9,17 @@ import UIKit
 import Reachability
 import SDWebImage
 
-class ShoppingCardViewController: UIViewController {
+class ShoppingCardViewController: UIViewController,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "shoppingCardCell", for: indexPath) as! ShoppingCardTableViewCell
+        
+        return cell
+    }
+    
 
     
 //    private var flag: Bool = true
@@ -35,7 +45,13 @@ class ShoppingCardViewController: UIViewController {
     }
 
  
-
+    @IBAction func CheckOutButton(_ sender: Any) {
+        
+        let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
+    
+        self.navigationController?.pushViewController(addresVC, animated: true)
+    }
+    
 }
 
 
