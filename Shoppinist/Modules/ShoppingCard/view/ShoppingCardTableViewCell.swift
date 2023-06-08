@@ -33,15 +33,15 @@ class ShoppingCardTableViewCell: UITableViewCell {
     }
 
     @IBAction func minusButton(_ sender: Any) {
-        if counter > 1 {
-            counter = counter - 1
-            lineItem[indexPath.row].quantity = counter
-            quantity.text = String (counter)
-            counterProtocol?.decreaseCounter(price: lineItem[indexPath.row].price ?? "")
-            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
-        }
-
-        disableDecreaseBtn()
+//        if counter > 1 {
+//            counter = counter - 1
+//            lineItem[indexPath.row].quantity = counter
+//            quantity.text = String (counter)
+//            counterProtocol?.decreaseCounter(price: lineItem[indexPath.row].price ?? "")
+//            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
+//        }
+//
+//        disableDecreaseBtn()
         
     }
  
@@ -53,29 +53,29 @@ class ShoppingCardTableViewCell: UITableViewCell {
   
     @IBAction func plusButton(_ sender: Any) {
         
-        if counter < ((lineItem[indexPath.row].grams ?? 1) - 2) {
-            counter = counter + 1
-            quantity.text = String (counter)
-            lineItem[indexPath.row].quantity = counter
-            counterProtocol?.increaseCounter()
-            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
-        }
-         else
-        {
+//        if counter < ((lineItem[indexPath.row].grams ?? 1) - 2) {
+//            counter = counter + 1
+//            quantity.text = String (counter)
+//            lineItem[indexPath.row].quantity = counter
+//            counterProtocol?.increaseCounter()
+//            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
+//        }
+//         else
+//        {
 //             Utilites.displayAlert(title: "Warning", message: "", action: UIAlertAction, controller: UIViewController)
-        }
-        
-        disableDecreaseBtn()
-    }
-    func disableDecreaseBtn (){
-        if counter < 2
-        {
-            decreseItem.isEnabled = true
-            decreseItem.alpha = 0.5
-        }
-        else {
-            decreseItem.isEnabled = true
-            decreseItem.alpha = 1
-        }
+//        }
+//
+//        disableDecreaseBtn()
+//    }
+//    func disableDecreaseBtn (){
+//        if counter < 2
+//        {
+//            decreseItem.isEnabled = true
+//            decreseItem.alpha = 0.5
+//        }
+//        else {
+//            decreseItem.isEnabled = true
+//            decreseItem.alpha = 1
+//        }
     }
 }

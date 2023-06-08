@@ -14,14 +14,15 @@ class BrandProductsViewController: UIViewController {
     var brandProductsViewModel : BrandProductsViewModel?
     var localData: FavLocalDataSourceProtocol?
     var remoteData : ProductDetailsDataSourceProtocol?
-    var favViewModel : FavViewModel?
+    var favViewModel : DraftViewModel?
     var productsList : ProductModel?
     var brandId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        localData = FavLocalDataSource()
-        remoteData = ProductDetailsDataSource()
-        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+//        localData = FavLocalDataSource()
+//        remoteData = ProductDetailsDataSource()
+//        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+        favViewModel = DraftViewModel()
         let brandsLayout = UICollectionViewFlowLayout()
         brandsLayout.scrollDirection = .vertical
         self.productsCollectionView.collectionViewLayout = brandsLayout
@@ -48,7 +49,7 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
         let product = productsList?.products?[indexPath.row]
-        cell?.setVieModel(favViewModel:favViewModel!)
+        cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }

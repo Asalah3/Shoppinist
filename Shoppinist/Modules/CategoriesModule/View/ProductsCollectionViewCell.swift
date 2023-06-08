@@ -16,29 +16,77 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favouriteButton: UIButton!
     
     var favObject : Product?
-    var favouriteViewModel: FavViewModel?
+    var favDraftViewModel: DraftViewModel?
+    var draft : Drafts? = Drafts()
+    var myDraft: LineItem?
+    var isHasDraft : Bool?
+
     
-    func setVieModel(favViewModel: FavViewModel) {
-        self.favouriteViewModel = favViewModel
+    func setVieModel(draftViewModel: DraftViewModel) {
+        self.favDraftViewModel = draftViewModel
+        draftViewModel.getAllDrafts()
         
+        draftViewModel.bindingAllDrafts = { [weak self] in
+            DispatchQueue.main.async {
+                let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+            }
+            
+        }
     }
-    
     @IBAction func addTofavouriteButton(_ sender: Any) {
         
-        if let favouriteViewModel = favouriteViewModel,
-           favouriteViewModel.isExist(favouriteId: favObject?.id ?? 0){
+        if let favViewModel = favDraftViewModel,
+           favViewModel.checkIfItemIsFav(productID: favObject?.id ?? 0){
+            favDraftViewModel?.getAllDrafts()
             favouriteButton.tintColor = UIColor.darkGray
-            favouriteViewModel.deleteItemById(favouriteId: favObject?.id ?? 0)
+            delProduct(itemId: favObject?.id ?? 0)
         } else {
             favouriteButton.tintColor = UIColor.red
-            favouriteViewModel?.localDataSource?.insertItem(favouriteName: favObject?.title ?? "", favouriteId: favObject?.id ?? 0, favouriteImage: favObject?.image?.src ?? "", favouritePrice: productPrice.text ?? "")
+            favDraftViewModel?.getAllDrafts()
+            favDraftViewModel?.bindingAllDrafts = { [weak self] in
+                DispatchQueue.main.async {
+                    
+                    let myFav = self?.favDraftViewModel?.getMyDrafts()
+                    let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
+                    var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                    print("hasDraft\(String(describing: isHasDraft))")
+                    if isHasDraft ?? false{
+                        self?.draft?.draftOrder = favDraft?[0]
+                        print(self?.draft ?? "nil draft")
+                        var lineItem = LineItem(id: self?.favObject?.id, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: "", sku: "", vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams: 20, taxLines: [TaxLine](), name: "", custom: false, price: self?.favObject?.variants?[0].price)
+                        self?.draft?.draftOrder?.lineItems?.append(lineItem)
+                        self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
+                        isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                        print("updated")
+                    }else{
+                        print("created")
+                        
+                        self?.favDraftViewModel?.saveDraft(productId: 1066630386, productTitle: "new xcode", productQuantity: 2, productPrice: "20.00", customerId: 6930629984548, note: "favourite")
+                        self?.favDraftViewModel?.bindingDraft = { [weak self] in
+                            print("view created")
+                            DispatchQueue.main.async {
+                                
+                                if self?.favDraftViewModel?.ObservableDraft  == 201{
+                                    print("succeess")
+                                    isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                                }
+                                else{
+                                    print("failed")
+                                }
+                            }
+                        }
+                    }
+                    
+                    print(myFav?.count ?? 0)
+                    print("fav draft\(favDraft?.count ?? 0)")
+                }
+                }
         }
-        
     }
+    
     func setUpCell(product: Product){
         favObject = product
-        if let favID = favObject?.id,
-           let favouriteViewModel = favouriteViewModel, favouriteViewModel.isExist(favouriteId:favID){
+        if favDraftViewModel?.checkIfItemIsFav(productID: favObject?.id ?? 0) == true{
             favouriteButton.tintColor = UIColor.red
         } else {
             favouriteButton.tintColor = UIColor.darkGray
@@ -49,5 +97,47 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
         self.productPrice.text = product.variants?[0].price
         self.productImage.sd_setImage(with: URL(string:product.image?.src ?? ""), placeholderImage: UIImage(named: "placeHolder"))
+    }
+    
+    
+}
+
+extension ProductsCollectionViewCell{
+    
+    func delProduct(itemId: Int){
+        favDraftViewModel?.bindingAllDrafts = { [weak self] in
+            DispatchQueue.main.async {
+                let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
+                let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                if isHasDraft ?? false{
+                    if favDraft?[0].lineItems?.count == 1{
+                        self?.favDraftViewModel?.delDraft(draftId: (favDraft?[0].id)!)
+                        self?.favDraftViewModel?.bindingDraftDelete = { [weak self] in
+                            print("view created")
+                            DispatchQueue.main.async {
+                                
+                                if self?.favDraftViewModel?.ObservableDraftDelete  == 200{
+                                    print("deleted succeess")
+                                }
+                                else{
+                                    print("deleted failed")
+                                }
+                            }
+                        }
+                    }else{
+                        
+                        self?.draft?.draftOrder = favDraft?[0]
+                        print(self?.draft ?? "nil draft")
+                        self?.draft?.draftOrder?.lineItems?.removeAll(where: { item in
+                            item.quantity == itemId
+                        })
+                        self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
+                        print("item deleted")
+                        
+                    }
+                    
+                }
+            }
+        }
     }
 }

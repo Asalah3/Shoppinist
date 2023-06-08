@@ -265,7 +265,6 @@
                         <constraints>
                             <constraint firstItem="wp8-h0-JTH" firstAttribute="height" secondItem="UCh-gw-Ama" secondAttribute="height" multiplier="0.757042" id="3wt-2b-OEZ"/>
                             <constraint firstItem="wp8-h0-JTH" firstAttribute="width" secondItem="rMD-fz-emo" secondAttribute="width" multiplier="0.949109" id="906-9q-ghh"/>
-                            <constraint firstItem="rMD-fz-emo" firstAttribute="trailing" secondItem="wp8-h0-JTH" secondAttribute="trailing" constant="10" id="cvB-Zm-wtD"/>
                             <constraint firstItem="wp8-h0-JTH" firstAttribute="top" secondItem="rMD-fz-emo" secondAttribute="top" id="ndF-hm-95I"/>
                             <constraint firstItem="wp8-h0-JTH" firstAttribute="leading" secondItem="rMD-fz-emo" secondAttribute="leading" constant="10" id="y6I-st-rLm"/>
                         </constraints>

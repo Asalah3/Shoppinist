@@ -20,9 +20,9 @@ class CategoriesViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: RemoteDataSourceProtocol?
     var categoriesViewModel : CategoriesViewModel?
-    var localData: FavLocalDataSourceProtocol?
-    var remoteData : ProductDetailsDataSourceProtocol?
-    var favViewModel : FavViewModel?
+//    var localData: FavLocalDataSourceProtocol?
+//    var remoteData : ProductDetailsDataSourceProtocol?
+    var favViewModel : DraftViewModel?
     var productsList : [Product]?
     var filteredList : [Product]?
     var isFiltered : Bool = false
@@ -31,9 +31,10 @@ class CategoriesViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        localData = FavLocalDataSource()
-        remoteData = ProductDetailsDataSource()
-        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+//        localData = FavLocalDataSource()
+//        remoteData = ProductDetailsDataSource()
+//        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+        favViewModel = DraftViewModel()
         let actionButton = JJFloatingActionButton()
         actionButton.buttonColor = UIColor(red: CGFloat(0.61), green: CGFloat(0.45), blue: CGFloat(0.84), alpha: CGFloat(1.0))
         actionButton.buttonImage = UIImage(named: "filter")
@@ -127,7 +128,7 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         }else{
             product = productsList?[indexPath.row]
         }
-        cell?.setVieModel(favViewModel:favViewModel!)
+        cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }
