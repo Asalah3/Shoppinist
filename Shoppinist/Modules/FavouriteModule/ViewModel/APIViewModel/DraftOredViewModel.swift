@@ -153,8 +153,25 @@ class DraftViewModel{
 //            self.fetchProductData = result.product
 //        }
 //    }
-    
-    
+    var fetchCurrencyToCell : (()->())={}
+    var fetchCurrencyData:CurrenyModel!{
+        didSet{
+            fetchCurrencyToCell()
+        }
+    }
+    func checkCurreny() -> Bool{
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            return true
+        }else {
+            return false
+        }
+    }
+    func changeCurrency() {
+        RemoteDataSource().getCurrency{curreny in
+            guard let curreny = curreny else {return}
+            self.fetchCurrencyData = curreny
+        }
+    }
    
     
 }
