@@ -23,8 +23,8 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
         addressViewModel?.getAddress()
         addressViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
-                self!.customerAddressTable = self!.addressViewModel?.ObservableGet
-                self!.addressTableView.reloadData()
+                self?.customerAddressTable = self?.addressViewModel?.ObservableGet
+                self?.addressTableView.reloadData()
             }
         }
     }
