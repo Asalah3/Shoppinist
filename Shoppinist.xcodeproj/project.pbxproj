@@ -199,6 +199,7 @@
 		DB1B4B382A29B12800DF9D10 /* ContactUs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactUs.storyboard; sourceTree = "<group>"; };
 		DB1B4B3A2A29B32B00DF9D10 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		DB1B4B3C2A29C3A300DF9D10 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
+		DB31E5462A32CBA500626513 /* Shoppinist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shoppinist.entitlements; sourceTree = "<group>"; };
 		DB4869142A2D9A5200045739 /* ShoppingCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingCard.storyboard; sourceTree = "<group>"; };
 		DB4869162A2D9BBE00045739 /* ShoppingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCardViewController.swift; sourceTree = "<group>"; };
 		DB4869182A2DAFBE00045739 /* ShoppingCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 		C98726142A27CF0900EB0A40 /* Shoppinist */ = {
 			isa = PBXGroup;
 			children = (
+				DB31E5462A32CBA500626513 /* Shoppinist.entitlements */,
 				CF1F4D582A2A9D57006F0E07 /* Utilites */,
 				C98726522A27D1D300EB0A40 /* GenericViews */,
 				C987264A2A27D0DB00EB0A40 /* Services */,
@@ -1448,8 +1450,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shoppinist/Shoppinist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoppinist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1476,8 +1480,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shoppinist/Shoppinist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoppinist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
