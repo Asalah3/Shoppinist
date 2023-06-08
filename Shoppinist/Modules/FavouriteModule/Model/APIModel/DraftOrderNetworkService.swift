@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DraftNetworkProtocol{
-    static func CreateDraft(productId:Int, productTitle: String, productQuantity: Int, productPrice: String,customerId: Int,note: String, complication:@escaping (Int) -> Void)
+    static func CreateDraft(product: Product,note: String, complication:@escaping (Int) -> Void)
     static func updateDraft(draft: Drafts, complication:@escaping (Int) -> Void)
     static func deleteDraft(draftID: Int, complication:@escaping (Int) -> Void)
     static func getAllDraftOrders( completionHandeler: @escaping ((AllDrafts?), Error?) -> Void)
@@ -17,7 +17,7 @@ protocol DraftNetworkProtocol{
 
 class DraftNetwork:DraftNetworkProtocol{
     
-    static func CreateDraft(productId:Int, productTitle: String, productQuantity: Int, productPrice: String,customerId: Int, note: String, complication:@escaping (Int) -> Void) {
+    static func CreateDraft(product: Product, note: String, complication:@escaping (Int) -> Void) {
         let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
@@ -26,10 +26,12 @@ class DraftNetwork:DraftNetworkProtocol{
                 "note": note,
               "line_items": [
                 [
-                  "id": productId,
-                  "title": productTitle,
-                  "quantity": productQuantity,
-                  "price": productPrice
+                    "id": product.id ?? 0,
+                    "title": product.title ?? "",
+                    "quantity": 2,
+                    "price": product.variants?[0].price ?? "20",
+                    "sku": "\(product.id ?? 0)",
+                    
                 ]
               ],
               
@@ -45,7 +47,6 @@ class DraftNetwork:DraftNetworkProtocol{
                 "id": UserDefaults.standard.integer(forKey:"customerID"),
                 
                 "default_address": [
-                  
                   "default": true
                 ]
               ]

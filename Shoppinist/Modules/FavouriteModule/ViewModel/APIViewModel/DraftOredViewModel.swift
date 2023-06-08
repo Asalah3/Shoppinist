@@ -51,8 +51,8 @@ class DraftViewModel{
     }
     
     //-----------for create draft-----------
-    func saveDraft(productId:Int, productTitle: String, productQuantity: Int, productPrice: String,customerId: Int, note: String){
-        DraftNetwork.CreateDraft(productId:productId, productTitle: productTitle, productQuantity: productQuantity, productPrice: productPrice, customerId: customerId, note: note) { draft in
+    func saveDraft(product: Product, note: String){
+        DraftNetwork.CreateDraft(product: product, note: note) { draft in
             self.ObservableDraft = draft
         }
     }
@@ -132,7 +132,9 @@ class DraftViewModel{
             for i in 0..<(observable.draftOrders?.count ?? 0){
                 if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id && observable.draftOrders?[i].note == "favourite"{
                     for n in 0..<(observable.draftOrders?[i].lineItems?.count ?? 0){
-                        if observable.draftOrders?[i].lineItems?[n].id == productID{
+                        print("proID \(observable.draftOrders?[i].lineItems?[n].sku)")
+                        print("proId\(productID)")
+                        if ((observable.draftOrders?[i].lineItems?[n].sku) ?? "") == "\(productID)"{
                             returnedValue = true
                             break
                         }

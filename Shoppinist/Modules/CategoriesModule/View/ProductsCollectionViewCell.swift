@@ -25,14 +25,13 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     func setVieModel(draftViewModel: DraftViewModel) {
         self.favDraftViewModel = draftViewModel
         draftViewModel.getAllDrafts()
-        
         draftViewModel.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
-                let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                self?.isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
             }
-            
         }
     }
+    
     @IBAction func addTofavouriteButton(_ sender: Any) {
         
         if let favViewModel = favDraftViewModel,
@@ -53,7 +52,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                     if isHasDraft ?? false{
                         self?.draft?.draftOrder = favDraft?[0]
                         print(self?.draft ?? "nil draft")
-                        var lineItem = LineItem(id: self?.favObject?.id, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: "", sku: "", vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams: 20, taxLines: [TaxLine](), name: "", custom: false, price: self?.favObject?.variants?[0].price)
+                        let lineItem = LineItem(id: self?.favObject?.id, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: "", sku:"\(( self?.favObject?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self?.favObject?.variants?[0].price)
                         self?.draft?.draftOrder?.lineItems?.append(lineItem)
                         self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
                         isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
@@ -61,7 +60,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                     }else{
                         print("created")
                         
-                        self?.favDraftViewModel?.saveDraft(productId: 1066630386, productTitle: "new xcode", productQuantity: 2, productPrice: "20.00", customerId: 6930629984548, note: "favourite")
+                        self?.favDraftViewModel?.saveDraft(product: (self?.favObject!)!, note: "favourite")
                         self?.favDraftViewModel?.bindingDraft = { [weak self] in
                             print("view created")
                             DispatchQueue.main.async {
@@ -105,6 +104,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
 extension ProductsCollectionViewCell{
     
     func delProduct(itemId: Int){
+        favDraftViewModel?.getAllDrafts()
         favDraftViewModel?.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
                 let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
