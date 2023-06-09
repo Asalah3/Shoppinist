@@ -17,12 +17,22 @@ class BrandProductsViewController: UIViewController {
     var favViewModel : DraftViewModel?
     var productsList : ProductModel?
     var brandId = 0
+    var currency = 0.0
+    override func viewWillAppear(_ animated: Bool) {
+        favViewModel = DraftViewModel()
+        self.favViewModel?.changeCurrency()
+        self.favViewModel?.fetchCurrencyToCell = { [weak self] in
+            DispatchQueue.main.async {
+                self?.currency = (Double(self?.favViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0).rounded()
+                self?.productsCollectionView.reloadData()
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        localData = FavLocalDataSource()
 //        remoteData = ProductDetailsDataSource()
 //        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
-        favViewModel = DraftViewModel()
         let brandsLayout = UICollectionViewFlowLayout()
         brandsLayout.scrollDirection = .vertical
         self.productsCollectionView.collectionViewLayout = brandsLayout
@@ -36,6 +46,8 @@ class BrandProductsViewController: UIViewController {
         brandProductsViewModel = BrandProductsViewModel(remoteDataSource: remoteDataSource ?? RemoteDataSource())
         brandProductsViewModel?.fetchBrandProducts(collectionId: brandId)
         brandProductsViewModel?.fetchProductsToBrandProductsViewController = {() in self.renderView()}
+        
+        
     }
 }
 extension BrandProductsViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
@@ -50,6 +62,7 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         cell?.layer.borderColor = UIColor.systemGray.cgColor
         let product = productsList?.products?[indexPath.row]
         cell?.setVieModel(draftViewModel:favViewModel!)
+        cell?.currency = currency
         cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }

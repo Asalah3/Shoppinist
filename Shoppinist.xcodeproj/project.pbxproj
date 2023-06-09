@@ -11,6 +11,7 @@
 		9EA66756829F561A1A69A388 /* Pods_Shoppinist_ShoppinistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */; };
 		C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97A2A2927680071DAD6 /* BrandModel.swift */; };
 		C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97D2A2928940071DAD6 /* HomeViewModel.swift */; };
+		C9433F562A32961000FD1813 /* CurrenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9433F552A32961000FD1813 /* CurrenyModel.swift */; };
 		C94EB6D52A2A9C1E000E7681 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6D42A2A9C1E000E7681 /* CategoriesViewModel.swift */; };
 		C97CA70D2A2BB84B00A67A6F /* no-data-found.json in Resources */ = {isa = PBXBuildFile; fileRef = C97CA70C2A2BB84B00A67A6F /* no-data-found.json */; };
 		C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98726152A27CF0900EB0A40 /* AppDelegate.swift */; };
@@ -129,6 +130,7 @@
 		C54958C093B8786E2AB2788F /* Pods-Shoppinist-ShoppinistUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppinist-ShoppinistUITests.debug.xcconfig"; path = "Target Support Files/Pods-Shoppinist-ShoppinistUITests/Pods-Shoppinist-ShoppinistUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C930A97A2A2927680071DAD6 /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
 		C930A97D2A2928940071DAD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C9433F552A32961000FD1813 /* CurrenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenyModel.swift; sourceTree = "<group>"; };
 		C94EB6D42A2A9C1E000E7681 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		C97CA70C2A2BB84B00A67A6F /* no-data-found.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "no-data-found.json"; sourceTree = "<group>"; };
 		C98726122A27CF0900EB0A40 /* Shoppinist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppinist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,6 +365,7 @@
 			children = (
 				C98726532A27D25200EB0A40 /* Model.swift */,
 				C9A724C62A2A8DD400B0D37E /* ProductModel.swift */,
+				C9433F552A32961000FD1813 /* CurrenyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1244,6 +1247,7 @@
 				C9A724C52A2A893900B0D37E /* BrandProductsViewController.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
 				CFDFC8CA2A2BAB6C00CDB4D2 /* FavouriteViewController.swift in Sources */,
+				C9433F562A32961000FD1813 /* CurrenyModel.swift in Sources */,
 				CF1F4D5A2A2A9D76006F0E07 /* Utilites.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
 				CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */,

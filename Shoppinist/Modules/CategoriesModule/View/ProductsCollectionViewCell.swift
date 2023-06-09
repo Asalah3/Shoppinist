@@ -20,7 +20,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     var draft : Drafts? = Drafts()
     var myDraft: LineItem?
     var isHasDraft : Bool?
-
+    var currency = 0.0
     
     func setVieModel(draftViewModel: DraftViewModel) {
         self.favDraftViewModel = draftViewModel
@@ -94,7 +94,12 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productName.text = product.title
         self.productPrice.layer.borderWidth = 1
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
-        self.productPrice.text = product.variants?[0].price
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            let price = floor((Double(product.variants?[0].price ?? "0.0") ?? 0.0) * self.currency)
+            self.productPrice.text = "\(String(price)) EGP"
+        }else{
+            self.productPrice.text = "\(product.variants?[0].price ?? "") $"
+        }
         self.productImage.sd_setImage(with: URL(string:product.image?.src ?? ""), placeholderImage: UIImage(named: "placeHolder"))
     }
     
