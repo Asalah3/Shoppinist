@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Lottie
 //struct BrandModel{
 //    var brandName: String
 //    var brandImage: String
 //}
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     @IBOutlet weak var CouponsCollectionView: UICollectionView!
@@ -23,9 +25,12 @@ class HomeViewController: UIViewController {
     var timer: Timer?
     var brandsList: BrandModel?
     var couponArr :[coupon]?
+    var searchBrands = [SmartCollection]()
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NoData.isHidden = true
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         self.CouponsCollectionView.collectionViewLayout = layout
@@ -68,18 +73,29 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == brandsCollectionView{
-            return brandsList?.smartCollections?.count ?? 0
+            if searching == true{
+                return searchBrands.count 
+
+            }else{
+                return brandsList?.smartCollections?.count ?? 0
+            }
         }
         return couponArr?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == brandsCollectionView{
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCollectionViewCell", for: indexPath) as? BrandsCollectionViewCell
             cell?.layer.borderWidth = 1
             cell?.layer.cornerRadius = 25
             cell?.layer.borderColor = UIColor.systemGray.cgColor
-            cell?.setUpCell(brandImage: brandsList?.smartCollections?[indexPath.row].image?.src ?? "", brandName: brandsList?.smartCollections?[indexPath.row].title ?? "")
+            
+            if searching == true{
+                cell?.setUpCell(brandImage: searchBrands[indexPath.row].image?.src ?? "", brandName: searchBrands[indexPath.row].title ?? "")
+            }else{
+                cell?.setUpCell(brandImage: brandsList?.smartCollections?[indexPath.row].image?.src ?? "", brandName: brandsList?.smartCollections?[indexPath.row].title ?? "")
+            }
             return cell!
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponsCollectionViewCell", for: indexPath) as? CouponsCollectionViewCell
@@ -114,7 +130,12 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == brandsCollectionView{
             let brandProductsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
-            brandProductsViewController.brandId = brandsList?.smartCollections?[indexPath.row].id ?? 0
+            if searching == true{
+                brandProductsViewController.brandId = searchBrands[indexPath.row].id ?? 0
+
+            }else{
+                brandProductsViewController.brandId = brandsList?.smartCollections?[indexPath.row].id ?? 0
+            }
             self.navigationController?.pushViewController(brandProductsViewController, animated: true)
         }
         else{
@@ -122,5 +143,31 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         
             Utilites.displayToast(message: "Congratulations! you get a \(couponArr![indexPath.row].id) " , seconds: 2.0, controller: self )
         }
+    }
+}
+
+
+//------------------search bar-----------------------
+extension HomeViewController : UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBrands = brandsList?.smartCollections?.filter({$0.title?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}) ?? [SmartCollection]()
+        searching = true
+        brandsCollectionView.reloadData()
+        if self.searchBrands.count == 0{
+            self.brandsCollectionView.isHidden = true
+            self.NoData.isHidden = false
+            self.NoData.contentMode = .scaleAspectFit
+            self.NoData.loopMode = .loop
+            self.NoData.play()
+        }else{
+            self.brandsCollectionView.isHidden = false
+            self.NoData.isHidden = true
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        brandsCollectionView.reloadData()
     }
 }

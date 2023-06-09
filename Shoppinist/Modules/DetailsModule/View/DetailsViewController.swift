@@ -56,7 +56,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 //
 //        }
 
-        detailsName.text = "\(String(describing: (product?.vendor)!))|\(String(describing: (product?.productType)!))"
+        detailsName.text = product?.title
         detailsPrice.text = "\(String(describing: (product?.variants?[0].price)!)) \(currency)"
         detailsDescription.text = (product?.bodyHTML)!
         detailsSlider.numberOfPages = product?.images?.count ?? 0
@@ -83,7 +83,6 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (detailsCollectionView.frame.size.width)
-        let width = (view.frame.size.width)
         return CGSize(width: size, height: size)
     }
 

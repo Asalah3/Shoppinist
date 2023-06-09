@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class BrandProductsViewController: UIViewController {
     
+    @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
@@ -20,6 +22,9 @@ class BrandProductsViewController: UIViewController {
     var productsList : ProductModel?
     var brandId = 0
     var currency = 0.0
+    var searchBrandProducts = [Product]()
+    var searching = false
+    
     override func viewWillAppear(_ animated: Bool) {
         favViewModel = DraftViewModel()
         self.favViewModel?.changeCurrency()
@@ -35,6 +40,7 @@ class BrandProductsViewController: UIViewController {
 //        localData = FavLocalDataSource()
 //        remoteData = ProductDetailsDataSource()
 //        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+        NoData.isHidden = true
         let brandsLayout = UICollectionViewFlowLayout()
         brandsLayout.scrollDirection = .vertical
         self.productsCollectionView.collectionViewLayout = brandsLayout
@@ -54,7 +60,12 @@ class BrandProductsViewController: UIViewController {
 }
 extension BrandProductsViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productsList?.products?.count ?? 0
+        if searching == true{
+            return searchBrandProducts.count
+        }else{
+            return productsList?.products?.count ?? 0
+
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +73,14 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         cell?.layer.borderWidth = 1
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
-        let product = productsList?.products?[indexPath.row]
+        var product : Product?
+        if searching == true{
+            product = searchBrandProducts[indexPath.row]
+
+        }else{
+            product = productsList?.products?[indexPath.row]
+
+        }
         cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.currency = currency
         cell?.setUpCell(product: product!)
@@ -77,9 +95,13 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-//        detailsViewController.product = self.productsList?.products?[indexPath.row]
-//        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        if searching == true{
+            detailsViewController.product = self.searchBrandProducts[indexPath.row]
+        }else{
+            detailsViewController.product = self.productsList?.products?[indexPath.row]
+        }
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func renderView(){
@@ -88,5 +110,30 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
             self.productsCollectionView.reloadData()
             self.activityIndicator.stopAnimating()
         }
+    }
+}
+
+//------------------search bar-----------------------
+extension BrandProductsViewController : UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBrandProducts = productsList?.products?.filter({$0.title?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}) ?? [Product]()
+        searching = true
+        productsCollectionView.reloadData()
+        if self.searchBrandProducts.count == 0{
+            self.productsCollectionView.isHidden = true
+            self.NoData.isHidden = false
+            self.NoData.contentMode = .scaleAspectFit
+            self.NoData.loopMode = .loop
+            self.NoData.play()
+        }else{
+            self.productsCollectionView.isHidden = false
+            self.NoData.isHidden = true
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        productsCollectionView.reloadData()
     }
 }
