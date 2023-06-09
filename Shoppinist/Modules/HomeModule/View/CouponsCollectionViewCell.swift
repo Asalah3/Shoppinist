@@ -10,6 +10,10 @@ import UIKit
 class CouponsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var couponImage: UIImageView!
-    func setUpCell(couponImage: String){
-        self.couponImage.image = UIImage(named: couponImage)
-    }}
+    
+}
+
+struct coupon {
+    var img : UIImage
+    var id : String
+}
