@@ -22,13 +22,14 @@ class HomeViewController: UIViewController {
     var homeViewModel : HomeViewModel?
     var timer: Timer?
     var brandsList: BrandModel?
-    var couponsList:[String] = ["10Offer","20Offer","30Offer","40Offer","50Offer"]
+    var couponArr :[coupon]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         self.CouponsCollectionView.collectionViewLayout = layout
-        pageControl.numberOfPages = couponsList.count
+        pageControl.numberOfPages = 5
         self.CouponsCollectionView.isPagingEnabled = true
         CouponsCollectionView.showsVerticalScrollIndicator = false
         CouponsCollectionView.showsHorizontalScrollIndicator = false
@@ -49,9 +50,11 @@ class HomeViewController: UIViewController {
         homeViewModel?.fetchBrandsToHomeViewController = {() in self.renderView()}
         
         timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
+        
+        couponArr = [coupon(img: UIImage(named: "10Offer")!, id: "10%offer") , coupon(img: UIImage(named: "20Offer")!, id: "offer20%") ,coupon(img: UIImage(named: "30Offer")!, id: "30%offer"),coupon(img: UIImage(named: "40Offer")!, id: "40%offer"),coupon(img: UIImage(named: "50Offer")!, id: "50%offer") ]
     }
     @objc func slideToNext(){
-        if currentCellIndex < couponsList.count-1{
+        if currentCellIndex < 4 {
             currentCellIndex = currentCellIndex + 1
         }else{
             currentCellIndex = 0
@@ -67,7 +70,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         if collectionView == brandsCollectionView{
             return brandsList?.smartCollections?.count ?? 0
         }
-        return couponsList.count
+        return couponArr?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -80,7 +83,8 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             return cell!
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponsCollectionViewCell", for: indexPath) as? CouponsCollectionViewCell
-            cell?.setUpCell(couponImage: couponsList[indexPath.row])
+            
+            cell?.couponImage.image = couponArr![indexPath.row].img
             return cell!
         }
     }
@@ -108,8 +112,15 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let brandProductsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
-        brandProductsViewController.brandId = brandsList?.smartCollections?[indexPath.row].id ?? 0
-        self.navigationController?.pushViewController(brandProductsViewController, animated: true)
+        if collectionView == brandsCollectionView{
+            let brandProductsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
+            brandProductsViewController.brandId = brandsList?.smartCollections?[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(brandProductsViewController, animated: true)
+        }
+        else{
+            UIPasteboard.general.string = couponArr![indexPath.row].id
+        
+            Utilites.displayToast(message: "Congratulations! you get a \(couponArr![indexPath.row].id) " , seconds: 2.0, controller: self )
+        }
     }
 }
