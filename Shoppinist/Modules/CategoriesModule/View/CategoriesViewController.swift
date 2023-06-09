@@ -14,6 +14,8 @@ case T_SHIRTS
 case ACCESSORIES
 }
 class CategoriesViewController: UIViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var categoriesSegment: UISegmentedControl!
@@ -47,6 +49,12 @@ class CategoriesViewController: UIViewController {
         let actionButton = JJFloatingActionButton()
         actionButton.buttonColor = UIColor(red: CGFloat(0.61), green: CGFloat(0.45), blue: CGFloat(0.84), alpha: CGFloat(1.0))
         actionButton.buttonImage = UIImage(named: "filter")
+        actionButton.addItem(title: "All", image: UIImage(named: "all")?.withRenderingMode(.alwaysTemplate)) { item in
+          // do something
+            print("all")
+            self.isFiltered = false
+            self.renderView()
+        }
         actionButton.addItem(title: "shoes", image: UIImage(named: "shoe")?.withRenderingMode(.alwaysTemplate)) { item in
           // do something
             print("Shoes")
@@ -64,6 +72,7 @@ class CategoriesViewController: UIViewController {
             print("Socks")
             self.filterBySubFilters(filterType: "ACCESSORIES")
         }
+        
         actionButton.display(inViewController: self)
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

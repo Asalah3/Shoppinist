@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -349,19 +350,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-5d-Ikl">
-                                <rect key="frame" x="219.66666666666663" y="103" width="157.33333333333337" height="35"/>
-                                <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Next">
-                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="skipButton:" destination="gR9-v8-KXf" eventType="touchUpInside" id="ETE-bw-oO6"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EbG-2b-Kyd">
-                                <rect key="frame" x="10" y="148" width="373" height="655"/>
+                                <rect key="frame" x="10" y="108" width="375" height="634"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZt-f2-B63">
                                     <size key="itemSize" width="372" height="681"/>
@@ -371,7 +361,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnBoardingCollectionViewCell" id="jYn-r4-Yrb" customClass="OnBoardingCollectionViewCell" customModule="Shoppinist" customModuleProvider="target">
-                                        <rect key="frame" x="0.66666666666666663" y="0.0" width="372" height="681"/>
+                                        <rect key="frame" x="1.6666666666666667" y="0.0" width="372" height="681"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5Tq-Ms-MLH">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="681"/>
@@ -424,26 +414,40 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-HD-Sf6">
-                                <rect key="frame" x="0.0" y="782" width="393" height="26"/>
+                                <rect key="frame" x="0.0" y="731" width="393" height="26"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGrayColor"/>
                                 <color key="currentPageIndicatorTintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-5d-Ikl">
+                                <rect key="frame" x="30" y="767" width="333" height="51"/>
+                                <color key="tintColor" red="0.99607843139999996" green="0.95686274510000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Next" subtitle="" titleAlignment="center">
+                                    <imageReference key="image" image="arrowshape.right.fill" catalog="system" symbolScale="large"/>
+                                    <backgroundConfiguration key="background" cornerRadius="25">
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="skipButton:" destination="gR9-v8-KXf" eventType="touchUpInside" id="ETE-bw-oO6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gSv-8e-ggd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="height" secondItem="fet-Ag-z68" secondAttribute="height" multiplier="0.0410798" id="0hl-2E-U6S"/>
-                            <constraint firstItem="gSv-8e-ggd" firstAttribute="bottom" secondItem="EbG-2b-Kyd" secondAttribute="bottom" constant="15" id="DUh-JH-c4k"/>
-                            <constraint firstItem="EbG-2b-Kyd" firstAttribute="top" secondItem="eLq-5d-Ikl" secondAttribute="bottom" constant="10" id="EVp-CN-8EV"/>
-                            <constraint firstItem="gSv-8e-ggd" firstAttribute="trailing" secondItem="eLq-5d-Ikl" secondAttribute="trailing" constant="16" id="INx-OE-ETh"/>
-                            <constraint firstAttribute="trailing" secondItem="EbG-2b-Kyd" secondAttribute="trailing" constant="10" id="IXb-4B-gRf"/>
-                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="top" secondItem="gSv-8e-ggd" secondAttribute="top" id="QKh-bC-fdN"/>
+                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="height" secondItem="fet-Ag-z68" secondAttribute="height" multiplier="0.06" id="0hl-2E-U6S"/>
+                            <constraint firstItem="kcR-HD-Sf6" firstAttribute="top" secondItem="EbG-2b-Kyd" secondAttribute="bottom" constant="-11" id="0wj-Ri-pri"/>
+                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="top" secondItem="kcR-HD-Sf6" secondAttribute="bottom" constant="10" id="BEu-MS-eA4"/>
+                            <constraint firstAttribute="trailing" secondItem="EbG-2b-Kyd" secondAttribute="trailing" constant="8" id="IXb-4B-gRf"/>
                             <constraint firstItem="kcR-HD-Sf6" firstAttribute="leading" secondItem="fet-Ag-z68" secondAttribute="leading" id="TPu-Eq-ztd"/>
                             <constraint firstItem="EbG-2b-Kyd" firstAttribute="leading" secondItem="fet-Ag-z68" secondAttribute="leading" constant="10" id="WUZ-db-6Xz"/>
-                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gSv-8e-ggd" secondAttribute="leading" symbolic="YES" id="Zoy-nj-FDT"/>
-                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="width" secondItem="fet-Ag-z68" secondAttribute="width" multiplier="0.4" id="cVw-E4-lXT"/>
+                            <constraint firstItem="EbG-2b-Kyd" firstAttribute="top" secondItem="gSv-8e-ggd" secondAttribute="top" constant="5" id="by7-UQ-Up3"/>
+                            <constraint firstItem="EbG-2b-Kyd" firstAttribute="height" secondItem="gSv-8e-ggd" secondAttribute="height" multiplier="0.886713" id="d7l-ir-COi"/>
+                            <constraint firstItem="eLq-5d-Ikl" firstAttribute="leading" secondItem="gSv-8e-ggd" secondAttribute="leading" constant="30" id="hZg-sX-CDT"/>
                             <constraint firstAttribute="trailing" secondItem="kcR-HD-Sf6" secondAttribute="trailing" id="kL6-3T-Hce"/>
-                            <constraint firstItem="gSv-8e-ggd" firstAttribute="bottom" secondItem="kcR-HD-Sf6" secondAttribute="bottom" constant="10" id="uGt-6s-mmP"/>
+                            <constraint firstItem="gSv-8e-ggd" firstAttribute="trailing" secondItem="eLq-5d-Ikl" secondAttribute="trailing" constant="30" id="sSh-nK-QJe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="opL-oc-MVI"/>
@@ -455,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GG6-St-uav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1720" y="-127"/>
+            <point key="canvasLocation" x="-1721.3740458015266" y="-127.46478873239437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jD9-iZ-kq6">
@@ -581,6 +585,7 @@
     <resources>
         <image name="1" width="2000" height="2000"/>
         <image name="LoginImg" width="626" height="626"/>
+        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="113"/>

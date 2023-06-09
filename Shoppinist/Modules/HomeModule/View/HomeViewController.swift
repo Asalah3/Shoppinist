@@ -11,6 +11,8 @@ import UIKit
 //    var brandImage: String
 //}
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     @IBOutlet weak var CouponsCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -85,7 +87,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == brandsCollectionView{
             let size = (brandsCollectionView.frame.size.width-10)/2.5
-            return CGSize(width: size, height: size * 1.15)
+            return CGSize(width: size, height: size)
         }else{
             let size = (CouponsCollectionView.frame.size.width)
             return CGSize(width: size, height: (size-10)/2.25)
