@@ -44,10 +44,14 @@ class FavouriteViewController: UIViewController{
             DispatchQueue.main.async {
                 
                 let myFav = self?.viewModel?.getMyFavouriteDraft()
-                self?.favList = myFav?[0].lineItems
-                self?.favouriteCollectionView.reloadData()
+                if myFav != nil && myFav?.count != 0{
+                    self?.favList = myFav?[0].lineItems
+                    self?.favouriteCollectionView.reloadData()
+                    print("getDrafts \(self?.favList?.count)")
+
+                }
                 self?.checkListCount()
-                print("getDrafts \(self?.favList?.count)")
+                
             }
         }
     }
@@ -89,17 +93,18 @@ extension FavouriteViewController : UICollectionViewDataSource, UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //favList[indexPath.row].quantity
+        let sku = favList?[indexPath.row].sku ?? ""
+        let productID = Int(sku) ?? 0
         
-//        favouriteViewModel?.getProductDetails(productID: (favouritesList?[indexPath.row].value(forKey: "id") as? Int) ?? 0)
-//        favouriteViewModel?.fetchProductsDetailsToViewController = {() in self.renderView()}
+        viewModel?.getProductDetails(productID: productID)
+        viewModel?.fetchProductsDetailsToViewController = {() in self.renderView()}
     }
     
     func renderView(){
         DispatchQueue.main.async {
             let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
             
-            //detailsViewController.product = self.favouriteViewModel?.fetchProductData
+            detailsViewController.product = self.viewModel?.fetchProductData
             //print("iditem \(String(describing: self.favouriteViewModel?.fetchProductData))")
             self.navigationController?.pushViewController(detailsViewController, animated: true)
 

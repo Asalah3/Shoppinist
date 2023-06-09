@@ -23,51 +23,52 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 //    var localData: FavLocalDataSourceProtocol?
 //    var remoteData : ProductDetailsDataSourceProtocol?
 //    var favViewModel : FavViewModel?
+    var draftViewModel: DraftViewModel?
     
     
-//    var check = true
-//    var currentCellIndex = 0
+    var check = true
+    var currentCellIndex = 0
 //    var cart : DrafOrder = DrafOrder()
 //    var cartVM = ShoppingCartViewModel()
 //    var lineitem = LineItem()
 //    var newLineItem : LineItem?
-//    var itemtitle : String?
-//    var lineItemArray:[LineItem] = []
-//    var lineAppend : [LineItem]?
+    var itemtitle : String?
+    var lineItemArray:[LineItem] = []
+    var lineAppend : [LineItem]?
 //    var addtoLine : DrafOrder?
 //    var cartcount = ShoppingCart()
-//    var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        viewWillAppear(false)
-//
+    var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        viewWillAppear(false)
+        draftViewModel = DraftViewModel()
+
 //        localData = FavLocalDataSource()
 //        remoteData = ProductDetailsDataSource()
 //        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
-//
 //        if let favID = product?.id,
-//           let _ = favViewModel, ((favViewModel?.isExist(favouriteId:favID)) != nil){
+//           let _ = draftViewModel, ((draftViewModel?.isExist(favouriteId:favID)) != nil){
 //            detailsFavButton.tintColor = UIColor.red
 //        } else {
 //            detailsFavButton.tintColor = UIColor.darkGray
 //
 //        }
-//
-//        detailsName.text = "\(String(describing: (product?.vendor)!))|\(String(describing: (product?.productType)!))"
-//        detailsPrice.text = "\(String(describing: (product?.variants?[0].price)!)) \(currency)"
-//        detailsDescription.text = (product?.bodyHTML)!
-//        detailsSlider.numberOfPages = product?.images?.count ?? 0
-//        detailsSlider.currentPage = 0
-//
-//
-//    }
-//
+
+        detailsName.text = "\(String(describing: (product?.vendor)!))|\(String(describing: (product?.productType)!))"
+        detailsPrice.text = "\(String(describing: (product?.variants?[0].price)!)) \(currency)"
+        detailsDescription.text = (product?.bodyHTML)!
+        detailsSlider.numberOfPages = product?.images?.count ?? 0
+        detailsSlider.currentPage = 0
+
+
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return product?.images?.count ?? 0
     }
-//
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as? DetailsCollectionViewCell
         cell?.detailsImage.sd_setImage(with: URL(string:(product?.images?[indexPath.row].src)!), placeholderImage: UIImage(named: "placeHolder"))
@@ -75,17 +76,17 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         return cell ?? DetailsCollectionViewCell()
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        detailsSlider.currentPage = indexPath.row
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let size = (detailsCollectionView.frame.size.width)
-//        let width = (view.frame.size.width)
-//        return CGSize(width: size, height: size)
-//    }
-//
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        detailsSlider.currentPage = indexPath.row
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = (detailsCollectionView.frame.size.width)
+        let width = (view.frame.size.width)
+        return CGSize(width: size, height: size)
+    }
+
     @IBAction func addToFav(_ sender: Any) {
         
 //        if let favouriteViewModel = favViewModel,
