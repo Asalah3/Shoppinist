@@ -325,10 +325,10 @@
             </objects>
             <point key="canvasLocation" x="2997.709923664122" y="-27.464788732394368"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--FavouriteView-->
         <scene sceneID="6Pq-p4-C4K">
             <objects>
-                <viewControllerPlaceholder id="Wia-CJ-AiB" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FavouriteView" id="Wia-CJ-AiB" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JVg-aX-fw1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUP-ah-0CT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
