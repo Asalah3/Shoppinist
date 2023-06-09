@@ -58,7 +58,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           tableView.deselectRow(at: indexPath, animated: true)
-       // let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+        let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
         
         UserDefaults.standard.set(customerAddressTable?.addresses![indexPath.row].address1, forKey: "address")
 
@@ -75,7 +75,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         }
         
         
-       // self.navigationController?.pushViewController(payementVC, animated: true)
+        self.navigationController?.pushViewController(payementVC, animated: true)
     
     }
     
