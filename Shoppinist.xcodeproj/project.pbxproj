@@ -72,6 +72,15 @@
 		CFDFC8CA2A2BAB6C00CDB4D2 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8C92A2BAB6C00CDB4D2 /* FavouriteViewController.swift */; };
 		CFDFC8CC2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8CB2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift */; };
 		CFDFC8CE2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDFC8CD2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift */; };
+		CFE7C9D22A32C53800521DED /* TestSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9D12A32C53800521DED /* TestSignUp.swift */; };
+		CFE7C9D42A32C8CE00521DED /* TestSignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9D32A32C8CE00521DED /* TestSignViewModel.swift */; };
+		CFE7C9D62A32CD5000521DED /* TestLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9D52A32CD5000521DED /* TestLogin.swift */; };
+		CFE7C9D82A32CF9400521DED /* TestLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9D72A32CF9400521DED /* TestLoginViewModel.swift */; };
+		CFE7C9DD2A32D2C800521DED /* TestDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9DC2A32D2C800521DED /* TestDetails.swift */; };
+		CFE7C9E12A32DA9D00521DED /* TestLoginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E02A32DA9D00521DED /* TestLoginMock.swift */; };
+		CFE7C9E32A32DEF200521DED /* LoginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E22A32DEF200521DED /* LoginMock.swift */; };
+		CFE7C9E52A32E22B00521DED /* DetailsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E42A32E22B00521DED /* DetailsMock.swift */; };
+		CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E62A32E3D200521DED /* TestDetailsMock.swift */; };
 		DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B312A29819900DF9D10 /* Setting.storyboard */; };
 		DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */; };
 		DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B352A29874300DF9D10 /* MeViewController.swift */; };
@@ -194,6 +203,15 @@
 		CFDFC8C92A2BAB6C00CDB4D2 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		CFDFC8CB2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFDFC8CD2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CFE7C9D12A32C53800521DED /* TestSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSignUp.swift; sourceTree = "<group>"; };
+		CFE7C9D32A32C8CE00521DED /* TestSignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSignViewModel.swift; sourceTree = "<group>"; };
+		CFE7C9D52A32CD5000521DED /* TestLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLogin.swift; sourceTree = "<group>"; };
+		CFE7C9D72A32CF9400521DED /* TestLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewModel.swift; sourceTree = "<group>"; };
+		CFE7C9DC2A32D2C800521DED /* TestDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetails.swift; sourceTree = "<group>"; };
+		CFE7C9E02A32DA9D00521DED /* TestLoginMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginMock.swift; sourceTree = "<group>"; };
+		CFE7C9E22A32DEF200521DED /* LoginMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMock.swift; sourceTree = "<group>"; };
+		CFE7C9E42A32E22B00521DED /* DetailsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMock.swift; sourceTree = "<group>"; };
+		CFE7C9E62A32E3D200521DED /* TestDetailsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailsMock.swift; sourceTree = "<group>"; };
 		DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist_ShoppinistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1B4B312A29819900DF9D10 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -346,6 +364,9 @@
 		C987262E2A27CF0C00EB0A40 /* ShoppinistTests */ = {
 			isa = PBXGroup;
 			children = (
+				CFE7C9DB2A32D2A600521DED /* DetailsTest */,
+				CFE7C9DA2A32D28500521DED /* LoginTest */,
+				CFE7C9D92A32D26B00521DED /* SignUpTest */,
 				C987262F2A27CF0C00EB0A40 /* ShoppinistTests.swift */,
 			);
 			path = ShoppinistTests;
@@ -779,6 +800,36 @@
 				CFDFC8CD2A2BE6CA00CDB4D2 /* DetailsCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CFE7C9D92A32D26B00521DED /* SignUpTest */ = {
+			isa = PBXGroup;
+			children = (
+				CFE7C9D32A32C8CE00521DED /* TestSignViewModel.swift */,
+				CFE7C9D12A32C53800521DED /* TestSignUp.swift */,
+			);
+			path = SignUpTest;
+			sourceTree = "<group>";
+		};
+		CFE7C9DA2A32D28500521DED /* LoginTest */ = {
+			isa = PBXGroup;
+			children = (
+				CFE7C9D72A32CF9400521DED /* TestLoginViewModel.swift */,
+				CFE7C9D52A32CD5000521DED /* TestLogin.swift */,
+				CFE7C9E02A32DA9D00521DED /* TestLoginMock.swift */,
+				CFE7C9E22A32DEF200521DED /* LoginMock.swift */,
+			);
+			path = LoginTest;
+			sourceTree = "<group>";
+		};
+		CFE7C9DB2A32D2A600521DED /* DetailsTest */ = {
+			isa = PBXGroup;
+			children = (
+				CFE7C9DC2A32D2C800521DED /* TestDetails.swift */,
+				CFE7C9E42A32E22B00521DED /* DetailsMock.swift */,
+				CFE7C9E62A32E3D200521DED /* TestDetailsMock.swift */,
+			);
+			path = DetailsTest;
 			sourceTree = "<group>";
 		};
 		DB1B4B302A29817000DF9D10 /* SettingModule */ = {
@@ -1286,7 +1337,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */,
+				CFE7C9DD2A32D2C800521DED /* TestDetails.swift in Sources */,
+				CFE7C9D42A32C8CE00521DED /* TestSignViewModel.swift in Sources */,
 				C98726302A27CF0C00EB0A40 /* ShoppinistTests.swift in Sources */,
+				CFE7C9E12A32DA9D00521DED /* TestLoginMock.swift in Sources */,
+				CFE7C9D22A32C53800521DED /* TestSignUp.swift in Sources */,
+				CFE7C9E32A32DEF200521DED /* LoginMock.swift in Sources */,
+				CFE7C9E52A32E22B00521DED /* DetailsMock.swift in Sources */,
+				CFE7C9D62A32CD5000521DED /* TestLogin.swift in Sources */,
+				CFE7C9D82A32CF9400521DED /* TestLoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
