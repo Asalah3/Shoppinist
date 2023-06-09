@@ -42,6 +42,7 @@ class OnBoardingViewController: UIViewController {
     }
     
     @IBAction func skipButton(_ sender: Any) {
+        
         if currentPage == slides.count - 1 {
             let choosingAuthWayViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChoosingAuthWayViewController") as? ChoosingAuthWayViewController
             choosingAuthWayViewController?.modalTransitionStyle = .crossDissolve

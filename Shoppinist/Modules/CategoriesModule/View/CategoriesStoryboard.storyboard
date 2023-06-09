@@ -17,15 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPZ-3k-5T5">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="a7m-F7-c4g"/>
+                                </connections>
+                            </searchBar>
                             <view contentMode="scaleToFill" id="JXK-Vk-R7Z" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="10" y="103" width="373" height="645"/>
+                                <rect key="frame" x="10" y="192" width="373" height="556"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZRF-1x-HGO">
-                                <rect key="frame" x="10" y="103" width="373" height="32"/>
+                                <rect key="frame" x="10" y="164" width="373" height="32"/>
                                 <segments>
                                     <segment title="Men"/>
                                     <segment title="Woman"/>
@@ -37,7 +44,7 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PVj-2o-gbC">
-                                <rect key="frame" x="10" y="142" width="373" height="645"/>
+                                <rect key="frame" x="10" y="203" width="373" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UOg-0A-6oI">
                                     <size key="itemSize" width="180" height="224"/>
@@ -115,17 +122,19 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZRF-1x-HGO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5Fn-MU-CGf"/>
+                            <constraint firstItem="fPZ-3k-5T5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="08H-gu-eX5"/>
+                            <constraint firstItem="ZRF-1x-HGO" firstAttribute="top" secondItem="fPZ-3k-5T5" secondAttribute="bottom" constant="5" id="6IU-cu-2WS"/>
                             <constraint firstItem="ZRF-1x-HGO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="EWH-wR-UwP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PVj-2o-gbC" secondAttribute="trailing" constant="10" id="Ft5-DW-nU2"/>
                             <constraint firstItem="PVj-2o-gbC" firstAttribute="top" secondItem="ZRF-1x-HGO" secondAttribute="bottom" constant="8" symbolic="YES" id="IYn-4a-aCo"/>
+                            <constraint firstItem="fPZ-3k-5T5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MMe-yS-ZPE"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZRF-1x-HGO" secondAttribute="trailing" constant="10" id="a0s-Hz-ssr"/>
                             <constraint firstItem="PVj-2o-gbC" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.757042" id="d3S-IL-PPf"/>
                             <constraint firstItem="PVj-2o-gbC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="f9P-pO-jhe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fPZ-3k-5T5" secondAttribute="trailing" id="u5t-Po-M5C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nVa-DF-szQ">
-                        <barButtonItem key="leftBarButtonItem" title="Search" image="magnifyingglass" catalog="system" id="BL7-Wf-EJa"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Favourits" image="heart.fill" catalog="system" id="Ckt-tj-Dbd">
                                 <connections>
@@ -139,6 +148,7 @@
                         <outlet property="categoriesCollectionView" destination="PVj-2o-gbC" id="kSO-Ip-B9H"/>
                         <outlet property="categoriesSegment" destination="ZRF-1x-HGO" id="j5u-Xm-wAV"/>
                         <outlet property="noData" destination="JXK-Vk-R7Z" id="1F7-qd-XwM"/>
+                        <outlet property="searchBar" destination="fPZ-3k-5T5" id="J5H-vb-L2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -180,7 +190,6 @@
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
