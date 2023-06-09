@@ -18,8 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMp-ja-QWo">
+                                <rect key="frame" x="0.0" y="99" width="393" height="56"/>
+                                <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="h6v-mI-Kg5"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fsJ-D5-xyr">
-                                <rect key="frame" x="10" y="102.99999999999999" width="373" height="214.66666666666663"/>
+                                <rect key="frame" x="10" y="165" width="373" height="178.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vgi-q4-Qxu">
                                     <size key="itemSize" width="360" height="220"/>
@@ -58,13 +66,13 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6O-3b-e8e">
-                                <rect key="frame" x="10" y="363.66666666666669" width="373" height="29"/>
+                                <rect key="frame" x="10" y="389.66666666666669" width="373" height="29"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-LT-X8Q">
-                                <rect key="frame" x="5" y="397.66666666666674" width="383" height="420.33333333333326"/>
+                                <rect key="frame" x="5" y="423.66666666666674" width="383" height="394.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8St-eX-FXJ">
                                     <size key="itemSize" width="150" height="161"/>
@@ -114,7 +122,7 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="IkX-0s-up8">
-                                <rect key="frame" x="10" y="327.66666666666669" width="373" height="26"/>
+                                <rect key="frame" x="10" y="353.66666666666669" width="373" height="26"/>
                                 <color key="pageIndicatorTintColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" name="AccentColor"/>
                             </pageControl>
@@ -122,24 +130,26 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aMp-ja-QWo" secondAttribute="trailing" id="1kZ-p1-b3k"/>
                             <constraint firstItem="IkX-0s-up8" firstAttribute="top" secondItem="fsJ-D5-xyr" secondAttribute="bottom" constant="10" id="5d4-ij-Wb0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Q6O-3b-e8e" secondAttribute="trailing" constant="10" id="6tw-og-Avp"/>
                             <constraint firstItem="IkX-0s-up8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="79h-Q3-GqD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fsJ-D5-xyr" secondAttribute="trailing" constant="10" id="Bqn-Bw-odz"/>
+                            <constraint firstItem="fsJ-D5-xyr" firstAttribute="top" secondItem="aMp-ja-QWo" secondAttribute="bottom" constant="10" id="JKN-Sv-dzt"/>
                             <constraint firstItem="fsJ-D5-xyr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="PpT-2l-xQ8"/>
                             <constraint firstItem="Q6O-3b-e8e" firstAttribute="top" secondItem="IkX-0s-up8" secondAttribute="bottom" constant="10" id="Qob-kV-y9k"/>
+                            <constraint firstItem="aMp-ja-QWo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RE6-2x-uIt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="B0Q-LT-X8Q" secondAttribute="bottom" id="Tz7-DU-Vns"/>
                             <constraint firstItem="B0Q-LT-X8Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="YNQ-5E-ntB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="B0Q-LT-X8Q" secondAttribute="trailing" constant="5" id="fOo-tS-mAZ"/>
-                            <constraint firstItem="fsJ-D5-xyr" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.300233" id="lzU-NW-Web"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="aMp-ja-QWo" secondAttribute="top" constant="4" id="liu-HX-dxr"/>
+                            <constraint firstItem="fsJ-D5-xyr" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.25" id="lzU-NW-Web"/>
                             <constraint firstItem="Q6O-3b-e8e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="njD-gK-1uv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IkX-0s-up8" secondAttribute="trailing" constant="10" id="rSv-rW-EFg"/>
                             <constraint firstItem="B0Q-LT-X8Q" firstAttribute="top" secondItem="Q6O-3b-e8e" secondAttribute="bottom" constant="5" id="yJQ-Tv-ueS"/>
-                            <constraint firstItem="fsJ-D5-xyr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yaJ-Xs-3RR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="czI-vo-61d">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="cUG-48-v7d"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="heart.fill" catalog="system" id="aP5-4c-ah7">
                                 <connections>
@@ -153,6 +163,7 @@
                         <outlet property="CouponsCollectionView" destination="fsJ-D5-xyr" id="GaJ-3y-iTE"/>
                         <outlet property="brandsCollectionView" destination="B0Q-LT-X8Q" id="HQ0-Ek-6aN"/>
                         <outlet property="pageControl" destination="IkX-0s-up8" id="KHQ-T1-98Z"/>
+                        <outlet property="searchBar" destination="aMp-ja-QWo" id="aGQ-F0-s3v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -178,7 +189,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VnB-dk-60I">
-                                <rect key="frame" x="10" y="59" width="373" height="645"/>
+                                <rect key="frame" x="10" y="174" width="373" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xrt-K9-cfN">
                                     <size key="itemSize" width="180" height="224"/>
@@ -252,23 +263,41 @@
                                     <outlet property="delegate" destination="TeA-QY-08E" id="kl2-TN-JTZ"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkG-aI-0LM">
+                                <rect key="frame" x="0.0" y="108" width="393" height="56"/>
+                                <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TeA-QY-08E" id="ph2-dk-bCR"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jgt-Tx-mtD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="VnB-dk-60I" firstAttribute="top" secondItem="NkG-aI-0LM" secondAttribute="bottom" constant="10" id="7Rx-BH-Xpc"/>
+                            <constraint firstItem="NkG-aI-0LM" firstAttribute="top" secondItem="jgt-Tx-mtD" secondAttribute="top" constant="5" id="HLB-nB-eEa"/>
                             <constraint firstItem="VnB-dk-60I" firstAttribute="height" secondItem="Ubw-5S-vt6" secondAttribute="height" multiplier="0.757042" id="Irf-JV-Tqe"/>
                             <constraint firstItem="jgt-Tx-mtD" firstAttribute="trailing" secondItem="VnB-dk-60I" secondAttribute="trailing" constant="10" id="SCn-Ov-Qy1"/>
                             <constraint firstItem="VnB-dk-60I" firstAttribute="leading" secondItem="jgt-Tx-mtD" secondAttribute="leading" constant="10" id="YqH-zP-gSt"/>
-                            <constraint firstItem="VnB-dk-60I" firstAttribute="top" secondItem="jgt-Tx-mtD" secondAttribute="top" id="x0q-AH-zto"/>
+                            <constraint firstItem="NkG-aI-0LM" firstAttribute="leading" secondItem="jgt-Tx-mtD" secondAttribute="leading" id="jI6-gW-RAD"/>
+                            <constraint firstItem="jgt-Tx-mtD" firstAttribute="trailing" secondItem="NkG-aI-0LM" secondAttribute="trailing" id="uMQ-Wr-Fi0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wiL-vS-Wyy">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="heart.fill" catalog="system" id="zes-sN-S2j"/>
+                            <barButtonItem title="Item" image="cart.fill" catalog="system" id="IQc-0f-uzd"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="productsCollectionView" destination="VnB-dk-60I" id="dzf-dU-IGA"/>
+                        <outlet property="searchBar" destination="NkG-aI-0LM" id="2To-zV-lSQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhq-9v-ld3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2071" y="-27"/>
+            <point key="canvasLocation" x="2997.709923664122" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WAa-UH-Q96">
@@ -288,11 +317,28 @@
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="th1-3D-PhX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bn6-Qy-VbP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hi5-2f-hHZ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TeA-QY-08E" kind="relationship" relationship="rootViewController" id="3wP-yQ-bQp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SOB-y0-hTg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2070.9923664122139" y="-27.464788732394368"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

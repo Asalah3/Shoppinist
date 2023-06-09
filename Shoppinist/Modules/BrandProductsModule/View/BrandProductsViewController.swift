@@ -8,6 +8,8 @@
 import UIKit
 
 class BrandProductsViewController: UIViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: RemoteDataSourceProtocol?
