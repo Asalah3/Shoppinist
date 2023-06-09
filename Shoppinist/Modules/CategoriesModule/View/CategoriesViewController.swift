@@ -29,6 +29,9 @@ class CategoriesViewController: UIViewController {
     var filteredList : [Product]?
     var isFiltered : Bool = false
     var currency = 0.0
+    var searchProducts = [Product]()
+    var searching = false
+    
     override func viewWillAppear(_ animated: Bool) {
         noData.isHidden = true
         favViewModel = DraftViewModel()
@@ -51,24 +54,32 @@ class CategoriesViewController: UIViewController {
         actionButton.buttonImage = UIImage(named: "filter")
         actionButton.addItem(title: "All", image: UIImage(named: "all")?.withRenderingMode(.alwaysTemplate)) { item in
           // do something
+            self.searching = false
+            self.searchBar.text = ""
             print("all")
             self.isFiltered = false
             self.renderView()
         }
         actionButton.addItem(title: "shoes", image: UIImage(named: "shoe")?.withRenderingMode(.alwaysTemplate)) { item in
           // do something
+            self.searching = false
+            self.searchBar.text = ""
             print("Shoes")
             self.filterBySubFilters(filterType: "SHOES")
         }
 
         actionButton.addItem(title: "T-Shirts", image: UIImage(named: "tshirt")?.withRenderingMode(.alwaysTemplate)) { item in
           // do something
+            self.searching = false
+            self.searchBar.text = ""
             print("T-Shirt")
             self.filterBySubFilters(filterType: "T-SHIRTS")
         }
 
         actionButton.addItem(title: "Accessories", image: UIImage(named: "accessories")?.withRenderingMode(.alwaysTemplate)) { item in
           // do something
+            self.searching = false
+            self.searchBar.text = ""
             print("Socks")
             self.filterBySubFilters(filterType: "ACCESSORIES")
         }
@@ -108,6 +119,8 @@ class CategoriesViewController: UIViewController {
     }
     @IBAction func changeCategory(_ sender: Any) {
         isFiltered = false
+        searching = false
+        searchBar.text = ""
         switch categoriesSegment.selectedSegmentIndex{
         case 0:
             categoriesViewModel?.fetchCategoriesData(category: Categories.Men)
@@ -128,11 +141,15 @@ class CategoriesViewController: UIViewController {
 }
 extension CategoriesViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if isFiltered{
-            return filteredList?.count ?? 0
+        if searching == true {
+            return searchProducts.count
+        }else{
+            if isFiltered{
+                return filteredList?.count ?? 0
+            }else{
+                return productsList?.count ?? 0
+            }
         }
-        return productsList?.count ?? 0
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -141,11 +158,16 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
         let product : Product?
-        if isFiltered {
-            product = filteredList?[indexPath.row]
+        if searching == true {
+            product = searchProducts[indexPath.row]
         }else{
-            product = productsList?[indexPath.row]
+            if isFiltered {
+                product = filteredList?[indexPath.row]
+            }else{
+                product = productsList?[indexPath.row]
+            }
         }
+        
         cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.currency = currency
         cell?.setUpCell(product: product!)
@@ -158,16 +180,20 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
-    
+    //----------------Navigate to details---------------
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-//        if isFiltered == true{
-//            detailsViewController.product = self.filteredList?[indexPath.row]
-//        }else{
-//            detailsViewController.product = self.productsList?[indexPath.row]
-//        }
-//
-//        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        if searching == true{
+            detailsViewController.product = self.searchProducts[indexPath.row]
+
+        }else{
+            if isFiltered == true{
+                detailsViewController.product = self.filteredList?[indexPath.row]
+            }else{
+                detailsViewController.product = self.productsList?[indexPath.row]
+            }
+        }
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func renderView(){
@@ -189,3 +215,34 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         }
     }
 }
+
+//------------------search bar-----------------------
+extension CategoriesViewController : UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if isFiltered == true{
+            searchProducts = filteredList?.filter({$0.title?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}) ?? [Product]()
+        }else{
+            searchProducts = productsList?.filter({$0.title?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}) ?? [Product]()
+        }
+        
+        searching = true
+        categoriesCollectionView.reloadData()
+        if self.searchProducts.count == 0{
+            self.categoriesCollectionView.isHidden = true
+            self.noData.isHidden = false
+            self.noData.contentMode = .scaleAspectFit
+            self.noData.loopMode = .loop
+            self.noData.play()
+        }else{
+            self.categoriesCollectionView.isHidden = false
+            self.noData.isHidden = true
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        categoriesCollectionView.reloadData()
+    }
+}
+
