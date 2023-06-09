@@ -25,14 +25,6 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     func setVieModel(draftViewModel: DraftViewModel) {
         self.favDraftViewModel = draftViewModel
         draftViewModel.getAllDrafts()
-        if draftViewModel.checkCurreny() == true{
-            draftViewModel.checkCurreny()
-            draftViewModel.fetchCurrencyToCell = { [weak self] in
-                DispatchQueue.main.async {
-                    self?.currency = Double(draftViewModel.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0
-                }
-            }
-        }
         draftViewModel.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
                 self?.isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
@@ -102,13 +94,12 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productName.text = product.title
         self.productPrice.layer.borderWidth = 1
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
-        if favDraftViewModel?.checkCurreny() == true{
-            var price = Double(product.variants?[0].price ?? "0.0") ?? 0.0 * currency
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            let price = floor((Double(product.variants?[0].price ?? "0.0") ?? 0.0) * self.currency)
             self.productPrice.text = "\(String(price)) EGP"
         }else{
             self.productPrice.text = "\(product.variants?[0].price ?? "") $"
         }
-        
         self.productImage.sd_setImage(with: URL(string:product.image?.src ?? ""), placeholderImage: UIImage(named: "placeHolder"))
     }
     

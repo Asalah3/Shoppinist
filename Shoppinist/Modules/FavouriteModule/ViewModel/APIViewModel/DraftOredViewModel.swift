@@ -160,11 +160,11 @@ class DraftViewModel{
         }
     }
     func checkCurreny() -> Bool{
+        var result = false
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-            return true
-        }else {
-            return false
+            result = true
         }
+        return result 
     }
     func changeCurrency() {
         RemoteDataSource().getCurrency{curreny in
