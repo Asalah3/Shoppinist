@@ -18,6 +18,11 @@ class LoginViewController: UIViewController {
     let invalidMail = "Invalid Mail"
     let wrongPass = "Wrong Password"
     
+    var cartVM = ShoppingCartViewModel()
+    var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
+    var cartcount = AllDrafts()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +34,13 @@ class LoginViewController: UIViewController {
         
         Utilites.setUpTextFeildStyle(textField: loginEmail)
         Utilites.setUpTextFeildStyle(textField: loginPassword)
+        
+        cartVM.cartsUrl = self.AllDraftsUrl
+        cartVM.getAllDrafts()
+        cartVM.bindingCartt = {()in
+            self.renderCart()
+            
+        }
     
     }
 
@@ -69,4 +81,12 @@ class LoginViewController: UIViewController {
 }
 
 
-
+extension LoginViewController {
+    func renderCart() {
+        DispatchQueue.main.async {
+            self.cartcount = self.cartVM.cartResult!
+        }
+  
+    }
+    
+}

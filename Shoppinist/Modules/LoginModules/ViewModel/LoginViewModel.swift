@@ -40,7 +40,11 @@ class LoginViewModel{
                     UserDefaults.standard.set(observable.customers[i].first_name, forKey: "customerFirsttName")
                     UserDefaults.standard.set(observable.customers[i].email, forKey: "customerEmail")
                     UserDefaults.standard.set(observable.customers[i].id, forKey: "customerID")
-                    let userDefultId =  UserDefaults.standard.integer(forKey:"customerID")
+                    //let userDefultId =  UserDefaults.standard.integer(forKey:"customerID")
+                    
+                    UserDefaultsManager.sharedInstance.setUserEmail(userEmail: observable.customers[i].email)
+                    UserDefaultsManager.sharedInstance.setUserID(customerID: observable.customers[i].id)
+                    let userDefultId = UserDefaultsManager.sharedInstance.getUserID()
                     print("User id is", userDefultId)
                     break
                 }
