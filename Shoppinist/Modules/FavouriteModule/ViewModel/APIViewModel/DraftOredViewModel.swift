@@ -146,13 +146,14 @@ class DraftViewModel{
     }
     
     //--------------get details from API-----------------
-//    func getProductDetails(productID : Int) {
-//        ProductDetailsDataSource?.fetchProductDetails(product_id: productID){ result in
-//            guard let result = result else {return}
-//            print("itemdata \(result)")
-//            self.fetchProductData = result.product
-//        }
-//    }
+    func getProductDetails(productID : Int) {
+        ProductDetailsDataSource.fetchProductDetails(product_id: productID){ result in
+            guard let result = result else {return}
+            print("itemdata \(result)")
+            self.fetchProductData = result.product
+        }
+    }
+    
     var fetchCurrencyToCell : (()->())={}
     var fetchCurrencyData:CurrenyModel!{
         didSet{
