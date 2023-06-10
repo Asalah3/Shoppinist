@@ -78,7 +78,7 @@ class DraftNetwork:DraftNetworkProtocol{
     
     
     static func updateDraft(draft: Drafts, complication: @escaping (Int) -> Void) {
-        let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders/\(draft.draft_order?.id ?? 0).json")
+        let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders/\(draft.draftOrder?.id ?? 0).json")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "PUT"
         
@@ -139,7 +139,7 @@ class DraftNetwork:DraftNetworkProtocol{
                 let result = try JSONDecoder().decode(AllDrafts.self, from: data ?? Data())
                 completionHandeler(result, nil)
                 print("success in getDrafts")
-                print(result.draft_orders?.count ?? 0)
+                print(result.draftOrders?.count ?? 0)
 
 
             }catch let error{

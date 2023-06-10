@@ -15,7 +15,9 @@ class FavViewController: UIViewController {
     @IBOutlet weak var favTableView: UITableView!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var productsList : [LineItem]?
+    var myDraftOrder : DrafOrder?
     var favViewModel : DraftViewModel?
+    var draft : Drafts? = Drafts()
     var currency = 0.0
     var searchProducts = [LineItem]()
     var searching = false
@@ -117,12 +119,25 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
         favViewModel?.fetchProductsDetailsToViewController = {() in self.renderViewToNavigate()}
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if productsList != nil && productsList?.count != 0{
+            if myDraftOrder?.lineItems?.count == 1{
+                deleteMyDraft()
+            }else{
+                deleteItemFromMyDraft(index: indexPath.row)
+            }
+        }
+    }
+    
+    
     func renderView(){
         DispatchQueue.main.async {
             let draftOrders = self.favViewModel?.getMyFavouriteDraft()
             if draftOrders != nil && draftOrders?.count != 0{
                 print("draft not nil")
-                self.productsList = draftOrders?[0].line_items
+                self.myDraftOrder = draftOrders?[0]
+                self.productsList = draftOrders?[0].lineItems
                 self.favTableView.reloadData()
             }else{
                 print("draft is nil")
@@ -154,6 +169,44 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
         }else{
             favTableView.isHidden = false
             noData.isHidden = true
+        }
+    }
+    
+    func deleteMyDraft(){
+        self.favViewModel?.delDraft(draftId: (myDraftOrder?.id)!)
+        self.favViewModel?.bindingDraftDelete = { [weak self] in
+            print("view created")
+            DispatchQueue.main.async {
+                if self?.favViewModel?.ObservableDraftDelete  == 200{
+                    print("deleted succeess")
+                    self?.favViewModel?.getAllDrafts()
+                }
+                else{
+                    print("deleted failed")
+                }
+            }
+        }
+    }
+    
+    
+    func deleteItemFromMyDraft(index : Int){
+        self.draft?.draftOrder = myDraftOrder
+        print("mydraftdraft\(String(describing: self.draft?.draftOrder?.lineItems))")
+        let productId: String = "\((productsList?[index].sku)!)"
+        self.draft?.draftOrder?.lineItems?.removeAll(where: { item in
+            item.sku! == productId
+        })
+        self.favViewModel?.updateDraft(updatedDraft: (self.draft)!)
+        self.favViewModel?.bindingDraftUpdate = { [weak self] in
+            print("view createddd")
+            DispatchQueue.main.async {
+                if self?.favViewModel?.ObservableDraftUpdate  == 200 || self?.favViewModel?.ObservableDraftUpdate  == 201{
+                    print("updated item deleted")
+                    self?.favViewModel?.getAllDrafts()
+                }else{
+                    print("updated item deleted fail")
+                }
+            }
         }
     }
     

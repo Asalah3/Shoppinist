@@ -28,15 +28,15 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var check = true
     var currentCellIndex = 0
-    var cart : DrafOrder = DrafOrder()
+    var cart : DrafOrders = DrafOrders()
     var cartVM = ShoppingCartViewModel()
-    var lineitem = LineItem()
-    var newLineItem : LineItem?
+    var lineitem = LineItems()
+    var newLineItem : LineItems?
     var itemtitle : String?
-    var lineItemArray:[LineItem] = []
-    var lineAppend : [LineItem]?
-    var addtoLine : DrafOrder?
-    var cartcount = AllDrafts()
+    var lineItemArray:[LineItems] = []
+    var lineAppend : [LineItems]?
+    var addtoLine : DrafOrders?
+    var cartcount = AllDraftss()
     var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
     
     
@@ -134,7 +134,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                 })
                 if itemtitle == nil {
                    
-                    newLineItem = LineItem()
+                    newLineItem = LineItems()
                     newLineItem?.title = product?.title
                     newLineItem?.price = product?.variants![0].price
                     newLineItem?.sku = product?.image?.src
@@ -143,10 +143,10 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                     newLineItem?.grams = product?.variants![0].inventory_quantity
                     newLineItem?.quantity = 1
                     lineAppend?.append(newLineItem!)
-                    let draftOrder = DrafOrder()
+                    let draftOrder = DrafOrders()
                     draftOrder.line_items = lineAppend
                     addtoLine = draftOrder
-                    let draftOrderAppend : Drafts = Drafts(draft_order:addtoLine)
+                    let draftOrderAppend : Draftss = Draftss(draft_order:addtoLine)
                     putCart(cartt: draftOrderAppend)
                     Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self ?? UIViewController())
                     UserDefaultsManager.sharedInstance.setCartState(cartState: true)
@@ -170,7 +170,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 extension DetailsViewController {
     func renderCart() {
         DispatchQueue.main.async {
-            self.cartcount = self.cartVM.cartResult ?? AllDrafts()
+            self.cartcount = self.cartVM.cartResult ?? AllDraftss()
         }
     }
 }
@@ -188,7 +188,7 @@ extension DetailsViewController {
 
 extension DetailsViewController {
     
-    func putCart(cartt:Drafts){
+    func putCart(cartt:Draftss){
         self.cartVM.putNewCart(userCart: cartt) { data, response, error in
             guard error == nil else {
                 DispatchQueue.main.async {

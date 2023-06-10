@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - AllDrafts
 struct AllDrafts: Codable {
-    var draftOrders: [DraftOrder]?
+    var draftOrders: [DrafOrder]?
 
     enum CodingKeys: String, CodingKey {
         case draftOrders = "draft_orders"
@@ -17,7 +17,7 @@ struct AllDrafts: Codable {
 }
 // MARK: - Welcome
 struct Drafts: Codable {
-    var draftOrder: DraftOrder?
+    var draftOrder: DrafOrder?
 
     enum CodingKeys: String, CodingKey {
         case draftOrder = "draft_order"
@@ -25,7 +25,7 @@ struct Drafts: Codable {
 }
 
 // MARK: - DraftOrder
-struct DraftOrder: Codable {
+struct DrafOrder: Codable {
     let id: Int?
     let note: String?
     let email: String?
@@ -87,7 +87,7 @@ struct DraftCustomer: Codable {
     let tags, lastOrderName, currency: String?
     let phone: String?
     let acceptsMarketingUpdatedAt: String?
-    let emailMarketingConsent: EmailMarketingConsent?
+    
 
     enum CodingKeys: String, CodingKey {
         case id, email
@@ -107,19 +107,9 @@ struct DraftCustomer: Codable {
         case lastOrderName = "last_order_name"
         case currency, phone
         case acceptsMarketingUpdatedAt = "accepts_marketing_updated_at"
-        case emailMarketingConsent = "email_marketing_consent"
     }
 }
 
-// MARK: - EmailMarketingConsent
-struct EmailMarketingConsent: Codable {
-    let state, optInLevel: String?
-
-    enum CodingKeys: String, CodingKey {
-        case state
-        case optInLevel = "opt_in_level"
-    }
-}
 
 // MARK: - LineItem
 struct LineItem: Codable {
@@ -162,84 +152,3 @@ extension Encodable {
         return dictionary
     }
 }
-
-
-
-//// MARK: - AllDrafts
-//class AllDrafts: Codable{
-//    var draft_orders: [DrafOrder]?
-//}
-//// MARK: - Welcome
-//struct Drafts: Codable {
-//    var draft_order : DrafOrder?
-//}
-//
-//// MARK: - DraftOrder
-//class DrafOrder: Codable {
-//    var id : Int?
-//    var email: String?
-//    var line_items : [LineItem]?
-//    var customer: CustomerForDraft?
-//    var note: String?
-//}
-//
-//
-//// MARK: - Customer
-//class customerr : Codable{
-//  var id : Int?
-//  var email : String?
-//  var created_at: String?
-//  var updated_at : String?
-// var first_name : String?
-//
-//}
-//
-//
-//// MARK: - LineItem
-//class LineItem: Codable {
-//
-//        var id: Int?
-//        var product_id : Int?
-//        var title : String?
-//        var price : String?
-//        var quantity : Int?
-//        var sku : String?
-//        var grams : Int?
-//        var vendor : String?
-//
-//}
-//
-//class CustomerForDraft: Codable {
-//    var id: Int?
-//    var email: String?
-//    var acceptsMarketing: Bool?
-//    var createdAt, updatedAt: Date?
-//    var firstName, lastName: String?
-//    var ordersCount: Int?
-//    var state, totalSpent: String?
-//    var lastOrderID: Int?
-//    var note: String?
-//    var verifiedEmail: Bool?
-//    var taxExempt: Bool?
-//    var tags, lastOrderName, currency: String?
-//    var phone: String?
-//    var acceptsMarketingUpdatedAt: Date?
-//    var emailMarketingConsent: EmailMarketingConsent?
-//
-//
-//}
-//
-//class EmailMarketingConsent: Codable {
-//    var state, optInLevel: String?
-//
-//}
-//
-//extension Encodable {
-//    func asDictionary() throws -> [String: Any] {
-//        let data = try JSONEncoder().encode(self)
-//        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
-//            throw NSError()
-//        }
-//        return dictionary
-//    }
-//}

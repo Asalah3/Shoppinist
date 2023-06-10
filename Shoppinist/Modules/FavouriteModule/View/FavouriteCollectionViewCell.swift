@@ -35,7 +35,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
                 let favDraft = self?.favViewModel?.getMyFavouriteDraft()
                 let isHasDraft = self?.favViewModel?.checkIfCustomerHasFavDraft()
                 if isHasDraft ?? false{
-                    if favDraft?[0].line_items?.count == 1{
+                    if favDraft?[0].lineItems?.count == 1{
                         self?.favViewModel?.delDraft(draftId: (favDraft?[0].id)!)
                         self?.favViewModel?.bindingDraftDelete = { [weak self] in
                             print("view created")
@@ -51,9 +51,9 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
                         }
                     }else{
                         
-                        self?.draft?.draft_order = favDraft?[0]
+                        self?.draft?.draftOrder = favDraft?[0]
                         print(self?.draft ?? "nil draft")
-                        self?.draft?.draft_order?.line_items?.removeAll(where: { item in
+                        self?.draft?.draftOrder?.lineItems?.removeAll(where: { item in
                             item.quantity == itemId
                         })
                         self?.favViewModel?.updateDraft(updatedDraft: (self?.draft)!)
@@ -102,7 +102,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
                 let favDraft = self?.favViewModel?.getMyFavouriteDraft()
                 let isHasDraft = self?.favViewModel?.checkIfCustomerHasFavDraft()
                 if isHasDraft ?? false{
-                    if favDraft?[0].line_items?.count == 1{
+                    if favDraft?[0].lineItems?.count == 1{
                         self?.favViewModel?.delDraft(draftId: (favDraft?[0].id)!)
                         self?.favViewModel?.bindingDraftDelete = { [weak self] in
                             print("view created")
@@ -118,9 +118,9 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
                         }
                     }else{
                         
-                        self?.draft?.draft_order = favDraft?[0]
+                        self?.draft?.draftOrder = favDraft?[0]
                         print(self?.draft ?? "nil draft")
-                        self?.draft?.draft_order?.line_items?.removeAll(where: { item in
+                        self?.draft?.draftOrder?.lineItems?.removeAll(where: { item in
                             item.quantity == itemId
                         })
                         self?.favViewModel?.updateDraft(updatedDraft: (self?.draft)!)
