@@ -33,8 +33,16 @@ class ShoppingCardViewController: UIViewController {
     }
 
  
-
+    @IBAction func CheckOutButton(_ sender: Any) {
+        
+        let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
+    
+        self.navigationController?.pushViewController(addresVC, animated: true)
+    }
+    
 }
+
+
 
 
 extension ShoppingCardViewController {
