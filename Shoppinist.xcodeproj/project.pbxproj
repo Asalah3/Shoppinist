@@ -61,6 +61,9 @@
 		CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A112A2A5218005ADCED /* LoginViewController.swift */; };
 		CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */; };
 		CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8828AF2A2D01A9001C34A6 /* ProductDetailsDataSource.swift */; };
+		CF8E04AF2A33EE1D00620529 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04AE2A33EE1D00620529 /* FavViewController.swift */; };
+		CF8E04B12A33EE7D00620529 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04B02A33EE7D00620529 /* FavTableViewCell.swift */; };
+		CF8E04B42A342C6C00620529 /* DetailsDraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04B32A342C6C00620529 /* DetailsDraftModel.swift */; };
 		CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */; };
 		CF96A6B72A2AC4A700AA029A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */; };
 		CFA37DF02A2EDB7200106370 /* DraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA37DEF2A2EDB7200106370 /* DraftModel.swift */; };
@@ -192,6 +195,9 @@
 		CF7A7A112A2A5218005ADCED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingAuthWayViewController.swift; sourceTree = "<group>"; };
 		CF8828AF2A2D01A9001C34A6 /* ProductDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsDataSource.swift; sourceTree = "<group>"; };
+		CF8E04AE2A33EE1D00620529 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		CF8E04B02A33EE7D00620529 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
+		CF8E04B32A342C6C00620529 /* DetailsDraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDraftModel.swift; sourceTree = "<group>"; };
 		CF96A6B32A2ABE4600AA029A /* LoginNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkService.swift; sourceTree = "<group>"; };
 		CF96A6B62A2AC4A700AA029A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFA37DEF2A2EDB7200106370 /* DraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftModel.swift; sourceTree = "<group>"; };
@@ -661,6 +667,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CF8E04B22A342C3F00620529 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF8E04B32A342C6C00620529 /* DetailsDraftModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CF96A6B52A2AC48500AA029A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -777,6 +791,7 @@
 		CFDFC8BE2A2BAAC100CDB4D2 /* DetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				CF8E04B22A342C3F00620529 /* Model */,
 				CFDFC8C02A2BAADA00CDB4D2 /* View */,
 			);
 			path = DetailsModule;
@@ -788,6 +803,8 @@
 				CFDFC8C32A2BAB2300CDB4D2 /* FavouriteView.storyboard */,
 				CFDFC8C92A2BAB6C00CDB4D2 /* FavouriteViewController.swift */,
 				CFDFC8CB2A2BAEFE00CDB4D2 /* FavouriteCollectionViewCell.swift */,
+				CF8E04AE2A33EE1D00620529 /* FavViewController.swift */,
+				CF8E04B02A33EE7D00620529 /* FavTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1301,6 +1318,7 @@
 				C9433F562A32961000FD1813 /* CurrenyModel.swift in Sources */,
 				CF1F4D5A2A2A9D76006F0E07 /* Utilites.swift in Sources */,
 				C98726202A27CF0900EB0A40 /* Shoppinist.xcdatamodeld in Sources */,
+				CF8E04B12A33EE7D00620529 /* FavTableViewCell.swift in Sources */,
 				CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
 				CF1F4D572A2A94E3006F0E07 /* SignViewModel.swift in Sources */,
@@ -1314,7 +1332,9 @@
 				DBFC42D02A2BAEE7005E7F74 /* AddNewAddressViewController.swift in Sources */,
 				C987261A2A27CF0900EB0A40 /* ViewController.swift in Sources */,
 				C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */,
+				CF8E04B42A342C6C00620529 /* DetailsDraftModel.swift in Sources */,
 				C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */,
+				CF8E04AF2A33EE1D00620529 /* FavViewController.swift in Sources */,
 				C9B2C9E32A28910B00ED8AF8 /* BrandsCollectionViewCell.swift in Sources */,
 				DBBAC2F02A2FD20C00A5723B /* CardModel.swift in Sources */,
 				C999112F2A30B1E000EEA6B7 /* OnBoardingViewController.swift in Sources */,

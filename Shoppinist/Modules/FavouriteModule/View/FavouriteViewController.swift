@@ -14,7 +14,7 @@ class FavouriteViewController: UIViewController{
     @IBOutlet weak var noFavImage: AnimationView!
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     var viewModel:DraftViewModel?
-    var draft : Drafts? = Drafts()
+   // var draft : Drafts? = Drafts()
     var favList : [LineItem]?
 //    var favouriteViewModel: FavViewModel?
 //    var favouritesList : [NSManagedObject]?
@@ -45,7 +45,7 @@ class FavouriteViewController: UIViewController{
                 
                 let myFav = self?.viewModel?.getMyFavouriteDraft()
                 if myFav != nil && myFav?.count != 0{
-                    self?.favList = myFav?[0].line_items
+                    self?.favList = myFav?[0].lineItems
                     self?.favouriteCollectionView.reloadData()
                     print("getDrafts \(self?.favList?.count)")
 

@@ -11,9 +11,9 @@ import SDWebImage
 
 class ShoppingCardViewController: UIViewController {
     private var flag: Bool = true
-    private var deletedLineItem : LineItem?
-    private var cartArray: [LineItem]?
-    var lineItem = LineItem()
+    private var deletedLineItem : LineItems?
+    private var cartArray: [LineItems]?
+    var lineItem = LineItems()
     private var counter: Int8 = 1
     private var shoppingCartVM = ShoppingCartViewModel()
     @IBOutlet weak var subTotalPrice: UILabel!
@@ -215,11 +215,11 @@ extension ShoppingCardViewController {
         }
     }
     
-    func putDraftOrder(lineItems : [LineItem]){
-        var draftOrder = DrafOrder()
+    func putDraftOrder(lineItems : [LineItems]){
+        var draftOrder = DrafOrders()
         draftOrder.email = UserDefaultsManager.sharedInstance.getUserEmail()
         draftOrder.line_items = lineItems
-        var shoppingCart = Drafts()
+        var shoppingCart = Draftss()
         shoppingCart.draft_order = draftOrder
         shoppingCartVM.putNewCart(userCart: shoppingCart) { data, response, error in
             guard error == nil else {

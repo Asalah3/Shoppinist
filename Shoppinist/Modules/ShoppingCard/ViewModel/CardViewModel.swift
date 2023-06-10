@@ -8,13 +8,13 @@
 import Foundation
 class ShoppingCartViewModel {
     var bindingCart : (()->()) = {}
-    var cartList :[LineItem]?{
+    var cartList :[LineItems]?{
         didSet{
             bindingCart()
         }
     }
     var bindingCartt : (()->()) = {}
-    var cartResult :AllDrafts?{
+    var cartResult :AllDraftss?{
         didSet{
             bindingCartt()
         }
@@ -57,7 +57,7 @@ class ShoppingCartViewModel {
         } )}
    
 
-    func putNewCart(userCart: Drafts, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> ()) {
+    func putNewCart(userCart: Draftss, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> ()) {
         CartNetwork.sharedInstance.putCart(userCart:userCart) { data, response, error in
             guard error == nil else {
                 completion(nil, nil, error)
