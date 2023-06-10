@@ -36,7 +36,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         
         if let favViewModel = favDraftViewModel,
            favViewModel.checkIfItemIsFav(productID: favObject?.id ?? 0){
-            //favDraftViewModel?.getAllDrafts()
+            favDraftViewModel?.getAllDrafts()
             favouriteButton.tintColor = UIColor.darkGray
             delProduct(itemId: favObject?.id ?? 0)
         } else {
@@ -45,26 +45,18 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             favDraftViewModel?.bindingAllDrafts = { [weak self] in
                 DispatchQueue.main.async {
                     
+                    let myFav = self?.favDraftViewModel?.getMyDrafts()
                     let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                    if favDraft != nil && favDraft?.count != 0{
+                    var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                    print("hasDraft\(String(describing: isHasDraft))")
+                    if isHasDraft ?? false{
                         self?.draft?.draftOrder = favDraft?[0]
-                        self?.draftItem = favDraft?[0]
-                        let lineItem = LineItem(id: self?.favObject?.id, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: self?.favObject?.image?.src!, sku:"\(( self?.favObject?.id)!)"  , vendor: self?.favObject?.image?.src!, quantity: 2, requiresShipping: nil, taxable: nil, giftCard: nil, fulfillmentService: self?.favObject?.image?.src!, grams:20, taxLines: nil, name: self?.favObject?.image?.src!, custom: nil, price: self?.favObject?.variants?[0].price)
-                        
+                        print(self?.draft ?? "nil draft")
+                        let lineItem = LineItem(id: self?.favObject?.id, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: "", sku:"\(( self?.favObject?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self?.favObject?.variants?[0].price)
                         self?.draft?.draftOrder?.lineItems?.append(lineItem)
                         self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
-                        self?.favDraftViewModel?.bindingDraftUpdate = { [weak self] in
-                            print("view createddd")
-                            DispatchQueue.main.async {
-                                
-                                if self?.favDraftViewModel?.ObservableDraftUpdate  == 201{
-                                    print("updated insert succeess")
-                                }
-                                else{
-                                    print("updated insert failed")
-                                }
-                            }
-                        }
+                        isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                        print("updated")
                     }else{
                         print("created")
                         
@@ -75,6 +67,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                                 
                                 if self?.favDraftViewModel?.ObservableDraft  == 201{
                                     print("succeess")
+                                    isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                                 }
                                 else{
                                     print("failed")
@@ -83,6 +76,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                         }
                     }
                     
+                    print(myFav?.count ?? 0)
                     print("fav draft\(favDraft?.count ?? 0)")
                 }
                 }
