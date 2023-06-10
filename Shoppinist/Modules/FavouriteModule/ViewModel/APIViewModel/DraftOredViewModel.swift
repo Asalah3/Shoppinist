@@ -104,6 +104,8 @@ class DraftViewModel{
                 }
             }
         }
+        print("my fav draft count")
+        print(returnedValue.count)
         return returnedValue
     }
     

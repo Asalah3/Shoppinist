@@ -45,17 +45,28 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             favDraftViewModel?.bindingAllDrafts = { [weak self] in
                 DispatchQueue.main.async {
                     
-                    let myFav = self?.favDraftViewModel?.getMyDrafts()
                     let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                    var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
-                    print("hasDraft\(String(describing: isHasDraft))")
-                    if isHasDraft ?? false{
+                    //var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                    //print("hasDraft\(String(describing: isHasDraft))")
+                    if favDraft != nil && favDraft?.count != 0{
                         self?.draft?.draft_order = favDraft?[0]
                         print(self?.draft ?? "nil draft")
                         let lineItem = LineItem()
                         self?.draft?.draft_order?.line_items?.append(lineItem)
                         self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
-                        isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                        self?.favDraftViewModel?.bindingDraftUpdate = { [weak self] in
+                            print("view createddd")
+                            DispatchQueue.main.async {
+                                
+                                if self?.favDraftViewModel?.ObservableDraftUpdate  == 201{
+                                    print("updated insert succeess")
+                                }
+                                else{
+                                    print("updated insert failed")
+                                }
+                            }
+                        }
+                        //isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                         print("updated")
                     }else{
                         print("created")
@@ -67,7 +78,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                                 
                                 if self?.favDraftViewModel?.ObservableDraft  == 201{
                                     print("succeess")
-                                    isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                                    //isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                                 }
                                 else{
                                     print("failed")
@@ -76,7 +87,6 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                         }
                     }
                     
-                    print(myFav?.count ?? 0)
                     print("fav draft\(favDraft?.count ?? 0)")
                 }
                 }

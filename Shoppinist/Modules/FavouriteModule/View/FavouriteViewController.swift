@@ -14,7 +14,7 @@ class FavouriteViewController: UIViewController{
     @IBOutlet weak var noFavImage: AnimationView!
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     var viewModel:DraftViewModel?
-    var draft : Drafts? = Drafts()
+   // var draft : Drafts? = Drafts()
     var favList : [LineItem]?
 //    var favouriteViewModel: FavViewModel?
 //    var favouritesList : [NSManagedObject]?
