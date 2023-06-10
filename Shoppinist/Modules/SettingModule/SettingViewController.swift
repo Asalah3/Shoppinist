@@ -118,6 +118,8 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         case 3 :
             let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "ContactUsViewController") as! ContactUsViewController
             self.present(contactVC, animated: true)
+        case 4:
+            UserDefaultsManager.sharedInstance.clearUserDefaults()
             
         default:
             break

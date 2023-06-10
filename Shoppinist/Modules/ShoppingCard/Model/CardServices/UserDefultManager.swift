@@ -41,4 +41,10 @@ class UserDefaultsManager {
     func getUserID()-> Int?{
         return UserDefaults.standard.integer(forKey: "customerID")
     }
+    
+    func clearUserDefaults() {
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+        }
 }
