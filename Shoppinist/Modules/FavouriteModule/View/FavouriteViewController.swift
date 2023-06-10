@@ -45,7 +45,7 @@ class FavouriteViewController: UIViewController{
                 
                 let myFav = self?.viewModel?.getMyFavouriteDraft()
                 if myFav != nil && myFav?.count != 0{
-                    self?.favList = myFav?[0].lineItems
+                    self?.favList = myFav?[0].line_items
                     self?.favouriteCollectionView.reloadData()
                     print("getDrafts \(self?.favList?.count)")
 

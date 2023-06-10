@@ -78,14 +78,14 @@ class DraftViewModel{
     }
     
     //-----------for retrieve my Drafts-----------
-    func getMyDrafts()->[DraftOrder]{
-        var returnedValue = [DraftOrder]()
+    func getMyDrafts()->[DrafOrder]{
+        var returnedValue = [DrafOrder]()
         
         if let observable = observableAllDrafts {
-            print(observable.draftOrders?.count ?? 0)
-            for i in 0..<(observable.draftOrders?.count ?? 0){
-                if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id{
-                    returnedValue.append((observable.draftOrders?[i])!)
+            print(observable.draft_orders?.count ?? 0)
+            for i in 0..<(observable.draft_orders?.count ?? 0){
+                if UserDefaults.standard.integer(forKey:"customerID") == observable.draft_orders?[i].customer?.id{
+                    returnedValue.append((observable.draft_orders?[i])!)
                 }
             }
         }
@@ -93,14 +93,14 @@ class DraftViewModel{
     }
     
     //-----------for retrieve my fav-----------
-    func getMyFavouriteDraft()->[DraftOrder]{
-        var returnedValue = [DraftOrder]()
+    func getMyFavouriteDraft()->[DrafOrder]{
+        var returnedValue = [DrafOrder]()
         
         if let observable = observableAllDrafts {
-            print(observable.draftOrders?.count ?? 0)
-            for i in 0..<(observable.draftOrders?.count ?? 0){
-                if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id && observable.draftOrders?[i].note == "favourite"{
-                    returnedValue.append((observable.draftOrders?[i])!)
+            print(observable.draft_orders?.count ?? 0)
+            for i in 0..<(observable.draft_orders?.count ?? 0){
+                if UserDefaults.standard.integer(forKey:"customerID") == observable.draft_orders?[i].customer?.id && observable.draft_orders?[i].note == "favourite"{
+                    returnedValue.append((observable.draft_orders?[i])!)
                 }
             }
         }
@@ -112,9 +112,9 @@ class DraftViewModel{
         var returnedValue = false
         
         if let observable = observableAllDrafts {
-            print(observable.draftOrders?.count ?? 0)
-            for i in 0..<(observable.draftOrders?.count ?? 0){
-                if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id && observable.draftOrders?[i].note == "favourite"{
+            print(observable.draft_orders?.count ?? 0)
+            for i in 0..<(observable.draft_orders?.count ?? 0){
+                if UserDefaults.standard.integer(forKey:"customerID") == observable.draft_orders?[i].customer?.id && observable.draft_orders?[i].note == "favourite"{
                     returnedValue = true
                     break
                 }
@@ -128,13 +128,13 @@ class DraftViewModel{
         var returnedValue = false
         
         if let observable = observableAllDrafts {
-            print(observable.draftOrders?.count ?? 0)
-            for i in 0..<(observable.draftOrders?.count ?? 0){
-                if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id && observable.draftOrders?[i].note == "favourite"{
-                    for n in 0..<(observable.draftOrders?[i].lineItems?.count ?? 0){
-                        print("proID \(observable.draftOrders?[i].lineItems?[n].sku)")
+            print(observable.draft_orders?.count ?? 0)
+            for i in 0..<(observable.draft_orders?.count ?? 0){
+                if UserDefaults.standard.integer(forKey:"customerID") == observable.draft_orders?[i].customer?.id && observable.draft_orders?[i].note == "favourite"{
+                    for n in 0..<(observable.draft_orders?[i].line_items?.count ?? 0){
+                        print("proID \(observable.draft_orders?[i].line_items?[n].sku)")
                         print("proId\(productID)")
-                        if ((observable.draftOrders?[i].lineItems?[n].sku) ?? "") == "\(productID)"{
+                        if ((observable.draft_orders?[i].line_items?[n].sku) ?? "") == "\(productID)"{
                             returnedValue = true
                             break
                         }

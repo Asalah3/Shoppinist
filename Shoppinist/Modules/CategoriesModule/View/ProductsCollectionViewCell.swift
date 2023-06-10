@@ -50,10 +50,10 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                     var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                     print("hasDraft\(String(describing: isHasDraft))")
                     if isHasDraft ?? false{
-                        self?.draft?.draftOrder = favDraft?[0]
+                        self?.draft?.draft_order = favDraft?[0]
                         print(self?.draft ?? "nil draft")
-                        let lineItem = LineItem(id: self?.favObject?.id, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: "", sku:"\(( self?.favObject?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self?.favObject?.variants?[0].price)
-                        self?.draft?.draftOrder?.lineItems?.append(lineItem)
+                        let lineItem = LineItem()
+                        self?.draft?.draft_order?.line_items?.append(lineItem)
                         self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
                         isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                         print("updated")
@@ -115,7 +115,7 @@ extension ProductsCollectionViewCell{
                 let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
                 let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                 if isHasDraft ?? false{
-                    if favDraft?[0].lineItems?.count == 1{
+                    if favDraft?[0].line_items?.count == 1{
                         self?.favDraftViewModel?.delDraft(draftId: (favDraft?[0].id)!)
                         self?.favDraftViewModel?.bindingDraftDelete = { [weak self] in
                             print("view created")
@@ -131,9 +131,9 @@ extension ProductsCollectionViewCell{
                         }
                     }else{
                         
-                        self?.draft?.draftOrder = favDraft?[0]
+                        self?.draft?.draft_order = favDraft?[0]
                         print(self?.draft ?? "nil draft")
-                        self?.draft?.draftOrder?.lineItems?.removeAll(where: { item in
+                        self?.draft?.draft_order?.line_items?.removeAll(where: { item in
                             item.quantity == itemId
                         })
                         self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
