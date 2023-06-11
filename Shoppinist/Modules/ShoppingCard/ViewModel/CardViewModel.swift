@@ -8,13 +8,13 @@
 import Foundation
 class ShoppingCartViewModel {
     var bindingCart : (()->()) = {}
-    var cartList :[LineItems]?{
+    var cartList :[LineItem]?{
         didSet{
             bindingCart()
         }
     }
     var bindingCartt : (()->()) = {}
-    var cartResult :AllDraftss?{
+    var cartResult :AllDrafts?{
         didSet{
             bindingCartt()
         }
@@ -22,9 +22,9 @@ class ShoppingCartViewModel {
     var cartsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
     
     func getShoppingCart() {
-        CartNetwork.sharedInstance.fetchUserCart(handlerComplition: { result in
+        CartNetwork.fetchUserCart(handlerComplition: { result in
             if let result = result {
-                self.cartList = result.draft_order?.line_items
+                self.cartList = result.draftOrder?.lineItems
             }
         })
     }
@@ -32,7 +32,7 @@ class ShoppingCartViewModel {
     
     
     func postNewCart(userCart: [String:Any], completion: @escaping (Data?, HTTPURLResponse?, Error?) -> ()) {
-        CartNetwork.sharedInstance.postCart(userCart:userCart) { data, response, error in
+        CartNetwork.postCart(userCart:userCart) { data, response, error in
             guard error == nil else {
                 completion(nil, nil, error)
                 return
@@ -52,13 +52,14 @@ class ShoppingCartViewModel {
     
     
     func getAllDrafts(){
-        CartNetwork.sharedInstance.CartfetchData(completionHandeler:{ returnedDrafts ,_ in
+        CartNetwork.CartfetchData(completionHandeler:{ returnedDrafts ,_ in
             self.cartResult = returnedDrafts
+            
         } )}
    
 
-    func putNewCart(userCart: Draftss, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> ()) {
-        CartNetwork.sharedInstance.putCart(userCart:userCart) { data, response, error in
+    func putNewCart(userCart: Drafts, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> ()) {
+        CartNetwork.putCart(userCart:userCart) { data, response, error in
             guard error == nil else {
                 completion(nil, nil, error)
                 return
@@ -79,7 +80,7 @@ class ShoppingCartViewModel {
     
     
     func deleteCart(completion: @escaping (Error?) -> ()) {
-        CartNetwork.sharedInstance.deleteCart { error in
+        CartNetwork.deleteCart { error in
             guard error == nil else {
                 print("draft order deleting error")
                 completion(error)

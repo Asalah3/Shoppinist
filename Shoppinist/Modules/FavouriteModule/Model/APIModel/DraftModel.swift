@@ -26,19 +26,19 @@ struct Drafts: Codable {
 
 // MARK: - DraftOrder
 struct DrafOrder: Codable {
-    let id: Int?
-    let note: String?
-    let email: String?
-    let taxesIncluded: Bool?
+    var id: Int?
+    var note: String?
+    var email: String?
+    var taxesIncluded: Bool?
     var currency: String?
-    let createdAt, updatedAt: String?
+    var createdAt, updatedAt: String?
     var taxExempt: Bool?
-    let name, status: String?
+    var name, status: String?
     var lineItems: [LineItem]?
     var appliedDiscount: AppliedDiscount?
-    let taxLines: [TaxLine]?
-    let tags: String?
-    let totalPrice, subtotalPrice, totalTax: String?
+    var taxLines: [TaxLine]?
+    var tags: String?
+    var totalPrice, subtotalPrice, totalTax: String?
     var customer: DraftCustomer?
 
     enum CodingKeys: String, CodingKey {
@@ -62,8 +62,8 @@ struct DrafOrder: Codable {
 
 // MARK: - AppliedDiscount
 struct AppliedDiscount: Codable {
-    let description, value, title, amount: String?
-    let valueType: String?
+    var description, value, title, amount: String?
+    var valueType: String?
 
     enum CodingKeys: String, CodingKey {
         case description, value, title, amount
@@ -113,18 +113,18 @@ struct DraftCustomer: Codable {
 
 // MARK: - LineItem
 struct LineItem: Codable {
-    let id: Int?
-    let variantID, productID: Int?
-    let title: String?
-    let variantTitle, sku, vendor: String?
-    let quantity: Int?
-    let requiresShipping, taxable, giftCard: Bool?
-    let fulfillmentService: String?
-    let grams: Int?
-    let taxLines: [TaxLine]?
-    let name: String?
-    let custom: Bool?
-    let price: String?
+    var id: Int?
+    var variantID, productID: Int?
+    var title: String?
+    var variantTitle, sku, vendor: String?
+    var quantity: Int?
+    var requiresShipping, taxable, giftCard: Bool?
+    var fulfillmentService: String?
+    var grams: Int?
+    var taxLines: [TaxLine]?
+    var name: String?
+    var custom: Bool?
+    var price: String?
 
     enum CodingKeys: String, CodingKey {
         case id

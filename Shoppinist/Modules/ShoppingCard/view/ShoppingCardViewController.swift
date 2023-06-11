@@ -11,9 +11,9 @@ import SDWebImage
 
 class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITableViewDelegate,CounterProtocol {
     private var flag: Bool = true
-    private var deletedLineItem : LineItems?
-    private var cartArray: [LineItems]?
-    var lineItem = LineItems()
+    private var deletedLineItem : LineItem?
+    private var cartArray: [LineItem]?
+    var lineItem = LineItem()
     private var counter: Int8 = 1
     private var shoppingCartVM = ShoppingCartViewModel()
     @IBOutlet weak var subTotalPrice: UILabel!
@@ -205,12 +205,12 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
         }
     }
     
-    func putDraftOrder(lineItems : [LineItems]){
-        var draftOrder = DrafOrders()
+    func putDraftOrder(lineItems : [LineItem]){
+        var draftOrder = DrafOrder()
              draftOrder.email = UserDefaultsManager.sharedInstance.getUserEmail()
-              draftOrder.line_items = lineItems
-              var shoppingCart = Draftss()
-              shoppingCart.draft_order = draftOrder
+              draftOrder.lineItems = lineItems
+              var shoppingCart = Drafts()
+              shoppingCart.draftOrder = draftOrder
              shoppingCartVM.putNewCart(userCart: shoppingCart) { data, response, error in
             guard error == nil else {
                 DispatchQueue.main.async {
