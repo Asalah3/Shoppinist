@@ -38,6 +38,8 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     @IBAction func CheckOutButton(_ sender: Any) {
         
         let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
+        
+        addresVC.price = Int(Self.subTotalPrice)
     
         self.navigationController?.pushViewController(addresVC, animated: true)
     }
@@ -162,7 +164,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     }
     func setSubTotal(){
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-            let price = (Double(Self.subTotalPrice) )  * 30
+            let price = (Int(Self.subTotalPrice) )  * 30
             let priceString = "\(price.formatted()) EGP"
             subTotalPrice.text = priceString
         }

@@ -14,7 +14,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     var addressViewModel : AddressViewModel?
     var customerAddressTable : CustomerAddress?
     var statusCode : Int?
-    
+    var price:Int = 0
     @IBOutlet weak var pageAddressLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,8 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           tableView.deselectRow(at: indexPath, animated: true)
         let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-        
+        payementVC.totalprice = price
+        print("total price is\(price) ")
         UserDefaults.standard.set(customerAddressTable?.addresses![indexPath.row].address1, forKey: "address")
 
         AddressNetworkServices.updateAddress(customer_id: UserDefaults.standard.integer(forKey:"customerID")
