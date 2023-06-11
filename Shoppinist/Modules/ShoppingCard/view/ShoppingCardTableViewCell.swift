@@ -20,7 +20,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var priceButton: UILabel!
     @IBOutlet weak var plusButton: UIView!
-    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var increaseItem: UIButton!
     var counterProtocol: CounterProtocol?
     @IBOutlet weak var decreseItem: UIButton!
@@ -36,7 +36,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
         if counter > 1 {
             counter = counter - 1
             lineItem[indexPath.row].quantity = counter
-            quantity.text = String (counter)
+            quantityLabel.text = String (counter)
             counterProtocol?.decreaseCounter(price: lineItem[indexPath.row].price ?? "")
             counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
         }
@@ -55,7 +55,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
         
         if counter < ((lineItem[indexPath.row].grams ?? 1) - 2) {
             counter = counter + 1
-            quantity.text = String (counter)
+            quantityLabel.text = String (counter)
             lineItem[indexPath.row].quantity = counter
             counterProtocol?.increaseCounter()
             counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)

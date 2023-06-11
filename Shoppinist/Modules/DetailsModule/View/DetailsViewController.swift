@@ -43,7 +43,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        renderCartData()
         viewWillAppear(false)
         draftViewModel = DraftViewModel()
 
@@ -103,64 +103,103 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         
-        cartVM.cartsUrl = self.AllDraftsUrl
-        cartVM.getAllDrafts()
-        cartVM.bindingCartt = {()in
-            self.renderCart()
-            
-        }
+//        cartVM.cartsUrl = self.AllDraftsUrl
+//        cartVM.getAllDrafts()
+//        cartVM.bindingCartt = {()in
+//            self.renderCart()
+//            
+//        }
     }
     
     @IBAction func addToBag(_ sender: Any) {
-        cartcount.draft_orders?.forEach({ email in
-            print("this is email",email.email,UserDefaultsManager.sharedInstance.getUserEmail())
-            renderCartData ()
-            if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail(){
-                print("user draft order is \(email.email)")
-                
-                addtoLine = email
-                UserDefaultsManager.sharedInstance.setUserCart(cartId: email.id)
-                lineAppend = email.line_items
-       
-                lineAppend?.forEach({itemm in
-                    if itemm.title == self.product?.title  {
-                      
-                        
-                        itemtitle = itemm.title
-                        Utilites.displayToast(message: "Already in cart" , seconds: 2.0, controller: self ?? UIViewController())
-                        print ("done")
-                      
-                    }
-                })
-                if itemtitle == nil {
-                   
-                    newLineItem = LineItems()
-                    newLineItem?.title = product?.title
-                    newLineItem?.price = product?.variants![0].price
-                    newLineItem?.sku = product?.image?.src
-                    newLineItem?.vendor = product?.vendor
-                    newLineItem?.product_id = product?.id
-                    newLineItem?.grams = product?.variants![0].inventory_quantity
-                    newLineItem?.quantity = 1
-                    lineAppend?.append(newLineItem!)
-                    let draftOrder = DrafOrders()
-                    draftOrder.line_items = lineAppend
-                    addtoLine = draftOrder
-                    let draftOrderAppend : Draftss = Draftss(draft_order:addtoLine)
-                    putCart(cartt: draftOrderAppend)
-                    Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self ?? UIViewController())
-                    UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-                  
-                }
+        
+        
+        if let userEmail = UserDefaultsManager.sharedInstance.getUserEmail(),
+           let matchingOrder = cartcount.draft_orders?.first(where: { $0.email == userEmail }) {
+            UserDefaultsManager.sharedInstance.setUserCart(cartId: matchingOrder.id)
+            lineAppend = matchingOrder.line_items
+            if ((lineAppend?.first(where: { $0.title == self.product?.title })) != nil){
+                Utilites.displayToast(message: "Already in cart" , seconds: 2.0, controller: self)
+            }else{
+                newLineItem = LineItems()
+                newLineItem?.title = product?.title
+                newLineItem?.price = product?.variants![0].price
+                newLineItem?.sku = product?.image?.src
+                newLineItem?.vendor = product?.vendor
+                newLineItem?.product_id = product?.id
+                newLineItem?.grams = product?.variants![0].inventory_quantity
+                newLineItem?.quantity = 1
+                lineAppend?.append(newLineItem!)
+                let draftOrder = DrafOrders()
+                draftOrder.line_items = lineAppend
+                let draftOrderAppend : Draftss = Draftss(draft_order:draftOrder)
+                putCart(cartt: draftOrderAppend)
+                Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
+                UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+                print ("puted")
             }
-            
-        })
-        if addtoLine == nil{
+        } else {
             self.postCart()
-            print ("posted")
-            Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self ?? UIViewController())
+            Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
             UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+            print ("posted")
         }
+
+        
+        
+        
+        
+        
+        
+//        cartcount.draft_orders?.forEach({ email in
+//            print("this is email",email.email,UserDefaultsManager.sharedInstance.getUserEmail())
+//            renderCartData ()
+//            if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail(){
+//                print("user draft order is \(email.email)")
+//
+//                addtoLine = email
+//                UserDefaultsManager.sharedInstance.setUserCart(cartId: email.id)
+//                lineAppend = email.line_items
+//
+//                lineAppend?.forEach({itemm in
+//                    if itemm.title == self.product?.title  {
+//
+//
+//                        itemtitle = itemm.title
+//                        Utilites.displayToast(message: "Already in cart" , seconds: 2.0, controller: self ?? UIViewController())
+//                        print ("done")
+//
+//                    }
+//                })
+//                if itemtitle == nil {
+//
+//                    newLineItem = LineItems()
+//                    newLineItem?.title = product?.title
+//                    newLineItem?.price = product?.variants![0].price
+//                    newLineItem?.sku = product?.image?.src
+//                    newLineItem?.vendor = product?.vendor
+//                    newLineItem?.product_id = product?.id
+//                    newLineItem?.grams = product?.variants![0].inventory_quantity
+//                    newLineItem?.quantity = 1
+//                    lineAppend?.append(newLineItem!)
+//                    let draftOrder = DrafOrders()
+//                    draftOrder.line_items = lineAppend
+//                    addtoLine = draftOrder
+//                    let draftOrderAppend : Draftss = Draftss(draft_order:addtoLine)
+//                    putCart(cartt: draftOrderAppend)
+//                    Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self ?? UIViewController())
+//                    UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+//
+//                }
+//            }
+//
+//        })
+//        if addtoLine == nil{
+//            self.postCart()
+//            print ("posted")
+//            Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self ?? UIViewController())
+//            UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+//        }
         
     }
 }
