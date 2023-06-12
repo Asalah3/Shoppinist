@@ -16,6 +16,10 @@ class ChoosingAuthWayViewController: UIViewController {
     }
 
     @IBAction func enterAsGuest(_ sender: Any) {
+        
+        UserDefaults.standard.set("Guest", forKey: "customerFirsttName")
+        UserDefaults.standard.set("", forKey: "customerEmail")
+        UserDefaults.standard.set(0, forKey: "customerID")
         let tabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
         tabBar?.modalTransitionStyle = .crossDissolve
         tabBar?.modalPresentationStyle = .fullScreen

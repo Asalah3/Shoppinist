@@ -21,11 +21,12 @@ class FavViewController: UIViewController {
     var currency = 0.0
     var searchProducts = [LineItem]()
     var searching = false
+
     
     override func viewWillAppear(_ animated: Bool) {
         noData.isHidden = true
-        favViewModel = DraftViewModel()
         productsList = [LineItem]()
+        favViewModel = DraftViewModel()
         self.favViewModel?.changeCurrency()
         self.favViewModel?.fetchCurrencyToCell = { [weak self] in
             DispatchQueue.main.async {
@@ -50,6 +51,7 @@ class FavViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        
     }
 }
@@ -91,7 +93,13 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             }else{
                 unwrappedImage = ""
             }
-            cell.productPrice.text = searchProducts[indexPath.row].price
+            
+            if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                let price = floor((Double(searchProducts[indexPath.row].price ?? "0.0") ?? 0.0) * self.currency)
+                cell.productPrice.text = "\(String(price)) EGP"
+            }else{
+                cell.productPrice.text = "\(searchProducts[indexPath.row].price ?? "") $"
+            }
             cell.productName.text = searchProducts[indexPath.row].title
         }else{
             if (productsList?[indexPath.row].vendor) != nil{
@@ -99,7 +107,12 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             }else{
                 unwrappedImage = ""
             }
-            cell.productPrice.text = productsList?[indexPath.row].price
+            if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                let price = floor((Double(productsList?[indexPath.row].price ?? "0.0") ?? 0.0) * self.currency)
+                cell.productPrice.text = "\(String(price)) EGP"
+            }else{
+                cell.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
+            }
             cell.productName.text = productsList?[indexPath.row].title
         }
         cell.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
