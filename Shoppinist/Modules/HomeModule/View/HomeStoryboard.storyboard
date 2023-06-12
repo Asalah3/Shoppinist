@@ -200,14 +200,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="P2p-N7-dMa" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="10" y="197" width="373" height="556"/>
+                                <rect key="frame" x="10" y="236" width="373" height="517"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bI7-AH-whp">
+                                <rect key="frame" x="10" y="178" width="305" height="31"/>
+                                <color key="tintColor" red="0.6766191721" green="0.72304660080000005" blue="0.99312585590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="doller"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeSlider:" destination="TeA-QY-08E" eventType="valueChanged" id="Z6S-9I-5uz"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6v-Gu-4jD">
+                                <rect key="frame" x="321" y="178" width="62" height="34"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VnB-dk-60I">
-                                <rect key="frame" x="10" y="174" width="373" height="645"/>
+                                <rect key="frame" x="10" y="218" width="373" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xrt-K9-cfN">
                                     <size key="itemSize" width="180" height="224"/>
@@ -293,12 +310,20 @@
                         <viewLayoutGuide key="safeArea" id="jgt-Tx-mtD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VnB-dk-60I" firstAttribute="top" secondItem="NkG-aI-0LM" secondAttribute="bottom" constant="10" id="7Rx-BH-Xpc"/>
+                            <constraint firstItem="B6v-Gu-4jD" firstAttribute="width" secondItem="Ubw-5S-vt6" secondAttribute="width" multiplier="0.157761" id="1YY-qt-a7v"/>
                             <constraint firstItem="NkG-aI-0LM" firstAttribute="top" secondItem="jgt-Tx-mtD" secondAttribute="top" constant="5" id="HLB-nB-eEa"/>
+                            <constraint firstItem="B6v-Gu-4jD" firstAttribute="height" secondItem="Ubw-5S-vt6" secondAttribute="height" multiplier="0.0399061" id="Ha6-He-BCD"/>
                             <constraint firstItem="VnB-dk-60I" firstAttribute="height" secondItem="Ubw-5S-vt6" secondAttribute="height" multiplier="0.757042" id="Irf-JV-Tqe"/>
+                            <constraint firstItem="B6v-Gu-4jD" firstAttribute="top" secondItem="NkG-aI-0LM" secondAttribute="bottom" constant="14" id="PV2-ms-1eN"/>
+                            <constraint firstItem="VnB-dk-60I" firstAttribute="top" secondItem="bI7-AH-whp" secondAttribute="bottom" constant="10" id="QZR-W9-JXn"/>
                             <constraint firstItem="jgt-Tx-mtD" firstAttribute="trailing" secondItem="VnB-dk-60I" secondAttribute="trailing" constant="10" id="SCn-Ov-Qy1"/>
+                            <constraint firstItem="jgt-Tx-mtD" firstAttribute="trailing" secondItem="B6v-Gu-4jD" secondAttribute="trailing" constant="10" id="XOo-pv-Cxd"/>
                             <constraint firstItem="VnB-dk-60I" firstAttribute="leading" secondItem="jgt-Tx-mtD" secondAttribute="leading" constant="10" id="YqH-zP-gSt"/>
+                            <constraint firstItem="B6v-Gu-4jD" firstAttribute="leading" secondItem="bI7-AH-whp" secondAttribute="trailing" constant="8" symbolic="YES" id="dXm-Le-1W3"/>
+                            <constraint firstItem="bI7-AH-whp" firstAttribute="leading" secondItem="jgt-Tx-mtD" secondAttribute="leading" constant="12" id="hj0-yQ-DWx"/>
                             <constraint firstItem="NkG-aI-0LM" firstAttribute="leading" secondItem="jgt-Tx-mtD" secondAttribute="leading" id="jI6-gW-RAD"/>
+                            <constraint firstItem="bI7-AH-whp" firstAttribute="top" secondItem="NkG-aI-0LM" secondAttribute="bottom" constant="14" id="kLR-9e-us1"/>
+                            <constraint firstItem="bI7-AH-whp" firstAttribute="height" secondItem="B6v-Gu-4jD" secondAttribute="height" multiplier="0.882353" id="qcm-CP-k0m"/>
                             <constraint firstItem="jgt-Tx-mtD" firstAttribute="trailing" secondItem="NkG-aI-0LM" secondAttribute="trailing" id="uMQ-Wr-Fi0"/>
                         </constraints>
                     </view>
@@ -319,6 +344,8 @@
                         <outlet property="NoData" destination="P2p-N7-dMa" id="b5V-tJ-pMf"/>
                         <outlet property="productsCollectionView" destination="VnB-dk-60I" id="dzf-dU-IGA"/>
                         <outlet property="searchBar" destination="NkG-aI-0LM" id="2To-zV-lSQ"/>
+                        <outlet property="slider" destination="bI7-AH-whp" id="hT0-KQ-Oo1"/>
+                        <outlet property="sliderRange" destination="B6v-Gu-4jD" id="Ada-NC-h3E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhq-9v-ld3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -537,6 +564,7 @@
     </designables>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="doller" width="5000" height="5000"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
