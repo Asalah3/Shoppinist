@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         Utilites.setUpTextFeildStyle(textField: loginPassword)
         
         cartVM.cartsUrl = self.AllDraftsUrl
-        cartVM.getAllDrafts()
+        cartVM.getCart()
         cartVM.bindingCartt = {()in
             self.renderCart()
             

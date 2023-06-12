@@ -6,6 +6,7 @@
 ////
 //
 import Foundation
+import Alamofire
 
 class CartNetwork {
    
@@ -68,30 +69,22 @@ class CartNetwork {
         }.resume()
     }
     
-    static  func CartfetchData(completionHandeler: @escaping ((AllDrafts?), Error?) -> Void) {
-            let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
-            guard let newUrl = url else {
+    static func CartfetchData(url : String?,handlerComplition : @escaping (AllDrafts?)->Void) {
+    request("\(url!)").responseData {response in
+            guard let data = response.data else {
                 return
             }
-            print("newUrl\(newUrl)")
-            let request = URLRequest(url: newUrl)
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: request){ data ,response , error in
-                do{
-                    let result = try JSONDecoder().decode(AllDrafts?.self, from: data ?? Data())
-                    completionHandeler(result, nil)
-                    print("success in getDrafts")
-                    print("result \(result)")
-    
-                }catch let error{
-                    print(error.localizedDescription)
-                    print("error in getDrafts")
-                    completionHandeler(nil, error)
-                }
-    
+            
+            do{
+                let result = try JSONDecoder().decode(AllDrafts.self, from: data)
+                handlerComplition(result)
+            }catch let error {
+                print(error.localizedDescription)
+                handlerComplition(nil)
             }
-            task.resume()
-        }
+            
+          }
+      }
     
  static   func putCart(userCart: Drafts , completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
         let cartId = UserDefaultsManager.sharedInstance.getUserCart()!
