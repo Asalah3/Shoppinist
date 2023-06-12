@@ -13,17 +13,22 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var sliderRange: UILabel!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: RemoteDataSourceProtocol?
     var brandProductsViewModel : BrandProductsViewModel?
     var localData: FavLocalDataSourceProtocol?
     var remoteData : ProductDetailsDataSourceProtocol?
     var favViewModel : DraftViewModel?
-    var productsList : ProductModel?
+    var productsList : [Product]?
     var brandId = 0
     var currency = 0.0
     var searchBrandProducts = [Product]()
+    var filteredPrice : [Product] = []
     var searching = false
+    var filtered = false
     
     override func viewWillAppear(_ animated: Bool) {
         favViewModel = DraftViewModel()
@@ -41,30 +46,54 @@ class BrandProductsViewController: UIViewController {
 //        remoteData = ProductDetailsDataSource()
 //        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
         NoData.isHidden = true
+        // -------------------- SetUp CollectionViewFlow --------------------
         let brandsLayout = UICollectionViewFlowLayout()
         brandsLayout.scrollDirection = .vertical
         self.productsCollectionView.collectionViewLayout = brandsLayout
         productsCollectionView.showsVerticalScrollIndicator = false
         productsCollectionView.showsHorizontalScrollIndicator = false
+        
+        // -------------------- SetUp ActivityIndicator --------------------
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = view.center
                 activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
+        
+        // -------------------- SetUp ViewModel --------------------
+        
         remoteDataSource = RemoteDataSource()
         brandProductsViewModel = BrandProductsViewModel(remoteDataSource: remoteDataSource ?? RemoteDataSource())
         brandProductsViewModel?.fetchBrandProducts(collectionId: brandId)
         brandProductsViewModel?.fetchProductsToBrandProductsViewController = {() in self.renderView()}
-        
-        
+    }
+    
+    @IBAction func changeSlider(_ sender: Any) {
+        filtered = true
+        self.sliderRange.text = String(floor(self.slider.value))
+        filteredPrice = productsList?.filter({Float($0.variants?.first?.price ?? "0.0") ?? 0.0 <= slider.value}) ?? []
+        self.productsCollectionView.reloadData()
+        if self.filteredPrice.count == 0{
+            self.productsCollectionView.isHidden = true
+            self.NoData.isHidden = false
+            self.NoData.contentMode = .scaleAspectFit
+            self.NoData.loopMode = .loop
+            self.NoData.play()
+        }else{
+            self.productsCollectionView.isHidden = false
+            self.NoData.isHidden = true
+        }
+        print(filteredPrice.count)
+
     }
 }
 extension BrandProductsViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searching == true{
             return searchBrandProducts.count
+        }else if filtered == true{
+            return filteredPrice.count
         }else{
-            return productsList?.products?.count ?? 0
-
+            return productsList?.count ?? 0
         }
     }
     
@@ -77,8 +106,10 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         if searching == true{
             product = searchBrandProducts[indexPath.row]
 
+        }else if filtered == true{
+            product = filteredPrice[indexPath.row]
         }else{
-            product = productsList?.products?[indexPath.row]
+            product = productsList?[indexPath.row]
 
         }
         cell?.setVieModel(draftViewModel:favViewModel!)
@@ -99,7 +130,7 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         if searching == true{
             detailsViewController.product = self.searchBrandProducts[indexPath.row]
         }else{
-            detailsViewController.product = self.productsList?.products?[indexPath.row]
+            detailsViewController.product = self.productsList?[indexPath.row]
         }
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
@@ -107,6 +138,10 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
     func renderView(){
         DispatchQueue.main.async {
             self.productsList = self.brandProductsViewModel?.fetchProductsData
+            self.slider.value = Float(self.productsList?.first?.variants?.first?.price ?? "0.0") ?? 0.0
+            self.slider.minimumValue = Float(self.productsList?.first?.variants?.first?.price ?? "0.0") ?? 0.0
+            self.slider.maximumValue = Float(self.productsList?.last?.variants?.first?.price ?? "0.0") ?? 0.0
+            self.sliderRange.text = String(floor(self.slider.value))
             self.productsCollectionView.reloadData()
             self.activityIndicator.stopAnimating()
         }
@@ -116,7 +151,14 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
 //------------------search bar-----------------------
 extension BrandProductsViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchBrandProducts = productsList?.products?.filter({$0.title?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}) ?? [Product]()
+        var list : [Product] = []
+        if filtered == true{
+            list = filteredPrice
+        }else{
+            list = productsList ?? []
+        }
+        
+        searchBrandProducts = list.filter({$0.title?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()})
         searching = true
         productsCollectionView.reloadData()
         if self.searchBrandProducts.count == 0{
@@ -128,6 +170,9 @@ extension BrandProductsViewController : UISearchBarDelegate{
         }else{
             self.productsCollectionView.isHidden = false
             self.NoData.isHidden = true
+        }
+        if searchText == ""{
+            searching = false
         }
     }
     
