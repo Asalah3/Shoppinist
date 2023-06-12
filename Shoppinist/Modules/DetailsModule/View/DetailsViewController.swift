@@ -19,15 +19,13 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var detailsFavButton: UIButton!
     
     var product : Product?
-    var currency : String = "EGP"
-//    var localData: FavLocalDataSourceProtocol?
-//    var remoteData : ProductDetailsDataSourceProtocol?
-//    var favViewModel : FavViewModel?
     var draftViewModel: DraftViewModel?
     
     
     var check = true
     var currentCellIndex = 0
+    var currency = 0.0
+    var favViewModel : DraftViewModel?
     var cart : DrafOrder = DrafOrder()
     var cartVM = ShoppingCartViewModel()
     var lineitem = LineItem()
@@ -45,6 +43,20 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         renderCartData()
         
+        favViewModel = DraftViewModel()
+        self.favViewModel?.changeCurrency()
+        self.favViewModel?.fetchCurrencyToCell = { [weak self] in
+            DispatchQueue.main.async {
+                self?.currency = (Double(self?.favViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0).rounded()
+                if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                    let price = floor((Double(self?.product?.variants?[0].price ?? "0.0")) ?? 0.0) * (self?.currency ?? 0)
+                    self?.detailsPrice.text = "\(String(price)) EGP"
+                }else{
+                    self?.detailsPrice.text = "\(self?.product?.variants?[0].price ?? "") $"
+                }
+            }
+        }
+        
        // draftViewModel = DraftViewModel()
 
 //        localData = FavLocalDataSource()
@@ -57,9 +69,15 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 //            detailsFavButton.tintColor = UIColor.darkGray
 //
 //        }
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.detailsCollectionView.collectionViewLayout = layout
+        self.detailsCollectionView.isPagingEnabled = true
+        detailsCollectionView.showsVerticalScrollIndicator = false
+        detailsCollectionView.showsHorizontalScrollIndicator = false
 
         detailsName.text = product?.title
-        detailsPrice.text = "\(String(describing: (product?.variants?[0].price)!)) \(currency)"
         detailsDescription.text = (product?.bodyHTML)!
         detailsSlider.numberOfPages = product?.images?.count ?? 0
         detailsSlider.currentPage = 0
@@ -73,6 +91,8 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as? DetailsCollectionViewCell
+        cell?.contentMode = .scaleAspectFill
+        cell?.clipsToBounds = true
         cell?.detailsImage.sd_setImage(with: URL(string:(product?.images?[indexPath.row].src)!), placeholderImage: UIImage(named: "placeHolder"))
 
 
@@ -82,11 +102,22 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         detailsSlider.currentPage = indexPath.row
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (detailsCollectionView.frame.size.width)
-        return CGSize(width: size, height: size)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = (detailsCollectionView.frame.size.width)
+        let height = (detailsCollectionView.frame.size.height)
+        
+        return CGSize(width: width, height: height)
+    }
+
+
+
 
     @IBAction func addToFav(_ sender: Any) {
         

@@ -172,6 +172,7 @@ class DraftViewModel{
     func changeCurrency() {
         RemoteDataSource().getCurrency{curreny in
             guard let curreny = curreny else {return}
+            print("currency is \(curreny)")
             self.fetchCurrencyData = curreny
         }
     }
