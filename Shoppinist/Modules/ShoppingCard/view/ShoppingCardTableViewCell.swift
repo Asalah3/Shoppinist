@@ -25,7 +25,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
     var counterProtocol: CounterProtocol?
     @IBOutlet weak var decreseItem: UIButton!
     var indexPath: IndexPath!
-    var lineItem : [LineItems]!
+    var lineItem : [LineItem]!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

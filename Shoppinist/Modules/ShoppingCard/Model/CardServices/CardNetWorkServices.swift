@@ -8,10 +8,9 @@
 import Foundation
 
 class CartNetwork {
-    static var sharedInstance = CartNetwork()
-    private init(){}
+   
     
-    func fetchUserCart (handlerComplition : @escaping (Draftss?)->Void) {
+  static  func fetchUserCart (handlerComplition : @escaping (Drafts?)->Void) {
         let draftOrderID = UserDefaultsManager.sharedInstance.getUserCart() ?? 0
         print("draftOrderID \(draftOrderID)")
         print("email\(UserDefaultsManager.sharedInstance.getUserEmail())")
@@ -29,7 +28,7 @@ class CartNetwork {
                 if (statusCode == 200 && statusCode < 300) {
                     print("Everyone is fine, file downloaded successfully.")
                     do{
-                        let json = try JSONDecoder().decode(Draftss.self , from: data) as? Draftss
+                        let json = try JSONDecoder().decode(Drafts.self , from: data) as? Drafts
                         
                         //print(json)
                          handlerComplition(json)
@@ -46,7 +45,7 @@ class CartNetwork {
     }
     
     
-    func postCart(userCart: [String:Any], completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
+   static func postCart(userCart: [String:Any], completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
         guard let url = URL(string: URLService.draftCart()) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -69,7 +68,7 @@ class CartNetwork {
         }.resume()
     }
     
-      func CartfetchData(completionHandeler: @escaping ((AllDraftss?), Error?) -> Void) {
+    static  func CartfetchData(completionHandeler: @escaping ((AllDrafts?), Error?) -> Void) {
             let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
             guard let newUrl = url else {
                 return
@@ -79,10 +78,10 @@ class CartNetwork {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: request){ data ,response , error in
                 do{
-                    let result = try JSONDecoder().decode(AllDraftss?.self, from: data ?? Data())
+                    let result = try JSONDecoder().decode(AllDrafts?.self, from: data ?? Data())
                     completionHandeler(result, nil)
                     print("success in getDrafts")
-    
+                    print("result \(result)")
     
                 }catch let error{
                     print(error.localizedDescription)
@@ -94,7 +93,7 @@ class CartNetwork {
             task.resume()
         }
     
-    func putCart(userCart: Draftss , completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
+ static   func putCart(userCart: Drafts , completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
         let cartId = UserDefaultsManager.sharedInstance.getUserCart()!
         guard let url = URL(string: URLService.putCart(lineId:cartId)) else { return }
         var request = URLRequest(url: url)
@@ -117,7 +116,7 @@ class CartNetwork {
         }.resume()
     }
     
-    func deleteCart(completion: @escaping ( Error?) -> ()){
+    static func deleteCart(completion: @escaping ( Error?) -> ()){
        let draftOrderID = UserDefaults.standard.integer(forKey: "Cart_ID")
         let url = URLService.deleteCart(cartID: draftOrderID)
         guard let baseURL = URL(string : url ) else { return }
