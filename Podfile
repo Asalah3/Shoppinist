@@ -5,10 +5,13 @@ target 'Shoppinist' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 	pod 'ReachabilitySwift'
+	pod 'Alamofire'
   # Pods for Shoppinist
 	pod 'SDWebImage', '~> 5.0'
 	pod 'lottie-ios'
 	pod 'JJFloatingActionButton'
+	pod 'JJFloatingActionButton'
+	pod 'Cosmos', '~> 23.0'
 
   target 'ShoppinistTests' do
     inherit! :search_paths
