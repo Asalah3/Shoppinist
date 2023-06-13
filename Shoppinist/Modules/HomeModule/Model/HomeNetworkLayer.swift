@@ -15,6 +15,7 @@ class HomeRemoteDataSource : HomeRemoteDataSourceProtocol{
         guard let newUrl = url else {
             return
         }
+        
         var request = URLRequest(url: newUrl)
         request.allHTTPHeaderFields = ["auth_header": "request.auth_header",
                                        "cookies": "request.cookies"]
