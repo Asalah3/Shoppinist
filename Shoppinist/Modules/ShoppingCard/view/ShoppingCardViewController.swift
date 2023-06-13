@@ -18,23 +18,60 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     private var shoppingCartVM = ShoppingCartViewModel()
     @IBOutlet weak var subTotalPrice: UILabel!
     private static var subTotalPrice = 0.0
-    private let indicator = UIActivityIndicatorView(style: .large)
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     @IBOutlet weak var cardTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
           print("viewDidLoad")
-        //cartArray = nil
         ShoppingCardViewController.subTotalPrice = 0.0
-        self.cardTableView.reloadData()
+        //  cartArray = nil
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+       
     }
     override func viewWillAppear(_ animated: Bool) {
+        print("viewDidLoad")
         ShoppingCardViewController.subTotalPrice = 0.0
         getData()
         
         self.cardTableView.reloadData()
     }
 
- 
+    func getData(){
+        shoppingCartVM.getShoppingCart()
+        shoppingCartVM.bindingCart = {
+            self.renderView()
+            
+        }
+        self.cardTableView.reloadData()
+    }
+    func renderView(){
+        DispatchQueue.main.async {
+            
+            //self.cartArray?.removeAll()
+            self.cartArray = self.shoppingCartVM.cartList
+            self.cardTableView.reloadData()
+            self.configureView()
+            self.activityIndicator.stopAnimating()
+            print("sub total : \(Self.subTotalPrice)")
+            
+            }
+   
+    }
+
+    func configureView(){
+        if cartArray != nil {
+            self.shoppingCartVM.cartList?.forEach({ item in
+                Self.subTotalPrice += Double(item.price ?? "0") ?? 0.0
+            })
+            
+            setSubTotal()
+            UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+        }
+        
+    }
     @IBAction func CheckOutButton(_ sender: Any) {
         
         let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
@@ -93,45 +130,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     
     
     
-    func getData(){
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            self.renderView()
-            
-        }
-        self.cardTableView.reloadData()
-    }
-    func renderView(){
-        DispatchQueue.main.async {
-           self.indicator.stopAnimating()
-            self.cartArray?.removeAll()
-            self.cartArray = self.shoppingCartVM.cartList
-            self.configureView()
-            print("sub total : \(Self.subTotalPrice)")
-            if self.cartArray?.count == 0 {
-            self.cardTableView.isHidden = true
-            }
-            else {
-                self.cardTableView.isHidden = false
-               
-                
-            }
-            
-            }
-   
-    }
-
-    func configureView(){
-        if cartArray != nil {
-            self.shoppingCartVM.cartList?.forEach({ item in
-                Self.subTotalPrice += Double(item.price ?? "0") ?? 0.0
-            })
-            
-            setSubTotal()
-            UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-        }
-        
-    }
+    
     
     func setItemQuantityToPut(quantity: Int, index: Int) {
         self.cartArray?[index].quantity = quantity
