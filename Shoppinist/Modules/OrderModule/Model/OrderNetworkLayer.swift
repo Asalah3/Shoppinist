@@ -66,8 +66,8 @@ class OrderNetwork:OrderNetworkProtocol{
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
-                    let response = String(data:data!,encoding: .utf8)
-                    print("Inserted")
+//                    let response = String(data:data!,encoding: .utf8)
+//                    print("Inserted")
                     complication(httpResponse.statusCode)
                 }
             }

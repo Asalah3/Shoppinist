@@ -17,6 +17,8 @@
 		C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97D2A2928940071DAD6 /* HomeViewModel.swift */; };
 		C9433F562A32961000FD1813 /* CurrenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9433F552A32961000FD1813 /* CurrenyModel.swift */; };
 		C94EB6D52A2A9C1E000E7681 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6D42A2A9C1E000E7681 /* CategoriesViewModel.swift */; };
+		C97C96402A38ED86009756D6 /* AllOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97C963F2A38ED86009756D6 /* AllOrdersViewController.swift */; };
+		C97C96422A38F23F009756D6 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97C96412A38F23F009756D6 /* OrderTableViewCell.swift */; };
 		C97CA70D2A2BB84B00A67A6F /* no-data-found.json in Resources */ = {isa = PBXBuildFile; fileRef = C97CA70C2A2BB84B00A67A6F /* no-data-found.json */; };
 		C98726162A27CF0900EB0A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98726152A27CF0900EB0A40 /* AppDelegate.swift */; };
 		C98726182A27CF0900EB0A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98726172A27CF0900EB0A40 /* SceneDelegate.swift */; };
@@ -153,6 +155,8 @@
 		C930A97D2A2928940071DAD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C9433F552A32961000FD1813 /* CurrenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenyModel.swift; sourceTree = "<group>"; };
 		C94EB6D42A2A9C1E000E7681 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		C97C963F2A38ED86009756D6 /* AllOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrdersViewController.swift; sourceTree = "<group>"; };
+		C97C96412A38F23F009756D6 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		C97CA70C2A2BB84B00A67A6F /* no-data-found.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "no-data-found.json"; sourceTree = "<group>"; };
 		C98726122A27CF0900EB0A40 /* Shoppinist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppinist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98726152A27CF0900EB0A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -643,6 +647,8 @@
 			children = (
 				C9CF17162A2E13DD00C5F723 /* OrderModuleViewController.swift */,
 				C9CF171A2A2E197200C5F723 /* Order.storyboard */,
+				C97C963F2A38ED86009756D6 /* AllOrdersViewController.swift */,
+				C97C96412A38F23F009756D6 /* OrderTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1361,6 +1367,7 @@
 				C987F95B2A310A9A008733F4 /* OrderModel.swift in Sources */,
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */,
+				C97C96402A38ED86009756D6 /* AllOrdersViewController.swift in Sources */,
 				DBDA3F442A327A9F00A5C15F /* SelectAddressTableViewCell.swift in Sources */,
 				CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */,
 				DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */,
@@ -1377,6 +1384,7 @@
 				CF1F4D522A2A7EE3006F0E07 /* LoginedCustomerModel.swift in Sources */,
 				C987264D2A27D14900EB0A40 /* RemoteDataSource.swift in Sources */,
 				CF1F4D572A2A94E3006F0E07 /* SignViewModel.swift in Sources */,
+				C97C96422A38F23F009756D6 /* OrderTableViewCell.swift in Sources */,
 				DBDA3F422A32772F00A5C15F /* SelectAddressViewController.swift in Sources */,
 				CFA37DF22A2EDB9D00106370 /* DraftOrderNetworkService.swift in Sources */,
 				DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */,
