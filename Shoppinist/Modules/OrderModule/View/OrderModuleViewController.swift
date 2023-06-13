@@ -26,7 +26,7 @@ class OrderModuleViewController: UIViewController {
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
     }
     @IBAction func placeOrderButton(_ sender: Any) {
-        var order = Order(id: nil, cartToken: nil, checkoutID: nil, checkoutToken: nil, confirmed: true, currency: nil, discountCodes: nil, createdAt: nil, email: nil, name: nil, taxLines: nil, customer: nil, lineItems: lineItems, shippingAddress: shippingAddress, shippingLines: nil)
+        let order = Order(id: nil, cartToken: nil, checkoutID: nil, checkoutToken: nil, confirmed: true, currency: nil, discountCodes: nil, createdAt: nil, email: nil, name: nil, taxLines: nil, customer: nil, lineItems: lineItems, shippingAddress: shippingAddress, shippingLines: nil)
         self.orderModuleViewModel?.createOrder(order: OrdersModel(orders: [order]))
         self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
             DispatchQueue.main.async {
