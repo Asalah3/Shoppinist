@@ -51,10 +51,10 @@ class ShoppingCartViewModel {
     }
     
     
-    func getAllDrafts(){
-        CartNetwork.CartfetchData(completionHandeler:{ returnedDrafts ,_ in
-            self.cartResult = returnedDrafts
-            
+    func getCart() {
+        CartNetwork.CartfetchData(url: cartsUrl, handlerComplition:{ result in
+            self.cartResult = result
+//            print ("draft email\(result?.draft_order![1].email)")
         } )}
    
 
