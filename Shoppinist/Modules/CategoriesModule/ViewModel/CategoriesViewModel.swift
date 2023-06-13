@@ -6,20 +6,23 @@
 //
 
 import Foundation
-enum Categories{
-    case Men
-    case Women
-    case Kids
-    case Sale
+enum Categories : String{
+    case Men = "447912870180"
+    case Women = "447912902948"
+    case Kids = "447912935716"
+    case Sale = "447912968484"
 }
 protocol CategoriesViewModelProtocol{
     func fetchCategoriesData(category: Categories)
+    func filterBySubFilter(filter : String) -> [Product]
+    var fetchProductsToCategoriesViewController : (()->()) {get set}
+    var fetchCategoryData:ProductModel!{get set}
 }
 class CategoriesViewModel : CategoriesViewModelProtocol {
     
     
-    var remote :RemoteDataSourceProtocol?
-    init( remoteDataSource: RemoteDataSourceProtocol) {
+    var remote : CategoriesRemoteDataSourceProtocol?
+    init( remoteDataSource: CategoriesRemoteDataSourceProtocol) {
         self.remote = remoteDataSource
     }
     var fetchProductsToCategoriesViewController : (()->())={}
@@ -29,23 +32,11 @@ class CategoriesViewModel : CategoriesViewModelProtocol {
         }
     }
     func fetchCategoriesData(category: Categories) {
-        var collectionId = ""
-        switch category{
-        case Categories.Men:
-            collectionId = "447912870180"
-        case Categories.Women:
-            collectionId = "447912902948"
-        case Categories.Kids:
-            collectionId = "447912935716"
-        case Categories.Sale:
-            collectionId = "447912968484"
-        }
-        remote?.fetchCategoryProducts(collection_id: "\(collectionId)"){ [weak self] result in
+        remote?.fetchCategoryProducts(collection_id: category.rawValue){ [weak self] result in
             guard let result = result else {return}
             self?.fetchCategoryData = result
         }
     }
-    
     func filterBySubFilter(filter : String) -> [Product]{
         let productsList : [Product] = self.fetchCategoryData?.products ?? []
         let filterdList = productsList.filter{ $0.productType == filter}
