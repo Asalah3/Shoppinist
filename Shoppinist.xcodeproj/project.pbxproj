@@ -10,6 +10,9 @@
 		69BBF2357126C2E1FE5043B2 /* Pods_ShoppinistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1086DC2D32699D525F554BF /* Pods_ShoppinistTests.framework */; };
 		9EA66756829F561A1A69A388 /* Pods_Shoppinist_ShoppinistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA384CE02747DA53E3D18AB2 /* Pods_Shoppinist_ShoppinistUITests.framework */; };
 		C90739172A389E7700ED87AC /* HomeNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90739162A389E7700ED87AC /* HomeNetworkLayer.swift */; };
+		C907391D2A38A4E000ED87AC /* TestBrandsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C907391C2A38A4E000ED87AC /* TestBrandsNetwork.swift */; };
+		C907391F2A38A64900ED87AC /* BrandsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C907391E2A38A64900ED87AC /* BrandsMock.swift */; };
+		C90739212A38A73B00ED87AC /* TestBrandsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90739202A38A73B00ED87AC /* TestBrandsMock.swift */; };
 		C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97A2A2927680071DAD6 /* BrandModel.swift */; };
 		C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97D2A2928940071DAD6 /* HomeViewModel.swift */; };
 		C9433F562A32961000FD1813 /* CurrenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9433F552A32961000FD1813 /* CurrenyModel.swift */; };
@@ -143,6 +146,9 @@
 		B388E8610DD2F414054C502D /* Pods-Shoppinist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppinist.release.xcconfig"; path = "Target Support Files/Pods-Shoppinist/Pods-Shoppinist.release.xcconfig"; sourceTree = "<group>"; };
 		C54958C093B8786E2AB2788F /* Pods-Shoppinist-ShoppinistUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppinist-ShoppinistUITests.debug.xcconfig"; path = "Target Support Files/Pods-Shoppinist-ShoppinistUITests/Pods-Shoppinist-ShoppinistUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C90739162A389E7700ED87AC /* HomeNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkLayer.swift; sourceTree = "<group>"; };
+		C907391C2A38A4E000ED87AC /* TestBrandsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandsNetwork.swift; sourceTree = "<group>"; };
+		C907391E2A38A64900ED87AC /* BrandsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsMock.swift; sourceTree = "<group>"; };
+		C90739202A38A73B00ED87AC /* TestBrandsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandsMock.swift; sourceTree = "<group>"; };
 		C930A97A2A2927680071DAD6 /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
 		C930A97D2A2928940071DAD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C9433F552A32961000FD1813 /* CurrenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenyModel.swift; sourceTree = "<group>"; };
@@ -309,6 +315,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C907391A2A38A4A800ED87AC /* HomeModuleTest */ = {
+			isa = PBXGroup;
+			children = (
+				C907391B2A38A4C400ED87AC /* TestNetworkLayer */,
+			);
+			path = HomeModuleTest;
+			sourceTree = "<group>";
+		};
+		C907391B2A38A4C400ED87AC /* TestNetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C907391C2A38A4E000ED87AC /* TestBrandsNetwork.swift */,
+				C907391E2A38A64900ED87AC /* BrandsMock.swift */,
+				C90739202A38A73B00ED87AC /* TestBrandsMock.swift */,
+			);
+			path = TestNetworkLayer;
+			sourceTree = "<group>";
+		};
 		C930A9792A2927270071DAD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +399,7 @@
 		C987262E2A27CF0C00EB0A40 /* ShoppinistTests */ = {
 			isa = PBXGroup;
 			children = (
+				C907391A2A38A4A800ED87AC /* HomeModuleTest */,
 				CF846FE02A379621007FE718 /* FavouriteTest */,
 				CFE7C9DB2A32D2A600521DED /* DetailsTest */,
 				CFE7C9DA2A32D28500521DED /* LoginTest */,
@@ -1389,6 +1414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */,
+				C907391F2A38A64900ED87AC /* BrandsMock.swift in Sources */,
 				CFE7C9DD2A32D2C800521DED /* TestDetails.swift in Sources */,
 				CFE7C9D42A32C8CE00521DED /* TestSignViewModel.swift in Sources */,
 				C98726302A27CF0C00EB0A40 /* ShoppinistTests.swift in Sources */,
@@ -1398,6 +1424,8 @@
 				CFE7C9E32A32DEF200521DED /* LoginMock.swift in Sources */,
 				CFE7C9E52A32E22B00521DED /* DetailsMock.swift in Sources */,
 				CFE7C9D62A32CD5000521DED /* TestLogin.swift in Sources */,
+				C90739212A38A73B00ED87AC /* TestBrandsMock.swift in Sources */,
+				C907391D2A38A4E000ED87AC /* TestBrandsNetwork.swift in Sources */,
 				CFE7C9D82A32CF9400521DED /* TestLoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
