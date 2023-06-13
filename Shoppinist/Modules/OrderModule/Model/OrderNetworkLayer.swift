@@ -6,12 +6,12 @@
 //
 
 import Foundation
-protocol OrderNetworkProtocol{
-    func createOrder(order: PostOrdersModel, complication:@escaping (Int) -> Void)
+protocol OrderRemoteDataSourceProtocol{
+    func createOrder(order: OrdersModel, complication:@escaping (Int) -> Void)
 }
-class OrderNetwork:OrderNetworkProtocol{
+class OrderRemoteDataSource:OrderRemoteDataSourceProtocol{
     
-    func createOrder(order: PostOrdersModel, complication:@escaping (Int) -> Void) {
+    func createOrder(order: OrdersModel, complication:@escaping (Int) -> Void) {
         let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/orders.json")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
@@ -27,8 +27,8 @@ class OrderNetwork:OrderNetworkProtocol{
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
-//                    let response = String(data:data!,encoding: .utf8)
-//                    print("Inserted")
+                    let response = String(data:data!,encoding: .utf8)
+                    print("Inserted")
                     complication(httpResponse.statusCode)
                 }
             }
