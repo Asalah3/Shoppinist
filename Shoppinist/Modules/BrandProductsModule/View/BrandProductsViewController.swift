@@ -17,8 +17,8 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderRange: UILabel!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    var remoteDataSource: RemoteDataSourceProtocol?
-    var brandProductsViewModel : BrandProductsViewModel?
+    var remoteDataSource: BrandProductsRemoteDataSourceProtocol?
+    var brandProductsViewModel : BrandProductsViewModelProtocol?
     var localData: FavLocalDataSourceProtocol?
     var remoteData : ProductDetailsDataSourceProtocol?
     var favViewModel : DraftViewModel?
@@ -61,8 +61,8 @@ class BrandProductsViewController: UIViewController {
         
         // -------------------- SetUp ViewModel --------------------
         
-        remoteDataSource = RemoteDataSource()
-        brandProductsViewModel = BrandProductsViewModel(remoteDataSource: remoteDataSource ?? RemoteDataSource())
+        remoteDataSource = BrandProductsRemoteDataSource()
+        brandProductsViewModel = BrandProductsViewModel(remoteDataSource: remoteDataSource ?? BrandProductsRemoteDataSource())
         brandProductsViewModel?.fetchBrandProducts(collectionId: brandId)
         brandProductsViewModel?.fetchProductsToBrandProductsViewController = {() in self.renderView()}
     }
@@ -82,8 +82,6 @@ class BrandProductsViewController: UIViewController {
             self.productsCollectionView.isHidden = false
             self.NoData.isHidden = true
         }
-        print(filteredPrice.count)
-
     }
 }
 extension BrandProductsViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{

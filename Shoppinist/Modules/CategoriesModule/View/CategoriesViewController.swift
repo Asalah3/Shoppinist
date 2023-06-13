@@ -20,8 +20,8 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var categoriesSegment: UISegmentedControl!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    var remoteDataSource: RemoteDataSourceProtocol?
-    var categoriesViewModel : CategoriesViewModel?
+    var remoteDataSource: CategoriesRemoteDataSourceProtocol?
+    var categoriesViewModel : CategoriesViewModelProtocol?
 //    var localData: FavLocalDataSourceProtocol?
 //    var remoteData : ProductDetailsDataSourceProtocol?
     var favViewModel : DraftViewModel?
@@ -93,8 +93,8 @@ class CategoriesViewController: UIViewController {
             activityIndicator.center = view.center
                     activityIndicator.startAnimating()
             view.addSubview(activityIndicator)
-            remoteDataSource = RemoteDataSource()
-            categoriesViewModel = CategoriesViewModel(remoteDataSource: remoteDataSource ?? RemoteDataSource())
+            remoteDataSource = CategoriesRemoteDataSource()
+            categoriesViewModel = CategoriesViewModel(remoteDataSource: remoteDataSource ?? CategoriesRemoteDataSource())
             categoriesViewModel?.fetchCategoriesData(category: Categories.Men)
             categoriesViewModel?.fetchProductsToCategoriesViewController = {() in self.renderView()}
         }

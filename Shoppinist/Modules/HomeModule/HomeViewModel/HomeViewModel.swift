@@ -8,18 +8,20 @@
 import Foundation
 protocol HomeViewModelProtocol{
     func fetchHomeData(resourse :String)
+    var fetchHomeData:BrandModel!{get set}
+    var fetchBrandsToHomeViewController : (()->()) { get set }
 }
 class HomeViewModel :HomeViewModelProtocol {
-    var remote :RemoteDataSourceProtocol?
-    init( remoteDataSource: RemoteDataSourceProtocol) {
-        self.remote = remoteDataSource
-    }
-    var fetchBrandsToHomeViewController : (()->())={}
-    var fetchHomeData:BrandModel!{
+    var fetchHomeData: BrandModel!{
         didSet{
             fetchBrandsToHomeViewController()
         }
     }
+    var remote : HomeRemoteDataSourceProtocol?
+    init(remote: HomeRemoteDataSourceProtocol) {
+        self.remote = remote
+    }
+    var fetchBrandsToHomeViewController : (()->())={}
     func fetchHomeData(resourse: String) {
         remote?.fetchBrands{ result in
             guard let result = result else {return}

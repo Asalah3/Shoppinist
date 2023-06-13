@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     var currentCellIndex = 0
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    var remoteDataSource: RemoteDataSourceProtocol?
+    var remoteDataSource: HomeRemoteDataSourceProtocol?
     var homeViewModel : HomeViewModel?
     var timer: Timer?
     var brandsList: BrandModel?
@@ -49,8 +49,8 @@ class HomeViewController: UIViewController {
                 activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
-        remoteDataSource = RemoteDataSource()
-        homeViewModel = HomeViewModel(remoteDataSource: remoteDataSource ?? RemoteDataSource())
+        remoteDataSource = HomeRemoteDataSource()
+        homeViewModel = HomeViewModel(remote: remoteDataSource ?? HomeRemoteDataSource())
         homeViewModel?.fetchHomeData(resourse: "")
         homeViewModel?.fetchBrandsToHomeViewController = {() in self.renderView()}
         

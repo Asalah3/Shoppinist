@@ -8,10 +8,12 @@
 import Foundation
 protocol BrandProductsViewModelProtocol{
     func fetchBrandProducts(collectionId :Int)
+    var fetchProductsToBrandProductsViewController : (()->()){get set}
+    var fetchProductsData:[Product]!{get set}
 }
 class BrandProductsViewModel : BrandProductsViewModelProtocol{
-    var remote :RemoteDataSourceProtocol?
-    init( remoteDataSource: RemoteDataSourceProtocol) {
+    var remote :BrandProductsRemoteDataSourceProtocol?
+    init( remoteDataSource: BrandProductsRemoteDataSourceProtocol) {
         self.remote = remoteDataSource
     }
     var fetchProductsToBrandProductsViewController : (()->())={}
