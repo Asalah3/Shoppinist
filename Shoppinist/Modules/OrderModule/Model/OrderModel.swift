@@ -24,9 +24,9 @@ struct Order: Codable {
     let email: String?
     let name: String?
     let taxLines: [TaxLine]?
-    let customer: OrderCustomer?
-    let lineItems: [OrderLineItem]?
-    let shippingAddress: OrderAddress?
+    let customer: Customer?
+    let lineItems: [LineItem]?
+    let shippingAddress: Address?
     let shippingLines: [ShippingLine]?
 
     enum CodingKeys: String, CodingKey {

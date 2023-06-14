@@ -84,7 +84,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
         let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
         
         addresVC.price = Int(Self.subTotalPrice)
-    
+//        addresVC.lineItems = cartArray
         self.navigationController?.pushViewController(addresVC, animated: true)
     }
     
