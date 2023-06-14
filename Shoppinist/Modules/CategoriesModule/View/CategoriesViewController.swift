@@ -53,7 +53,6 @@ class CategoriesViewController: UIViewController {
    
     }
     override func viewWillAppear(_ animated: Bool) {
-        print("user defult for coupon \(UserDefaultsManager.sharedInstance.getUserCoupon())")
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
         var count = cartArray?.count ?? 0
