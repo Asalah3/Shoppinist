@@ -9,11 +9,30 @@ import UIKit
 import NVActivityIndicatorView
 import BadgeSwift
 class MeViewController: UIViewController {
-
+    
+    private var cartArray: [LineItem]?
+    private var shoppingCartVM = ShoppingCartViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func getData(){
+        shoppingCartVM.getShoppingCart()
+        shoppingCartVM.bindingCart = {
+            self.renderView()
+            
+        }
+    }
+    func renderView(){
+        DispatchQueue.main.async {
+            
+            self.cartArray = self.shoppingCartVM.cartList
+          
+           
+            }
+   
     }
 
     //ShoppingCard
@@ -29,5 +48,13 @@ class MeViewController: UIViewController {
         navigationController?.pushViewController(setting, animated: true)
     }
     
+    override func viewWillAppear( _ animated: Bool){
+        getData()
+        let rightBarButton = self.navigationItem.rightBarButtonItem
 
+        
+        rightBarButton?.addBadge(text: "3" , withOffset: CGPoint(x: -100, y: 0))
+      
+    }
+  
 }
