@@ -16,6 +16,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     var statusCode : Int?
     var price:Int = 0
     @IBOutlet weak var pageAddressLabel: UILabel!
+    var LineItems: [LineItem]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,7 +79,8 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
             }
         }
         
-        
+        orderVc.shippingAddress = customerAddressTable?.addresses?[indexPath.row]
+        orderVc.lineItems = LineItems
         self.navigationController?.pushViewController(orderVc, animated: true)
     
     }
