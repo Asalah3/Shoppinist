@@ -22,6 +22,8 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     var draftItem : DrafOrder?
     var isHasDraft : Bool?
     var currency = 0.0
+    var productsList : [LineItem]?
+    var myDraftOrder : DrafOrder?
     
     func setVieModel(draftViewModel: DraftViewModel) {
         self.favDraftViewModel = draftViewModel
@@ -34,18 +36,28 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     
     @IBAction func addTofavouriteButton(_ sender: Any) {
         
-        if let favViewModel = favDraftViewModel,
-           favViewModel.checkIfItemIsFav(productID: favObject?.id ?? 0){
-            favDraftViewModel?.getAllDrafts()
-            favouriteButton.tintColor = UIColor.darkGray
-            delProduct(itemId: favObject?.id ?? 0)
-        } else {
-            favouriteButton.tintColor = UIColor.red
-            favDraftViewModel?.getAllDrafts()
-            favDraftViewModel?.bindingAllDrafts = { [weak self] in
-                DispatchQueue.main.async {
+        favDraftViewModel?.getAllDrafts()
+        favDraftViewModel?.bindingAllDrafts = { [weak self] in
+            DispatchQueue.main.async {
+                
+                if let favViewModel = self?.favDraftViewModel,
+                   favViewModel.checkIfItemIsFav(productID: self?.favObject?.id ?? 0){
                     
-                    let myFav = self?.favDraftViewModel?.getMyDrafts()
+                    self?.favouriteButton.tintColor = UIColor.darkGray
+                    
+                    let draftOrders = self?.favDraftViewModel?.getMyFavouriteDraft()
+                    if draftOrders != nil && draftOrders?.count != 0{
+                        print("draft not nil")
+                        self?.myDraftOrder = draftOrders?[0]
+                        self?.productsList = draftOrders?[0].lineItems
+                    }else{
+                        print("draft is nil")
+                    }
+                    
+                    self?.delProduct(itemId: self?.favObject?.id ?? 0)
+                    
+                } else {
+                    self?.favouriteButton.tintColor = UIColor.red
                     let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
                     var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                     print("hasDraft\(String(describing: isHasDraft))")
@@ -58,8 +70,6 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                         isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                         print("updated")
                     }else{
-                        print("created")
-                        
                         self?.favDraftViewModel?.saveDraft(product: (self?.favObject!)!, note: "favourite")
                         self?.favDraftViewModel?.bindingDraft = { [weak self] in
                             print("view created")
@@ -75,17 +85,15 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                             }
                         }
                     }
-                    
-                    print(myFav?.count ?? 0)
                     print("fav draft\(favDraft?.count ?? 0)")
                 }
-                }
+            }
         }
     }
     
     func setUpCell(product: Product){
         favObject = product
-        if favDraftViewModel?.checkIfItemIsFav(productID: favObject?.id ?? 0) == true{
+        if favDraftViewModel?.checkIfItemIsFav(productID: product.id ?? 0) == true{
             favouriteButton.tintColor = UIColor.red
         } else {
             favouriteButton.tintColor = UIColor.darkGray
@@ -109,23 +117,22 @@ class ProductsCollectionViewCell: UICollectionViewCell {
 extension ProductsCollectionViewCell{
     
     func delProduct(itemId: Int){
-//        if draft != nil && draft?.draftOrder != nil{
-//            if draftItem?.lineItems?.count == 1{
-//                deleteMyDraft()
-//            }else{
-//                deleteItemFromMyDraft(id: itemId)
-//            }
-//        }
+        if self.productsList != nil && self.productsList?.count != 0{
+            if self.myDraftOrder?.lineItems?.count == 1{
+                self.deleteMyDraft()
+            }else{
+                self.deleteItemFromMyDraft(id: self.favObject?.id ?? 0)
+            }
+        }
     }
     
     func deleteMyDraft(){
-        self.favDraftViewModel?.delDraft(draftId: (draftItem?.id)!)
+        self.favDraftViewModel?.delDraft(draftId: myDraftOrder?.id ?? 0)
         self.favDraftViewModel?.bindingDraftDelete = { [weak self] in
             print("view created")
             DispatchQueue.main.async {
                 if self?.favDraftViewModel?.ObservableDraftDelete  == 200{
                     print("deleted succeess")
-                    self?.favDraftViewModel?.getAllDrafts()
                 }
                 else{
                     print("deleted failed")
@@ -136,9 +143,9 @@ extension ProductsCollectionViewCell{
     
     
     func deleteItemFromMyDraft(id: Int){
-        self.draft?.draftOrder = draftItem
-        print("mydraftdraft\(String(describing: self.draft?.draftOrder?.lineItems))")
-        let productId: String = "\((favObject?.id)!)"
+        self.draft?.draftOrder = myDraftOrder
+        print("mydraftdraft\(String(describing: myDraftOrder?.lineItems))")
+        let productId: String = "\(id)"
         self.draft?.draftOrder?.lineItems?.removeAll(where: { item in
             item.sku! == productId
         })
@@ -148,11 +155,14 @@ extension ProductsCollectionViewCell{
             DispatchQueue.main.async {
                 if self?.favDraftViewModel?.ObservableDraftUpdate  == 200 || self?.favDraftViewModel?.ObservableDraftUpdate  == 201{
                     print("updated item deleted")
-                    self?.favDraftViewModel?.getAllDrafts()
                 }else{
+                    
                     print("updated item deleted fail")
                 }
             }
         }
     }
+    
+    
+    
 }
