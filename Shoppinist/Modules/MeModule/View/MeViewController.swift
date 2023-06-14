@@ -7,6 +7,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import BadgeSwift
 class MeViewController: UIViewController {
 
     override func viewDidLoad() {
