@@ -168,6 +168,9 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             UIPasteboard.general.string = couponArr![indexPath.row].id
         
             Utilites.displayToast(message: "Congratulations! you get a \(couponArr![indexPath.row].id) " , seconds: 2.0, controller: self )
+            
+            UserDefaultsManager.sharedInstance.setUserCoupon(userCoupon: couponArr![indexPath.row].id)
+            print("user defult for coupon \(UserDefaultsManager.sharedInstance.getUserCoupon())")
         }
     }
 }
