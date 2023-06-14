@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import NVActivityIndicatorView
 class MeViewController: UIViewController {
 
     override func viewDidLoad() {

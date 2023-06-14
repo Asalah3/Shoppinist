@@ -92,6 +92,8 @@
 		CFE7C9E32A32DEF200521DED /* LoginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E22A32DEF200521DED /* LoginMock.swift */; };
 		CFE7C9E52A32E22B00521DED /* DetailsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E42A32E22B00521DED /* DetailsMock.swift */; };
 		CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7C9E62A32E3D200521DED /* TestDetailsMock.swift */; };
+		DB02FCFF2A39B963002C0505 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = DB02FCFE2A39B963002C0505 /* NVActivityIndicatorView */; };
+		DB02FD012A39B963002C0505 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = DB02FD002A39B963002C0505 /* NVActivityIndicatorViewExtended */; };
 		DB1B4B322A29819900DF9D10 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1B4B312A29819900DF9D10 /* Setting.storyboard */; };
 		DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B332A2981CE00DF9D10 /* SettingViewController.swift */; };
 		DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1B4B352A29874300DF9D10 /* MeViewController.swift */; };
@@ -275,6 +277,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB02FD012A39B963002C0505 /* NVActivityIndicatorViewExtended in Frameworks */,
+				DB02FCFF2A39B963002C0505 /* NVActivityIndicatorView in Frameworks */,
 				CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1136,6 +1140,10 @@
 			dependencies = (
 			);
 			name = Shoppinist;
+			packageProductDependencies = (
+				DB02FCFE2A39B963002C0505 /* NVActivityIndicatorView */,
+				DB02FD002A39B963002C0505 /* NVActivityIndicatorViewExtended */,
+			);
 			productName = Shoppinist;
 			productReference = C98726122A27CF0900EB0A40 /* Shoppinist.app */;
 			productType = "com.apple.product-type.application";
@@ -1211,6 +1219,9 @@
 				Base,
 			);
 			mainGroup = C98726092A27CF0900EB0A40;
+			packageReferences = (
+				DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+			);
 			productRefGroup = C98726132A27CF0900EB0A40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1808,6 +1819,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB02FCFE2A39B963002C0505 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		DB02FD002A39B963002C0505 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C987261E2A27CF0900EB0A40 /* Shoppinist.xcdatamodeld */ = {
