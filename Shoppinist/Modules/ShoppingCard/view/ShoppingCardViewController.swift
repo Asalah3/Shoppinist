@@ -97,7 +97,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     
        
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return cartArray?.count ?? 1
+           return cartArray?.count ?? 0
            
        }
        
@@ -128,7 +128,15 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
            return cell
        }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+     
+          
+                deleteLineItemProduct(indexPath: indexPath)
+                 setSubTotal()
+            self.cardTableView.reloadData()
+        }
+    }
     
     
     
@@ -138,7 +146,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     
     func increaseCounter() {
         Self.subTotalPrice = 0.0
-        for index in  0...(cartArray?.count ?? 0) - 1
+        for index in  0...(cartArray?.count ?? 0)-1
         {
             let itemPrice = (Double(cartArray?[index].price ?? "") ?? 0.0) * (Double (cartArray?[index].quantity ?? 0))
             ShoppingCardViewController.subTotalPrice = Self.subTotalPrice + itemPrice
@@ -182,7 +190,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
             deletedLineItem = cartArray?[indexPath.row]
             cartArray?.remove(at: indexPath.row)
         cardTableView.deleteRows(at: [indexPath], with: .automatic)
-           
+        setSubTotal()
             DispatchQueue.main.asyncAfter(deadline: .now()+3.5){
                 if self.flag == true {
                     if !(self.cartArray?.count == 0){
@@ -191,9 +199,16 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
                     else
                     {
                         self.deleteCart()
+                        if UserDefaults.standard.string(forKey: "Currency") == "EGP"{
+                            self.subTotalPrice.text = "0 EGP"
+                        }
+                        else{
+                            self.subTotalPrice.text = "0 $"
+                        }
                     }
                 }
             }
+        
         
     }
     private func undoDeleting(index: Int){
