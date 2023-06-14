@@ -74,6 +74,11 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     }
     @IBAction func CheckOutButton(_ sender: Any) {
         
+        
+        guard let cart = cartArray else {return}
+        
+            putDraftOrder(lineItems: cart)
+             self.setSubTotal()
         let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
         
         addresVC.price = Int(Self.subTotalPrice)
@@ -240,6 +245,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
                 return
             }
             self.increaseCounter()
+            self.setSubTotal()
             print("lineItem was added successfully")
         }
     }
