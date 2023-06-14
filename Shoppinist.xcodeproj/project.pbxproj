@@ -107,6 +107,7 @@
 		DB5D6CE02A2C81B9004BB927 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */; };
 		DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */; };
 		DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */; };
+		DB6DE4062A39C609003E2400 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6DE4052A39C609003E2400 /* UIBarButtonItem+Badge.swift */; };
 		DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */; };
 		DBAE209C2A2C48E600FD40FE /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE209B2A2C48E600FD40FE /* AddressModel.swift */; };
 		DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */; };
@@ -251,6 +252,7 @@
 		DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "AboutUs .storyboard"; sourceTree = "<group>"; };
 		DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		DB6DE4052A39C609003E2400 /* UIBarButtonItem+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Badge.swift"; sourceTree = "<group>"; };
 		DBAE20982A2C48CE00FD40FE /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		DBAE209B2A2C48E600FD40FE /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		DBAE209D2A2C4DC100FD40FE /* AddressNetWorkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNetWorkServices.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				DB31E5462A32CBA500626513 /* Shoppinist.entitlements */,
+				DB6DE4042A39C5DC003E2400 /* GenericModels */,
 				CF1F4D582A2A9D57006F0E07 /* Utilites */,
 				C98726522A27D1D300EB0A40 /* GenericViews */,
 				C987264A2A27D0DB00EB0A40 /* Services */,
@@ -1007,6 +1010,14 @@
 			path = AboutUs;
 			sourceTree = "<group>";
 		};
+		DB6DE4042A39C5DC003E2400 /* GenericModels */ = {
+			isa = PBXGroup;
+			children = (
+				DB6DE4052A39C609003E2400 /* UIBarButtonItem+Badge.swift */,
+			);
+			path = GenericModels;
+			sourceTree = "<group>";
+		};
 		DBAE20972A2C48AE00FD40FE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1406,6 +1417,7 @@
 				DBBAC2F32A2FD24F00A5723B /* CardNetWorkServices.swift in Sources */,
 				CF1F4D542A2A9011006F0E07 /* SignCustomerModel.swift in Sources */,
 				CFDFC8C82A2BAB5D00CDB4D2 /* DetailsViewController.swift in Sources */,
+				DB6DE4062A39C609003E2400 /* UIBarButtonItem+Badge.swift in Sources */,
 				DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */,
 				CFA37DF62A2EDC9500106370 /* DraftOredViewModel.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,

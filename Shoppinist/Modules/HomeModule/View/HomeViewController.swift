@@ -27,7 +27,33 @@ class HomeViewController: UIViewController {
     var couponArr :[coupon]?
     var searchBrands = [SmartCollection]()
     var searching = false
+    private var cartArray: [LineItem]?
+    private var shoppingCartVM = ShoppingCartViewModel()
+    override func viewWillAppear( _ animated: Bool){
+        getData()
+        let rightBarButton = self.navigationItem.rightBarButtonItem
+        var count = cartArray?.count ?? 0
+        
+        rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
+      
+    }
     
+    func getData(){
+        shoppingCartVM.getShoppingCart()
+        shoppingCartVM.bindingCart = {
+            self.renderViewCart()
+            
+        }
+    }
+    func renderViewCart(){
+        DispatchQueue.main.async {
+            
+            self.cartArray = self.shoppingCartVM.cartList
+          
+           
+            }
+   
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         NoData.isHidden = true
