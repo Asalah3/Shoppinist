@@ -12,6 +12,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var orderTotalPrice: UILabel!
     @IBOutlet weak var orderCreationDate: UILabel!
     @IBOutlet weak var orderShippedTo: UILabel!
+    @IBOutlet weak var containerView: UIStackView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
