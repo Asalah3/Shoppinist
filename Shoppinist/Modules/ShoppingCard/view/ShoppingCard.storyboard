@@ -110,6 +110,12 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="eXy-4W-Mbf"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTY-h7-GiN" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="59" width="393" height="590"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dim-8e-hIf">
                                 <rect key="frame" x="16" y="656" width="85" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -145,15 +151,19 @@
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="qzo-fF-DSt" secondAttribute="leading" id="1iD-zW-jd3"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.435115" id="43X-7R-OzW"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="111" id="5Hg-1M-v0q"/>
+                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="WTY-h7-GiN" secondAttribute="bottom" id="7cQ-By-MeD"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="top" secondItem="eJR-Tk-LU5" secondAttribute="bottom" constant="38" id="Caw-xw-HQ5"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="34" id="D0J-kc-Upu"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ehu-Uq-2yr"/>
                             <constraint firstItem="Dim-8e-hIf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OKj-hc-KXY"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qnv-sv-Ucp"/>
+                            <constraint firstItem="WTY-h7-GiN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UCX-BE-pv9"/>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="38" id="WKO-3t-WwC"/>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="centerY" secondItem="Dim-8e-hIf" secondAttribute="centerY" id="cCR-81-0JW"/>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="Dim-8e-hIf" secondAttribute="trailing" constant="10" id="cbS-So-OK6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="207" id="gwy-aQ-UZK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WTY-h7-GiN" secondAttribute="trailing" id="hJg-gj-ep6"/>
+                            <constraint firstItem="WTY-h7-GiN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="l53-dZ-TqT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eJR-Tk-LU5" secondAttribute="trailing" constant="46" id="tGF-PY-1ZK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qzo-fF-DSt" secondAttribute="bottom" constant="36" id="v7n-oo-mW6"/>
                             <constraint firstItem="Dim-8e-hIf" firstAttribute="top" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="45" id="xR6-MR-Mpf"/>
@@ -161,6 +171,9 @@
                     </view>
                     <connections>
                         <outlet property="cardTableView" destination="YV9-gt-Dzu" id="foN-IT-q0r"/>
+                        <outlet property="noData" destination="WTY-h7-GiN" id="Jts-3l-AsE"/>
+                        <outlet property="priceLabel" destination="Dim-8e-hIf" id="55X-9G-h5e"/>
+                        <outlet property="proccess_btn" destination="qzo-fF-DSt" id="Ofp-jq-4bP"/>
                         <outlet property="subTotalPrice" destination="eJR-Tk-LU5" id="BZc-mx-9KH"/>
                     </connections>
                 </viewController>
@@ -177,6 +190,9 @@
             <point key="canvasLocation" x="618" y="-72"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="WTY-h7-GiN"/>
+    </designables>
     <resources>
         <image name="LoginImg" width="626" height="626"/>
         <image name="minus.circle" catalog="system" width="128" height="123"/>
