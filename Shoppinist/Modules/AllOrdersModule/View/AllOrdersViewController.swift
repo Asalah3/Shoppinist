@@ -38,6 +38,11 @@ extension AllOrdersViewController: UITableViewDelegate, UITableViewDataSource{
         cell?.setUpCell(order: ordersList[indexPath.row])
         return cell ?? OrderTableViewCell()
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let orderDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
+        orderDetailsViewController?.order = ordersList[indexPath.row]
+        self.navigationController?.pushViewController(orderDetailsViewController ?? OrderDetailsViewController(), animated: true)
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let alert : UIAlertController = UIAlertController(title: "Warnning", message: "Do You Want To Delete This Order", preferredStyle: .alert)
