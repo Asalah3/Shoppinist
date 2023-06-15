@@ -7,7 +7,7 @@
 
 import Foundation
 protocol OrderModuleViewModelProtocol{
-    func createOrder(order: OrdersModel)
+    func createOrder(order: PostOrdersModel)
     var observableCreateOrder:Int!{get set}
     var bindingOrderCreated:(()->()) {get set}
 }
@@ -23,7 +23,7 @@ class OrderModuleViewModel: OrderModuleViewModelProtocol{
         }
     }
     
-    func createOrder(order: OrdersModel) {
+    func createOrder(order: PostOrdersModel) {
         remote?.createOrder(order: order){ [weak self] order in
             self?.observableCreateOrder = order
         }

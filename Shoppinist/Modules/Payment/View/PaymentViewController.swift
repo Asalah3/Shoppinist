@@ -12,7 +12,7 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var applePaymentButton: UIButton!
     @IBOutlet weak var coupounTextField: UITextField!
     @IBOutlet weak var cashPaymentButton: UIButton!
-    var order : OrdersModel?
+    var order : PostOrdersModel?
     var remoteDataSource: OrderRemoteDataSourceProtocol?
     var orderModuleViewModel: OrderModuleViewModelProtocol?
     var totalprice :Int = 0
