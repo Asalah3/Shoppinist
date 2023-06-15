@@ -110,6 +110,7 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
             product = productsList?[indexPath.row]
 
         }
+        cell?.delegate = self
         cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.currency = currency
         cell?.setUpCell(product: product!)
@@ -179,4 +180,12 @@ extension BrandProductsViewController : UISearchBarDelegate{
         searchBar.text = ""
         productsCollectionView.reloadData()
     }
+}
+
+extension BrandProductsViewController: MyCustomCellDelegate{
+    func showAlert(title: String, message: String, confirmAction: UIAlertAction) {
+        Utilites.displayAlert(title: title, message: message, action: confirmAction, controller: self)
+    }
+    
+    
 }

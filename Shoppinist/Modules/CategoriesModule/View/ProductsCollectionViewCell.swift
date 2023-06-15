@@ -8,6 +8,10 @@
 import UIKit
 import SDWebImage
 
+protocol MyCustomCellDelegate: AnyObject{
+    func showAlert(title : String , message: String, confirmAction: UIAlertAction)
+}
+
 class ProductsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
@@ -15,6 +19,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     
+    weak var delegate : MyCustomCellDelegate?
     var favObject : Product?
     var favDraftViewModel: DraftViewModel?
     var draft : Drafts? = Drafts()
@@ -43,6 +48,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                 if let favViewModel = self?.favDraftViewModel,
                    favViewModel.checkIfItemIsFav(productID: self?.favObject?.id ?? 0){
                     
+                    
                     self?.favouriteButton.tintColor = UIColor.darkGray
                     
                     let draftOrders = self?.favDraftViewModel?.getMyFavouriteDraft()
@@ -53,8 +59,10 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                     }else{
                         print("draft is nil")
                     }
-                    
-                    self?.delProduct(itemId: self?.favObject?.id ?? 0)
+                    let confirmAction = UIAlertAction(title: "Delete", style: .default){ action  in
+                        self?.delProduct(itemId: self?.favObject?.id ?? 0)
+                    }
+                    self?.delegate?.showAlert(title: "Delete from favourite!", message: "This item in favourite, Do you want to delete?", confirmAction: confirmAction)
                     
                 } else {
                     self?.favouriteButton.tintColor = UIColor.red

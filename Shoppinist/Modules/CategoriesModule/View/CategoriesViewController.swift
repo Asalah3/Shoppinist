@@ -194,7 +194,7 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
                 product = productsList?[indexPath.row]
             }
         }
-        
+        cell?.delegate = self
         cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.currency = currency
         cell?.setUpCell(product: product!)
@@ -271,5 +271,13 @@ extension CategoriesViewController : UISearchBarDelegate{
         searchBar.text = ""
         categoriesCollectionView.reloadData()
     }
+}
+
+extension CategoriesViewController: MyCustomCellDelegate{
+    func showAlert(title: String, message: String, confirmAction: UIAlertAction) {
+        Utilites.displayAlert(title: title, message: message, action: confirmAction, controller: self)
+    }
+    
+    
 }
 
