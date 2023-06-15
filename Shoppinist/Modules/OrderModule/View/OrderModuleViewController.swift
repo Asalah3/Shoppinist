@@ -20,6 +20,7 @@ class OrderModuleViewController: UIViewController {
     var remoteDataSource: OrderRemoteDataSourceProtocol?
     var orderModuleViewModel: OrderModuleViewModelProtocol?
     
+    var price: Float?
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +29,10 @@ class OrderModuleViewController: UIViewController {
         subTotal.text = "\(sub)"
         shippingFees.text = "10"
         grandTotal.text = "\(sub + 10)"
+       
+        UserDefaults.standard.set(sub + 10, forKey: "final")
+        print("grandTotal\( UserDefaults.standard.integer(forKey: "final"))")
+        
     }
 
     func checkCoupon(coupon: String) -> Float{
@@ -36,16 +41,16 @@ class OrderModuleViewController: UIViewController {
         case "10%offer":
             discountAmount.text = "\( price * 0.10)"
             return Float((price - ( price * 0.10)))
-        case "offer20%":
+        case "20%offer":
             discountAmount.text = "\( price * 0.20)"
             return Float((price - ( price * 0.20)))
-        case "offer30%":
+        case "30%offer":
             discountAmount.text = "\( price * 0.30)"
             return Float((price - ( price * 0.30)))
-        case "offer40%":
+        case "40%offer":
             discountAmount.text = "\( price * 0.40)"
             return Float((price - ( price * 0.40)))
-        case "offer50%":
+        case "50%offer":
             discountAmount.text = "\( price * 0.50)"
             return Float((price - ( price * 0.40)))
         default:
