@@ -60,18 +60,6 @@ class OrderModuleViewController: UIViewController {
     }
     @IBAction func placeOrderButton(_ sender: Any) {
         let order = Order(id: nil, confirmed: true, discountCodes: nil, createdAt: nil, email: nil, name: nil, note: grandTotal.text, taxLines: nil, customer: Customer(id: UserDefaultsManager.sharedInstance.getUserID()), lineItems: lineItems, shippingAddress: shippingAddress, shippingLines: nil)
-        
-//        self.orderModuleViewModel?.createOrder(order: OrdersModel(orders: [order]))
-        
-//        self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
-//            DispatchQueue.main.async {
-//                if self?.orderModuleViewModel?.observableCreateOrder == 201{
-//                    print("Order Inserted Successfully")
-//                }else{
-//                    print("Failed To Insert Order")
-//                }
-//            }
-//        }
         let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
         payementVC.order = PostOrdersModel(order: order)
          self.present(payementVC, animated: true)
@@ -79,30 +67,3 @@ class OrderModuleViewController: UIViewController {
     
    
 }
-//        if coupon == "10%offer" {
-//            subTotal.text = "\( price / 0.10)"
-//
-//        }
-//        else if coupon == "offer20%" {
-//            subTotal.text = "\( price / 0.20)"
-//
-//        }
-//        else if coupon == "offer30%" {
-//            subTotal.text = "\( price / 0.30)"
-//
-//        }
-//        else if coupon == "offer40%" {
-//
-//            subTotal.text = "\( price / 0.40)"
-//
-//        }
-//        else if coupon == "offer50%" {
-//
-//            subTotal.text = "\( price / 0.50)"
-//
-//        }
-//
-//        else if coupon.text  == " "{
-//            subTotal.text = "\( price )"
-//
-//        }

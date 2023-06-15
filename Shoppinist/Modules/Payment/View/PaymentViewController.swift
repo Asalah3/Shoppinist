@@ -64,6 +64,14 @@ class PaymentViewController: UIViewController {
                 }
             }
         }
+        self.orderModuleViewModel?.deleteShoppingCart{ deleted in
+            if deleted == nil{
+                print("ShoppingCart Deleted Successfully")
+            }else{
+                print("Failed To Delete ShoppingCart")
+            }
+            
+        }
        
     }
     func OptionSelected(_isApplePaySelected: Bool) {
