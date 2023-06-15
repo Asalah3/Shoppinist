@@ -12,7 +12,9 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var applePaymentButton: UIButton!
     @IBOutlet weak var coupounTextField: UITextField!
     @IBOutlet weak var cashPaymentButton: UIButton!
-    
+    var order : PostOrdersModel?
+    var remoteDataSource: OrderRemoteDataSourceProtocol?
+    var orderModuleViewModel: OrderModuleViewModelProtocol?
     var totalprice :Int = 0
     var finalPrice: Int = 0
     private var paymentRequest : PKPaymentRequest = {
@@ -34,7 +36,8 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        remoteDataSource = OrderRemoteDataSource()
+        orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
         Utilites.setUpTextFeildStyleAddress(textField: coupounTextField)
     }
     
@@ -50,6 +53,25 @@ class PaymentViewController: UIViewController {
         Payment()
     }
     @IBAction func placeOrderButton(_ sender: Any) {
+        
+        self.orderModuleViewModel?.createOrder(order: order!)
+        self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
+            DispatchQueue.main.async {
+                if self?.orderModuleViewModel?.observableCreateOrder == 201{
+                    print("Order Inserted Successfully")
+                }else{
+                    print("Failed To Insert Order")
+                }
+            }
+        }
+        self.orderModuleViewModel?.deleteShoppingCart{ deleted in
+            if deleted == nil{
+                print("ShoppingCart Deleted Successfully")
+            }else{
+                print("Failed To Delete ShoppingCart")
+            }
+            
+        }
        
     }
     func OptionSelected(_isApplePaySelected: Bool) {

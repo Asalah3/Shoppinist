@@ -53,7 +53,6 @@ class CategoriesViewController: UIViewController {
    
     }
     override func viewWillAppear(_ animated: Bool) {
-        
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
         var count = cartArray?.count ?? 0

@@ -161,38 +161,8 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     @IBAction func addToBag(_ sender: Any) {
         
+        renderCartData ()
         
-//        if let userEmail = UserDefaultsManager.sharedInstance.getUserEmail(),
-//           let matchingOrder = cartcount.draftOrders?.first(where: { $0.email == userEmail }) {
-//            UserDefaultsManager.sharedInstance.setUserCart(cartId: matchingOrder.id)
-//            lineAppend = matchingOrder.lineItems
-//            if ((lineAppend?.first(where: { $0.title == self.product?.title })) != nil){
-//                Utilites.displayToast(message: "Already in cart" , seconds: 2.0, controller: self)
-//            }else{
-//                newLineItem = LineItem()
-//                newLineItem?.title = product?.title
-//                newLineItem?.price = product?.variants![0].price
-//                newLineItem?.sku = product?.image?.src
-//                newLineItem?.vendor = product?.vendor
-//                newLineItem?.productID = product?.id
-//                newLineItem?.grams = product?.variants![0].inventory_quantity
-//                //newLineItem?.quantity = 1
-//                lineAppend?.append(newLineItem!)
-//                var draftOrder = DrafOrder()
-//                draftOrder.lineItems = lineAppend
-//                let draftOrderAppend : Drafts = Drafts(draftOrder:draftOrder)
-//                putCart(cartt: draftOrderAppend)
-//                Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
-//                UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-//                print ("puted")
-//            }
-//        } else {
-//            self.postCart()
-//            Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
-//            UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-//            print ("posted")
-//        }
-//
         cartcount.draftOrders?.forEach({ email in
 
     if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail()!
@@ -209,7 +179,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                 renderCartData ()
                 
                 itemtitle = itemm.title
-                Utilites.displayToast(message: "Already in cart" , seconds: 2.0, controller: self)
+                Utilites.displayToast(message: "Already in cart" , seconds: 1.0, controller: self)
                 print ("done")
                 renderCartData ()
             }
@@ -231,6 +201,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         let draftOrderAppend : Drafts = Drafts(draftOrder:draftOrder)
         putCart(cartt: draftOrderAppend)
         Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
+                renderCartData ()
         UserDefaultsManager.sharedInstance.setCartState(cartState: true)
         print ("already used")
                 print ("put")
@@ -244,6 +215,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
             if addtoLine == nil
                                 {
                                 self.postCart()
+                renderCartData ()
                 print ("posted")
                 Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
                 UserDefaultsManager.sharedInstance.setCartState(cartState: true)

@@ -42,6 +42,19 @@ class UserDefaultsManager {
         return UserDefaults.standard.integer(forKey: "customerID")
     }
     
+    func setUserCoupon(userCoupon: String){
+        UserDefaults.standard.set(userCoupon, forKey: "Coupon")
+    }
+    
+    func getUserCoupon()-> String{
+        return UserDefaults.standard.string(forKey: "Coupon") ?? ""
+    }
+    func setTotalPrice(totalPrice: Double){
+        UserDefaults.standard.set(totalPrice, forKey: "TotalPrice")
+    }
+    func getTotalPrice()-> Double{
+        return UserDefaults.standard.double(forKey: "TotalPrice") ?? 0.0
+    }
     func clearUserDefaults() {
             let domain = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: domain)

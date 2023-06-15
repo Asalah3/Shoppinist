@@ -22,7 +22,7 @@ class OrderTableViewCell: UITableViewCell {
     }
     func setUpCell(order: Order) {
         self.orderCreationDate.text = order.createdAt
-        self.orderTotalPrice.text = "1200.0"
+        self.orderTotalPrice.text = order.note
         let shippingAdress = order.shippingAddress
         let shippedTo = "\(String(describing: shippingAdress?.country)), \(String(describing: shippingAdress?.city)), \(String(describing: shippingAdress?.address1))"
         self.orderShippedTo.text = shippedTo
