@@ -37,6 +37,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
         getData()
         
         self.cardTableView.reloadData()
+       
     }
 
     func getData(){
@@ -56,6 +57,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
             self.configureView()
             self.activityIndicator.stopAnimating()
             print("sub total : \(Self.subTotalPrice)")
+            
             
             }
    
@@ -179,6 +181,8 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
             let price = (Int(Self.subTotalPrice) )  * 30
             let priceString = "\(price.formatted()) EGP"
             subTotalPrice.text = priceString
+            UserDefaultsManager.sharedInstance.setTotalPrice(totalPrice: ShoppingCardViewController.subTotalPrice)
+            print("UserDefultTotal Price \(UserDefaultsManager.sharedInstance.getTotalPrice()) ")
         }
         else
         {
@@ -186,6 +190,8 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
             let priceString = "\(price.formatted()) $"
             DispatchQueue.main.async {
                 self.subTotalPrice.text = priceString
+                UserDefaultsManager.sharedInstance.setTotalPrice(totalPrice: ShoppingCardViewController.subTotalPrice)
+                print("UserDefultTotal Price \(UserDefaultsManager.sharedInstance.getTotalPrice()) ")
             }
         }
     }
@@ -246,7 +252,9 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
             }
             self.increaseCounter()
             self.setSubTotal()
+                 ShoppingCardViewController.subTotalPrice = UserDefaultsManager.sharedInstance.getTotalPrice()
             print("lineItem was added successfully")
+                 
         }
     }
     func deleteCart(){
