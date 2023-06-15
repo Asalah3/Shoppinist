@@ -9,6 +9,13 @@ import Foundation
 
 class DraftViewModel{
     
+    //-----------for network connection -----------
+    var bindingCheckConnectivity : (()->())={}
+    var ObservableConnection: Bool!{
+        didSet{
+            bindingCheckConnectivity()
+        }
+    }
     
     //-----------for create draft-----------
     var bindingDraft:(()->()) = {}
@@ -50,6 +57,14 @@ class DraftViewModel{
         }
     }
     
+    //-----------for network connection -----------
+    func checkNetwork(){
+        Utilites.isConnectedToNetwork() { connection in
+            self.ObservableConnection = connection
+        }
+    }
+    
+    
     //-----------for create draft-----------
     func saveDraft(product: Product, note: String){
         DraftNetwork.CreateDraft(product: product, note: note) { draft in
@@ -76,6 +91,8 @@ class DraftViewModel{
             self.ObservableDraftUpdate = draft
         }
     }
+    
+    
     
     //-----------for retrieve my Drafts-----------
     func getMyDrafts()->[DrafOrder]{
@@ -153,6 +170,7 @@ class DraftViewModel{
             guard let result = result else {return}
             print("itemdata \(result)")
             self.fetchProductData = result.product
+            
         }
     }
     

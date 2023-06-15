@@ -21,9 +21,13 @@ class FavViewController: UIViewController {
     var currency = 0.0
     var searchProducts = [LineItem]()
     var searching = false
+    var idList = [Int]()
+    var images = [String]()
 
     
     override func viewWillAppear(_ animated: Bool) {
+        self.favViewModel?.checkNetwork()
+        
         noData.isHidden = true
         productsList = [LineItem]()
         favViewModel = DraftViewModel()
@@ -35,6 +39,10 @@ class FavViewController: UIViewController {
             }
         }
         
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 4, controller: self)
+        }
+        
         //------------------load favourites from API------------------------
         noData.isHidden = true
         favTableView.showsVerticalScrollIndicator = false
@@ -44,16 +52,22 @@ class FavViewController: UIViewController {
                 activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
-        
         favViewModel?.getAllDrafts()
         favViewModel?.bindingAllDrafts = {() in self.renderView()}
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
+        self.favViewModel?.bindingCheckConnectivity = { [weak self] in
+            DispatchQueue.main.async {
+                if self?.favViewModel?.ObservableConnection == false{
+                    Utilites.displayToast(message: "you are offline", seconds: 5, controller: self ?? ViewController())
+                }
+            }
+        }
     }
+    
 }
 
 extension FavViewController : UITableViewDelegate, UITableViewDataSource{
@@ -73,6 +87,8 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavTableViewCell", for: indexPath) as! FavTableViewCell
         
+        self.favViewModel?.checkNetwork()
+        
         // cell radius
         cell.backView.layer.cornerRadius = 20.0
         cell.backView.layer.borderWidth = 1
@@ -87,60 +103,78 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
 
         //assign values to cell
         var unwrappedImage : String = ""
+        var productID : Int = 0
+        
         if searching == true{
-            if (searchProducts[indexPath.row].vendor) != nil{
-                unwrappedImage = (searchProducts[indexPath.row].vendor)!
-            }else{
-                unwrappedImage = ""
-            }
-            
             if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                 let price = floor((Double(searchProducts[indexPath.row].price ?? "0.0") ?? 0.0) * self.currency)
                 cell.productPrice.text = "\(String(price)) EGP"
             }else{
                 cell.productPrice.text = "\(searchProducts[indexPath.row].price ?? "") $"
             }
+            productID = Int(searchProducts[indexPath.row].sku ?? "") ?? 0
             cell.productName.text = searchProducts[indexPath.row].title
         }else{
-            if (productsList?[indexPath.row].vendor) != nil{
-                unwrappedImage = (productsList?[indexPath.row].vendor)!
-            }else{
-                unwrappedImage = ""
-            }
             if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                 let price = floor((Double(productsList?[indexPath.row].price ?? "0.0") ?? 0.0) * self.currency)
                 cell.productPrice.text = "\(String(price)) EGP"
             }else{
                 cell.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
             }
+            productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
             cell.productName.text = productsList?[indexPath.row].title
         }
+        
+        print("productidid\(productID)")
+//        self.favViewModel?.getProductDetails(productID: productID)
+//        self.favViewModel?.fetchProductsDetailsToViewController = {
+//            unwrappedImage = self.favViewModel?.fetchProductData.image?.src ?? ""
+//            print("productididimage\(unwrappedImage)")
+//            cell.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
+//            
+//        }
         cell.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
+
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var sku = ""
-        if searching{
-            sku = searchProducts[indexPath.row].sku ?? ""
+        if Utilites.isConnectedToNetwork(){
+            var sku = ""
+            if searching{
+                sku = searchProducts[indexPath.row].sku ?? ""
+            }else{
+                sku = productsList?[indexPath.row].sku ?? ""
+            }
+            let productID = Int(sku) ?? 0
+            favViewModel?.getProductDetails(productID: productID)
+            favViewModel?.fetchProductsDetailsToViewController = {() in self.renderViewToNavigate()}
         }else{
-            sku = productsList?[indexPath.row].sku ?? ""
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
         }
-        let productID = Int(sku) ?? 0
-        favViewModel?.getProductDetails(productID: productID)
-        favViewModel?.fetchProductsDetailsToViewController = {() in self.renderViewToNavigate()}
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-        if productsList != nil && productsList?.count != 0{
-            if myDraftOrder?.lineItems?.count == 1{
-                deleteMyDraft()
-            }else{
-                deleteItemFromMyDraft(index: indexPath.row)
+        if Utilites.isConnectedToNetwork(){
+            let confirmAction = UIAlertAction(title: "Delete", style: .default){ action in
+                if self.productsList != nil && self.productsList?.count != 0{
+                    if self.myDraftOrder?.lineItems?.count == 1{
+                        self.deleteMyDraft()
+                    }else{
+                        self.deleteItemFromMyDraft(index: indexPath.row)
+                    }
+                }
             }
+            Utilites.displayAlert(title: "You are about to delete product!!", message: "Do you want to delete this product from favourite?", action: confirmAction, controller: self)
+        }else{
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
         }
+        
     }
     
     
@@ -151,8 +185,27 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
+//                if self.productsList != nil{
+//                    for i in self.productsList! {
+//                        let productID = Int(i.sku ?? "") ?? 0
+//                        self.idList.append(productID)
+//
+//                        //----------------------------
+//                        self.favViewModel?.getProductDetails(productID: productID)
+//                        self.favViewModel?.fetchProductsDetailsToViewController = {
+//                            let image = self.favViewModel?.fetchProductData.image?.src ?? ""
+//                            self.images.append(image)
+//                        }
+//
+//                        print("list is\(self.images)")
+//                    }
+//                }
+//
+//                print("list is\(self.images)")
+//                print("list is\(self.idList)")
                 self.favTableView.reloadData()
             }else{
+                self.productsList = nil
                 print("draft is nil")
             }
             self.activityIndicator.stopAnimating()
@@ -191,11 +244,12 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             print("view created")
             DispatchQueue.main.async {
                 if self?.favViewModel?.ObservableDraftDelete  == 200{
-                    print("deleted succeess")
+                    Utilites.displayToast(message: "deleted successfully", seconds: 2.0, controller: self ?? ViewController())
                     self?.favViewModel?.getAllDrafts()
+
                 }
                 else{
-                    print("deleted failed")
+                    Utilites.displayToast(message: "delete failed", seconds: 2.0, controller: self ?? ViewController())
                 }
             }
         }
@@ -214,10 +268,10 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             print("view createddd")
             DispatchQueue.main.async {
                 if self?.favViewModel?.ObservableDraftUpdate  == 200 || self?.favViewModel?.ObservableDraftUpdate  == 201{
-                    print("updated item deleted")
+                    Utilites.displayToast(message: "deleted successfully", seconds: 2.0, controller: self ?? ViewController())
                     self?.favViewModel?.getAllDrafts()
                 }else{
-                    print("updated item deleted fail")
+                    Utilites.displayToast(message: "delete failed", seconds: 2.0, controller: self ?? ViewController())
                 }
             }
         }
