@@ -69,6 +69,11 @@
 		CF7A7A102A2A50AC005ADCED /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A0F2A2A50AC005ADCED /* SignUpViewController.swift */; };
 		CF7A7A122A2A5218005ADCED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A112A2A5218005ADCED /* LoginViewController.swift */; };
 		CF7A7A142A2A526E005ADCED /* ChoosingAuthWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */; };
+		CF839D1E2A3A9A2E00468B9B /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF839D1D2A3A9A2E00468B9B /* ReviewTableViewCell.swift */; };
+		CF839D212A3A9BDB00468B9B /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF839D202A3A9BDB00468B9B /* ReviewViewController.swift */; };
+		CF839D272A3A9D6300468B9B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF839D262A3A9D6300468B9B /* Review.swift */; };
+		CF839D292A3A9D7900468B9B /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF839D282A3A9D7900468B9B /* ReviewList.swift */; };
+		CF839D2C2A3AA19800468B9B /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF839D2B2A3AA19800468B9B /* ReviewViewModel.swift */; };
 		CF846FE22A37964A007FE718 /* TestFavourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846FE12A37964A007FE718 /* TestFavourite.swift */; };
 		CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8828AF2A2D01A9001C34A6 /* ProductDetailsDataSource.swift */; };
 		CF8E04AF2A33EE1D00620529 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04AE2A33EE1D00620529 /* FavViewController.swift */; };
@@ -215,6 +220,11 @@
 		CF7A7A0F2A2A50AC005ADCED /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CF7A7A112A2A5218005ADCED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF7A7A132A2A526E005ADCED /* ChoosingAuthWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingAuthWayViewController.swift; sourceTree = "<group>"; };
+		CF839D1D2A3A9A2E00468B9B /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		CF839D202A3A9BDB00468B9B /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		CF839D262A3A9D6300468B9B /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		CF839D282A3A9D7900468B9B /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
+		CF839D2B2A3AA19800468B9B /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		CF846FE12A37964A007FE718 /* TestFavourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFavourite.swift; sourceTree = "<group>"; };
 		CF8828AF2A2D01A9001C34A6 /* ProductDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsDataSource.swift; sourceTree = "<group>"; };
 		CF8E04AE2A33EE1D00620529 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
@@ -481,6 +491,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CF839D1F2A3A9BA500468B9B /* ReviewModule */,
 				C97C96432A38FE90009756D6 /* AllOrdersModule */,
 				DBC240022A32A02200583211 /* Payment */,
 				DBDA3F3D2A3276C800A5C15F /* SelectAddress */,
@@ -762,6 +773,42 @@
 			children = (
 				CFA37DF42A2EDC4D00106370 /* APIViewModel */,
 				CFA37DF32A2EDC3A00106370 /* CoreViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CF839D1F2A3A9BA500468B9B /* ReviewModule */ = {
+			isa = PBXGroup;
+			children = (
+				CF839D2A2A3AA18100468B9B /* ViewModel */,
+				CF839D232A3A9BEF00468B9B /* View */,
+				CF839D222A3A9BE500468B9B /* Model */,
+			);
+			path = ReviewModule;
+			sourceTree = "<group>";
+		};
+		CF839D222A3A9BE500468B9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF839D262A3A9D6300468B9B /* Review.swift */,
+				CF839D282A3A9D7900468B9B /* ReviewList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF839D232A3A9BEF00468B9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF839D1D2A3A9A2E00468B9B /* ReviewTableViewCell.swift */,
+				CF839D202A3A9BDB00468B9B /* ReviewViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF839D2A2A3AA18100468B9B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF839D2B2A3AA19800468B9B /* ReviewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1419,8 +1466,10 @@
 				CFDFC8C82A2BAB5D00CDB4D2 /* DetailsViewController.swift in Sources */,
 				DB6DE4062A39C609003E2400 /* UIBarButtonItem+Badge.swift in Sources */,
 				DBAE20992A2C48CE00FD40FE /* AddAddressViewModel.swift in Sources */,
+				CF839D272A3A9D6300468B9B /* Review.swift in Sources */,
 				CFA37DF62A2EDC9500106370 /* DraftOredViewModel.swift in Sources */,
 				C930A97E2A2928940071DAD6 /* HomeViewModel.swift in Sources */,
+				CF839D212A3A9BDB00468B9B /* ReviewViewController.swift in Sources */,
 				DBC240052A32A05A00583211 /* PaymentViewController.swift in Sources */,
 				CF96A6B42A2ABE4600AA029A /* LoginNetworkService.swift in Sources */,
 				C999112A2A30AF8B00EEA6B7 /* OnBoardingCollectionViewCell.swift in Sources */,
@@ -1429,6 +1478,7 @@
 				DB1B4B342A2981CE00DF9D10 /* SettingViewController.swift in Sources */,
 				DBAE209E2A2C4DC100FD40FE /* AddressNetWorkServices.swift in Sources */,
 				C97C96402A38ED86009756D6 /* AllOrdersViewController.swift in Sources */,
+				CF839D2C2A3AA19800468B9B /* ReviewViewModel.swift in Sources */,
 				DBDA3F442A327A9F00A5C15F /* SelectAddressTableViewCell.swift in Sources */,
 				CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */,
 				DBBAC2F62A2FD28800A5723B /* CardViewModel.swift in Sources */,
@@ -1436,6 +1486,7 @@
 				DB4869172A2D9BBE00045739 /* ShoppingCardViewController.swift in Sources */,
 				CF04D6B12A2D630700B0B27F /* ProductDetailsModel.swift in Sources */,
 				C9A724C52A2A893900B0D37E /* BrandProductsViewController.swift in Sources */,
+				CF839D292A3A9D7900468B9B /* ReviewList.swift in Sources */,
 				C98726502A27D17E00EB0A40 /* LocalDataSource.swift in Sources */,
 				C9433F562A32961000FD1813 /* CurrenyModel.swift in Sources */,
 				CF1F4D5A2A2A9D76006F0E07 /* Utilites.swift in Sources */,
@@ -1466,6 +1517,7 @@
 				C9EE42E42A38987900F91FA9 /* CategoriesNetworkLayer.swift in Sources */,
 				DB1B4B3D2A29C3A300DF9D10 /* ContactUsTableViewCell.swift in Sources */,
 				CF1F4D502A2A7D8D006F0E07 /* SignUpNetworkService.swift in Sources */,
+				CF839D1E2A3A9A2E00468B9B /* ReviewTableViewCell.swift in Sources */,
 				C97C964A2A38FEF7009756D6 /* AllOrdersNetworkLayer.swift in Sources */,
 				DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */,
 				DBBAC2FA2A2FE64A00A5723B /* UserDefultManager.swift in Sources */,

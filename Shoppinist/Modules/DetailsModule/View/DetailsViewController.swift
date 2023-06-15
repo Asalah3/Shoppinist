@@ -6,20 +6,24 @@
 //
 
 import UIKit
+import Cosmos
 
 class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var detailsReviewTable: UITableView!
     
     @IBOutlet weak var detailsSlider: UIPageControl!
     @IBOutlet weak var detailsCollectionView: UICollectionView!
     @IBOutlet weak var detailsName: UILabel!
     @IBOutlet weak var detailsPrice: UILabel!
-    @IBOutlet weak var detailsRate: UIView!
+    @IBOutlet weak var detailsRate: CosmosView!
     @IBOutlet weak var detailsDescription: UITextView!
     @IBOutlet weak var detailsFavButton: UIButton!
     
     var product : Product?
     var draftViewModel: DraftViewModel?
+    var reviewViewModel: ReviewViewModel?
+    var reviewList : [Review]?
     
     
     var check = true
@@ -42,6 +46,11 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderCartData()
+        
+        reviewViewModel = ReviewViewModel()
+        reviewList = reviewViewModel?.getReviews()
+        detailsReviewTable.reloadData()
+        
         
         favViewModel = DraftViewModel()
         self.favViewModel?.changeCurrency()
@@ -77,6 +86,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         detailsCollectionView.showsVerticalScrollIndicator = false
         detailsCollectionView.showsHorizontalScrollIndicator = false
 
+        detailsRate.rating = Double(4)
         detailsName.text = product?.title
         detailsDescription.text = (product?.bodyHTML)!
         detailsSlider.numberOfPages = product?.images?.count ?? 0
@@ -140,6 +150,13 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
             self.renderCart()
             
         }
+    }
+    
+    
+    @IBAction func showMoreReviews(_ sender: Any) {
+        let reviewViewController = self.storyboard?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+        
+        self.navigationController?.pushViewController(reviewViewController, animated: true)
     }
     
     @IBAction func addToBag(_ sender: Any) {
@@ -236,7 +253,43 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
   }
 }
 
-
+extension DetailsViewController: UITabBarDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if reviewList?.count ?? 0 <= 3{
+            return reviewList?.count ?? 0
+        }else{
+            return 3
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
+        
+        // cell radius
+        cell.backView.layer.cornerRadius = 20.0
+        cell.backView.layer.borderWidth = 1
+        cell.backView.layer.borderColor = UIColor.darkGray.cgColor
+        
+        cell.clipsToBounds = true
+        cell.reviewImage?.layer.cornerRadius = 38.0
+        cell.reviewImage?.contentMode = .scaleAspectFill
+        cell.reviewImage?.clipsToBounds = true
+        cell.backView.clipsToBounds = true
+        
+        cell.reviewImage.image = UIImage(named: reviewList?[indexPath.row].image ?? "")
+        cell.reviewText.text = reviewList?[indexPath.row].text ?? ""
+        cell.reviewRate.rating = reviewList?[indexPath.row].rate ?? 0.00
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    
+}
 
 extension DetailsViewController {
     func renderCart() {
