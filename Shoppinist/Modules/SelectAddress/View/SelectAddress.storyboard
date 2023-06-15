@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="544" y="-126"/>
         </scene>
-        <!--Payment-->
+        <!--Order-->
         <scene sceneID="ODO-Kb-qC9">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="PaymentViewController" storyboardName="Payment" id="4uV-mG-TmH" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="OrderModuleViewController" storyboardName="Order" id="4uV-mG-TmH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90I-bK-Ljw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="544" y="-52"/>

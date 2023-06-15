@@ -37,6 +37,8 @@ class OrderModuleViewController: UIViewController {
                 }
             }
         }
+        let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+         self.present(payementVC, animated: true)
     }
     
 }

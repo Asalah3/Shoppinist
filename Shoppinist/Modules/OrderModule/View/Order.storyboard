@@ -8,6 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Payment-->
+        <scene sceneID="8Ns-ZP-Zv1">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PaymentViewController" storyboardName="Payment" id="ULi-gw-6zi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hib-I3-Qd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="405"/>
+        </scene>
         <!--Order Module View Controller-->
         <scene sceneID="RfO-7C-FO8">
             <objects>
