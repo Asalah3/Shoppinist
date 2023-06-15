@@ -8,6 +8,11 @@
 import UIKit
 import SDWebImage
 
+protocol MyCustomCellDelegate: AnyObject{
+    func showAlert(title : String , message: String, confirmAction: UIAlertAction)
+    func showToast(message: String)
+}
+
 class ProductsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
@@ -15,6 +20,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     
+    weak var delegate : MyCustomCellDelegate?
     var favObject : Product?
     var favDraftViewModel: DraftViewModel?
     var draft : Drafts? = Drafts()
@@ -36,59 +42,48 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     
     @IBAction func addTofavouriteButton(_ sender: Any) {
         
-        favDraftViewModel?.getAllDrafts()
-        favDraftViewModel?.bindingAllDrafts = { [weak self] in
-            DispatchQueue.main.async {
-                
-                if let favViewModel = self?.favDraftViewModel,
-                   favViewModel.checkIfItemIsFav(productID: self?.favObject?.id ?? 0){
+        if Utilites.isConnectedToNetwork(){
+            favDraftViewModel?.getAllDrafts()
+            favDraftViewModel?.bindingAllDrafts = { [weak self] in
+                DispatchQueue.main.async {
                     
-                    self?.favouriteButton.tintColor = UIColor.darkGray
-                    
-                    let draftOrders = self?.favDraftViewModel?.getMyFavouriteDraft()
-                    if draftOrders != nil && draftOrders?.count != 0{
-                        print("draft not nil")
-                        self?.myDraftOrder = draftOrders?[0]
-                        self?.productsList = draftOrders?[0].lineItems
-                    }else{
-                        print("draft is nil")
-                    }
-                    
-                    self?.delProduct(itemId: self?.favObject?.id ?? 0)
-                    
-                } else {
-                    self?.favouriteButton.tintColor = UIColor.red
-                    let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                    var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
-                    print("hasDraft\(String(describing: isHasDraft))")
-                    if isHasDraft ?? false{
-                        self?.draft?.draftOrder = favDraft?[0]
-                        print(self?.draft ?? "nil draft")
-                        let lineItem = LineItem(id: nil, variantID: nil, productID: self?.favObject?.id, title: self?.favObject?.title, variantTitle: "", sku:"\(( self?.favObject?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self?.favObject?.variants?[0].price)
-                        self?.draft?.draftOrder?.lineItems?.append(lineItem)
-                        self?.favDraftViewModel?.updateDraft(updatedDraft: (self?.draft)!)
-                        isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
-                        print("updated")
-                    }else{
-                        self?.favDraftViewModel?.saveDraft(product: (self?.favObject!)!, note: "favourite")
-                        self?.favDraftViewModel?.bindingDraft = { [weak self] in
-                            print("view created")
-                            DispatchQueue.main.async {
-                                
-                                if self?.favDraftViewModel?.ObservableDraft  == 201{
-                                    print("succeess")
-                                    isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
-                                }
-                                else{
-                                    print("failed")
-                                }
-                            }
+                    if let favViewModel = self?.favDraftViewModel,
+                       favViewModel.checkIfItemIsFav(productID: self?.favObject?.id ?? 0){
+                        
+                        let draftOrders = self?.favDraftViewModel?.getMyFavouriteDraft()
+                        if draftOrders != nil && draftOrders?.count != 0{
+                            print("draft not nil")
+                            self?.myDraftOrder = draftOrders?[0]
+                            self?.productsList = draftOrders?[0].lineItems
+                        }else{
+                            print("draft is nil")
+                        }
+                        let confirmAction = UIAlertAction(title: "Delete", style: .default){ action  in
+                            self?.favouriteButton.tintColor = UIColor.darkGray
+                            self?.delProduct(itemId: self?.favObject?.id ?? 0)
+                        }
+                        self?.delegate?.showAlert(title: "Delete from favourite!", message: "This item in favourite, Do you want to delete?", confirmAction: confirmAction)
+                        
+                    } else {
+                        self?.favouriteButton.tintColor = UIColor.red
+                        let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
+                        var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                        print("hasDraft\(String(describing: isHasDraft))")
+                        if isHasDraft ?? false{
+                            self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
+
+                        }else{
+                            self?.createDraftOrder()
+
                         }
                     }
-                    print("fav draft\(favDraft?.count ?? 0)")
                 }
             }
+        }else{
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            self.delegate?.showAlert(title: "Check internet connection", message: "you are offline?", confirmAction: confirmAction)
         }
+
     }
     
     func setUpCell(product: Product){
@@ -126,16 +121,54 @@ extension ProductsCollectionViewCell{
         }
     }
     
+    func createDraftOrder(){
+        self.favDraftViewModel?.saveDraft(product: (self.favObject!), note: "favourite")
+        self.favDraftViewModel?.bindingDraft = { [weak self] in
+            print("view created")
+            DispatchQueue.main.async {
+                
+                if self?.favDraftViewModel?.ObservableDraft  == 201{
+                    self?.delegate?.showToast(message: "product added succeessfully")
+                    self?.isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                }
+                else{
+                    self?.delegate?.showToast(message: "product add failed")
+                }
+            }
+        }
+    }
+    
+    
+    func addItemToFavourite(favDraft: [DrafOrder]){
+        self.draft?.draftOrder = favDraft[0]
+        print(self.draft ?? "nil draft")
+        let lineItem = LineItem(id: nil, variantID: nil, productID: self.favObject?.id, title: self.favObject?.title, variantTitle: "", sku:"\(( self.favObject?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.favObject?.variants?[0].price)
+        self.draft?.draftOrder?.lineItems?.append(lineItem)
+        self.favDraftViewModel?.updateDraft(updatedDraft: (self.draft)!)
+        self.favDraftViewModel?.bindingDraftUpdate = { [weak self] in
+            print("view createddd")
+            DispatchQueue.main.async {
+                if self?.favDraftViewModel?.ObservableDraftUpdate  == 200 || self?.favDraftViewModel?.ObservableDraftUpdate  == 201{
+                    self?.delegate?.showToast(message: "product added succeessfully")
+                }else{
+                    self?.delegate?.showToast(message: "product add failed")
+                }
+            }
+        }
+        isHasDraft = self.favDraftViewModel?.checkIfCustomerHasFavDraft()
+    }
+    
+    
     func deleteMyDraft(){
         self.favDraftViewModel?.delDraft(draftId: myDraftOrder?.id ?? 0)
         self.favDraftViewModel?.bindingDraftDelete = { [weak self] in
             print("view created")
             DispatchQueue.main.async {
                 if self?.favDraftViewModel?.ObservableDraftDelete  == 200{
-                    print("deleted succeess")
+                    self?.delegate?.showToast(message: "deleted succeessfully")
                 }
                 else{
-                    print("deleted failed")
+                    self?.delegate?.showToast(message: "deleted failed")
                 }
             }
         }
@@ -154,10 +187,9 @@ extension ProductsCollectionViewCell{
             print("view createddd")
             DispatchQueue.main.async {
                 if self?.favDraftViewModel?.ObservableDraftUpdate  == 200 || self?.favDraftViewModel?.ObservableDraftUpdate  == 201{
-                    print("updated item deleted")
+                    self?.delegate?.showToast(message: "deleted succeessfully")
                 }else{
-                    
-                    print("updated item deleted fail")
+                    self?.delegate?.showToast(message: "deleted failed")
                 }
             }
         }

@@ -194,7 +194,7 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
                 product = productsList?[indexPath.row]
             }
         }
-        
+        cell?.delegate = self
         cell?.setVieModel(draftViewModel:favViewModel!)
         cell?.currency = currency
         cell?.setUpCell(product: product!)
@@ -209,18 +209,24 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     //----------------Navigate to details---------------
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        if searching == true{
-            detailsViewController.product = self.searchProducts[indexPath.row]
+        if Utilites.isConnectedToNetwork(){
+            let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+            if searching == true{
+                detailsViewController.product = self.searchProducts[indexPath.row]
 
-        }else{
-            if isFiltered == true{
-                detailsViewController.product = self.filteredList?[indexPath.row]
             }else{
-                detailsViewController.product = self.productsList?[indexPath.row]
+                if isFiltered == true{
+                    detailsViewController.product = self.filteredList?[indexPath.row]
+                }else{
+                    detailsViewController.product = self.productsList?[indexPath.row]
+                }
             }
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+        }else{
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
         }
-        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        
     }
     
     func renderView(){
@@ -271,5 +277,17 @@ extension CategoriesViewController : UISearchBarDelegate{
         searchBar.text = ""
         categoriesCollectionView.reloadData()
     }
+}
+
+extension CategoriesViewController: MyCustomCellDelegate{
+    func showToast(message: String) {
+        Utilites.displayToast(message: message, seconds: 2, controller: self)
+    }
+    
+    func showAlert(title: String, message: String, confirmAction: UIAlertAction) {
+        Utilites.displayAlert(title: title, message: message, action: confirmAction, controller: self)
+    }
+    
+    
 }
 

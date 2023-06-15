@@ -185,24 +185,22 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
-//                if self.productsList != nil{
-//                    for i in self.productsList! {
-//                        let productID = Int(i.sku ?? "") ?? 0
-//                        self.idList.append(productID)
-//
-//                        //----------------------------
-//                        self.favViewModel?.getProductDetails(productID: productID)
-//                        self.favViewModel?.fetchProductsDetailsToViewController = {
-//                            let image = self.favViewModel?.fetchProductData.image?.src ?? ""
-//                            self.images.append(image)
-//                        }
-//
-//                        print("list is\(self.images)")
-//                    }
-//                }
-//
-//                print("list is\(self.images)")
-//                print("list is\(self.idList)")
+                if self.productsList != nil{
+                    for i in self.productsList! {
+                        let productID = Int(i.sku ?? "") ?? 0
+                        self.idList.append(productID)
+
+                        //----------------------------
+                        self.favViewModel?.getProductDetails(productID: productID)
+                        self.favViewModel?.fetchProductsDetailsToViewController = {
+                            let image = self.favViewModel?.fetchProductData.image?.src ?? ""
+                            self.images.append(image)
+                        }
+                        print("list is\(self.images)")
+                    }
+                }
+                print("list is\(self.images)")
+                print("list is\(self.idList)")
                 self.favTableView.reloadData()
             }else{
                 self.productsList = nil
@@ -218,10 +216,8 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
             
             detailsViewController.product = self.favViewModel?.fetchProductData
-            //print("iditem \(String(describing: self.favouriteViewModel?.fetchProductData))")
             self.navigationController?.pushViewController(detailsViewController, animated: true)
-
-            
+  
         }
     }
     
