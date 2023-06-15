@@ -125,13 +125,19 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        if searching == true{
-            detailsViewController.product = self.searchBrandProducts[indexPath.row]
+        if Utilites.isConnectedToNetwork(){
+            let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+            if searching == true{
+                detailsViewController.product = self.searchBrandProducts[indexPath.row]
+            }else{
+                detailsViewController.product = self.productsList?[indexPath.row]
+            }
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
         }else{
-            detailsViewController.product = self.productsList?[indexPath.row]
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
         }
-        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        
     }
     
     func renderView(){
@@ -185,6 +191,9 @@ extension BrandProductsViewController : UISearchBarDelegate{
 extension BrandProductsViewController: MyCustomCellDelegate{
     func showAlert(title: String, message: String, confirmAction: UIAlertAction) {
         Utilites.displayAlert(title: title, message: message, action: confirmAction, controller: self)
+    }
+    func showToast(message: String) {
+        Utilites.displayToast(message: message, seconds: 2, controller: self)
     }
     
     

@@ -196,11 +196,9 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
                             let image = self.favViewModel?.fetchProductData.image?.src ?? ""
                             self.images.append(image)
                         }
-
                         print("list is\(self.images)")
                     }
                 }
-
                 print("list is\(self.images)")
                 print("list is\(self.idList)")
                 self.favTableView.reloadData()
@@ -218,10 +216,8 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
             
             detailsViewController.product = self.favViewModel?.fetchProductData
-            //print("iditem \(String(describing: self.favouriteViewModel?.fetchProductData))")
             self.navigationController?.pushViewController(detailsViewController, animated: true)
-
-            
+  
         }
     }
     

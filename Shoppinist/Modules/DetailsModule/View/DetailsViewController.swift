@@ -25,7 +25,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     var reviewViewModel: ReviewViewModel?
     var reviewList : [Review]?
     
-    
+    var isHasDraft : Bool?
     var check = true
     var currentCellIndex = 0
     var currency = 0.0
@@ -39,6 +39,9 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     var lineAppend : [LineItem]?
     var addtoLine : DrafOrder?
     var cartcount = AllDrafts()
+    var myDraftOrder : DrafOrder?
+    var draft : Drafts? = Drafts()
+    var productsList : [LineItem]?
     var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
     
     
@@ -53,6 +56,18 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         
         favViewModel = DraftViewModel()
+        draftViewModel = DraftViewModel()
+        draftViewModel?.getAllDrafts()
+        draftViewModel?.bindingAllDrafts = {[weak self] in
+            DispatchQueue.main.async { [self] in
+                var isFav = self?.draftViewModel?.checkIfItemIsFav(productID: self?.product?.id ?? 0)
+                if isFav ?? false{
+                    self?.detailsFavButton.tintColor = UIColor.red
+                }else{
+                    self?.detailsFavButton.tintColor = UIColor.darkGray
+                }
+            }
+        }
         self.favViewModel?.changeCurrency()
         self.favViewModel?.fetchCurrencyToCell = { [weak self] in
             DispatchQueue.main.async {
@@ -130,6 +145,59 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
 
     @IBAction func addToFav(_ sender: Any) {
+        
+        if Utilites.isConnectedToNetwork(){
+            draftViewModel?.getAllDrafts()
+            draftViewModel?.bindingAllDrafts = { [weak self] in
+                DispatchQueue.main.async {
+                    
+                    if let favViewModel = self?.draftViewModel,
+                       favViewModel.checkIfItemIsFav(productID: self?.product?.id ?? 0){
+                        
+                        let draftOrders = self?.draftViewModel?.getMyFavouriteDraft()
+                        if draftOrders != nil && draftOrders?.count != 0{
+                            print("draft not nil")
+                            self?.myDraftOrder = draftOrders?[0]
+                            self?.productsList = draftOrders?[0].lineItems
+                        }else{
+                            print("draft is nil")
+                        }
+                        let confirmAction = UIAlertAction(title: "Delete", style: .default){ action  in
+                            self?.detailsFavButton.tintColor = UIColor.darkGray
+                            self?.delProduct(itemId: self?.product?.id ?? 0)
+                        }
+                        Utilites.displayAlert(title: "Delete from favourite!", message: "This item in favourite, Do you want to delete?", action: confirmAction, controller: self ?? DetailsViewController())
+                        
+                        
+                    } else {
+                        self?.detailsFavButton.tintColor = UIColor.red
+                        let favDraft = self?.draftViewModel?.getMyFavouriteDraft()
+                        var isHasDraft = self?.draftViewModel?.checkIfCustomerHasFavDraft()
+                        print("hasDraft\(String(describing: isHasDraft))")
+                        if isHasDraft ?? false{
+                            self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
+
+                        }else{
+                            self?.createDraftOrder()
+
+                        }
+                    }
+                }
+            }
+        }else{
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
 //        if let favouriteViewModel = favViewModel,
 //           favouriteViewModel.isExist(favouriteId: product?.id ?? 0){
@@ -361,6 +429,93 @@ extension DetailsViewController {
             }
         }
     }
+}
+
+extension DetailsViewController{
+    func delProduct(itemId: Int){
+        if self.productsList != nil && self.productsList?.count != 0{
+            if self.myDraftOrder?.lineItems?.count == 1{
+                self.deleteMyDraft()
+            }else{
+                self.deleteItemFromMyDraft(id: product?.id ?? 0)
+            }
+        }
+    }
+    
+    func createDraftOrder(){
+        self.draftViewModel?.saveDraft(product: product!, note: "favourite")
+        self.draftViewModel?.bindingDraft = { [weak self] in
+            print("view created")
+            DispatchQueue.main.async {
+                if self?.draftViewModel?.ObservableDraft  == 201{
+                    Utilites.displayToast(message: "product added succeessfully", seconds: 2, controller: self ?? DetailsViewController())
+                    self?.isHasDraft = self?.draftViewModel?.checkIfCustomerHasFavDraft()
+                }
+                else{
+                    Utilites.displayToast(message: "product add failed", seconds: 2, controller: self ?? DetailsViewController())
+                }
+            }
+        }
+    }
+    
+    
+    func addItemToFavourite(favDraft: [DrafOrder]){
+        self.draft?.draftOrder = favDraft[0]
+        print(self.draft ?? "nil draft")
+        let lineItem = LineItem(id: nil, variantID: nil, productID: self.product?.id, title: self.product?.title, variantTitle: "", sku:"\(( self.product?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.product?.variants?[0].price)
+        self.draft?.draftOrder?.lineItems?.append(lineItem)
+        self.draftViewModel?.updateDraft(updatedDraft: (self.draft)!)
+        self.draftViewModel?.bindingDraftUpdate = { [weak self] in
+            print("view createddd")
+            DispatchQueue.main.async {
+                if self?.draftViewModel?.ObservableDraftUpdate  == 200 || self?.draftViewModel?.ObservableDraftUpdate  == 201{
+                    Utilites.displayToast(message: "product added succeessfully", seconds: 2, controller: self ?? DetailsViewController())
+                }else{
+                    Utilites.displayToast(message: "product add failed", seconds: 2, controller: self ?? DetailsViewController())
+                }
+            }
+        }
+        isHasDraft = self.draftViewModel?.checkIfCustomerHasFavDraft()
+    }
+    
+    
+    func deleteMyDraft(){
+        self.draftViewModel?.delDraft(draftId: myDraftOrder?.id ?? 0)
+        self.draftViewModel?.bindingDraftDelete = { [weak self] in
+            print("view created")
+            DispatchQueue.main.async {
+                if self?.draftViewModel?.ObservableDraftDelete  == 200{
+                    Utilites.displayToast(message: "deleted succeessfully", seconds: 2, controller: self ?? DetailsViewController())
+                }
+                else{
+                    Utilites.displayToast(message: "deleted failed", seconds: 2, controller: self ?? DetailsViewController())
+                }
+            }
+        }
+    }
+    
+    
+    func deleteItemFromMyDraft(id: Int){
+        self.draft?.draftOrder = myDraftOrder
+        print("mydraftdraft\(String(describing: myDraftOrder?.lineItems))")
+        let productId: String = "\(id)"
+        self.draft?.draftOrder?.lineItems?.removeAll(where: { item in
+            item.sku! == productId
+        })
+        self.draftViewModel?.updateDraft(updatedDraft: (self.draft)!)
+        self.draftViewModel?.bindingDraftUpdate = { [weak self] in
+            print("view createddd")
+            DispatchQueue.main.async {
+                if self?.draftViewModel?.ObservableDraftUpdate  == 200 || self?.draftViewModel?.ObservableDraftUpdate  == 201{
+                    Utilites.displayToast(message: "deleted succeessfully", seconds: 2, controller: self ?? DetailsViewController())
+                }else{
+                    Utilites.displayToast(message: "deleted failed", seconds: 2, controller: self ?? DetailsViewController())
+                }
+            }
+        }
+    }
+    
+    
 }
 
 
