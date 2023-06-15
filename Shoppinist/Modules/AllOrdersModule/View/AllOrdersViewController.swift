@@ -16,13 +16,14 @@ class AllOrdersViewController: UIViewController {
     var ordersList: [Order] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = view.center
                 activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         remoteDataSource = AllOrderRemoteDataSource()
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
-        allOrdersViewModel?.fetchOrdersData(customerId: 6930629984548)
+        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
         allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderView()}
     }
 

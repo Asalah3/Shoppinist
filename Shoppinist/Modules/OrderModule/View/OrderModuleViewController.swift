@@ -59,10 +59,13 @@ class OrderModuleViewController: UIViewController {
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
     }
     @IBAction func placeOrderButton(_ sender: Any) {
-        let order = Order(id: nil, confirmed: true, discountCodes: nil, createdAt: nil, email: nil, name: nil, note: grandTotal.text, taxLines: nil, customer: Customer(id: UserDefaultsManager.sharedInstance.getUserID()), lineItems: lineItems, shippingAddress: shippingAddress, shippingLines: nil)
+        let name = UserDefaults.standard.string(forKey:"customerFirsttName")
+        let address = ShippingAddress(address1: shippingAddress?.address1, city: shippingAddress?.city, country: shippingAddress?.country, phone: shippingAddress?.phone, name: name)
+        
+        let order = Order(id: nil, confirmed: true, discountCodes: nil, createdAt: nil, email: nil, name: nil, note: grandTotal.text, taxLines: nil, customer: Customer(id: UserDefaultsManager.sharedInstance.getUserID()), lineItems: lineItems, shippingAddress: address, shippingLines: nil)
         let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
         payementVC.order = PostOrdersModel(order: order)
-         self.present(payementVC, animated: true)
+        self.navigationController?.pushViewController(payementVC, animated: true)
     }
     
    

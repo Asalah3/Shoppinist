@@ -24,7 +24,7 @@ class OrderTableViewCell: UITableViewCell {
         self.orderCreationDate.text = order.createdAt
         self.orderTotalPrice.text = order.note
         let shippingAdress = order.shippingAddress
-        let shippedTo = "\(String(describing: shippingAdress?.country)), \(String(describing: shippingAdress?.city)), \(String(describing: shippingAdress?.address1))"
+        let shippedTo = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
         self.orderShippedTo.text = shippedTo
     }
 

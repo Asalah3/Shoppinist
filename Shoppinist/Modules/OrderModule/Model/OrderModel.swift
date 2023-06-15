@@ -26,7 +26,7 @@ struct Order: Codable {
     let taxLines: [TaxLine]?
     let customer: Customer?
     let lineItems: [LineItem]?
-    let shippingAddress: Address?
+    let shippingAddress: ShippingAddress?
     let shippingLines: [ShippingLine]?
 
     enum CodingKeys: String, CodingKey {
@@ -41,6 +41,17 @@ struct Order: Codable {
         case lineItems = "line_items"
         case shippingAddress = "shipping_address"
         case shippingLines = "shipping_lines"
+    }
+}
+// MARK: - Address
+struct ShippingAddress: Codable {
+    let address1: String?
+    let city: String?
+    let country: String?
+    let phone, name: String?
+
+    enum CodingKeys: String, CodingKey {
+        case address1, city, country, phone, name
     }
 }
 // MARK: - DiscountCode
