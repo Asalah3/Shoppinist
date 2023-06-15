@@ -8,8 +8,12 @@
 import UIKit
 import Reachability
 import SDWebImage
+import Lottie
 
 class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITableViewDelegate,CounterProtocol {
+    @IBOutlet weak var proccess_btn: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var noData: AnimationView!
     private var flag: Bool = true
     private var deletedLineItem : LineItem?
     private var cartArray: [LineItem]?
@@ -18,46 +22,63 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     private var shoppingCartVM = ShoppingCartViewModel()
     @IBOutlet weak var subTotalPrice: UILabel!
     private static var subTotalPrice = 0.0
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     @IBOutlet weak var cardTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
           print("viewDidLoad")
         ShoppingCardViewController.subTotalPrice = 0.0
-        //  cartArray = nil
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = view.center
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-       
+ 
+        self.cardTableView.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
-        print("viewDidLoad")
-        ShoppingCardViewController.subTotalPrice = 0.0
-        getData()
-        
+        print("viewWillAppear")
         self.cardTableView.reloadData()
+        ShoppingCardViewController.subTotalPrice = 0.0
+        
+        getData()
+        self.cardTableView.reloadData()
+        
+    
        
     }
 
     func getData(){
         shoppingCartVM.getShoppingCart()
+        self.cardTableView.reloadData()
         shoppingCartVM.bindingCart = {
             self.renderView()
-            
+           
         }
         self.cardTableView.reloadData()
     }
     func renderView(){
         DispatchQueue.main.async {
-            
-            //self.cartArray?.removeAll()
+            self.cardTableView.reloadData()
             self.cartArray = self.shoppingCartVM.cartList
+            if self.cartArray?.count == 0 {
+            self.cardTableView.isHidden = true
+            self.subTotalPrice.isHidden = true
+            self.proccess_btn.isHidden = true
+                self.priceLabel.isHidden = true
+            self.noData.isHidden = false
+            self.noData.contentMode = .scaleAspectFit
+            self.noData.loopMode = .loop
+            self.noData.play()
+            }
+            else {
+                self.cardTableView.isHidden = false
+                self.proccess_btn.isHidden = false
+                self.subTotalPrice.isHidden = false
+                self.priceLabel.isHidden = false
+                self.noData.isHidden = true
+               
+            }
             self.cardTableView.reloadData()
             self.configureView()
-            self.activityIndicator.stopAnimating()
+           // self.activityIndicator.stopAnimating()
+            self.cardTableView.reloadData()
             print("sub total : \(Self.subTotalPrice)")
-            
+           
             
             }
    
@@ -212,9 +233,25 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
                         self.deleteCart()
                         if UserDefaults.standard.string(forKey: "Currency") == "EGP"{
                             self.subTotalPrice.text = "0 EGP"
+                            self.cardTableView.isHidden = true
+                            self.subTotalPrice.isHidden = true
+                            self.proccess_btn.isHidden = true
+                            self.priceLabel.isHidden = true
+                            self.noData.isHidden = false
+                            self.noData.contentMode = .scaleAspectFit
+                            self.noData.loopMode = .loop
+                            self.noData.play()
                         }
                         else{
                             self.subTotalPrice.text = "0 $"
+                            self.cardTableView.isHidden = true
+                            self.subTotalPrice.isHidden = true
+                            self.proccess_btn.isHidden = true
+                            self.priceLabel.isHidden = true
+                            self.noData.isHidden = false
+                            self.noData.contentMode = .scaleAspectFit
+                            self.noData.loopMode = .loop
+                            self.noData.play()
                         }
                     }
                 }
@@ -264,6 +301,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
                 UserDefaultsManager.sharedInstance.setCartState(cartState:false)
                 self.increaseCounter()
                 self.subTotalPrice.text = "0"
+           
                 
             }
             else
