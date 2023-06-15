@@ -62,7 +62,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
 //        let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
 //        payementVC.totalprice = price
         
-        let orderVc = self.storyboard?.instantiateViewController(withIdentifier: "OrderModuleViewController") as! OrderModuleViewController
+        let orderVc = self.storyboard?.instantiateViewController(withIdentifier: "OrderModuleViewController") as? OrderModuleViewController
        
         
         UserDefaults.standard.set(customerAddressTable?.addresses![indexPath.row].address1, forKey: "address")
@@ -79,9 +79,9 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
             }
         }
         
-        orderVc.shippingAddress = customerAddressTable?.addresses?[indexPath.row]
-        orderVc.lineItems = LineItems
-        self.navigationController?.pushViewController(orderVc, animated: true)
+        orderVc?.shippingAddress = customerAddressTable?.addresses?[indexPath.row]
+        orderVc?.lineItems = LineItems
+        self.navigationController?.pushViewController(orderVc ?? OrderModuleViewController(), animated: true)
     
     }
     

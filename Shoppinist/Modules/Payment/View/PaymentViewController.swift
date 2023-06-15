@@ -52,13 +52,16 @@ class PaymentViewController: UIViewController {
         OptionSelected(_isApplePaySelected: true)
         Payment()
     }
-    @IBAction func placeOrderButton(_ sender: Any) {
-        
+    
+    @IBAction func processedToConfirm(_ sender: Any) {
+        print("presssed")
         self.orderModuleViewModel?.createOrder(order: order!)
         self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
             DispatchQueue.main.async {
                 if self?.orderModuleViewModel?.observableCreateOrder == 201{
                     print("Order Inserted Successfully")
+                    let allOrdersViewController = self?.storyboard?.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
+                    self?.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
                 }else{
                     print("Failed To Insert Order")
                 }
@@ -70,8 +73,10 @@ class PaymentViewController: UIViewController {
             }else{
                 print("Failed To Delete ShoppingCart")
             }
-            
         }
+    }
+    @IBAction func placeOrderButton(_ sender: Any) {
+        
        
     }
     func OptionSelected(_isApplePaySelected: Bool) {
