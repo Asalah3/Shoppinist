@@ -10,11 +10,11 @@ import PassKit
 
 class PaymentViewController: UIViewController {
     @IBOutlet weak var applePaymentButton: UIButton!
-    @IBOutlet weak var coupounTextField: UITextField!
     @IBOutlet weak var cashPaymentButton: UIButton!
     var order : PostOrdersModel?
     var remoteDataSource: OrderRemoteDataSourceProtocol?
     var orderModuleViewModel: OrderModuleViewModelProtocol?
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var totalprice :Int = 0
     var finalPrice: Int = 0
     private var paymentRequest : PKPaymentRequest = {
@@ -38,12 +38,13 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
         remoteDataSource = OrderRemoteDataSource()
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
-        Utilites.setUpTextFeildStyleAddress(textField: coupounTextField)
+        
     }
     
 
     @IBAction func cashButton(_ sender: Any) {
         OptionSelected(_isApplePaySelected: false)
+        Utilites.displayToast(message: "You choose To Pay cash on Delivery" , seconds: 2.0, controller: self )
        
      
     }
@@ -51,6 +52,9 @@ class PaymentViewController: UIViewController {
        
         OptionSelected(_isApplePaySelected: true)
         Payment()
+        Utilites.displayToast(message: "You choose  apple payment " , seconds: 2.0, controller: self )
+
+       
     }
     
     @IBAction func processedToConfirm(_ sender: Any) {
