@@ -60,20 +60,20 @@ class PaymentViewController: UIViewController {
             DispatchQueue.main.async {
                 if self?.orderModuleViewModel?.observableCreateOrder == 201{
                     print("Order Inserted Successfully")
-                    let allOrdersViewController = self?.storyboard?.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
+//                    let meViewController = self?.storyboard?.instantiateViewController(withIdentifier: "MeViewController") as? MeViewController
                     //PaymentMethod
                     if ((self?.applePaymentButton.isSelected) != nil) {
-                        allOrdersViewController?.PaymentMethod = "Apple Pay"
+//                        allOrdersViewController?.PaymentMethod = "Apple Pay"
                        
                     }
                     else if ((self?.cashPaymentButton.isSelected) != nil){
-                        allOrdersViewController?.PaymentMethod = "Cash on delivery"
+//                        allOrdersViewController?.PaymentMethod = "Cash on delivery"
                        
                     } else  {
                         self?.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
                     }
                     
-                    self?.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
+//                    self?.navigationController?.pushViewController(meViewController ?? MeViewController(), animated: true)
                  
                 }else{
                     print("Failed To Insert Order")

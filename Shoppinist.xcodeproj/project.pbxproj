@@ -420,8 +420,8 @@
 		C97C96442A38FEA8009756D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C97C963F2A38ED86009756D6 /* AllOrdersViewController.swift */,
 				C97C96412A38F23F009756D6 /* OrderTableViewCell.swift */,
+				C97C963F2A38ED86009756D6 /* AllOrdersViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

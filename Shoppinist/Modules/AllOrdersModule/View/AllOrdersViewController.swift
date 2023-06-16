@@ -17,7 +17,6 @@ class AllOrdersViewController: UIViewController {
     var PaymentMethod: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: true)
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = view.center
                 activityIndicator.startAnimating()
