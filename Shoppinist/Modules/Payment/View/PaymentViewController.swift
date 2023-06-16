@@ -61,7 +61,20 @@ class PaymentViewController: UIViewController {
                 if self?.orderModuleViewModel?.observableCreateOrder == 201{
                     print("Order Inserted Successfully")
                     let allOrdersViewController = self?.storyboard?.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
+                    //PaymentMethod
+                    if ((self?.applePaymentButton.isSelected) != nil) {
+                        allOrdersViewController?.PaymentMethod = "Apple Pay"
+                       
+                    }
+                    else if ((self?.cashPaymentButton.isSelected) != nil){
+                        allOrdersViewController?.PaymentMethod = "Cash on delivery"
+                       
+                    } else  {
+                        self?.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
+                    }
+                    
                     self?.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
+                 
                 }else{
                     print("Failed To Insert Order")
                 }
@@ -74,6 +87,7 @@ class PaymentViewController: UIViewController {
                 print("Failed To Delete ShoppingCart")
             }
         }
+       
     }
 
     func OptionSelected(_isApplePaySelected: Bool) {

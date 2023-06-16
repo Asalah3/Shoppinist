@@ -14,6 +14,7 @@ class AllOrdersViewController: UIViewController {
     var remoteDataSource: AllOrderRemoteDataSourceProtocol?
     var allOrdersViewModel: AllOrdersViewModelProtocol?
     var ordersList: [Order] = []
+    var PaymentMethod: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
