@@ -49,9 +49,13 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         return customerAddressTable?.addresses?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "selectAddress", for: indexPath)as! SelectAddressTableViewCell
-        cell.titleLabel.text = customerAddressTable?.addresses![indexPath.row].address1
-        cell.subTitle.text = customerAddressTable?.addresses![indexPath.row].phone
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectAddress", for: indexPath)
+      
+        cell.imageView?.image=UIImage(systemName: "homekit")
+        cell.imageView?.tintColor = .label
+        cell.textLabel?.text = "\(customerAddressTable?.addresses![indexPath.row].address1 ?? "") , \(customerAddressTable?.addresses![indexPath.row].city ?? "") , \(customerAddressTable?.addresses![indexPath.row].country ?? "") "
+       
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,9 +63,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           tableView.deselectRow(at: indexPath, animated: true)
-//        let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-//        payementVC.totalprice = price
-        
+
         let orderVc = self.storyboard?.instantiateViewController(withIdentifier: "OrderModuleViewController") as? OrderModuleViewController
        
         
