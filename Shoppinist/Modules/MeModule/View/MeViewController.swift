@@ -10,12 +10,19 @@ import NVActivityIndicatorView
 import BadgeSwift
 class MeViewController: UIViewController {
     
+    @IBOutlet weak var ordersTableView: UITableView!
+    @IBOutlet weak var customerName: UILabel!
     private var cartArray: [LineItem]?
     private var shoppingCartVM = ShoppingCartViewModel()
+    var remoteDataSource: AllOrderRemoteDataSourceProtocol?
+    var allOrdersViewModel: AllOrdersViewModelProtocol?
+    var ordersList: [Order] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        customerName.text = UserDefaults.standard.string(forKey:"customerFirsttName")
+        allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
+        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
+        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
     }
     
     func getData(){
@@ -35,6 +42,10 @@ class MeViewController: UIViewController {
    
     }
 
+    @IBAction func seeMoreButton(_ sender: Any) {
+        let allOrdersViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
+        self.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
+    }
     //ShoppingCard
     @IBAction func shoppingButton(_ sender: Any) {
         let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShoppingCard") as! ShoppingCardViewController
@@ -57,4 +68,31 @@ class MeViewController: UIViewController {
       
     }
   
+}
+extension MeViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if ordersList.count == 0{
+            return 0
+        }else{
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as? OrderTableViewCell
+        cell?.setUpCell(order: ordersList[indexPath.row])
+        return cell ?? OrderTableViewCell()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let orderDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
+        orderDetailsViewController?.order = ordersList[indexPath.row]
+        self.navigationController?.pushViewController(orderDetailsViewController ?? OrderDetailsViewController(), animated: true)
+    }
+    func renderOrdersView(){
+        DispatchQueue.main.async {
+            self.ordersList = self.allOrdersViewModel?.fetchAllOrdersData ?? [Order]()
+            self.ordersTableView.reloadData()
+        }
+    }
+    
 }
