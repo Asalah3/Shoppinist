@@ -110,6 +110,9 @@
 		DB4869172A2D9BBE00045739 /* ShoppingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4869162A2D9BBE00045739 /* ShoppingCardViewController.swift */; };
 		DB4869192A2DAFBE00045739 /* ShoppingCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4869182A2DAFBE00045739 /* ShoppingCardTableViewCell.swift */; };
 		DB5D6CE02A2C81B9004BB927 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */; };
+		DB6A6AED2A3BE5630030BEDD /* TestAddressNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A6AEC2A3BE5630030BEDD /* TestAddressNetWork.swift */; };
+		DB6A6AEF2A3C025E0030BEDD /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A6AEE2A3C025E0030BEDD /* AddressViewModel.swift */; };
+		DB6A6AF12A3C07950030BEDD /* TestAddNewAddressMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A6AF02A3C07950030BEDD /* TestAddNewAddressMock.swift */; };
 		DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */; };
 		DB6A8CE02A2AFD9F00142BBC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */; };
 		DB6DE4062A39C609003E2400 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6DE4052A39C609003E2400 /* UIBarButtonItem+Badge.swift */; };
@@ -260,6 +263,9 @@
 		DB4869162A2D9BBE00045739 /* ShoppingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCardViewController.swift; sourceTree = "<group>"; };
 		DB4869182A2DAFBE00045739 /* ShoppingCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCardTableViewCell.swift; sourceTree = "<group>"; };
 		DB5D6CDF2A2C81B9004BB927 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		DB6A6AEC2A3BE5630030BEDD /* TestAddressNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddressNetWork.swift; sourceTree = "<group>"; };
+		DB6A6AEE2A3C025E0030BEDD /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		DB6A6AF02A3C07950030BEDD /* TestAddNewAddressMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddNewAddressMock.swift; sourceTree = "<group>"; };
 		DB6A8CDD2A2AFD6D00142BBC /* AboutUs .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "AboutUs .storyboard"; sourceTree = "<group>"; };
 		DB6A8CDF2A2AFD9F00142BBC /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		DB6DE4052A39C609003E2400 /* UIBarButtonItem+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Badge.swift"; sourceTree = "<group>"; };
@@ -459,6 +465,7 @@
 		C987262E2A27CF0C00EB0A40 /* ShoppinistTests */ = {
 			isa = PBXGroup;
 			children = (
+				DB6A6AEA2A3BE4DF0030BEDD /* TestAddressModule */,
 				C907391A2A38A4A800ED87AC /* HomeModuleTest */,
 				CF846FE02A379621007FE718 /* FavouriteTest */,
 				CFE7C9DB2A32D2A600521DED /* DetailsTest */,
@@ -1048,6 +1055,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DB6A6AEA2A3BE4DF0030BEDD /* TestAddressModule */ = {
+			isa = PBXGroup;
+			children = (
+				DB6A6AEB2A3BE4F50030BEDD /* TestNetworkLayer */,
+			);
+			path = TestAddressModule;
+			sourceTree = "<group>";
+		};
+		DB6A6AEB2A3BE4F50030BEDD /* TestNetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				DB6A6AEC2A3BE5630030BEDD /* TestAddressNetWork.swift */,
+				DB6A6AEE2A3C025E0030BEDD /* AddressViewModel.swift */,
+				DB6A6AF02A3C07950030BEDD /* TestAddNewAddressMock.swift */,
+			);
+			path = TestNetworkLayer;
+			sourceTree = "<group>";
+		};
 		DB6A8CDC2A2AFD4400142BBC /* AboutUs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1536,10 +1561,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6A6AF12A3C07950030BEDD /* TestAddNewAddressMock.swift in Sources */,
 				CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */,
 				C907391F2A38A64900ED87AC /* BrandsMock.swift in Sources */,
 				CFE7C9DD2A32D2C800521DED /* TestDetails.swift in Sources */,
+				DB6A6AEF2A3C025E0030BEDD /* AddressViewModel.swift in Sources */,
 				CFE7C9D42A32C8CE00521DED /* TestSignViewModel.swift in Sources */,
+				DB6A6AED2A3BE5630030BEDD /* TestAddressNetWork.swift in Sources */,
 				C98726302A27CF0C00EB0A40 /* ShoppinistTests.swift in Sources */,
 				CFE7C9E12A32DA9D00521DED /* TestLoginMock.swift in Sources */,
 				CFE7C9D22A32C53800521DED /* TestSignUp.swift in Sources */,
