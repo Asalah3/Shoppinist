@@ -24,14 +24,5 @@ extension BrandProductsMock : BrandProductsRemoteDataSourceProtocol{
         }
     }
     
-    func fetchBrands(compilitionHandler: @escaping (Shoppinist.BrandModel?) -> Void) {
-        let data = Data (BrandsMock.brandsData.utf8)
-        do{
-            let result = try JSONDecoder().decode(BrandModel.self, from: data)
-            compilitionHandler(result)
-        }catch let error{
-            print(error.localizedDescription)
-            compilitionHandler(nil)
-        }
-    }
+    
 }
