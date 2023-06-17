@@ -23,7 +23,14 @@ class OrderTableViewCell: UITableViewCell {
     }
     func setUpCell(order: Order) {
         self.orderCreationDate.text = order.createdAt
-        self.orderTotalPrice.text = order.note
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            var cur = (UserDefaults.standard.double(forKey: "EGP"))
+           
+            self.orderTotalPrice.text = "\((Float(order.note ?? "0.0") ?? 0.0) * Float(cur)) EGP"
+        }else{
+            self.orderTotalPrice.text = "\(order.note ?? "0.0" ) $"
+            
+        }
         let shippingAdress = order.shippingAddress
         let shippedTo = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
         self.orderShippedTo.text = shippedTo

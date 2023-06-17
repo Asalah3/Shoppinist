@@ -12,7 +12,7 @@ protocol RemoteDataSourceProtocol{
 }
 class RemoteDataSource: RemoteDataSourceProtocol{
     func getCurrency(compilitionHandler: @escaping (CurrenyModel?) -> Void) {
-        let url = URL(string: "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=4bd3f7d6a381431baf16cc49836c87f0&base=usd&symbols=egp")
+        let url = URL(string: "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=152bfa1859934bf996d578d0315e0f2f&base=usd&symbols=egp")
         guard let newUrl = url else {
             return
         }

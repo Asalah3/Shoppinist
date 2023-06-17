@@ -17,7 +17,13 @@ class OrderDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         orderDate.text = order?.createdAt
-        orderTotalPrice.text = order?.note
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            var cur = (UserDefaults.standard.double(forKey: "EGP"))
+           
+            self.orderTotalPrice.text = "\((Float(order?.note ?? "0.0") ?? 0.0) * Float(cur)) EGP"
+        }else{
+            self.orderTotalPrice.text = "\(order?.note ?? "0.0" ) $"
+        }
         let shippingAdress = order?.shippingAddress
         let address = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
         orderAddress.text = address
