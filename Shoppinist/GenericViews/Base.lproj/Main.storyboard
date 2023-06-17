@@ -634,6 +634,9 @@
             <point key="canvasLocation" x="60.305343511450381" y="-132.3943661971831"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ty2-Zf-YPK"/>
+    </designables>
     <resources>
         <image name="1" width="2000" height="2000"/>
         <image name="LoginImg" width="626" height="626"/>

@@ -24,7 +24,13 @@ class OrderModuleViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        coupon.text = "\(UserDefaultsManager.sharedInstance.getUserCoupon())"
+        let userCoupon = UserDefaultsManager.sharedInstance.getUserCoupon()
+        if userCoupon == "" {
+            coupon.text = "No copoun"
+        }else{
+            coupon.text = "\(UserDefaultsManager.sharedInstance.getUserCoupon())"
+        }
+        
         let sub = checkCoupon(coupon: UserDefaultsManager.sharedInstance.getUserCoupon())
         subTotal.text = "\(sub)"
         shippingFees.text = "10"
