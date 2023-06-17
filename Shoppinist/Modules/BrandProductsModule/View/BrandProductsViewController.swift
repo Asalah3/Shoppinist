@@ -24,20 +24,13 @@ class BrandProductsViewController: UIViewController {
     var favViewModel : DraftViewModel?
     var productsList : [Product]?
     var brandId = 0
-    var currency = 0.0
     var searchBrandProducts = [Product]()
     var filteredPrice : [Product] = []
     var searching = false
     var filtered = false
-    
     override func viewWillAppear(_ animated: Bool) {
-        favViewModel = DraftViewModel()
-        self.favViewModel?.changeCurrency()
-        self.favViewModel?.fetchCurrencyToCell = { [weak self] in
-            DispatchQueue.main.async {
-                self?.currency = (Double(self?.favViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0).rounded()
-                self?.productsCollectionView.reloadData()
-            }
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
     }
     override func viewDidLoad() {
@@ -65,11 +58,17 @@ class BrandProductsViewController: UIViewController {
         brandProductsViewModel = BrandProductsViewModel(remoteDataSource: remoteDataSource ?? BrandProductsRemoteDataSource())
         brandProductsViewModel?.fetchBrandProducts(collectionId: brandId)
         brandProductsViewModel?.fetchProductsToBrandProductsViewController = {() in self.renderView()}
+        favViewModel = DraftViewModel()
     }
     
     @IBAction func changeSlider(_ sender: Any) {
         filtered = true
-        self.sliderRange.text = String(floor(self.slider.value))
+        var cur = 1.0
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            cur = (UserDefaults.standard.double(forKey: "EGP"))
+            
+        }
+        self.sliderRange.text = String(floor((self.slider.value) * Float(cur)))
         filteredPrice = productsList?.filter({Float($0.variants?.first?.price ?? "0.0") ?? 0.0 <= slider.value}) ?? []
         self.productsCollectionView.reloadData()
         if self.filteredPrice.count == 0{
@@ -112,7 +111,6 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         }
         cell?.delegate = self
         cell?.setVieModel(draftViewModel:favViewModel!)
-        cell?.currency = currency
         cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }
@@ -144,9 +142,13 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         DispatchQueue.main.async {
             self.productsList = self.brandProductsViewModel?.fetchProductsData
             self.slider.value = Float(self.productsList?.first?.variants?.first?.price ?? "0.0") ?? 0.0
+            var cur = 1.0
+            if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                cur = (UserDefaults.standard.double(forKey: "EGP"))
+            }
             self.slider.minimumValue = Float(self.productsList?.first?.variants?.first?.price ?? "0.0") ?? 0.0
             self.slider.maximumValue = Float(self.productsList?.last?.variants?.first?.price ?? "0.0") ?? 0.0
-            self.sliderRange.text = String(floor(self.slider.value))
+            self.sliderRange.text = String(floor(Double((self.slider.value)) * cur))
             self.productsCollectionView.reloadData()
             self.activityIndicator.stopAnimating()
         }

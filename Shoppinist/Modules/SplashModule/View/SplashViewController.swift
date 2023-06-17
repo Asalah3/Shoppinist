@@ -9,10 +9,19 @@ import UIKit
 import Lottie
 
 class SplashViewController: UIViewController {
-
+    var ViewModel: SplashViewModel!
     @IBOutlet weak var splashView: AnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ViewModel = SplashViewModel()
+        ViewModel.changeCurrency()
+        self.ViewModel?.fetchCurrencyToCell = { [weak self] in
+            DispatchQueue.main.async {
+                let currency = Double(self?.ViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0
+                UserDefaults.standard.set(currency, forKey: "EGP")
+                print("EPG = \(UserDefaults.standard.double(forKey: "EGP"))")
+            }
+        }
         splashView.contentMode = .scaleAspectFit
         splashView.loopMode = .loop
         splashView.play()

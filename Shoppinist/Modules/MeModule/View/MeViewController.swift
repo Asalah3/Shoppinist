@@ -62,11 +62,16 @@ class MeViewController: UIViewController {
     }
     
     override func viewWillAppear( _ animated: Bool){
+
         shoppingCartVM.getShoppingCart()
         shoppingCartVM.bindingCart = {
             DispatchQueue.main.async {
                 self.cartArray = self.shoppingCartVM.cartList
             }
+
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+
         }
         allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
         allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
