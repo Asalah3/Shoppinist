@@ -18,8 +18,10 @@ class MeViewController: UIViewController {
     var remoteDataSource: AllOrderRemoteDataSourceProtocol?
     var allOrdersViewModel: AllOrdersViewModelProtocol?
     var ordersList: [Order] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         customerName.text = UserDefaults.standard.string(forKey:"customerFirsttName")
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
 //        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
@@ -60,14 +62,24 @@ class MeViewController: UIViewController {
     }
     
     override func viewWillAppear( _ animated: Bool){
+
+        shoppingCartVM.getShoppingCart()
+        shoppingCartVM.bindingCart = {
+            DispatchQueue.main.async {
+                self.cartArray = self.shoppingCartVM.cartList
+            }
+
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+
         }
         allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
         allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
-        rightBarButton?.addBadge(text: "3" , withOffset: CGPoint(x: -100, y: 0))
+        var count = cartArray?.count ?? 0
+
+        rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
       
     }
   
