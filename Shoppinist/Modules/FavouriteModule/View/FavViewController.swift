@@ -21,8 +21,7 @@ class FavViewController: UIViewController {
     var currency = 0.0
     var searchProducts = [LineItem]()
     var searching = false
-    var idList = [Int]()
-    var images = [String]()
+    var idList = [String]()
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,18 +120,12 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             }else{
                 cell.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
             }
+            unwrappedImage = productsList?[indexPath.row].image ?? ""
             productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
             cell.productName.text = productsList?[indexPath.row].title
         }
         
         print("productidid\(productID)")
-//        self.favViewModel?.getProductDetails(productID: productID)
-//        self.favViewModel?.fetchProductsDetailsToViewController = {
-//            unwrappedImage = self.favViewModel?.fetchProductData.image?.src ?? ""
-//            print("productididimage\(unwrappedImage)")
-//            cell.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
-//            
-//        }
         cell.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
 
         return cell
@@ -187,19 +180,30 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
                 self.productsList = draftOrders?[0].lineItems
                 if self.productsList != nil{
                     for i in self.productsList! {
-                        let productID = Int(i.sku ?? "") ?? 0
-                        self.idList.append(productID)
-
-                        //----------------------------
-                        self.favViewModel?.getProductDetails(productID: productID)
-                        self.favViewModel?.fetchProductsDetailsToViewController = {
-                            let image = self.favViewModel?.fetchProductData.image?.src ?? ""
-                            self.images.append(image)
-                        }
-                        print("list is\(self.images)")
+                        self.idList.append(i.sku ?? "")
                     }
                 }
-                print("list is\(self.images)")
+                if self.idList.count != 0{
+                    let IDs: String = self.idList.joined(separator: ",")
+                    print("IDss \(IDs)")
+                    self.favViewModel?.getFavProductDetails(productID: IDs)
+                    self.favViewModel?.fetchFavProductsDetailsToViewController = {
+                        let result = self.favViewModel?.fetchFavProductData
+                        guard let favProducts = result
+                        else {
+                            return
+                            
+                        }
+                        for i in 0..<(self.productsList?.count ?? 0){
+                            for product in favProducts{
+                                if self.productsList?[i].sku == String(product.id ?? 0){
+                                    self.productsList?[i].image = product.image?.src
+                                    print("itemImage \(self.productsList?[i].image)")
+                                }
+                            }
+                        }
+                    }
+                }
                 print("list is\(self.idList)")
                 self.favTableView.reloadData()
             }else{

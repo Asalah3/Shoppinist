@@ -11,4 +11,8 @@ struct ProductDetailsModel: Codable {
     let product: Product
 }
 
+struct FavProductDetailsModel: Codable {
+    let product: [Product]?
+}
+
 
