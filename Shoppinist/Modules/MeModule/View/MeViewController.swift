@@ -11,6 +11,7 @@ import BadgeSwift
 class MeViewController: UIViewController {
     
     @IBOutlet weak var ordersTableView: UITableView!
+    @IBOutlet weak var favouritesTableView: UITableView!
     @IBOutlet weak var customerName: UILabel!
     private var cartArray: [LineItem]?
     private var shoppingCartVM = ShoppingCartViewModel()
@@ -21,30 +22,30 @@ class MeViewController: UIViewController {
         super.viewDidLoad()
         customerName.text = UserDefaults.standard.string(forKey:"customerFirsttName")
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
-        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
-        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
+//        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
+//        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
+        //Favourites Logic
     }
     
     func getData(){
         shoppingCartVM.getShoppingCart()
         shoppingCartVM.bindingCart = {
             self.renderView()
-            
         }
     }
     func renderView(){
         DispatchQueue.main.async {
-            
             self.cartArray = self.shoppingCartVM.cartList
-          
-           
-            }
-   
+        }
     }
 
-    @IBAction func seeMoreButton(_ sender: Any) {
+    @IBAction func seeMoreOrdersButton(_ sender: Any) {
         let allOrdersViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
         self.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
+    }
+    @IBAction func seeMoreFavouritesButton(_ sender: Any) {
+//        let favViewController = self.storyboard?.instantiateViewController(withIdentifier: "FavViewController") as? FavViewController
+//        self.navigationController?.pushViewController(favViewController ?? FavViewController(), animated: true)
     }
     //ShoppingCard
     @IBAction func shoppingButton(_ sender: Any) {
@@ -55,15 +56,14 @@ class MeViewController: UIViewController {
     }
     @IBAction func settingButton(_ sender: Any) {
         let setting = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
-        
         navigationController?.pushViewController(setting, animated: true)
     }
     
     override func viewWillAppear( _ animated: Bool){
+        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
+        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
-
-        
         rightBarButton?.addBadge(text: "3" , withOffset: CGPoint(x: -100, y: 0))
       
     }
@@ -71,27 +71,60 @@ class MeViewController: UIViewController {
 }
 extension MeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ordersList.count == 0{
-            return 0
+        if tableView == ordersTableView{
+            if ordersList.count == 0{
+                return 0
+            }else{
+                return 1
+            }
         }else{
-            return 1
+            //Favourites Logic
+            return 2
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as? OrderTableViewCell
-        cell?.setUpCell(order: ordersList[indexPath.row])
-        return cell ?? OrderTableViewCell()
+        if tableView == ordersTableView{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as? OrderTableViewCell
+            cell?.setUpCell(order: ordersList[indexPath.row])
+            return cell ?? OrderTableViewCell()
+        }
+        else{
+            //Favourites Logic
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FavTableViewCell", for: indexPath) as? FavTableViewCell
+            return cell ?? FavTableViewCell()
+        }
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let orderDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
-        orderDetailsViewController?.order = ordersList[indexPath.row]
-        self.navigationController?.pushViewController(orderDetailsViewController ?? OrderDetailsViewController(), animated: true)
+        if tableView == ordersTableView{
+            let orderDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
+            orderDetailsViewController?.order = ordersList[indexPath.row]
+            self.navigationController?.pushViewController(orderDetailsViewController ?? OrderDetailsViewController(), animated: true)
+        }else{
+            //Favourites Logic
+            
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == ordersTableView{
+            return ordersTableView.frame.height
+        }else{
+            return favouritesTableView.frame.height / 2
+        }
     }
     func renderOrdersView(){
         DispatchQueue.main.async {
             self.ordersList = self.allOrdersViewModel?.fetchAllOrdersData ?? [Order]()
             self.ordersTableView.reloadData()
+        }
+    }
+    //Favourites Logic
+    func renderFavouritesView(){
+        DispatchQueue.main.async {
+            self.favouritesTableView.reloadData()
         }
     }
     
