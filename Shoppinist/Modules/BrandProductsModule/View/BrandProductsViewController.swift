@@ -189,6 +189,12 @@ extension BrandProductsViewController : UISearchBarDelegate{
 }
 
 extension BrandProductsViewController: MyCustomCellDelegate{
+    func navigateToSign() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func showAlert(title: String, message: String, confirmAction: UIAlertAction) {
         Utilites.displayAlert(title: title, message: message, action: confirmAction, controller: self)
     }

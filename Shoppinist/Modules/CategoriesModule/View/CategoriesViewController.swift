@@ -280,6 +280,12 @@ extension CategoriesViewController : UISearchBarDelegate{
 }
 
 extension CategoriesViewController: MyCustomCellDelegate{
+    func navigateToSign() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func showToast(message: String) {
         Utilites.displayToast(message: message, seconds: 2, controller: self)
     }

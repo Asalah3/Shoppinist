@@ -11,6 +11,7 @@ import SDWebImage
 protocol MyCustomCellDelegate: AnyObject{
     func showAlert(title : String , message: String, confirmAction: UIAlertAction)
     func showToast(message: String)
+    func navigateToSign()
 }
 
 class ProductsCollectionViewCell: UICollectionViewCell {
@@ -41,49 +42,55 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func addTofavouriteButton(_ sender: Any) {
-        
-        if Utilites.isConnectedToNetwork(){
-            favDraftViewModel?.getAllDrafts()
-            favDraftViewModel?.bindingAllDrafts = { [weak self] in
-                DispatchQueue.main.async {
-                    
-                    if let favViewModel = self?.favDraftViewModel,
-                       favViewModel.checkIfItemIsFav(productID: self?.favObject?.id ?? 0){
+        if UserDefaults.standard.integer(forKey:"customerID") != 0{
+            if Utilites.isConnectedToNetwork(){
+                favDraftViewModel?.getAllDrafts()
+                favDraftViewModel?.bindingAllDrafts = { [weak self] in
+                    DispatchQueue.main.async {
                         
-                        let draftOrders = self?.favDraftViewModel?.getMyFavouriteDraft()
-                        if draftOrders != nil && draftOrders?.count != 0{
-                            print("draft not nil")
-                            self?.myDraftOrder = draftOrders?[0]
-                            self?.productsList = draftOrders?[0].lineItems
-                        }else{
-                            print("draft is nil")
-                        }
-                        let confirmAction = UIAlertAction(title: "Delete", style: .default){ action  in
-                            self?.favouriteButton.tintColor = UIColor.darkGray
-                            self?.delProduct(itemId: self?.favObject?.id ?? 0)
-                        }
-                        self?.delegate?.showAlert(title: "Delete from favourite!", message: "This item in favourite, Do you want to delete?", confirmAction: confirmAction)
-                        
-                    } else {
-                        self?.favouriteButton.tintColor = UIColor.red
-                        let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                        var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
-                        print("hasDraft\(String(describing: isHasDraft))")
-                        if isHasDraft ?? false{
-                            self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
+                        if let favViewModel = self?.favDraftViewModel,
+                           favViewModel.checkIfItemIsFav(productID: self?.favObject?.id ?? 0){
+                            
+                            let draftOrders = self?.favDraftViewModel?.getMyFavouriteDraft()
+                            if draftOrders != nil && draftOrders?.count != 0{
+                                print("draft not nil")
+                                self?.myDraftOrder = draftOrders?[0]
+                                self?.productsList = draftOrders?[0].lineItems
+                            }else{
+                                print("draft is nil")
+                            }
+                            let confirmAction = UIAlertAction(title: "Delete", style: .default){ action  in
+                                self?.favouriteButton.tintColor = UIColor.darkGray
+                                self?.delProduct(itemId: self?.favObject?.id ?? 0)
+                            }
+                            self?.delegate?.showAlert(title: "Delete from favourite!", message: "This item in favourite, Do you want to delete?", confirmAction: confirmAction)
+                            
+                        } else {
+                            self?.favouriteButton.tintColor = UIColor.red
+                            let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
+                            var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                            print("hasDraft\(String(describing: isHasDraft))")
+                            if isHasDraft ?? false{
+                                self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
 
-                        }else{
-                            self?.createDraftOrder()
+                            }else{
+                                self?.createDraftOrder()
 
+                            }
                         }
                     }
                 }
+            }else{
+                let confirmAction = UIAlertAction(title: "OK", style: .default)
+                self.delegate?.showAlert(title: "Check internet connection", message: "you are offline?", confirmAction: confirmAction)
             }
-        }else{
-            let confirmAction = UIAlertAction(title: "OK", style: .default)
-            self.delegate?.showAlert(title: "Check internet connection", message: "you are offline?", confirmAction: confirmAction)
-        }
 
+        }else{
+            let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
+                self.delegate?.navigateToSign()
+            }
+            self.delegate?.showAlert(title: "You must Sign up", message: "you are offline?", confirmAction: confirmAction)
+        }
     }
     
     func setUpCell(product: Product){
