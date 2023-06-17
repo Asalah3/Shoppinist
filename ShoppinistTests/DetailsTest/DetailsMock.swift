@@ -14,6 +14,17 @@ final class DetailsMock{
 }
 
 extension DetailsMock : ProductDetailsDataSourceProtocol{
+    static func fetchFavProductDetails(product_id: String, compilitionHandler: @escaping (Shoppinist.FavProductDetailsModel?) -> Void) {
+        let data = Data (detailsData.utf8)
+        do{
+            let result = try JSONDecoder().decode(FavProductDetailsModel.self, from: data)
+            compilitionHandler(result)
+        }catch let error{
+            print(error.localizedDescription)
+            compilitionHandler(nil)
+        }
+    }
+    
     
     static func fetchProductDetails(product_id: Int, compilitionHandler: @escaping (Shoppinist.ProductDetailsModel?) -> Void) {
         let data = Data (detailsData.utf8)

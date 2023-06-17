@@ -15,6 +15,9 @@
 		C90739212A38A73B00ED87AC /* TestBrandsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90739202A38A73B00ED87AC /* TestBrandsMock.swift */; };
 		C9183C592A3DCF22003D4BCE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9183C582A3DCF22003D4BCE /* SplashViewController.swift */; };
 		C9183C632A3DCF32003D4BCE /* splash5.json in Resources */ = {isa = PBXBuildFile; fileRef = C9183C5E2A3DCF31003D4BCE /* splash5.json */; };
+		C918C2EE2A3E4E0000599CA0 /* TestBrandProductsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918C2ED2A3E4E0000599CA0 /* TestBrandProductsNetwork.swift */; };
+		C918C2F02A3E4E5A00599CA0 /* BrandProductsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918C2EF2A3E4E5A00599CA0 /* BrandProductsMock.swift */; };
+		C918C2F22A3E4F1100599CA0 /* TestBrandProductsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918C2F12A3E4F1100599CA0 /* TestBrandProductsMock.swift */; };
 		C924C2A02A3B8D8A008D1E8A /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924C29F2A3B8D8A008D1E8A /* OrderDetailsViewController.swift */; };
 		C924C2A22A3B9140008D1E8A /* ProductOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924C2A12A3B9140008D1E8A /* ProductOrderTableViewCell.swift */; };
 		C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97A2A2927680071DAD6 /* BrandModel.swift */; };
@@ -170,6 +173,9 @@
 		C90739202A38A73B00ED87AC /* TestBrandsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandsMock.swift; sourceTree = "<group>"; };
 		C9183C582A3DCF22003D4BCE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C9183C5E2A3DCF31003D4BCE /* splash5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash5.json; sourceTree = "<group>"; };
+		C918C2ED2A3E4E0000599CA0 /* TestBrandProductsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandProductsNetwork.swift; sourceTree = "<group>"; };
+		C918C2EF2A3E4E5A00599CA0 /* BrandProductsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductsMock.swift; sourceTree = "<group>"; };
+		C918C2F12A3E4F1100599CA0 /* TestBrandProductsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandProductsMock.swift; sourceTree = "<group>"; };
 		C924C29F2A3B8D8A008D1E8A /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		C924C2A12A3B9140008D1E8A /* ProductOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductOrderTableViewCell.swift; sourceTree = "<group>"; };
 		C930A97A2A2927680071DAD6 /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
@@ -397,6 +403,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C918C2EC2A3E4DD600599CA0 /* TestBrandProductsModule */ = {
+			isa = PBXGroup;
+			children = (
+				C918C2ED2A3E4E0000599CA0 /* TestBrandProductsNetwork.swift */,
+				C918C2EF2A3E4E5A00599CA0 /* BrandProductsMock.swift */,
+				C918C2F12A3E4F1100599CA0 /* TestBrandProductsMock.swift */,
+			);
+			path = TestBrandProductsModule;
+			sourceTree = "<group>";
+		};
 		C924C2A32A3B9939008D1E8A /* OrderDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +532,7 @@
 		C987262E2A27CF0C00EB0A40 /* ShoppinistTests */ = {
 			isa = PBXGroup;
 			children = (
+				C918C2EC2A3E4DD600599CA0 /* TestBrandProductsModule */,
 				DB6A6AEA2A3BE4DF0030BEDD /* TestAddressModule */,
 				C907391A2A38A4A800ED87AC /* HomeModuleTest */,
 				CF846FE02A379621007FE718 /* FavouriteTest */,
@@ -1625,6 +1642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C918C2F02A3E4E5A00599CA0 /* BrandProductsMock.swift in Sources */,
 				DB6A6AF12A3C07950030BEDD /* TestAddNewAddressMock.swift in Sources */,
 				CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */,
 				C907391F2A38A64900ED87AC /* BrandsMock.swift in Sources */,
@@ -1633,7 +1651,9 @@
 				CFE7C9D42A32C8CE00521DED /* TestSignViewModel.swift in Sources */,
 				DB6A6AED2A3BE5630030BEDD /* TestAddressNetWork.swift in Sources */,
 				C98726302A27CF0C00EB0A40 /* ShoppinistTests.swift in Sources */,
+				C918C2EE2A3E4E0000599CA0 /* TestBrandProductsNetwork.swift in Sources */,
 				CFE7C9E12A32DA9D00521DED /* TestLoginMock.swift in Sources */,
+				C918C2F22A3E4F1100599CA0 /* TestBrandProductsMock.swift in Sources */,
 				CFE7C9D22A32C53800521DED /* TestSignUp.swift in Sources */,
 				CF846FE22A37964A007FE718 /* TestFavourite.swift in Sources */,
 				CFE7C9E32A32DEF200521DED /* LoginMock.swift in Sources */,
