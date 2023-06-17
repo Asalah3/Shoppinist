@@ -57,6 +57,14 @@ class DraftViewModel{
         }
     }
     
+    //-----------for fav draft details-----------
+    var fetchFavProductsDetailsToViewController : (()->())={}
+    var fetchFavProductData:[Product]!{
+        didSet{
+            fetchFavProductsDetailsToViewController()
+        }
+    }
+    
     //-----------for network connection -----------
     func checkNetwork(){
         Utilites.isConnectedToNetwork() { connection in
@@ -162,6 +170,16 @@ class DraftViewModel{
             }
         }
         return returnedValue
+    }
+    
+    
+    //--------------get fav details from API-----------------
+    func getFavProductDetails(productID : String) {
+        ProductDetailsDataSource.fetchFavProductDetails(product_id: productID){ result in
+            print("fav product result\(result)")
+            guard let result = result else {return}
+            self.fetchFavProductData = result.product
+        }
     }
     
     //--------------get details from API-----------------

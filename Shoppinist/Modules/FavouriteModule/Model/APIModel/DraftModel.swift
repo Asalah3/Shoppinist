@@ -125,6 +125,7 @@ struct LineItem: Codable {
     var name: String?
     var custom: Bool?
     var price: String?
+    var image: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -140,6 +141,7 @@ struct LineItem: Codable {
         case grams
         case taxLines = "tax_lines"
         case name, custom, price
+        case image
     }
 }
 
