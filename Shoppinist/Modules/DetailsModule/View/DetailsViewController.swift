@@ -233,7 +233,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         cartcount.draftOrders?.forEach({ email in
 
-    if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail()!
+            if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail()! && email.note == nil
             {
         
         renderCartData ()
