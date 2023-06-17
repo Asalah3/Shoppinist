@@ -13,6 +13,8 @@
 		C907391D2A38A4E000ED87AC /* TestBrandsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C907391C2A38A4E000ED87AC /* TestBrandsNetwork.swift */; };
 		C907391F2A38A64900ED87AC /* BrandsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C907391E2A38A64900ED87AC /* BrandsMock.swift */; };
 		C90739212A38A73B00ED87AC /* TestBrandsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90739202A38A73B00ED87AC /* TestBrandsMock.swift */; };
+		C9183C592A3DCF22003D4BCE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9183C582A3DCF22003D4BCE /* SplashViewController.swift */; };
+		C9183C632A3DCF32003D4BCE /* splash5.json in Resources */ = {isa = PBXBuildFile; fileRef = C9183C5E2A3DCF31003D4BCE /* splash5.json */; };
 		C924C2A02A3B8D8A008D1E8A /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924C29F2A3B8D8A008D1E8A /* OrderDetailsViewController.swift */; };
 		C924C2A22A3B9140008D1E8A /* ProductOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924C2A12A3B9140008D1E8A /* ProductOrderTableViewCell.swift */; };
 		C930A97B2A2927680071DAD6 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C930A97A2A2927680071DAD6 /* BrandModel.swift */; };
@@ -165,6 +167,8 @@
 		C907391C2A38A4E000ED87AC /* TestBrandsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandsNetwork.swift; sourceTree = "<group>"; };
 		C907391E2A38A64900ED87AC /* BrandsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsMock.swift; sourceTree = "<group>"; };
 		C90739202A38A73B00ED87AC /* TestBrandsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBrandsMock.swift; sourceTree = "<group>"; };
+		C9183C582A3DCF22003D4BCE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		C9183C5E2A3DCF31003D4BCE /* splash5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash5.json; sourceTree = "<group>"; };
 		C924C29F2A3B8D8A008D1E8A /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		C924C2A12A3B9140008D1E8A /* ProductOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductOrderTableViewCell.swift; sourceTree = "<group>"; };
 		C930A97A2A2927680071DAD6 /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
@@ -365,6 +369,31 @@
 			path = TestNetworkLayer;
 			sourceTree = "<group>";
 		};
+		C9183C552A3DCEDF003D4BCE /* SplashModule */ = {
+			isa = PBXGroup;
+			children = (
+				C9183C572A3DCF08003D4BCE /* View */,
+				C9183C562A3DCEEC003D4BCE /* Splashs */,
+			);
+			path = SplashModule;
+			sourceTree = "<group>";
+		};
+		C9183C562A3DCEEC003D4BCE /* Splashs */ = {
+			isa = PBXGroup;
+			children = (
+				C9183C5E2A3DCF31003D4BCE /* splash5.json */,
+			);
+			path = Splashs;
+			sourceTree = "<group>";
+		};
+		C9183C572A3DCF08003D4BCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C9183C582A3DCF22003D4BCE /* SplashViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C924C2A32A3B9939008D1E8A /* OrderDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +546,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C9183C552A3DCEDF003D4BCE /* SplashModule */,
 				C924C2A32A3B9939008D1E8A /* OrderDetailsModule */,
 				CF839D1F2A3A9BA500468B9B /* ReviewModule */,
 				C97C96432A38FE90009756D6 /* AllOrdersModule */,
@@ -1354,6 +1384,7 @@
 				CF7A7A0E2A2A4F61005ADCED /* SignUpV.storyboard in Resources */,
 				CFDFC8C42A2BAB2300CDB4D2 /* FavouriteView.storyboard in Resources */,
 				DBFC42CE2A2BAEA9005E7F74 /* AddNewAddress.storyboard in Resources */,
+				C9183C632A3DCF32003D4BCE /* splash5.json in Resources */,
 				DBDA68232A2B3DB500F99BC0 /* Address.storyboard in Resources */,
 				C98726222A27CF0B00EB0A40 /* Assets.xcassets in Resources */,
 				DB6A8CDE2A2AFD6D00142BBC /* AboutUs .storyboard in Resources */,
@@ -1544,6 +1575,7 @@
 				C97C96482A38FEE2009756D6 /* AllOrdersViewModel.swift in Sources */,
 				DBDA3F422A32772F00A5C15F /* SelectAddressViewController.swift in Sources */,
 				CFA37DF22A2EDB9D00106370 /* DraftOrderNetworkService.swift in Sources */,
+				C9183C592A3DCF22003D4BCE /* SplashViewController.swift in Sources */,
 				DB1B4B362A29874300DF9D10 /* MeViewController.swift in Sources */,
 				CF5E42412A2CCE44009A5B56 /* FavViewModel.swift in Sources */,
 				DBAE209C2A2C48E600FD40FE /* AddressModel.swift in Sources */,
