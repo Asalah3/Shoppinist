@@ -28,7 +28,7 @@ class CategoriesViewController: UIViewController {
     var productsList : [Product]?
     var filteredList : [Product]?
     var isFiltered : Bool = false
-    var currency = 0.0
+//    var currency = 0.0
     var searchProducts = [Product]()
     var searching = false
     
@@ -60,14 +60,6 @@ class CategoriesViewController: UIViewController {
         rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
         
         noData.isHidden = true
-        favViewModel = DraftViewModel()
-        self.favViewModel?.changeCurrency()
-        self.favViewModel?.fetchCurrencyToCell = { [weak self] in
-            DispatchQueue.main.async {
-                self?.currency = (Double(self?.favViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0).rounded()
-                self?.categoriesCollectionView.reloadData()
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -196,7 +188,6 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         }
         cell?.delegate = self
         cell?.setVieModel(draftViewModel:favViewModel!)
-        cell?.currency = currency
         cell?.setUpCell(product: product!)
         return cell ?? ProductsCollectionViewCell()
     }

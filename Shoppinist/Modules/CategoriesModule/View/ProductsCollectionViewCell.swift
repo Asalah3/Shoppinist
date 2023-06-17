@@ -28,7 +28,6 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     var myDraft: LineItem?
     var draftItem : DrafOrder?
     var isHasDraft : Bool?
-    var currency = 0.0
     var productsList : [LineItem]?
     var myDraftOrder : DrafOrder?
     
@@ -72,10 +71,10 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                             print("hasDraft\(String(describing: isHasDraft))")
                             if isHasDraft ?? false{
                                 self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
-
+                                
                             }else{
                                 self?.createDraftOrder()
-
+                                
                             }
                         }
                     }
@@ -84,7 +83,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                 let confirmAction = UIAlertAction(title: "OK", style: .default)
                 self.delegate?.showAlert(title: "Check internet connection", message: "you are offline?", confirmAction: confirmAction)
             }
-
+            
         }else{
             let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
                 self.delegate?.navigateToSign()
@@ -105,7 +104,8 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productPrice.layer.borderWidth = 1
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-            let price = floor((Double(product.variants?[0].price ?? "0.0") ?? 0.0) * self.currency)
+            var cur = (UserDefaults.standard.double(forKey: "EGP"))
+            let price = floor((Double(product.variants?[0].price ?? "0.0") ?? 0.0) * cur)
             self.productPrice.text = "\(String(price)) EGP"
         }else{
             self.productPrice.text = "\(product.variants?[0].price ?? "") $"
