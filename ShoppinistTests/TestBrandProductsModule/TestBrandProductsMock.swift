@@ -9,7 +9,7 @@ import XCTest
 @testable import Shoppinist
 final class TestBrandProductsMock: XCTestCase {
 
-    func testRootDataDecoding(){
+    func testBrandProductsDataDecoding(){
         BrandProductsMock().fetchBrandProducts(collection_id: "8355031417124") {res in
             guard let result = res else{
                 XCTFail()
