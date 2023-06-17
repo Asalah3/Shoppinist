@@ -28,6 +28,11 @@ class BrandProductsViewController: UIViewController {
     var filteredPrice : [Product] = []
     var searching = false
     var filtered = false
+    override func viewWillAppear(_ animated: Bool) {
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        localData = FavLocalDataSource()

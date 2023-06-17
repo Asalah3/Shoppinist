@@ -35,7 +35,9 @@ class HomeViewController: UIViewController {
         var count = cartArray?.count ?? 0
         
         rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
-      
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+        }
     }
     
     func getData(){
