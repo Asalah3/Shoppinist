@@ -52,7 +52,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectAddress", for: indexPath)
       
         cell.imageView?.image=UIImage(systemName: "homekit")
-        cell.imageView?.tintColor = .label
+        cell.imageView?.tintColor = .systemPurple
         cell.textLabel?.text = "\(customerAddressTable?.addresses![indexPath.row].address1 ?? "") , \(customerAddressTable?.addresses![indexPath.row].city ?? "") , \(customerAddressTable?.addresses![indexPath.row].country ?? "") "
        
         cell.accessoryType = .disclosureIndicator
