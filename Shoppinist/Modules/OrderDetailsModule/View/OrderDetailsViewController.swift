@@ -28,7 +28,11 @@ class OrderDetailsViewController: UIViewController {
         let address = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
         orderAddress.text = address
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+        }
+    }
 }
 extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

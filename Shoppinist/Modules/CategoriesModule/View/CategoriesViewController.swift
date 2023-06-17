@@ -53,6 +53,9 @@ class CategoriesViewController: UIViewController {
    
     }
     override func viewWillAppear(_ animated: Bool) {
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+        }
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
         var count = cartArray?.count ?? 0

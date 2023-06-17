@@ -26,7 +26,11 @@ class AllOrdersViewController: UIViewController {
         allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
         allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderView()}
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        if Utilites.isConnectedToNetwork() == false{
+            Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+        }
+    }
 }
 extension AllOrdersViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

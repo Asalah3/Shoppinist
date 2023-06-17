@@ -21,6 +21,8 @@ class ProductOrderTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    
     func setUpCell(lineItem: LineItem){
         self.containerView.layer.borderWidth = 1
         self.containerView.layer.cornerRadius = 25
