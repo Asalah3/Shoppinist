@@ -86,4 +86,17 @@ class Utilites{
 
 }
 
-
+extension UserDefaults {
+    private enum UserDefaultsKeys : String{
+        case hasOnboarded
+        
+        case darkMode
+    }
+    var hasOnboarded : Bool {
+        get{
+            bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)
+        }set{
+            set(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)
+        }
+    }
+}

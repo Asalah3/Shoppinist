@@ -38,7 +38,7 @@ class OnBoardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     @IBAction func skipButton(_ sender: Any) {
@@ -47,7 +47,7 @@ class OnBoardingViewController: UIViewController {
             let choosingAuthWayViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChoosingAuthWayViewController") as? ChoosingAuthWayViewController
             choosingAuthWayViewController?.modalTransitionStyle = .crossDissolve
             choosingAuthWayViewController?.modalPresentationStyle = .fullScreen
-//            UserDefaults.standard.hasOnboarded = true
+            UserDefaults.standard.hasOnboarded = true
             self.navigationController?.pushViewController(choosingAuthWayViewController!, animated: true)
         }else{
             currentPage += 1
