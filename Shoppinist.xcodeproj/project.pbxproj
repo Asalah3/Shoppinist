@@ -90,6 +90,9 @@
 		CF839D2C2A3AA19800468B9B /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF839D2B2A3AA19800468B9B /* ReviewViewModel.swift */; };
 		CF846FE22A37964A007FE718 /* TestFavourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846FE12A37964A007FE718 /* TestFavourite.swift */; };
 		CF8828B02A2D01A9001C34A6 /* ProductDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8828AF2A2D01A9001C34A6 /* ProductDetailsDataSource.swift */; };
+		CF8E020F2A3E860A0073A540 /* TestFavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E020E2A3E860A0073A540 /* TestFavouriteViewModel.swift */; };
+		CF8E02112A3E88B20073A540 /* FavouriteMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E02102A3E88B20073A540 /* FavouriteMock.swift */; };
+		CF8E02132A3E88CA0073A540 /* TestFavouriteMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E02122A3E88CA0073A540 /* TestFavouriteMock.swift */; };
 		CF8E04AF2A33EE1D00620529 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04AE2A33EE1D00620529 /* FavViewController.swift */; };
 		CF8E04B12A33EE7D00620529 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04B02A33EE7D00620529 /* FavTableViewCell.swift */; };
 		CF8E04B42A342C6C00620529 /* DetailsDraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E04B32A342C6C00620529 /* DetailsDraftModel.swift */; };
@@ -257,6 +260,9 @@
 		CF839D2B2A3AA19800468B9B /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		CF846FE12A37964A007FE718 /* TestFavourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFavourite.swift; sourceTree = "<group>"; };
 		CF8828AF2A2D01A9001C34A6 /* ProductDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsDataSource.swift; sourceTree = "<group>"; };
+		CF8E020E2A3E860A0073A540 /* TestFavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFavouriteViewModel.swift; sourceTree = "<group>"; };
+		CF8E02102A3E88B20073A540 /* FavouriteMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMock.swift; sourceTree = "<group>"; };
+		CF8E02122A3E88CA0073A540 /* TestFavouriteMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFavouriteMock.swift; sourceTree = "<group>"; };
 		CF8E04AE2A33EE1D00620529 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		CF8E04B02A33EE7D00620529 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		CF8E04B32A342C6C00620529 /* DetailsDraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDraftModel.swift; sourceTree = "<group>"; };
@@ -936,6 +942,9 @@
 			isa = PBXGroup;
 			children = (
 				CF846FE12A37964A007FE718 /* TestFavourite.swift */,
+				CF8E020E2A3E860A0073A540 /* TestFavouriteViewModel.swift */,
+				CF8E02102A3E88B20073A540 /* FavouriteMock.swift */,
+				CF8E02122A3E88CA0073A540 /* TestFavouriteMock.swift */,
 			);
 			path = FavouriteTest;
 			sourceTree = "<group>";
@@ -1677,14 +1686,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C918C2F02A3E4E5A00599CA0 /* BrandProductsMock.swift in Sources */,
+				CF8E02112A3E88B20073A540 /* FavouriteMock.swift in Sources */,
 				DB6A6AF12A3C07950030BEDD /* TestAddNewAddressMock.swift in Sources */,
 				C918C2F92A3E543F00599CA0 /* TestCategoriesMock.swift in Sources */,
+				CF8E020F2A3E860A0073A540 /* TestFavouriteViewModel.swift in Sources */,
 				CFE7C9E72A32E3D200521DED /* TestDetailsMock.swift in Sources */,
 				C907391F2A38A64900ED87AC /* BrandsMock.swift in Sources */,
 				CFE7C9DD2A32D2C800521DED /* TestDetails.swift in Sources */,
 				C918C2F72A3E531100599CA0 /* CategoriesMock.swift in Sources */,
 				DB6A6AEF2A3C025E0030BEDD /* AddressViewModel.swift in Sources */,
 				CFE7C9D42A32C8CE00521DED /* TestSignViewModel.swift in Sources */,
+				CF8E02132A3E88CA0073A540 /* TestFavouriteMock.swift in Sources */,
 				DB6A6AED2A3BE5630030BEDD /* TestAddressNetWork.swift in Sources */,
 				C98726302A27CF0C00EB0A40 /* ShoppinistTests.swift in Sources */,
 				C918C2EE2A3E4E0000599CA0 /* TestBrandProductsNetwork.swift in Sources */,

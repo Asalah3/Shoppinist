@@ -12,7 +12,7 @@ import Lottie
 //    var brandImage: String
 //}
 class HomeViewController: UIViewController {
-    
+    @IBOutlet weak var favButtonRight: UIBarButtonItem!
     @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
@@ -30,7 +30,19 @@ class HomeViewController: UIViewController {
     private var cartArray: [LineItem]?
     private var shoppingCartVM = ShoppingCartViewModel()
     
+    var myDraftOrder : DrafOrder?
+    var favViewModel : DraftViewModel?
+    var draft : Drafts? = Drafts()
+    var productsList : [LineItem]?
+    
     override func viewWillAppear( _ animated: Bool){
+        
+        //Favourites Logic
+        productsList = [LineItem]()
+        favViewModel = DraftViewModel()
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
+        
         shoppingCartVM.getShoppingCart()
         shoppingCartVM.bindingCart = {
             DispatchQueue.main.async {
@@ -208,5 +220,19 @@ extension HomeViewController : UISearchBarDelegate{
         searching = false
         searchBar.text = ""
         brandsCollectionView.reloadData()
+    }
+}
+
+extension HomeViewController{
+    func renderFavView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.favViewModel?.getMyFavouriteDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                self.myDraftOrder = draftOrders?[0]
+                self.productsList = draftOrders?[0].lineItems
+                self.favButtonRight.addBadge(text: "\(String(describing: self.productsList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+                
+            }
+        }
     }
 }

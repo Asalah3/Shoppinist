@@ -173,6 +173,7 @@
                         <outlet property="CouponsCollectionView" destination="fsJ-D5-xyr" id="GaJ-3y-iTE"/>
                         <outlet property="NoData" destination="nt3-Cq-q1c" id="Etj-iW-w0a"/>
                         <outlet property="brandsCollectionView" destination="B0Q-LT-X8Q" id="HQ0-Ek-6aN"/>
+                        <outlet property="favButtonRight" destination="aP5-4c-ah7" id="Bvl-40-ukL"/>
                         <outlet property="pageControl" destination="IkX-0s-up8" id="KHQ-T1-98Z"/>
                         <outlet property="searchBar" destination="aMp-ja-QWo" id="aGQ-F0-s3v"/>
                     </connections>
@@ -342,6 +343,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="NoData" destination="P2p-N7-dMa" id="b5V-tJ-pMf"/>
+                        <outlet property="favButtonRight" destination="zes-sN-S2j" id="Txd-qL-CQQ"/>
                         <outlet property="productsCollectionView" destination="VnB-dk-60I" id="dzf-dU-IGA"/>
                         <outlet property="searchBar" destination="NkG-aI-0LM" id="2To-zV-lSQ"/>
                         <outlet property="slider" destination="bI7-AH-whp" id="hT0-KQ-Oo1"/>

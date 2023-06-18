@@ -44,6 +44,7 @@ extension ReviewViewController : UITabBarDelegate, UITableViewDataSource{
         cell.reviewImage.image = UIImage(named: reviewList?[indexPath.row].image ?? "")
         cell.reviewText.text = reviewList?[indexPath.row].text ?? ""
         cell.reviewRate.rating = reviewList?[indexPath.row].rate ?? 0.00
+        cell.reviewRate.isUserInteractionEnabled = false
         
         return cell
     }

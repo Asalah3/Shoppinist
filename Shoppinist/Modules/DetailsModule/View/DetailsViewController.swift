@@ -49,6 +49,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderCartData()
+        detailsRate.isUserInteractionEnabled = false
         
         reviewViewModel = ReviewViewModel()
         reviewList = reviewViewModel?.getReviews()
@@ -320,6 +321,8 @@ extension DetailsViewController: UITabBarDelegate,UITableViewDataSource{
         cell.reviewImage.image = UIImage(named: reviewList?[indexPath.row].image ?? "")
         cell.reviewText.text = reviewList?[indexPath.row].text ?? ""
         cell.reviewRate.rating = reviewList?[indexPath.row].rate ?? 0.00
+        cell.reviewRate.isUserInteractionEnabled = false
+
         
         return cell
     }
