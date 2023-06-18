@@ -51,7 +51,7 @@ class AddNewAddressViewController: UIViewController {
         
             self.countryListButton.menu = UIMenu(children : [
 
-                UIAction(title: "Country",state: .on , handler: optionClosure),
+                UIAction(title: "choose Country",state: .on , handler: optionClosure),
                 UIAction(title: "Afghanistan", handler: optionClosure),
                 UIAction(title: "Argentina",handler: optionClosure),
                 UIAction(title: "Armenia", handler: optionClosure),
@@ -184,10 +184,10 @@ class AddNewAddressViewController: UIViewController {
     
     func textfieldsStyles(){
      
-        Utilites.setUpTextFeildStyleAddress(textField: phoneTextField)
-        Utilites.setUpTextFeildStyleAddress(textField: addressTextField)
-        Utilites.setUpTextFeildStyleAddress(textField: cityTextField)
-        Utilites.setUpTextFeildStyleAddress(textField: countryTextField)
+        Utilites.setUpTextFeildStyle(textField: phoneTextField)
+        Utilites.setUpTextFeildStyle(textField: addressTextField)
+        Utilites.setUpTextFeildStyle(textField: cityTextField)
+        Utilites.setUpTextFeildStyle(textField: countryTextField)
     }
 
 }
