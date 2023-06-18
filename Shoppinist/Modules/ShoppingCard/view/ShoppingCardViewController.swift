@@ -158,11 +158,15 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-     
-          
-                deleteLineItemProduct(indexPath: indexPath)
-                 setSubTotal()
-            self.cardTableView.reloadData()
+            let alert : UIAlertController = UIAlertController(title: "Warnning", message: "Do You Want To Delete this product ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default , handler: { action in
+                
+                self.deleteLineItemProduct(indexPath: indexPath)
+                self.setSubTotal()
+                self.cardTableView.reloadData()
+             }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default , handler: nil))
+           self.present(alert, animated: true)
         }
     }
     
