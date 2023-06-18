@@ -16,10 +16,14 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     var statusCode : Int?
     var price:Int = 0
     @IBOutlet weak var pageAddressLabel: UILabel!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var LineItems: [LineItem]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+                activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
        
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +34,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
             DispatchQueue.main.async {
                 self?.customerAddressTable = self?.addressViewModel?.ObservableGet
                      self?.selectTableView.reloadData()
+                self?.activityIndicator.stopAnimating()
             }
         }
     }

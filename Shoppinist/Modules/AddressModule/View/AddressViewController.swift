@@ -13,18 +13,24 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     var customerAddressTable : CustomerAddress?
     var addressViewModel : AddressViewModel?
     var statusCode : Int?
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     override func viewDidLoad() {
         super.viewDidLoad()
         addressViewModel = AddressViewModel()
-        
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+                activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         addressViewModel?.getAddress()
         addressViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
                 self?.customerAddressTable = self?.addressViewModel?.ObservableGet
                 self?.addressTableView.reloadData()
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
