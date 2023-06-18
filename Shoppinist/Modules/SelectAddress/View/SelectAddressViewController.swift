@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Lottie
 
 class SelectAddressViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
     
+    @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var selectTableView: UITableView!
     var addressViewModel : AddressViewModel?
     var customerAddressTable : CustomerAddress?
@@ -40,12 +42,18 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     }
     func checkCartIsEmpty() {
      if customerAddressTable?.addresses?.count == 0{
-        // tableView.isHidden = true
+         self.activityIndicator.stopAnimating()
+         selectTableView.isHidden = true
          pageAddressLabel.text = "ADD Your Address"
+         self.noData.isHidden = false
+         self.noData.contentMode = .scaleAspectFit
+         self.noData.loopMode = .loop
+         self.noData.play()
          
      } else {
-   //  tableView.isHidden = false
+      selectTableView.isHidden = false
          pageAddressLabel.text = "Select Address"
+         self.noData.isHidden = true
      }
  }
   

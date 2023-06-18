@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class AddressViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
+    @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var addressTableView: UITableView!
     var customerAddressTable : CustomerAddress?
     var addressViewModel : AddressViewModel?
@@ -24,7 +26,7 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        checkCartIsEmpty()
         addressViewModel?.getAddress()
         addressViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
@@ -35,6 +37,21 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
         }
     }
 
+    func checkCartIsEmpty() {
+     if customerAddressTable?.addresses?.count == 0{
+         
+         self.activityIndicator.stopAnimating()
+         addressTableView.isHidden = true
+         self.noData.isHidden = false
+         self.noData.contentMode = .scaleAspectFit
+         self.noData.loopMode = .loop
+         self.noData.play()
+         
+     } else {
+         addressTableView.isHidden = false
+         self.noData.isHidden = true
+     }
+ }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return customerAddressTable?.addresses?.count ?? 0
@@ -50,26 +67,34 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete") { action, _, handler in
-            let alert = UIAlertController(title: "Delete", message: "Are you sure about deletion ?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { [self] action in
-                addressViewModel?.deleteAddress(AddressId: customerAddressTable?.addresses?[indexPath.row].id ?? 0
-                                        , CustomerId:  UserDefaults.standard.integer(forKey:"customerID"))
-                addressViewModel?.bindingStatusCode = { [weak self] code in
-                    self?.statusCode = code
-                    if self?.statusCode == 200{
-                        print("delete successfully")
-                    }else{
-                        print(self?.statusCode?.description ?? "")
-                    }
-                }
-
-                self.customerAddressTable?.addresses?.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
-            }))
             
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel ))
-            self.present(alert, animated: true)
+            if self.customerAddressTable?.addresses?[indexPath.row].default == true{
+                self.showAlert(title: "Stop!", message: "Can not delete defult address")
+            }
+            else{
+                let alert = UIAlertController(title: "Delete", message: "Are you sure about deletion ?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { [self] action in
+                    
+                    addressViewModel?.deleteAddress(AddressId: customerAddressTable?.addresses?[indexPath.row].id ?? 0
+                                                    , CustomerId:  UserDefaults.standard.integer(forKey:"customerID"))
+                    addressViewModel?.bindingStatusCode = { [weak self] code in
+                        self?.statusCode = code
+                        if self?.statusCode == 200{
+                            print("delete successfully")
+                        }else{
+                            print(self?.statusCode?.description ?? "")
+                        }
+                    }
+                    
+                    self.customerAddressTable?.addresses?.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    tableView.reloadData()
+                }))
+                
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel ))
+                self.present(alert, animated: true)
+            }
         }
         let edit = UIContextualAction(style: .normal, title: "Edit") { [weak self] action, _, handler in
             guard let self = self else {return}
@@ -102,5 +127,11 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
         
         
     }
-    
+    func showAlert(title: String , message: String){
+        let alert = UIAlertController(title: title ,message : message
+                                      , preferredStyle: .alert)
+        let OkAction = UIAlertAction(title: "OK", style: .destructive)
+        alert.addAction(OkAction)
+        self.present(alert, animated: true)
+    }
 }

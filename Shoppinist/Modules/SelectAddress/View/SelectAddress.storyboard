@@ -37,6 +37,14 @@
                                 <color key="textColor" name="move"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="Q2C-Lo-aL8" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="209" width="393" height="631"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-3Y-hJM">
                                 <rect key="frame" x="0.0" y="158" width="393" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,10 +76,12 @@
                             <constraint firstItem="OYi-3Y-hJM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iMx-tl-v2o"/>
                             <constraint firstAttribute="bottom" secondItem="OYi-3Y-hJM" secondAttribute="bottom" id="jNo-Dq-s7h"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IrR-Y6-F6O" secondAttribute="trailing" constant="46" id="kVr-gI-slt"/>
+                            <constraint firstItem="OYi-3Y-hJM" firstAttribute="top" secondItem="IrR-Y6-F6O" secondAttribute="bottom" constant="8" symbolic="YES" id="lD6-6E-jqd"/>
                             <constraint firstItem="RdP-c8-SCK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="uPR-63-z7V"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="noData" destination="Q2C-Lo-aL8" id="8zw-vf-lua"/>
                         <outlet property="pageAddressLabel" destination="IrR-Y6-F6O" id="nrs-Am-7bn"/>
                         <outlet property="selectTableView" destination="OYi-3Y-hJM" id="hr7-up-06f"/>
                     </connections>
