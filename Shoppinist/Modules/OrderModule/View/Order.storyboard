@@ -317,6 +317,9 @@
             <point key="canvasLocation" x="3005" y="-13"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="nJC-9z-qVj"/>
+    </designables>
     <resources>
         <image name="placeHolder" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
