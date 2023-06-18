@@ -24,7 +24,7 @@ class MeViewController: UIViewController {
     var productsList : [LineItem]?
     var idList = [String]()
     var productID : Int?
-    
+    let meStoryboard = UIStoryboard(name: "Order", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
@@ -54,7 +54,8 @@ class MeViewController: UIViewController {
     }
 
     @IBAction func seeMoreOrdersButton(_ sender: Any) {
-        let allOrdersViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
+        
+        let allOrdersViewController = meStoryboard.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
         self.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
     }
     @IBAction func seeMoreFavouritesButton(_ sender: Any) {
@@ -63,14 +64,14 @@ class MeViewController: UIViewController {
     }
     //ShoppingCard
     @IBAction func shoppingButton(_ sender: Any) {
-        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShoppingCard") as! ShoppingCardViewController
-        
-        navigationController?.pushViewController(cart, animated: true)
+//        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShoppingCard") as! ShoppingCardViewController
+//
+//        navigationController?.pushViewController(cart, animated: true)
         
     }
     @IBAction func settingButton(_ sender: Any) {
-        let setting = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
-        navigationController?.pushViewController(setting, animated: true)
+//        let setting = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+//        navigationController?.pushViewController(setting, animated: true)
     }
     
     override func viewWillAppear( _ animated: Bool){
@@ -159,7 +160,8 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == ordersTableView{
-            let orderDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
+            
+            let orderDetailsViewController = meStoryboard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
             orderDetailsViewController?.order = ordersList[indexPath.row]
             self.navigationController?.pushViewController(orderDetailsViewController ?? OrderDetailsViewController(), animated: true)
         }else{
