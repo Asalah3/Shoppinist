@@ -1140,12 +1140,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-sg-zha">
-                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.333333333333336"/>
+                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-i2-Ukr">
-                                                    <rect key="frame" x="122" y="65" width="208" height="20.333333333333329"/>
+                                                    <rect key="frame" x="122" y="65.333333333333329" width="208" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1286,6 +1286,10 @@
             <point key="canvasLocation" x="5614" y="1353"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ty2-Zf-YPK"/>
+        <designable name="x7L-F4-x7w"/>
+    </designables>
     <resources>
         <image name="1" width="2000" height="2000"/>
         <image name="LoginImg" width="626" height="626"/>

@@ -16,34 +16,103 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     @IBOutlet weak var noData: AnimationView!
     private var flag: Bool = true
     private var deletedLineItem : LineItem?
-    private var cartArray: [LineItem]?
+    private var cartArray: [LineItem] = []
     var lineItem = LineItem()
     private var counter: Int8 = 1
-    private var shoppingCartVM = ShoppingCartViewModel()
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    private var shoppingCartVM : ShoppingCartViewModel?
     @IBOutlet weak var subTotalPrice: UILabel!
     private static var subTotalPrice = 0.0
     @IBOutlet weak var cardTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-          print("viewDidLoad")
-        ShoppingCardViewController.subTotalPrice = 0.0
- 
-        self.cardTableView.reloadData()
-    }
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        shoppingCartVM = ShoppingCartViewModel()
+//        ShoppingCardViewController.subTotalPrice = 0.0
+        print("cart Count = \(self.cartArray.count)")
+
+     }
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
-        self.cardTableView.reloadData()
         ShoppingCardViewController.subTotalPrice = 0.0
-        getData()
-        if self.cartArray?.count == 0 {
-        self.cardTableView.isHidden = true
-        self.subTotalPrice.isHidden = true
-        self.proccess_btn.isHidden = true
+        noData.isHidden = true
+        if self.cartArray.count == 0{
+            self.cardTableView.isHidden = true
+            self.subTotalPrice.isHidden = true
+            self.proccess_btn.isHidden = true
             self.priceLabel.isHidden = true
-        self.noData.isHidden = false
-        self.noData.contentMode = .scaleAspectFit
-        self.noData.loopMode = .loop
-        self.noData.play()
+            self.noData.isHidden = false
+            self.noData.contentMode = .scaleAspectFit
+            self.noData.loopMode = .loop
+            self.noData.play()
+            self.activityIndicator.stopAnimating()
+        }
+        
+        shoppingCartVM?.getShoppingCart()
+        shoppingCartVM?.bindingCart = {
+//            self.activityIndicator.startAnimating()
+            self.renderView()
+        }
+//        getData()
+//        if self.cartArray?.count == 0 {
+//            self.cardTableView.isHidden = true
+//            self.subTotalPrice.isHidden = true
+//            self.proccess_btn.isHidden = true
+//            self.priceLabel.isHidden = true
+//            self.noData.isHidden = false
+//            self.noData.contentMode = .scaleAspectFit
+//            self.noData.loopMode = .loop
+//            self.noData.play()
+//        }
+//        else {
+//            self.cardTableView.isHidden = false
+//            self.proccess_btn.isHidden = false
+//            self.subTotalPrice.isHidden = false
+//            self.priceLabel.isHidden = false
+//            self.noData.isHidden = true
+//
+//        }
+//        self.cardTableView.reloadData()
+        
+    
+       
+    }
+
+    func getData(){
+        shoppingCartVM?.getShoppingCart()
+        shoppingCartVM?.bindingCart = {
+            self.renderView()
+        }
+    }
+    func renderView(){
+        DispatchQueue.main.async {
+            self.cartArray = self.shoppingCartVM?.cartList ?? [LineItem]()
+            print("self.cartArray \(self.cartArray)")
+            self.configureView()
+            print("sub total : \(Self.subTotalPrice)")
+            self.activityIndicator.stopAnimating()
+
+            self.cardTableView.reloadData()
+            print("cart Count = \(self.cartArray.count)")
+            
+            self.checkListCount()
+            
+        }
+        
+    }
+
+    func checkListCount(){
+        if self.cartArray.count == 0 {
+            self.cardTableView.isHidden = true
+            self.subTotalPrice.isHidden = true
+            self.proccess_btn.isHidden = true
+            self.priceLabel.isHidden = true
+            self.noData.isHidden = false
+            self.noData.contentMode = .scaleAspectFit
+            self.noData.loopMode = .loop
+            self.noData.play()
         }
         else {
             self.cardTableView.isHidden = false
@@ -51,45 +120,14 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
             self.subTotalPrice.isHidden = false
             self.priceLabel.isHidden = false
             self.noData.isHidden = true
-           
-        }
-        self.cardTableView.reloadData()
-        
-    
-       
-    }
-
-    func getData(){
-        shoppingCartVM.getShoppingCart()
-        self.cardTableView.reloadData()
-        shoppingCartVM.bindingCart = {
-            self.renderView()
-           
-        }
-        self.cardTableView.reloadData()
-    }
-    func renderView(){
-        DispatchQueue.main.async {
-            self.cardTableView.reloadData()
-            self.cartArray = self.shoppingCartVM.cartList
-        
-            self.cardTableView.reloadData()
-            self.configureView()
-            self.cardTableView.reloadData()
-            print("sub total : \(Self.subTotalPrice)")
-           
             
-            }
-   
+        }
     }
-
-    
     func configureView(){
-        if cartArray != nil {
-            self.shoppingCartVM.cartList?.forEach({ item in
+        if cartArray.count != 0 {
+            self.shoppingCartVM?.cartList?.forEach({ item in
                 Self.subTotalPrice += Double(item.price ?? "0") ?? 0.0
             })
-            
             setSubTotal()
             UserDefaultsManager.sharedInstance.setCartState(cartState: true)
         }
@@ -98,7 +136,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     @IBAction func CheckOutButton(_ sender: Any) {
         
         
-        guard let cart = cartArray else {return}
+        let cart = cartArray
         
             putDraftOrder(lineItems: cart)
              self.setSubTotal()
@@ -125,31 +163,32 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     
        
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return cartArray?.count ?? 0
+           return cartArray.count
            
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            let cell  = tableView.dequeueReusableCell(withIdentifier: "shoppingCardCell", for: indexPath) as! ShoppingCardTableViewCell
-           cell.name.text = cartArray?[indexPath.row].title
+           cell.name.text = cartArray[indexPath.row].title
            if UserDefaults.standard.string(forKey: "Currency")  == "EGP" {
-               let price = (Double(cartArray?[indexPath.row].price ?? "0") ?? 0.0)  * 30
+               let price = (Double(cartArray[indexPath.row].price ?? "0") ?? 0.0)  * 30
                let priceString = "\(price.formatted()) EGP"
                cell.priceButton.text = priceString
            }
            else
            {
-               let priceString = "\(cartArray?[indexPath.row].price ?? "0") $"
+               let priceString = "\(cartArray[indexPath.row].price ?? "0") $"
                cell.priceButton.text = priceString
            }
             
 
-           let image = URL(string: cartArray?[indexPath.row].sku ?? "https://apiv2.allsportsapi.com//logo//players//100288_diego-bri.jpg")
+           let image = URL(string: cartArray[indexPath.row].sku ?? "https://apiv2.allsportsapi.com//logo//players//100288_diego-bri.jpg")
            cell.img.sd_setImage(with:image)
            cell.counterProtocol = self
           cell.indexPath = indexPath
            cell.lineItem = cartArray
-           cell.quantityLabel.text = cartArray?[indexPath.row].quantity?.formatted()
+           cell.item = cartArray[indexPath.row]
+           cell.quantityLabel.text = cartArray[indexPath.row].quantity?.formatted()
            cell.disableDecreaseBtn()
            
           self.setSubTotal()
@@ -173,16 +212,18 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     
     
     func setItemQuantityToPut(quantity: Int, index: Int) {
-        self.cartArray?[index].quantity = quantity
+        self.cartArray[index].quantity = quantity
     }
     
-    func increaseCounter() {
-        Self.subTotalPrice = 0.0
-        for index in  0...(cartArray?.count ?? 0)-1
-        {
-            let itemPrice = (Double(cartArray?[index].price ?? "") ?? 0.0) * (Double (cartArray?[index].quantity ?? 0))
-            ShoppingCardViewController.subTotalPrice = Self.subTotalPrice + itemPrice
-        }
+    func increaseCounter(price: String) {
+        let itemPrice = Double(price) ?? 0.0
+        print(itemPrice)
+        Self.subTotalPrice = itemPrice
+//        for index in  0...(cartArray.count )-1
+//        {
+//            let itemPrice = (Double(cartArray[index].price ?? "") ?? 0.0) * (Double (cartArray[index].quantity ?? 0))
+//            ShoppingCardViewController.subTotalPrice = Self.subTotalPrice + itemPrice
+//        }
         print("subtotal :\(Self.subTotalPrice)")
         setSubTotal()
     }
@@ -190,11 +231,11 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     func decreaseCounter(price: String) {
         
         
-        let itemPrice = Double(price) ?? 0.0
-            Self.subTotalPrice = Self.subTotalPrice - itemPrice
-        
-        print("subtotal :\(Self.subTotalPrice)")
-        setSubTotal()
+//        let itemPrice = Double(price) ?? 0.0
+//            Self.subTotalPrice = Self.subTotalPrice - itemPrice
+//        
+//        print("subtotal :\(Self.subTotalPrice)")
+//        setSubTotal()
     }
     
     func deleteItem(indexPath: IndexPath) {
@@ -223,13 +264,13 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     func deleteLineItemProduct(indexPath : IndexPath)
     {
         
-            deletedLineItem = cartArray?[indexPath.row]
-            cartArray?.remove(at: indexPath.row)
+        deletedLineItem = cartArray[indexPath.row]
+        cartArray.remove(at: indexPath.row)
         cardTableView.deleteRows(at: [indexPath], with: .automatic)
         setSubTotal()
             DispatchQueue.main.asyncAfter(deadline: .now()+3.5){
                 if self.flag == true {
-                    if !(self.cartArray?.count == 0){
+                    if !(self.cartArray.count == 0){
                         self.putDraftOrder(lineItems: self.cartArray ?? [])
                     }
                     else
@@ -265,9 +306,9 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     }
     private func undoDeleting(index: Int){
         if let lineItem = deletedLineItem {
-            cartArray?.insert(lineItem, at: index)
+            cartArray.insert(lineItem, at: index)
             cardTableView.reloadData()
-            self.increaseCounter()
+//            self.increaseCounter()
         }
     }
     
@@ -277,7 +318,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
               draftOrder.lineItems = lineItems
               var shoppingCart = Drafts()
               shoppingCart.draftOrder = draftOrder
-             shoppingCartVM.putNewCart(userCart: shoppingCart) { data, response, error in
+        shoppingCartVM?.putNewCart(userCart: shoppingCart) { data, response, error in
             guard error == nil else {
                 DispatchQueue.main.async {
                     print ("delete cart Error \n \(error?.localizedDescription ?? "")" )
@@ -291,7 +332,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
                 }
                 return
             }
-            self.increaseCounter()
+//            self.increaseCounter()
             self.setSubTotal()
                  ShoppingCardViewController.subTotalPrice = UserDefaultsManager.sharedInstance.getTotalPrice()
             print("lineItem was added successfully")
@@ -299,11 +340,11 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
         }
     }
     func deleteCart(){
-        shoppingCartVM.deleteCart { error in
+        shoppingCartVM?.deleteCart { error in
             if error != nil {
                 UserDefaultsManager.sharedInstance.setUserCart(cartId: nil)
                 UserDefaultsManager.sharedInstance.setCartState(cartState:false)
-                self.increaseCounter()
+//                self.increaseCounter()
                 self.subTotalPrice.text = "0"
            
                 

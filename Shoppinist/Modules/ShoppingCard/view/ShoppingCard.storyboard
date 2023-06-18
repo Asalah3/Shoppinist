@@ -17,14 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTY-h7-GiN" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peY-Ln-hrH" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="10" y="69" width="373" height="739"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-gt-Dzu">
-                                <rect key="frame" x="0.0" y="59" width="393" height="552"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="558.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCardCell" rowHeight="224" id="dTx-8Y-caM" customClass="ShoppingCardTableViewCell" customModule="Shoppinist" customModuleProvider="target">
@@ -120,13 +121,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dim-8e-hIf">
-                                <rect key="frame" x="16" y="656" width="85" height="33"/>
+                                <rect key="frame" x="16" y="668.66666666666663" width="85" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzo-fF-DSt">
-                                <rect key="frame" x="111" y="734" width="171" height="48"/>
+                                <rect key="frame" x="111" y="740.33333333333337" width="171" height="41.666666666666629"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="CheckOut">
@@ -139,7 +140,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-Tk-LU5">
-                                <rect key="frame" x="111" y="649" width="236" height="47"/>
+                                <rect key="frame" x="111" y="655.33333333333337" width="236" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="OQM-f4-AVz"/>
                                 </constraints>
@@ -154,28 +155,27 @@
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="qzo-fF-DSt" secondAttribute="leading" id="1iD-zW-jd3"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.435115" id="43X-7R-OzW"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="111" id="5Hg-1M-v0q"/>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="WTY-h7-GiN" secondAttribute="bottom" constant="-203" id="7cQ-By-MeD"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="top" secondItem="eJR-Tk-LU5" secondAttribute="bottom" constant="38" id="Caw-xw-HQ5"/>
+                            <constraint firstItem="peY-Ln-hrH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="Cjn-Kg-fFS"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="D0J-kc-Upu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dim-8e-hIf" secondAttribute="bottom" constant="129" id="ELd-Xb-m8W"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ehu-Uq-2yr"/>
+                            <constraint firstItem="peY-Ln-hrH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="N3h-YB-RFT"/>
                             <constraint firstItem="Dim-8e-hIf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OKj-hc-KXY"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qnv-sv-Ucp"/>
-                            <constraint firstItem="WTY-h7-GiN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UCX-BE-pv9"/>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="38" id="WKO-3t-WwC"/>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="centerY" secondItem="Dim-8e-hIf" secondAttribute="centerY" id="cCR-81-0JW"/>
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="Dim-8e-hIf" secondAttribute="trailing" constant="10" id="cbS-So-OK6"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="207" id="gwy-aQ-UZK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WTY-h7-GiN" secondAttribute="trailing" id="hJg-gj-ep6"/>
-                            <constraint firstItem="WTY-h7-GiN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="l53-dZ-TqT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="peY-Ln-hrH" secondAttribute="trailing" constant="10" id="hjz-L6-u3N"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eJR-Tk-LU5" secondAttribute="trailing" constant="46" id="tGF-PY-1ZK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qzo-fF-DSt" secondAttribute="bottom" constant="36" id="v7n-oo-mW6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="peY-Ln-hrH" secondAttribute="bottom" constant="10" id="y0M-q0-Gpx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YbC-jI-O7H"/>
                     <connections>
                         <outlet property="cardTableView" destination="YV9-gt-Dzu" id="foN-IT-q0r"/>
-                        <outlet property="noData" destination="WTY-h7-GiN" id="Jts-3l-AsE"/>
+                        <outlet property="noData" destination="peY-Ln-hrH" id="sXs-Lt-aYS"/>
                         <outlet property="priceLabel" destination="Dim-8e-hIf" id="55X-9G-h5e"/>
                         <outlet property="proccess_btn" destination="qzo-fF-DSt" id="Ofp-jq-4bP"/>
                         <outlet property="subTotalPrice" destination="eJR-Tk-LU5" id="BZc-mx-9KH"/>
@@ -194,9 +194,6 @@
             <point key="canvasLocation" x="1557" y="-34"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="WTY-h7-GiN"/>
-    </designables>
     <resources>
         <image name="LoginImg" width="626" height="626"/>
         <image name="minus.circle" catalog="system" width="128" height="123"/>

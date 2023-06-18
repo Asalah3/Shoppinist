@@ -233,65 +233,60 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         renderCartData ()
         
         cartcount.draftOrders?.forEach({ email in
-
+            
             if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail()! && email.note == nil
             {
-        
-        renderCartData ()
-        
-        addtoLine = email
-        UserDefaultsManager.sharedInstance.setUserCart(cartId: email.id)
-        lineAppend = email.lineItems
-        renderCartData ()
-        lineAppend?.forEach({itemm in
-            if itemm.title == self.product?.title  {
                 renderCartData ()
-                
-                itemtitle = itemm.title
-                Utilites.displayToast(message: "Already in cart" , seconds: 1.0, controller: self)
-                print ("done")
+                addtoLine = email
+                UserDefaultsManager.sharedInstance.setUserCart(cartId: email.id)
+                lineAppend = email.lineItems
                 renderCartData ()
+                lineAppend?.forEach({itemm in
+                    if itemm.title == self.product?.title  {
+                        renderCartData ()
+                        
+                        itemtitle = itemm.title
+                        Utilites.displayToast(message: "Already in cart" , seconds: 1.0, controller: self)
+                        print ("done")
+                        renderCartData ()
+                    }
+                })
+                if itemtitle == nil {
+                    renderCartData ()
+                    newLineItem = LineItem()
+                    newLineItem?.title = product?.title
+                    newLineItem?.price = product?.variants![0].price
+                    newLineItem?.sku = product?.image?.src
+                    newLineItem?.vendor = product?.vendor
+                    newLineItem?.productID = product?.id
+                    newLineItem?.grams = product?.variants![0].inventory_quantity
+                    newLineItem?.quantity = 1
+                    lineAppend?.append(newLineItem!)
+                    var draftOrder = DrafOrder()
+                    draftOrder.lineItems = lineAppend
+                    addtoLine = draftOrder
+                    let draftOrderAppend : Drafts = Drafts(draftOrder:draftOrder)
+                    putCart(cartt: draftOrderAppend)
+                    Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
+                    renderCartData ()
+                    UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+                    print ("already used")
+                    print ("put")
+                    renderCartData ()
+                }
             }
         })
-            if itemtitle == nil {
-                renderCartData ()
-        newLineItem = LineItem()
-        newLineItem?.title = product?.title
-        newLineItem?.price = product?.variants![0].price
-        newLineItem?.sku = product?.image?.src
-        newLineItem?.vendor = product?.vendor
-        newLineItem?.productID = product?.id
-        newLineItem?.grams = product?.variants![0].inventory_quantity
-        newLineItem?.quantity = 1
-        lineAppend?.append(newLineItem!)
-        var draftOrder = DrafOrder()
-        draftOrder.lineItems = lineAppend
-        addtoLine = draftOrder
-        let draftOrderAppend : Drafts = Drafts(draftOrder:draftOrder)
-        putCart(cartt: draftOrderAppend)
-        Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
-                renderCartData ()
-        UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-        print ("already used")
-                print ("put")
-                renderCartData ()
-                    }
-                   
-                    }
-                  
-                })
-           
-            if addtoLine == nil
-                                {
-                                self.postCart()
-                renderCartData ()
-                print ("posted")
-                Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
-                UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-                    }
-      
+        
+        if addtoLine == nil
+        {
+            self.postCart()
+            renderCartData ()
+            print ("posted")
+            Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
+            UserDefaultsManager.sharedInstance.setCartState(cartState: true)
+        }
         renderCartData ()
-  }
+    }
 }
 
 extension DetailsViewController: UITabBarDelegate,UITableViewDataSource{

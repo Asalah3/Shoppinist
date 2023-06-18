@@ -22,11 +22,11 @@ class ShoppingCartViewModel {
     var cartsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
     
     func getShoppingCart() {
-        CartNetwork.fetchUserCart(handlerComplition: { result in
-            if let result = result {
-                self.cartList = result.draftOrder?.lineItems
-            }
-        })
+        CartNetwork.fetchUserCart{ result in
+            guard let result = result else {return}
+            self.cartList = result.draftOrder?.lineItems ?? [LineItem]()
+            print("self.cartList = \(self.cartList?.count ?? 0)")
+        }
     }
     
     
