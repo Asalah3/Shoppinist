@@ -166,10 +166,11 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
             //Favourites Logic
             
             if Utilites.isConnectedToNetwork(){
-                var sku = ""
-                sku = productsList?[indexPath.row].sku ?? ""
-                let productID = Int(sku) ?? 0
-                favViewModel?.getProductDetails(productID: productID)
+                let myString = productsList?[indexPath.row].sku ?? ""
+                print("myString\(myString)")
+                let myArray = myString.split(separator: ",")
+                let productid = Int(myArray[0]) ?? 0
+                favViewModel?.getProductDetails(productID: productid)
                 favViewModel?.fetchProductsDetailsToViewController = {() in self.renderViewToNavigate()}
             }else{
                 let confirmAction = UIAlertAction(title: "OK", style: .default)

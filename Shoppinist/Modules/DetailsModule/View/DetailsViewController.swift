@@ -314,7 +314,6 @@ extension DetailsViewController: UITabBarDelegate,UITableViewDataSource{
         
         cell.clipsToBounds = true
         cell.reviewImage?.layer.cornerRadius = 38.0
-        cell.reviewImage?.contentMode = .scaleAspectFill
         cell.reviewImage?.clipsToBounds = true
         cell.backView.clipsToBounds = true
         
