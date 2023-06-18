@@ -95,7 +95,6 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.clipsToBounds = true
         cell.productImage?.layer.cornerRadius = 10.0
-        cell.productImage?.contentMode = .scaleAspectFill
         cell.productImage?.clipsToBounds = true
         cell.backView.clipsToBounds = true
 
@@ -186,33 +185,6 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
-                if self.productsList != nil{
-                    for i in self.productsList! {
-                        self.idList.append(i.sku ?? "")
-                    }
-                }
-                if self.idList.count != 0{
-                    let IDs: String = self.idList.joined(separator: ",")
-                    print("IDss \(IDs)")
-                    self.favViewModel?.getFavProductDetails(productID: IDs)
-                    self.favViewModel?.fetchFavProductsDetailsToViewController = {
-                        let result = self.favViewModel?.fetchFavProductData
-                        guard let favProducts = result
-                        else {
-                            return
-                            
-                        }
-                        for i in 0..<(self.productsList?.count ?? 0){
-                            for product in favProducts{
-                                if self.productsList?[i].sku == String(product.id ?? 0){
-                                    self.productsList?[i].image = product.image?.src
-                                    print("itemImage \(self.productsList?[i].image)")
-                                }
-                            }
-                        }
-                    }
-                }
-                print("list is\(self.idList)")
                 self.favTableView.reloadData()
             }else{
                 self.productsList = nil

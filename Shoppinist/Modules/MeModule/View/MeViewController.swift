@@ -23,6 +23,7 @@ class MeViewController: UIViewController {
     var draft : Drafts? = Drafts()
     var productsList : [LineItem]?
     var idList = [String]()
+    var productID : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,12 +134,10 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
             
             cell?.clipsToBounds = true
             cell?.productImage?.layer.cornerRadius = 10.0
-            cell?.productImage?.contentMode = .scaleAspectFill
             cell?.productImage?.clipsToBounds = true
             cell?.backView.clipsToBounds = true
             
             var unwrappedImage : String = ""
-            var productID : Int = 0
             if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                 var cur = (UserDefaults.standard.double(forKey: "EGP"))
                 let price = floor((Double(productsList?[indexPath.row].price ?? "0.0") ?? 0.0) * cur)
@@ -146,8 +145,10 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
             }else{
                 cell?.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
             }
-            unwrappedImage = productsList?[indexPath.row].image ?? ""
-            productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
+            let myString = productsList?[indexPath.row].sku ?? ""
+            let myArray = myString.split(separator: ",")
+            productID = Int(myArray[0]) ?? 0
+            unwrappedImage = String(myArray[1])
             cell?.productName.text = productsList?[indexPath.row].title
             cell?.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
 
@@ -222,33 +223,6 @@ extension MeViewController{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
-                if self.productsList != nil{
-                    for i in self.productsList! {
-                        self.idList.append(i.sku ?? "")
-                    }
-                }
-                if self.idList.count != 0{
-                    let IDs: String = self.idList.joined(separator: ",")
-                    print("IDss \(IDs)")
-                    self.favViewModel?.getFavProductDetails(productID: IDs)
-                    self.favViewModel?.fetchFavProductsDetailsToViewController = {
-                        let result = self.favViewModel?.fetchFavProductData
-                        guard let favProducts = result
-                        else {
-                            return
-                            
-                        }
-                        for i in 0..<(self.productsList?.count ?? 0){
-                            for product in favProducts{
-                                if self.productsList?[i].sku == String(product.id ?? 0){
-                                    self.productsList?[i].image = product.image?.src
-                                    print("itemImage \(String(describing: self.productsList?[i].image))")
-                                }
-                            }
-                        }
-                    }
-                }
-                print("list is\(self.idList)")
                 self.favouritesTableView.reloadData()
             }else{
                 self.productsList = nil
