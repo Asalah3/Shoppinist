@@ -34,8 +34,25 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
         print("viewWillAppear")
         self.cardTableView.reloadData()
         ShoppingCardViewController.subTotalPrice = 0.0
-        
         getData()
+        if self.cartArray?.count == 0 {
+        self.cardTableView.isHidden = true
+        self.subTotalPrice.isHidden = true
+        self.proccess_btn.isHidden = true
+            self.priceLabel.isHidden = true
+        self.noData.isHidden = false
+        self.noData.contentMode = .scaleAspectFit
+        self.noData.loopMode = .loop
+        self.noData.play()
+        }
+        else {
+            self.cardTableView.isHidden = false
+            self.proccess_btn.isHidden = false
+            self.subTotalPrice.isHidden = false
+            self.priceLabel.isHidden = false
+            self.noData.isHidden = true
+           
+        }
         self.cardTableView.reloadData()
         
     
@@ -55,27 +72,9 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
         DispatchQueue.main.async {
             self.cardTableView.reloadData()
             self.cartArray = self.shoppingCartVM.cartList
-            if self.cartArray?.count == 0 {
-            self.cardTableView.isHidden = true
-            self.subTotalPrice.isHidden = true
-            self.proccess_btn.isHidden = true
-                self.priceLabel.isHidden = true
-            self.noData.isHidden = false
-            self.noData.contentMode = .scaleAspectFit
-            self.noData.loopMode = .loop
-            self.noData.play()
-            }
-            else {
-                self.cardTableView.isHidden = false
-                self.proccess_btn.isHidden = false
-                self.subTotalPrice.isHidden = false
-                self.priceLabel.isHidden = false
-                self.noData.isHidden = true
-               
-            }
+        
             self.cardTableView.reloadData()
             self.configureView()
-           // self.activityIndicator.stopAnimating()
             self.cardTableView.reloadData()
             print("sub total : \(Self.subTotalPrice)")
            
@@ -84,6 +83,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
    
     }
 
+    
     func configureView(){
         if cartArray != nil {
             self.shoppingCartVM.cartList?.forEach({ item in
