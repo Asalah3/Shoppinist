@@ -60,30 +60,37 @@ class PaymentViewController: UIViewController {
     @IBAction func processedToConfirm(_ sender: Any) {
         print("presssed")
         if ((self.applePaymentButton.isSelected) == false) && ((self.cashPaymentButton.isSelected) == false){
-            self.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
-        }else{
-            self.orderModuleViewModel?.createOrder(order: order!)
-            self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
-                DispatchQueue.main.async {
-                    if self?.orderModuleViewModel?.observableCreateOrder == 201{
-                        print("Order Inserted Successfully")
-                        self?.orderModuleViewModel?.deleteShoppingCart{ deleted in
-                            if deleted == nil{
-                                print("ShoppingCart Deleted Successfully")
-                            }else{
-                                print("Failed To Delete ShoppingCart")
+                    self.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
+                }else{
+                    let alert : UIAlertController = UIAlertController(title: "Warnning", message: "Do You Want To Processed This order", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .default , handler: { action in
+                        self.orderModuleViewModel?.createOrder(order: self.order!)
+                        self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
+                            DispatchQueue.main.async {
+                                if self?.orderModuleViewModel?.observableCreateOrder == 201{
+                                    print("Order Inserted Successfully")
+                                    self?.orderModuleViewModel?.deleteShoppingCart{ deleted in
+                                        if deleted == nil{
+                                            print("ShoppingCart Deleted Successfully")
+                                        }else{
+                                            print("Failed To Delete ShoppingCart")
+                                        }
+                                    }
+                                    if let navigationController = self?.navigationController {
+                                        navigationController.popToRootViewController(animated: true)
+                                    }
+                                }else{
+                                    print("Failed To Insert Order")
+                                }
+                                
                             }
                         }
-                        if let navigationController = self?.navigationController {
-                            navigationController.popToRootViewController(animated: true)
-                        }
-                    }else{
-                        print("Failed To Insert Order")
-                    }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default , handler: nil))
+                    
+                    self.present(alert, animated: true)
                     
                 }
-            }
-        }
     }
 
     func OptionSelected(_isApplePaySelected: Bool) {
