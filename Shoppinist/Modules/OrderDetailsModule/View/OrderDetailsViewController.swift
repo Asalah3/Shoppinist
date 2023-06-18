@@ -26,6 +26,7 @@ class OrderDetailsViewController: UIViewController {
         }
         let shippingAdress = order?.shippingAddress
         let address = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
+        let phone = "\(shippingAdress?.phone)"
         orderAddress.text = address
     }
     override func viewWillAppear(_ animated: Bool) {

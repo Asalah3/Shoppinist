@@ -21,6 +21,7 @@ struct customer : Codable {
 struct Address: Codable {
     var id : Int?
     var address1, city, country, phone: String?
+    var `default` :Bool?
 }
 
 struct CustomerAddress: Codable {

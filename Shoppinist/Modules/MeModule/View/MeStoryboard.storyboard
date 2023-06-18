@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gzZ-oP-FgM">
-                                <rect key="frame" x="20" y="114" width="68" height="49.666666666666686"/>
+                                <rect key="frame" x="20" y="114" width="68" height="49.666666666666671"/>
                                 <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asalah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZF-yB-c3G">
@@ -45,19 +45,25 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="148"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-n5-Ze3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="49.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creation Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c67-tJ-EDr">
-                                                                    <rect key="frame" x="0.0" y="49.333333333333329" width="161.66666666666666" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="37" width="161.66666666666666" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipped To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcN-19-g4k">
-                                                                    <rect key="frame" x="0.0" y="98.666666666666671" width="161.66666666666666" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="74" width="161.66666666666666" height="37"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwU-KE-cW2">
+                                                                    <rect key="frame" x="0.0" y="111" width="161.66666666666666" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -68,19 +74,25 @@
                                                             <rect key="frame" x="161.66666666666663" y="0.0" width="161.33333333333337" height="148"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200.0 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m58-Cc-3oa">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="49.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-06-08T18:36:35-04:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sat-cj-VN5">
-                                                                    <rect key="frame" x="0.0" y="49.333333333333329" width="161.33333333333334" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="37" width="161.33333333333334" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt, Ismailia, Elsheikh Zayed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="l1M-my-1EO">
-                                                                    <rect key="frame" x="0.0" y="98.666666666666671" width="161.33333333333334" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="74" width="161.33333333333334" height="37"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1s-7f-l2P">
+                                                                    <rect key="frame" x="0.0" y="111" width="161.33333333333334" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -102,6 +114,7 @@
                                             <outlet property="orderCreationDate" destination="Sat-cj-VN5" id="3jB-tX-RTT"/>
                                             <outlet property="orderShippedTo" destination="l1M-my-1EO" id="nyn-ms-Nu8"/>
                                             <outlet property="orderTotalPrice" destination="m58-Cc-3oa" id="JyO-b7-NCi"/>
+                                            <outlet property="phone" destination="b1s-7f-l2P" id="yE4-mx-qTI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -338,19 +351,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="151.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-xW-Bhe">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="50.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="38"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creation Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL6-jN-9FQ">
-                                                <rect key="frame" x="0.0" y="50.666666666666657" width="186.66666666666666" height="50.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="38" width="186.66666666666666" height="38"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipped To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct7-sM-vB0">
-                                                <rect key="frame" x="0.0" y="101.33333333333334" width="186.66666666666666" height="50.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="76" width="186.66666666666666" height="38"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYZ-tG-qMf">
+                                                <rect key="frame" x="0.0" y="114.00000000000001" width="186.66666666666666" height="37.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -361,19 +380,25 @@
                                         <rect key="frame" x="186.66666666666663" y="0.0" width="186.33333333333337" height="151.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200.0 $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vY4-hg-Dgg">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.33333333333334" height="50.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.33333333333334" height="38"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-06-08T18:36:35-04:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="267-ix-HJs">
-                                                <rect key="frame" x="0.0" y="50.666666666666657" width="186.33333333333334" height="50.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="38" width="186.33333333333334" height="38"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt, Ismailia, Elsheikh Zayed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GJK-ga-pwN">
-                                                <rect key="frame" x="0.0" y="101.33333333333334" width="186.33333333333334" height="50.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="76" width="186.33333333333334" height="38"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ija-hH-RbS">
+                                                <rect key="frame" x="0.0" y="114.00000000000001" width="186.33333333333334" height="37.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -509,19 +534,25 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="148"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoH-XP-faT">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="49.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creation Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXA-dy-M6e">
-                                                                    <rect key="frame" x="0.0" y="49.333333333333329" width="161.66666666666666" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="37" width="161.66666666666666" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipped To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1o-ns-7lm">
-                                                                    <rect key="frame" x="0.0" y="98.666666666666671" width="161.66666666666666" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="74" width="161.66666666666666" height="37"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIr-ue-U5j">
+                                                                    <rect key="frame" x="0.0" y="111" width="161.66666666666666" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -532,20 +563,26 @@
                                                             <rect key="frame" x="161.66666666666663" y="0.0" width="161.33333333333337" height="148"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200.0 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-tM-MqA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="49.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-06-08T18:36:35-04:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fm-GB-eOk">
-                                                                    <rect key="frame" x="0.0" y="49.333333333333329" width="161.33333333333334" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="37" width="161.33333333333334" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt, Ismailia, Elsheikh Zayed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NPe-54-q3I">
-                                                                    <rect key="frame" x="0.0" y="98.666666666666671" width="161.33333333333334" height="49.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="74" width="161.33333333333334" height="37"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEv-U5-VVc">
+                                                                    <rect key="frame" x="0.0" y="111" width="161.33333333333334" height="37"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -566,6 +603,7 @@
                                             <outlet property="orderCreationDate" destination="5fm-GB-eOk" id="aYa-7g-R5H"/>
                                             <outlet property="orderShippedTo" destination="NPe-54-q3I" id="lY6-MC-vZj"/>
                                             <outlet property="orderTotalPrice" destination="Qyk-tM-MqA" id="rZy-9v-5er"/>
+                                            <outlet property="phone" destination="IEv-U5-VVc" id="i6c-FE-K0F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

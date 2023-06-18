@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTY-h7-GiN" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="59" width="393" height="590"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
                                 </userDefinedRuntimeAttributes>
@@ -154,7 +154,7 @@
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="qzo-fF-DSt" secondAttribute="leading" id="1iD-zW-jd3"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.435115" id="43X-7R-OzW"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="111" id="5Hg-1M-v0q"/>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="WTY-h7-GiN" secondAttribute="bottom" id="7cQ-By-MeD"/>
+                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="WTY-h7-GiN" secondAttribute="bottom" constant="-203" id="7cQ-By-MeD"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="top" secondItem="eJR-Tk-LU5" secondAttribute="bottom" constant="38" id="Caw-xw-HQ5"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="D0J-kc-Upu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dim-8e-hIf" secondAttribute="bottom" constant="129" id="ELd-Xb-m8W"/>

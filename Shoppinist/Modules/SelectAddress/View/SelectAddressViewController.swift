@@ -6,20 +6,26 @@
 //
 
 import UIKit
+import Lottie
 
 class SelectAddressViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
     
+    @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var selectTableView: UITableView!
     var addressViewModel : AddressViewModel?
     var customerAddressTable : CustomerAddress?
     var statusCode : Int?
     var price:Int = 0
     @IBOutlet weak var pageAddressLabel: UILabel!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var LineItems: [LineItem]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+                activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
        
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -30,17 +36,24 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
             DispatchQueue.main.async {
                 self?.customerAddressTable = self?.addressViewModel?.ObservableGet
                      self?.selectTableView.reloadData()
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
     func checkCartIsEmpty() {
      if customerAddressTable?.addresses?.count == 0{
-        // tableView.isHidden = true
+         self.activityIndicator.stopAnimating()
+         selectTableView.isHidden = true
          pageAddressLabel.text = "ADD Your Address"
+         self.noData.isHidden = false
+         self.noData.contentMode = .scaleAspectFit
+         self.noData.loopMode = .loop
+         self.noData.play()
          
      } else {
-   //  tableView.isHidden = false
+      selectTableView.isHidden = false
          pageAddressLabel.text = "Select Address"
+         self.noData.isHidden = true
      }
  }
   
