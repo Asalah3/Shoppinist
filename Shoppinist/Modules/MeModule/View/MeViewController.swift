@@ -68,7 +68,7 @@ class MeViewController: UIViewController {
             DispatchQueue.main.async {
                 self.cartArray = self.shoppingCartVM.cartList
             }
-
+        }
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
 
