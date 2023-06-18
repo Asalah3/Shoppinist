@@ -199,7 +199,9 @@ extension MeViewController{
     
     func renderViewToNavigate(){
         DispatchQueue.main.async {
-            let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+            
+            let storyboard = UIStoryboard(name: "FavouriteView", bundle: nil)
+            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
             
             detailsViewController.product = self.favViewModel?.fetchProductData
             self.navigationController?.pushViewController(detailsViewController, animated: true)

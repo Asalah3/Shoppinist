@@ -19,6 +19,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gzZ-oP-FgM">
                                 <rect key="frame" x="20" y="114" width="68" height="49.666666666666686"/>
+                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asalah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZF-yB-c3G">
                                 <rect key="frame" x="113" y="113" width="201" height="51"/>
@@ -117,6 +118,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI3-Li-5Nu">
                                 <rect key="frame" x="292.66666666666669" y="184" width="84.333333333333314" height="32"/>
+                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More">
                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
@@ -200,6 +202,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rc-sr-HLz">
                                 <rect key="frame" x="292" y="406.66666666666669" width="84.333333333333314" height="32"/>
+                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More">
                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -212,6 +215,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Qhj-1z-nUL" firstAttribute="top" secondItem="lsk-tJ-LkZ" secondAttribute="bottom" constant="10" id="1P4-1k-kfA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lsk-tJ-LkZ" secondAttribute="trailing" constant="10" id="2Kk-cp-U7a"/>
@@ -308,6 +312,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w7R-6u-CXF">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -455,6 +460,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jf6-8t-k0R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fUi-pX-Uyt" firstAttribute="leading" secondItem="jf6-8t-k0R" secondAttribute="leading" constant="10" id="1Kh-Rp-WzV"/>
                             <constraint firstItem="izh-EY-ofq" firstAttribute="top" secondItem="fUi-pX-Uyt" secondAttribute="bottom" constant="20" id="2YK-qu-EAp"/>
@@ -571,6 +577,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ezh-ji-VNn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ezh-ji-VNn" firstAttribute="trailing" secondItem="M1q-y8-vN6" secondAttribute="trailing" constant="10" id="43S-0Z-dec"/>
                             <constraint firstItem="M1q-y8-vN6" firstAttribute="leading" secondItem="ezh-ji-VNn" secondAttribute="leading" constant="10" id="CW5-Ys-d8b"/>

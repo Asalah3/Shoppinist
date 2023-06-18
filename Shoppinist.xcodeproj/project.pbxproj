@@ -606,6 +606,7 @@
 		C98726492A27D0C400EB0A40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C98726512A27D1A900EB0A40 /* BaseModule */,
 				C9183C552A3DCEDF003D4BCE /* SplashModule */,
 				C924C2A32A3B9939008D1E8A /* OrderDetailsModule */,
 				CF839D1F2A3A9BA500468B9B /* ReviewModule */,
@@ -629,7 +630,6 @@
 				C98726582A27DD5E00EB0A40 /* CategoriesModule */,
 				C98726572A27DD4800EB0A40 /* HomeModule */,
 				C98726552A27D28300EB0A40 /* OnBoarding */,
-				C98726512A27D1A900EB0A40 /* BaseModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

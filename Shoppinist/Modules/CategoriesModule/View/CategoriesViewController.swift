@@ -78,9 +78,7 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        localData = FavLocalDataSource()
-//        remoteData = ProductDetailsDataSource()
-//        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+
         favViewModel = DraftViewModel()
         let actionButton = JJFloatingActionButton()
         actionButton.buttonColor = UIColor(red: CGFloat(0.61), green: CGFloat(0.45), blue: CGFloat(0.84), alpha: CGFloat(1.0))
@@ -309,8 +307,7 @@ extension CategoriesViewController{
             if draftOrders != nil && draftOrders?.count != 0{
                 self.myDraftOrder = draftOrders?[0]
                 self.productList = draftOrders?[0].lineItems
-                print("myfavlist\(String(describing: self.productsList?.count ?? 0))")
-                self.favButtonRight.addBadge(text: "\(String(describing: self.productsList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+                self.favButtonRight.addBadge(text: "\(String(describing: self.productList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
             }
         }
     }
