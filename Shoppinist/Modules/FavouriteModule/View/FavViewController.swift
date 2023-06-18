@@ -111,7 +111,10 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             }else{
                 cell.productPrice.text = "\(searchProducts[indexPath.row].price ?? "") $"
             }
-            productID = Int(searchProducts[indexPath.row].sku ?? "") ?? 0
+            let myString = searchProducts[indexPath.row].sku ?? ""
+            let myArray = myString.split(separator: ",")
+            productID = Int(myArray[0]) ?? 0
+            unwrappedImage = String(myArray[1])
             cell.productName.text = searchProducts[indexPath.row].title
         }else{
             if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
@@ -120,7 +123,12 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
             }else{
                 cell.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
             }
-            unwrappedImage = productsList?[indexPath.row].image ?? ""
+            let myString = productsList?[indexPath.row].sku ?? ""
+            print("myString\(myString)")
+            let myArray = myString.split(separator: ",")
+            productID = Int(myArray[0]) ?? 0
+            unwrappedImage = String(myArray[1])
+            print("unwrappedImage\(unwrappedImage)")
             productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
             cell.productName.text = productsList?[indexPath.row].title
         }

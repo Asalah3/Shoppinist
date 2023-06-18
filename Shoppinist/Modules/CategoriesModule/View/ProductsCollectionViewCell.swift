@@ -149,7 +149,7 @@ extension ProductsCollectionViewCell{
     func addItemToFavourite(favDraft: [DrafOrder]){
         self.draft?.draftOrder = favDraft[0]
         print(self.draft ?? "nil draft")
-        let lineItem = LineItem(id: nil, variantID: nil, productID: self.favObject?.id, title: self.favObject?.title, variantTitle: "", sku:"\(( self.favObject?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.favObject?.variants?[0].price)
+        let lineItem = LineItem(id: nil, variantID: nil, productID: self.favObject?.id, title: self.favObject?.title, variantTitle: "", sku:"\(( self.favObject?.id)!),\((self.favObject?.image?.src)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.favObject?.variants?[0].price)
         self.draft?.draftOrder?.lineItems?.append(lineItem)
         self.favDraftViewModel?.updateDraft(updatedDraft: (self.draft)!)
         self.favDraftViewModel?.bindingDraftUpdate = { [weak self] in

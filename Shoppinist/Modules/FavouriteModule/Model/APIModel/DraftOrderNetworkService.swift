@@ -30,7 +30,7 @@ class DraftNetwork:DraftNetworkProtocol{
                     "title": product.title ?? "",
                     "quantity": 2,
                     "price": product.variants?[0].price ?? "20",
-                    "sku": "\(product.id ?? 0)",
+                    "sku": "\(product.id ?? 0),\((product.image?.src)!)",
                     
                 ]
               ],
