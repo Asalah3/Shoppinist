@@ -36,8 +36,7 @@ class MeViewController: UIViewController {
         //Favourites Logic
         productsList = [LineItem]()
         favViewModel = DraftViewModel()
-        favViewModel?.getAllDrafts()
-        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
+        
         
     }
     
@@ -87,6 +86,8 @@ class MeViewController: UIViewController {
         }
         allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
         allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
         var count = cartArray?.count ?? 0
@@ -138,8 +139,13 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
             
             var unwrappedImage : String = ""
             var productID : Int = 0
-            
-            cell?.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
+            if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                var cur = (UserDefaults.standard.double(forKey: "EGP"))
+                let price = floor((Double(productsList?[indexPath.row].price ?? "0.0") ?? 0.0) * cur)
+                cell?.productPrice.text = "Price: \(String(price)) EGP"
+            }else{
+                cell?.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
+            }
             unwrappedImage = productsList?[indexPath.row].image ?? ""
             productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
             cell?.productName.text = productsList?[indexPath.row].title

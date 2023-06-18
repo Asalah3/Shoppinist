@@ -32,11 +32,11 @@ class ProductOrderTableViewCell: UITableViewCell {
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
             var cur = (UserDefaults.standard.double(forKey: "EGP"))
             let price = floor((Double(lineItem.price ?? "0.0") ?? 0.0) * cur)
-            self.productPrice.text = "\(String(price)) EGP"
+            self.productPrice.text = "Price: \(String(price)) EGP"
         }else{
-            self.productPrice.text = "\(lineItem.price ?? "") $"
+            self.productPrice.text = "Price: \(lineItem.price ?? "") $"
         }
-        self.productQuantity.text = "\(lineItem.quantity ?? 0)"
+        self.productQuantity.text = "Quantity: \(lineItem.quantity ?? 0)"
     }
 
 }

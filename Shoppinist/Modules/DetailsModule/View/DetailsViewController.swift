@@ -72,7 +72,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.favViewModel?.changeCurrency()
         self.favViewModel?.fetchCurrencyToCell = { [weak self] in
             DispatchQueue.main.async {
-                self?.currency = (Double(self?.favViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0).rounded()
+                self?.currency = (Double(self?.favViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0)
                 if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                     let price = floor((Double(self?.product?.variants?[0].price ?? "0.0")) ?? 0.0) * (self?.currency ?? 0)
                     self?.detailsPrice.text = "\(String(price)) EGP"

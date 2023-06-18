@@ -12,6 +12,8 @@ class OrderDetailsViewController: UIViewController {
     @IBOutlet weak var orderDate: UILabel!
     @IBOutlet weak var orderTotalPrice: UILabel!
     @IBOutlet weak var orderAddress: UILabel!
+    
+    @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var orderProductsTableView: UITableView!
     var order: Order?
     override func viewDidLoad() {
@@ -26,7 +28,8 @@ class OrderDetailsViewController: UIViewController {
         }
         let shippingAdress = order?.shippingAddress
         let address = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
-        let phone = "\(shippingAdress?.phone)"
+        let phone = "\(shippingAdress?.phone ?? "")"
+        phoneNumber.text = phone
         orderAddress.text = address
     }
     override func viewWillAppear(_ animated: Bool) {

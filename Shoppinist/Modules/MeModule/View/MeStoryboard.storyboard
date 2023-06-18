@@ -164,13 +164,13 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="c6X-gJ-sUg"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Com-2I-2g2">
-                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Com-2I-2g2">
+                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vi6-iM-OI7">
-                                                    <rect key="frame" x="122" y="65.333333333333329" width="208" height="20"/>
+                                                    <rect key="frame" x="122" y="65" width="208" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -502,6 +502,7 @@
                         <outlet property="orderDate" destination="267-ix-HJs" id="JQ6-ld-4Pn"/>
                         <outlet property="orderProductsTableView" destination="izh-EY-ofq" id="U7C-MT-vbS"/>
                         <outlet property="orderTotalPrice" destination="vY4-hg-Dgg" id="GYh-mh-mrw"/>
+                        <outlet property="phoneNumber" destination="Ija-hH-RbS" id="xFJ-0w-Mgv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgi-cp-Ezq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
