@@ -90,7 +90,7 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch reachability.connection {
@@ -120,6 +120,9 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
             self.present(contactVC, animated: true)
         case 4:
             UserDefaultsManager.sharedInstance.clearUserDefaults()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+            self.navigationController?.pushViewController(viewController, animated: true)
             
         default:
             break
