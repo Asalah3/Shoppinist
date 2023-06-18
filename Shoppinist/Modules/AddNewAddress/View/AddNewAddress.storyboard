@@ -34,7 +34,6 @@
                                     <constraint firstItem="Fu8-PC-UAa" firstAttribute="width" secondItem="e2B-OT-ZQG" secondAttribute="width" multiplier="0.712468" constant="63" id="D81-oL-YNc"/>
                                     <constraint firstAttribute="trailing" secondItem="Fu8-PC-UAa" secondAttribute="trailing" constant="22" id="Leg-24-i8l"/>
                                     <constraint firstAttribute="bottom" secondItem="Fu8-PC-UAa" secondAttribute="bottom" constant="36" id="aOr-qB-HdL"/>
-                                    <constraint firstItem="Fu8-PC-UAa" firstAttribute="leading" secondItem="e2B-OT-ZQG" secondAttribute="leading" constant="28" id="p9g-fU-unM"/>
                                     <constraint firstItem="Fu8-PC-UAa" firstAttribute="top" secondItem="e2B-OT-ZQG" secondAttribute="top" constant="116" id="wZz-T7-dAe"/>
                                 </constraints>
                             </view>
