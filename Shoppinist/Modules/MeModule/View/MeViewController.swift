@@ -18,6 +18,11 @@ class MeViewController: UIViewController {
     var remoteDataSource: AllOrderRemoteDataSourceProtocol?
     var allOrdersViewModel: AllOrdersViewModelProtocol?
     var ordersList: [Order] = []
+    var myDraftOrder : DrafOrder?
+    var favViewModel : DraftViewModel?
+    var draft : Drafts? = Drafts()
+    var productsList : [LineItem]?
+    var idList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,14 @@ class MeViewController: UIViewController {
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
 //        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
 //        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
+        
+        
         //Favourites Logic
+        productsList = [LineItem]()
+        favViewModel = DraftViewModel()
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
+        
     }
     
     func getData(){
@@ -94,7 +106,11 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }else{
             //Favourites Logic
-            return 2
+            if productsList?.count ?? 0 <= 2{
+                return productsList?.count ?? 0
+            }else{
+                return 2
+            }
         }
         
     }
@@ -108,6 +124,28 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
         else{
             //Favourites Logic
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavTableViewCell", for: indexPath) as? FavTableViewCell
+            
+            // cell radius
+            cell?.backView.layer.cornerRadius = 20.0
+            cell?.backView.layer.borderWidth = 1
+            cell?.backView.layer.borderColor = UIColor.darkGray.cgColor
+            
+            cell?.clipsToBounds = true
+            cell?.productImage?.layer.cornerRadius = 10.0
+            cell?.productImage?.contentMode = .scaleAspectFill
+            cell?.productImage?.clipsToBounds = true
+            cell?.backView.clipsToBounds = true
+            
+            var unwrappedImage : String = ""
+            var productID : Int = 0
+            
+            cell?.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
+            unwrappedImage = productsList?[indexPath.row].image ?? ""
+            productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
+            cell?.productName.text = productsList?[indexPath.row].title
+            cell?.productImage.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
+
+            
             return cell ?? FavTableViewCell()
         }
         
@@ -119,6 +157,18 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
             self.navigationController?.pushViewController(orderDetailsViewController ?? OrderDetailsViewController(), animated: true)
         }else{
             //Favourites Logic
+            
+            if Utilites.isConnectedToNetwork(){
+                var sku = ""
+                sku = productsList?[indexPath.row].sku ?? ""
+                let productID = Int(sku) ?? 0
+                favViewModel?.getProductDetails(productID: productID)
+                favViewModel?.fetchProductsDetailsToViewController = {() in self.renderViewToNavigate()}
+            }else{
+                let confirmAction = UIAlertAction(title: "OK", style: .default)
+                Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
+            }
+            
             
         }
         
@@ -143,4 +193,61 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+}
+
+extension MeViewController{
+    
+    func renderViewToNavigate(){
+        DispatchQueue.main.async {
+            
+            let storyboard = UIStoryboard(name: "FavouriteView", bundle: nil)
+            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+            
+            detailsViewController.product = self.favViewModel?.fetchProductData
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+  
+        }
+    }
+    
+    func renderFavView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.favViewModel?.getMyFavouriteDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                print("draft not nil")
+                self.myDraftOrder = draftOrders?[0]
+                self.productsList = draftOrders?[0].lineItems
+                if self.productsList != nil{
+                    for i in self.productsList! {
+                        self.idList.append(i.sku ?? "")
+                    }
+                }
+                if self.idList.count != 0{
+                    let IDs: String = self.idList.joined(separator: ",")
+                    print("IDss \(IDs)")
+                    self.favViewModel?.getFavProductDetails(productID: IDs)
+                    self.favViewModel?.fetchFavProductsDetailsToViewController = {
+                        let result = self.favViewModel?.fetchFavProductData
+                        guard let favProducts = result
+                        else {
+                            return
+                            
+                        }
+                        for i in 0..<(self.productsList?.count ?? 0){
+                            for product in favProducts{
+                                if self.productsList?[i].sku == String(product.id ?? 0){
+                                    self.productsList?[i].image = product.image?.src
+                                    print("itemImage \(String(describing: self.productsList?[i].image))")
+                                }
+                            }
+                        }
+                    }
+                }
+                print("list is\(self.idList)")
+                self.favouritesTableView.reloadData()
+            }else{
+                self.productsList = nil
+                print("draft is nil")
+            }
+        }
+    }
 }

@@ -224,6 +224,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bJw-CC-yT2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bJw-CC-yT2" firstAttribute="bottom" secondItem="fXW-vW-ee8" secondAttribute="bottom" constant="35" id="4CU-19-Wpg"/>
                             <constraint firstItem="bJw-CC-yT2" firstAttribute="trailing" secondItem="fXW-vW-ee8" secondAttribute="trailing" constant="20" id="AOH-t2-qCX"/>
@@ -323,6 +324,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qcK-Cb-zeY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wBO-kZ-MLY" firstAttribute="top" secondItem="qcK-Cb-zeY" secondAttribute="top" id="3qs-d2-VXa"/>
                             <constraint firstItem="qcK-Cb-zeY" firstAttribute="bottom" secondItem="wBO-kZ-MLY" secondAttribute="bottom" constant="35" id="5tp-S6-hV0"/>
@@ -430,6 +432,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fEW-uZ-lOz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tDm-EZ-SC1" firstAttribute="bottom" secondItem="fEW-uZ-lOz" secondAttribute="bottom" id="2Yr-9p-dcs"/>
                             <constraint firstItem="tDm-EZ-SC1" firstAttribute="trailing" secondItem="fEW-uZ-lOz" secondAttribute="trailing" id="7ru-c5-leM"/>

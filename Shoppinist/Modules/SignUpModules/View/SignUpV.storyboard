@@ -94,6 +94,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bWb-cD-Qiq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PEH-1h-OAn" firstAttribute="top" secondItem="bWb-cD-Qiq" secondAttribute="top" id="3WM-yu-nLI"/>
                             <constraint firstItem="PEH-1h-OAn" firstAttribute="leading" secondItem="bWb-cD-Qiq" secondAttribute="leading" constant="20" id="CD9-vd-aSQ"/>
@@ -212,6 +213,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MSU-SD-8hd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="B3G-Vb-Iuw" secondAttribute="trailing" constant="20" id="RmT-3Y-0pW"/>
                             <constraint firstItem="B3G-Vb-Iuw" firstAttribute="leading" secondItem="MSU-SD-8hd" secondAttribute="leading" constant="20" id="UtK-Wt-kDv"/>
@@ -263,6 +265,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginImg" translatesAutoresizingMaskIntoConstraints="NO" id="t5U-Ii-r3U">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="293"/>
+                                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="293" id="BnK-45-9LL"/>
                                         </constraints>

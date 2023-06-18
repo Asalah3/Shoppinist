@@ -14,7 +14,7 @@ case T_SHIRTS
 case ACCESSORIES
 }
 class CategoriesViewController: UIViewController {
-    
+    @IBOutlet weak var favButtonRight: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
@@ -31,6 +31,9 @@ class CategoriesViewController: UIViewController {
 //    var currency = 0.0
     var searchProducts = [Product]()
     var searching = false
+    var myDraftOrder : DrafOrder?
+    var draft : Drafts? = Drafts()
+    var productList : [LineItem]?
     
     private var cartArray: [LineItem]?
     private var shoppingCartVM = ShoppingCartViewModel()
@@ -53,6 +56,14 @@ class CategoriesViewController: UIViewController {
    
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+        //Favourites Logic
+        productList = [LineItem]()
+        favViewModel = DraftViewModel()
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
+        
+        //-------------------------------------------
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
@@ -67,9 +78,7 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        localData = FavLocalDataSource()
-//        remoteData = ProductDetailsDataSource()
-//        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+
         favViewModel = DraftViewModel()
         let actionButton = JJFloatingActionButton()
         actionButton.buttonColor = UIColor(red: CGFloat(0.61), green: CGFloat(0.45), blue: CGFloat(0.84), alpha: CGFloat(1.0))
@@ -289,5 +298,18 @@ extension CategoriesViewController: MyCustomCellDelegate{
     }
     
     
+}
+
+extension CategoriesViewController{
+    func renderFavView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.favViewModel?.getMyFavouriteDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                self.myDraftOrder = draftOrders?[0]
+                self.productList = draftOrders?[0].lineItems
+                self.favButtonRight.addBadge(text: "\(String(describing: self.productList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+            }
+        }
+    }
 }
 

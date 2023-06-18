@@ -9,7 +9,7 @@ import UIKit
 import Lottie
 
 class BrandProductsViewController: UIViewController {
-    
+    @IBOutlet weak var favButtonRight: UIBarButtonItem!
     @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsCollectionView: UICollectionView!
@@ -28,16 +28,25 @@ class BrandProductsViewController: UIViewController {
     var filteredPrice : [Product] = []
     var searching = false
     var filtered = false
+    
+    var myDraftOrder : DrafOrder?
+    var draft : Drafts? = Drafts()
+    var productList : [LineItem]?
+    
     override func viewWillAppear(_ animated: Bool) {
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
+            
+            //Favourites Logic
+            productList = [LineItem]()
+            favViewModel = DraftViewModel()
+            favViewModel?.getAllDrafts()
+            favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        localData = FavLocalDataSource()
-//        remoteData = ProductDetailsDataSource()
-//        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
+
         NoData.isHidden = true
         // -------------------- SetUp CollectionViewFlow --------------------
         let brandsLayout = UICollectionViewFlowLayout()
@@ -205,4 +214,18 @@ extension BrandProductsViewController: MyCustomCellDelegate{
     }
     
     
+}
+
+extension BrandProductsViewController{
+    func renderFavView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.favViewModel?.getMyFavouriteDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                self.myDraftOrder = draftOrders?[0]
+                self.productList = draftOrders?[0].lineItems
+                print("myfavlist\(String(describing: self.productsList?.count ?? 0))")
+                self.favButtonRight.addBadge(text: "\(String(describing: self.productsList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+            }
+        }
+    }
 }

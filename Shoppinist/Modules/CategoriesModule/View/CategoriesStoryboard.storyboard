@@ -122,6 +122,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fPZ-3k-5T5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="08H-gu-eX5"/>
                             <constraint firstItem="ZRF-1x-HGO" firstAttribute="top" secondItem="fPZ-3k-5T5" secondAttribute="bottom" constant="5" id="6IU-cu-2WS"/>
@@ -151,6 +152,7 @@
                     <connections>
                         <outlet property="categoriesCollectionView" destination="PVj-2o-gbC" id="kSO-Ip-B9H"/>
                         <outlet property="categoriesSegment" destination="ZRF-1x-HGO" id="j5u-Xm-wAV"/>
+                        <outlet property="favButtonRight" destination="Ckt-tj-Dbd" id="omg-x2-BYs"/>
                         <outlet property="noData" destination="JXK-Vk-R7Z" id="1F7-qd-XwM"/>
                         <outlet property="searchBar" destination="fPZ-3k-5T5" id="J5H-vb-L2f"/>
                     </connections>
@@ -177,6 +179,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="avu-OD-xuY">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -401,6 +404,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BWM-en-DiV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vT7-mM-kMY" firstAttribute="top" secondItem="BWM-en-DiV" secondAttribute="top" id="Aba-uA-IBO"/>
                             <constraint firstItem="BWM-en-DiV" firstAttribute="bottom" secondItem="vT7-mM-kMY" secondAttribute="bottom" constant="35" id="L0r-fs-FHe"/>
@@ -528,6 +532,7 @@
             <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
     </designables>
+    <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
