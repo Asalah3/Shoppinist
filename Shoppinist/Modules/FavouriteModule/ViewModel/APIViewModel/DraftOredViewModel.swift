@@ -161,7 +161,10 @@ class DraftViewModel{
                     for n in 0..<(observable.draftOrders?[i].lineItems?.count ?? 0){
                         print("proID \(observable.draftOrders?[i].lineItems?[n].sku)")
                         print("proId\(productID)")
-                        if ((observable.draftOrders?[i].lineItems?[n].sku) ?? "") == "\(productID)"{
+                        let myString = observable.draftOrders?[i].lineItems?[n].sku ?? ""
+                        let myArray = myString.split(separator: ",")
+                        let productid = Int(myArray[0]) ?? 0
+                        if ((productid) == productID){
                             returnedValue = true
                             break
                         }
