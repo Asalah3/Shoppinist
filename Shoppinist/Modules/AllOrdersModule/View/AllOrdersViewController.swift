@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class AllOrdersViewController: UIViewController {
 
+    @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var ordersTableView: UITableView!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: AllOrderRemoteDataSourceProtocol?
@@ -23,10 +25,12 @@ class AllOrdersViewController: UIViewController {
         view.addSubview(activityIndicator)
         remoteDataSource = AllOrderRemoteDataSource()
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
-        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
-        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderView()}
+        
     }
     override func viewWillAppear(_ animated: Bool) {
+        noData.isHidden = true
+        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
+        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderView()}
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
@@ -67,6 +71,7 @@ extension AllOrdersViewController: UITableViewDelegate, UITableViewDataSource{
             self.ordersList = self.allOrdersViewModel?.fetchAllOrdersData ?? [Order]()
             self.ordersTableView.reloadData()
             self.activityIndicator.stopAnimating()
+            self.checkListCount()
         }
     }
     func deleteOrder(orderId: Int){
@@ -80,6 +85,18 @@ extension AllOrdersViewController: UITableViewDelegate, UITableViewDataSource{
                     print("Failed To delete")
                 }
             }
+        }
+    }
+    func checkListCount(){
+        if ordersList.count == 0 {
+            ordersTableView.isHidden = true
+            noData.isHidden = false
+            noData.contentMode = .scaleAspectFit
+            noData.loopMode = .loop
+            noData.play()
+        }else{
+            ordersTableView.isHidden = false
+            noData.isHidden = true
         }
     }
 }

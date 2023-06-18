@@ -213,7 +213,8 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     //----------------Navigate to details---------------
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if Utilites.isConnectedToNetwork(){
-            let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+            let storyboard = UIStoryboard(name: "CategoriesStoryboard", bundle: nil)
+            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
             if searching == true{
                 detailsViewController.product = self.searchProducts[indexPath.row]
 

@@ -154,7 +154,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == brandsCollectionView{
-            let size = (brandsCollectionView.frame.size.width-10)/2.5
+            let size = (brandsCollectionView.frame.size.width-10)/2.2
             return CGSize(width: size, height: size)
         }else{
             let size = (CouponsCollectionView.frame.size.width)
@@ -177,7 +177,8 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == brandsCollectionView{
-            let brandProductsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
+            let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+            let brandProductsViewController = storyboard.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
             if searching == true{
                 brandProductsViewController.brandId = searchBrands[indexPath.row].id ?? 0
 
