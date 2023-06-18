@@ -29,7 +29,14 @@ class HomeViewController: UIViewController {
     var searching = false
     private var cartArray: [LineItem]?
     private var shoppingCartVM = ShoppingCartViewModel()
+    
     override func viewWillAppear( _ animated: Bool){
+        shoppingCartVM.getShoppingCart()
+        shoppingCartVM.bindingCart = {
+            DispatchQueue.main.async {
+                self.cartArray = self.shoppingCartVM.cartList
+            }
+        }
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
         var count = cartArray?.count ?? 0
@@ -56,6 +63,7 @@ class HomeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         NoData.isHidden = true
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
