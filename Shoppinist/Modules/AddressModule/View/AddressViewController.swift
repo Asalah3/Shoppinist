@@ -59,6 +59,7 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressTableViewCell
+        
         cell.countryLabel.text = customerAddressTable?.addresses![indexPath.row].country ?? ""
         cell.phoneLabel.text = customerAddressTable?.addresses![indexPath.row].phone
         return cell

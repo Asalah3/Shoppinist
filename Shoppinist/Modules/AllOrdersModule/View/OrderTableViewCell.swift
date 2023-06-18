@@ -9,6 +9,7 @@ import UIKit
 
 class OrderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var orderTotalPrice: UILabel!
     @IBOutlet weak var orderCreationDate: UILabel!
     @IBOutlet weak var orderShippedTo: UILabel!
@@ -33,7 +34,9 @@ class OrderTableViewCell: UITableViewCell {
         }
         let shippingAdress = order.shippingAddress
         let shippedTo = "\(shippingAdress?.country ?? ""), \( shippingAdress?.city ?? ""), \(shippingAdress?.address1 ?? "")"
+        let phoneNumber = "\(shippingAdress?.phone ?? "")"
         self.orderShippedTo.text = shippedTo
+        self.phone.text = phoneNumber
     }
 
 }
