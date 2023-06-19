@@ -7,7 +7,11 @@
 
 import UIKit
 
-
+protocol CartCellDelegate: AnyObject{
+    func showToast(message: String)
+    func startAnimating()
+    func stopAnimating()
+}
 
 class ShoppingCardTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
@@ -18,6 +22,8 @@ class ShoppingCardTableViewCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var increaseItem: UIButton!
     @IBOutlet weak var decreseItem: UIButton!
+    
+    weak var delegate : CartCellDelegate?
     var indexPath: IndexPath!
     var lineItem : LineItem!
     var cartDraft : Drafts? = Drafts()
@@ -60,6 +66,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
     }
     
     func addItemToCart(){
+        self.delegate?.startAnimating()
         cartVM?.getAllDrafts()
         cartVM?.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
@@ -74,6 +81,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
                             self?.quantityLabel.text = "\((self?.cartDraft?.draftOrder?.lineItems?[i].quantity!)!)"
                             self?.decreseItem.isEnabled = true
                         }else{
+                            self?.delegate?.showToast(message: "Out of stock")
                             self?.increaseItem.isEnabled = false
                         }
                     }
@@ -84,9 +92,9 @@ class ShoppingCardTableViewCell: UITableViewCell {
                     print("view createddd")
                     DispatchQueue.main.async {
                         if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
-                            //stop indicator
+                            self?.delegate?.stopAnimating()
                         }else{
-                            //stop indicator
+                            self?.delegate?.stopAnimating()
                         }
                     }
                 }
@@ -96,6 +104,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
     }
     
     func decreaseQuantity(){
+        self.delegate?.startAnimating()
         cartVM?.getAllDrafts()
         cartVM?.bindingAllDrafts = { [weak self] in
             DispatchQueue.main.async {
@@ -122,9 +131,9 @@ class ShoppingCardTableViewCell: UITableViewCell {
                     print("view createddd")
                     DispatchQueue.main.async {
                         if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
-                            //stop indicator
+                            self?.delegate?.stopAnimating()
                         }else{
-                            //stop indicator
+                            self?.delegate?.stopAnimating()
                         }
                     }
                 }

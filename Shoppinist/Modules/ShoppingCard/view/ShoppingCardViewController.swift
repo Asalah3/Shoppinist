@@ -114,7 +114,7 @@ extension ShoppingCardViewController: UITableViewDataSource ,UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "shoppingCardCell", for: indexPath) as! ShoppingCardTableViewCell
-        //cell.myDraftOrder = myDraftOrder
+        cell.delegate = self
         cell.lineItem = productsList?[indexPath.row]
         cell.setUpCell()
         return cell
@@ -175,3 +175,24 @@ extension ShoppingCardViewController: UITableViewDataSource ,UITableViewDelegate
     }
 }
 
+extension ShoppingCardViewController: CartCellDelegate{
+    func startAnimating() {
+        self.view.isUserInteractionEnabled = false
+        activityIndicator.center = view.center
+                activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+    }
+    
+    func stopAnimating() {
+        activityIndicator.stopAnimating()
+        self.view.isUserInteractionEnabled = true
+    }
+    
+    func showToast(message: String) {
+        Utilites.displayToast(message: message, seconds: 2, controller: self)
+    }
+   
+    
+    
+}
