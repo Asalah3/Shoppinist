@@ -28,6 +28,7 @@ class CartNetwork: CartNetworkProtocol{
                     "quantity": 1,
                     "price": product.variants?[0].price ?? "20",
                     "sku": "\(product.id ?? 0),\((product.image?.src)!)",
+                    "grams": product.variants?.first?.inventory_quantity
                     
                 ]
               ],

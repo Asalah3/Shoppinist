@@ -114,6 +114,7 @@ extension ShoppingCardViewController: UITableViewDataSource ,UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "shoppingCardCell", for: indexPath) as! ShoppingCardTableViewCell
+        //cell.myDraftOrder = myDraftOrder
         cell.lineItem = productsList?[indexPath.row]
         cell.setUpCell()
         return cell
