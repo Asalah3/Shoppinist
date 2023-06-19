@@ -67,7 +67,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
                         } else {
                             self?.favouriteButton.tintColor = UIColor.red
                             let favDraft = self?.favDraftViewModel?.getMyFavouriteDraft()
-                            var isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
+                            let isHasDraft = self?.favDraftViewModel?.checkIfCustomerHasFavDraft()
                             print("hasDraft\(String(describing: isHasDraft))")
                             if isHasDraft ?? false{
                                 self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
@@ -104,7 +104,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         self.productPrice.layer.borderWidth = 1
         self.productPrice.layer.cornerRadius = self.productPrice.frame.height / 2
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-            var cur = (UserDefaults.standard.double(forKey: "EGP"))
+            let cur = (UserDefaults.standard.double(forKey: "EGP"))
             let price = floor((Double(product.variants?[0].price ?? "0.0") ?? 0.0) * cur)
             self.productPrice.text = "\(String(price)) EGP"
         }else{
@@ -185,9 +185,13 @@ extension ProductsCollectionViewCell{
     func deleteItemFromMyDraft(id: Int){
         self.draft?.draftOrder = myDraftOrder
         print("mydraftdraft\(String(describing: myDraftOrder?.lineItems))")
-        let productId: String = "\(id)"
+        let productId: Int = id
         self.draft?.draftOrder?.lineItems?.removeAll(where: { item in
-            item.sku! == productId
+            let myString = item.sku ?? ""
+            print("myString\(myString)")
+            let myArray = myString.split(separator: ",")
+            let productid = Int(myArray[0]) ?? 0
+            return productid == productId
         })
         self.favDraftViewModel?.updateDraft(updatedDraft: (self.draft)!)
         self.favDraftViewModel?.bindingDraftUpdate = { [weak self] in

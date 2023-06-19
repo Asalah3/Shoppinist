@@ -464,7 +464,7 @@ extension DetailsViewController{
     func addItemToFavourite(favDraft: [DrafOrder]){
         self.draft?.draftOrder = favDraft[0]
         print(self.draft ?? "nil draft")
-        let lineItem = LineItem(id: nil, variantID: nil, productID: self.product?.id, title: self.product?.title, variantTitle: "", sku:"\(( self.product?.id)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.product?.variants?[0].price)
+        let lineItem = LineItem(id: nil, variantID: nil, productID: self.product?.id, title: self.product?.title, variantTitle: "", sku:"\((self.product?.id)!),\((self.product?.image?.src)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.product?.variants?[0].price)
         self.draft?.draftOrder?.lineItems?.append(lineItem)
         self.draftViewModel?.updateDraft(updatedDraft: (self.draft)!)
         self.draftViewModel?.bindingDraftUpdate = { [weak self] in
@@ -500,9 +500,13 @@ extension DetailsViewController{
     func deleteItemFromMyDraft(id: Int){
         self.draft?.draftOrder = myDraftOrder
         print("mydraftdraft\(String(describing: myDraftOrder?.lineItems))")
-        let productId: String = "\(id)"
+        let productId: Int = id
         self.draft?.draftOrder?.lineItems?.removeAll(where: { item in
-            item.sku! == productId
+            let myString = item.sku ?? ""
+            print("myString\(myString)")
+            let myArray = myString.split(separator: ",")
+            let productid = Int(myArray[0]) ?? 0
+            return productid == productId
         })
         self.draftViewModel?.updateDraft(updatedDraft: (self.draft)!)
         self.draftViewModel?.bindingDraftUpdate = { [weak self] in
