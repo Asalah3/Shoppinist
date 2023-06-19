@@ -340,6 +340,11 @@
             <point key="canvasLocation" x="3199" y="-27"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="TcB-Og-v7n">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="107"/>

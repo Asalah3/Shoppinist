@@ -63,13 +63,13 @@
                                                     <rect key="frame" x="5" y="5" width="170" height="131"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B78-9a-gqV">
-                                                    <rect key="frame" x="5" y="189.66666666666666" width="90" height="26.666666666666657"/>
+                                                    <rect key="frame" x="20" y="184.66666666666666" width="90" height="29.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-Iy-fgM">
-                                                    <rect key="frame" x="100" y="189.66666666666666" width="75" height="26.666666666666657"/>
+                                                    <rect key="frame" x="120" y="184.66666666666666" width="55" height="29.333333333333343"/>
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
@@ -78,27 +78,28 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="P0C-Bm-BOR">
-                                                    <rect key="frame" x="5" y="146" width="170" height="33.666666666666657"/>
+                                                    <rect key="frame" x="5" y="141" width="170" height="33.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstItem="Gvp-Iy-fgM" firstAttribute="bottom" secondItem="B78-9a-gqV" secondAttribute="bottom" id="3j2-AQ-3uz"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gvp-Iy-fgM" secondAttribute="trailing" constant="5" id="Fmv-ih-s2i"/>
-                                                <constraint firstItem="B78-9a-gqV" firstAttribute="height" secondItem="nUm-r5-AHc" secondAttribute="height" multiplier="0.12" id="GSf-wR-HYz"/>
                                                 <constraint firstItem="P0C-Bm-BOR" firstAttribute="leading" secondItem="nUm-r5-AHc" secondAttribute="leading" constant="5" id="Jly-Cl-4FK"/>
-                                                <constraint firstItem="Gvp-Iy-fgM" firstAttribute="leading" secondItem="B78-9a-gqV" secondAttribute="trailing" constant="5" id="L0E-O1-0Kh"/>
+                                                <constraint firstItem="Gvp-Iy-fgM" firstAttribute="leading" secondItem="B78-9a-gqV" secondAttribute="trailing" constant="10" id="L0E-O1-0Kh"/>
                                                 <constraint firstAttribute="trailing" secondItem="P0C-Bm-BOR" secondAttribute="trailing" constant="5" id="NM0-V0-Uda"/>
                                                 <constraint firstItem="vXW-WG-bxQ" firstAttribute="height" secondItem="nUm-r5-AHc" secondAttribute="height" multiplier="0.584475" id="Nvb-0s-mMB"/>
                                                 <constraint firstItem="Gvp-Iy-fgM" firstAttribute="top" secondItem="B78-9a-gqV" secondAttribute="top" id="OoJ-Ao-fdi"/>
-                                                <constraint firstItem="B78-9a-gqV" firstAttribute="leading" secondItem="nUm-r5-AHc" secondAttribute="leading" constant="5" id="PLZ-zc-aUz"/>
+                                                <constraint firstItem="B78-9a-gqV" firstAttribute="leading" secondItem="nUm-r5-AHc" secondAttribute="leading" constant="20" id="PLZ-zc-aUz"/>
+                                                <constraint firstAttribute="bottom" secondItem="B78-9a-gqV" secondAttribute="bottom" constant="10" id="Rer-77-xtC"/>
                                                 <constraint firstAttribute="trailing" secondItem="vXW-WG-bxQ" secondAttribute="trailing" constant="5" id="bF1-y1-SV1"/>
                                                 <constraint firstItem="vXW-WG-bxQ" firstAttribute="leading" secondItem="nUm-r5-AHc" secondAttribute="leading" constant="5" id="jpx-JP-UnD"/>
                                                 <constraint firstItem="P0C-Bm-BOR" firstAttribute="height" secondItem="nUm-r5-AHc" secondAttribute="height" multiplier="0.15" id="lYZ-sh-uRo"/>
                                                 <constraint firstItem="B78-9a-gqV" firstAttribute="top" secondItem="P0C-Bm-BOR" secondAttribute="bottom" constant="10" id="oA1-TU-VMh"/>
-                                                <constraint firstItem="P0C-Bm-BOR" firstAttribute="top" secondItem="vXW-WG-bxQ" secondAttribute="bottom" constant="10" id="xB9-c4-tYU"/>
+                                                <constraint firstItem="P0C-Bm-BOR" firstAttribute="top" secondItem="vXW-WG-bxQ" secondAttribute="bottom" constant="5" id="xB9-c4-tYU"/>
                                                 <constraint firstItem="vXW-WG-bxQ" firstAttribute="top" secondItem="nUm-r5-AHc" secondAttribute="top" constant="5" id="xzI-gS-ym5"/>
                                                 <constraint firstItem="B78-9a-gqV" firstAttribute="width" secondItem="nUm-r5-AHc" secondAttribute="width" multiplier="0.5" id="zD1-9G-PfZ"/>
                                             </constraints>
@@ -564,6 +565,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

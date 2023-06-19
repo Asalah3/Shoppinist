@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         }
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
-        var count = cartArray?.count ?? 0
+        let count = cartArray?.count ?? 0
         
         rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
         if Utilites.isConnectedToNetwork() == false{
@@ -138,7 +138,9 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             cell?.layer.borderWidth = 1
             cell?.layer.cornerRadius = 25
             cell?.layer.borderColor = UIColor.systemGray.cgColor
-            
+            cell?.clipsToBounds = true
+            cell?.brandImage?.layer.cornerRadius = 25.0
+            cell?.brandImage?.clipsToBounds = true
             if searching == true{
                 cell?.setUpCell(brandImage: searchBrands[indexPath.row].image?.src ?? "", brandName: searchBrands[indexPath.row].title ?? "")
             }else{
