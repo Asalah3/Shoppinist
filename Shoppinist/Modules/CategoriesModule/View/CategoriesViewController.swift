@@ -40,19 +40,19 @@ class CategoriesViewController: UIViewController {
   
     
     func getData(){
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            self.renderViewCart()
-            
-        }
+//        shoppingCartVM.getShoppingCart()
+//        shoppingCartVM.bindingCart = {
+//            self.renderViewCart()
+//
+//        }
     }
     func renderViewCart(){
-        DispatchQueue.main.async {
-            
-            self.cartArray = self.shoppingCartVM.cartList
-          
-           
-            }
+//        DispatchQueue.main.async {
+//            
+//            self.cartArray = self.shoppingCartVM.cartList
+//          
+//           
+//            }
    
     }
     override func viewWillAppear(_ animated: Bool) {

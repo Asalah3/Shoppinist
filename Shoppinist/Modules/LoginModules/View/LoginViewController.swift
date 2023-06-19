@@ -35,12 +35,12 @@ class LoginViewController: UIViewController {
         Utilites.setUpTextFeildStyle(textField: loginEmail)
         Utilites.setUpTextFeildStyle(textField: loginPassword)
         
-        cartVM.cartsUrl = self.AllDraftsUrl
-        cartVM.getCart()
-        cartVM.bindingCartt = {()in
-            self.renderCart()
-            
-        }
+//        cartVM.cartsUrl = self.AllDraftsUrl
+//        cartVM.getCart()
+//        cartVM.bindingCartt = {()in
+//            self.renderCart()
+//
+//        }
         getCartId()
     
     }
@@ -83,12 +83,12 @@ class LoginViewController: UIViewController {
 
 
 extension LoginViewController {
-    func renderCart() {
-        DispatchQueue.main.async {
-            self.cartcount = self.cartVM.cartResult!
-        }
-  
-    }
+//    func renderCart() {
+//        DispatchQueue.main.async {
+//            self.cartcount = self.cartVM.cartResult!
+//        }
+//
+//    }
     
 }
 extension LoginViewController {

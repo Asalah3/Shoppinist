@@ -43,12 +43,12 @@ class HomeViewController: UIViewController {
         favViewModel?.getAllDrafts()
         favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
         
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            DispatchQueue.main.async {
-                self.cartArray = self.shoppingCartVM.cartList
-            }
-        }
+//        shoppingCartVM.getShoppingCart()
+//        shoppingCartVM.bindingCart = {
+//            DispatchQueue.main.async {
+//                self.cartArray = self.shoppingCartVM.cartList
+//            }
+//        }
         getData()
         let rightBarButton = self.navigationItem.rightBarButtonItem
         let count = cartArray?.count ?? 0
@@ -60,19 +60,19 @@ class HomeViewController: UIViewController {
     }
     
     func getData(){
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            self.renderViewCart()
-            
-        }
+//        shoppingCartVM.getShoppingCart()
+//        shoppingCartVM.bindingCart = {
+//            self.renderViewCart()
+//
+//        }
     }
     func renderViewCart(){
-        DispatchQueue.main.async {
-            
-            self.cartArray = self.shoppingCartVM.cartList
-          
-           
-            }
+//        DispatchQueue.main.async {
+//
+//            self.cartArray = self.shoppingCartVM.cartList
+//
+//
+//            }
    
     }
     override func viewDidLoad() {
@@ -122,7 +122,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == brandsCollectionView{
             if searching == true{
-                return searchBrands.count 
+                return searchBrands.count
 
             }else{
                 return brandsList?.smartCollections?.count ?? 0

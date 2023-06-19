@@ -31,14 +31,14 @@ class OrderModuleViewModel: OrderModuleViewModelProtocol{
     }
     
     func deleteShoppingCart(completion: @escaping (Error?) -> ()) {
-        CartNetwork.deleteCart { error in
-            guard error == nil else {
-                print("draft order deleting error")
-                completion(error)
-                return
-            }
-            print("draft order deleted")
-            completion(nil)
-        }
+//        CartNetwork.deleteCart { error in
+//            guard error == nil else {
+//                print("draft order deleting error")
+//                completion(error)
+//                return
+//            }
+//            print("draft order deleted")
+//            completion(nil)
+//        }
     }
 }
