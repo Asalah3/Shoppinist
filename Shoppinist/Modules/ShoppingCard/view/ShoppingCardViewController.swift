@@ -55,27 +55,7 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
 //            self.activityIndicator.startAnimating()
             self.renderView()
         }
-//        getData()
-//        if self.cartArray?.count == 0 {
-//            self.cardTableView.isHidden = true
-//            self.subTotalPrice.isHidden = true
-//            self.proccess_btn.isHidden = true
-//            self.priceLabel.isHidden = true
-//            self.noData.isHidden = false
-//            self.noData.contentMode = .scaleAspectFit
-//            self.noData.loopMode = .loop
-//            self.noData.play()
-//        }
-//        else {
-//            self.cardTableView.isHidden = false
-//            self.proccess_btn.isHidden = false
-//            self.subTotalPrice.isHidden = false
-//            self.priceLabel.isHidden = false
-//            self.noData.isHidden = true
-//
-//        }
-//        self.cardTableView.reloadData()
-        
+
     
        
     }
@@ -218,12 +198,13 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
     func increaseCounter(price: String) {
         let itemPrice = Double(price) ?? 0.0
         print(itemPrice)
-        Self.subTotalPrice = itemPrice
-//        for index in  0...(cartArray.count )-1
-//        {
-//            let itemPrice = (Double(cartArray[index].price ?? "") ?? 0.0) * (Double (cartArray[index].quantity ?? 0))
-//            ShoppingCardViewController.subTotalPrice = Self.subTotalPrice + itemPrice
-//        }
+        
+        for index in  0...(cartArray.count )-1
+        {
+            Self.subTotalPrice = itemPrice
+            let itemPrice = (Double(cartArray[index].price ?? "") ?? 0.0) * (Double (cartArray[index].quantity ?? 0))
+            ShoppingCardViewController.subTotalPrice = Self.subTotalPrice + itemPrice
+        }
         print("subtotal :\(Self.subTotalPrice)")
         setSubTotal()
     }
@@ -365,179 +346,3 @@ class ShoppingCardViewController: UIViewController,UITableViewDataSource ,UITabl
 
 
 
-//extension ShoppingCardViewController: UITableViewDataSource {
-//
-//
-//
-//
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return cartArray?.count ?? 1
-//
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell  = tableView.dequeueReusableCell(withIdentifier: "shoppingCardCell", for: indexPath) as! ShoppingCardTableViewCell
-//        cell.name.text = cartArray?[indexPath.row].title
-//        if UserDefaults.standard.string(forKey: "Currency")  == "EGP" {
-//            let price = (Double(cartArray?[indexPath.row].price ?? "0") ?? 0.0)  * 30
-//            let priceString = "\(price.formatted()) EGP"
-//            cell.priceButton.text = priceString
-//        }
-//        else
-//        {
-//            let priceString = "\(cartArray?[indexPath.row].price ?? "0") $"
-//            cell.priceButton.text = priceString
-//        }
-//
-//
-//        let image = URL(string: cartArray?[indexPath.row].sku ?? "https://apiv2.allsportsapi.com//logo//players//100288_diego-bri.jpg")
-//        cell.img.sd_setImage(with:image)
-//        cell.counterProtocol = self
-//       cell.indexPath = indexPath
-//        cell.lineItem = cartArray
-//        cell.quantityLabel.text = "1"
-//        cell.disableDecreaseBtn()
-//
-//     //   self.setSubTotal()
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//
-//                deleteLineItemProduct(indexPath: indexPath)
-//            }
-//        }
-//
-//
-//}
-//
-//extension ShoppingCardViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
-//
-////    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////
-////        let vc = UIStoryboard(name: "ProductDetailsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "productDetails") as! ProductDetailsViewController
-////        vc.product_ID = cartArray?[indexPath.row].product_id
-////        self.navigationController?.pushViewController(vc, animated: true)
-////        //self.navigationController?.pushViewController(vc, animated: true)
-////    }
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 50
-//    }
-//
-//
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 5
-//    }
-//
-//    func showAlert(msg: String ) {
-//        let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "close", style: .cancel))
-//        self.present(alert, animated: true, completion: nil)
-//    }
-//}
-//
-//extension ShoppingCardViewController {
-//    func deleteLineItemProduct(indexPath : IndexPath)
-//    {
-//
-//        deletedLineItem = cartArray?[indexPath.row]
-//        cartArray?.remove(at: indexPath.row)
-//        cardTableView.deleteRows(at: [indexPath], with: .automatic)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now()+3.5){
-//            if self.flag == true {
-//                if !(self.cartArray?.count == 0){
-//                    self.putDraftOrder(lineItems: self.cartArray ?? [])
-//                }
-//                else
-//                {
-//                    self.deleteCart()
-//                }
-//            }
-//        }
-//
-//    }
-//    private func undoDeleting(index: Int){
-//        if let lineItem = deletedLineItem {
-//            cartArray?.insert(lineItem, at: index)
-//            cardTableView.reloadData()
-//            self.increaseCounter()
-//        }
-//    }
-//
-//    func putDraftOrder(lineItems : [LineItems]){
-//        var draftOrder = DrafOrders()
-//        draftOrder.email = UserDefaultsManager.sharedInstance.getUserEmail()
-//        draftOrder.line_items = lineItems
-//        var shoppingCart = Draftss()
-//        shoppingCart.draft_order = draftOrder
-//        shoppingCartVM.putNewCart(userCart: shoppingCart) { data, response, error in
-//            guard error == nil else {
-//                DispatchQueue.main.async {
-//                    print ("delete cart Error \n \(error?.localizedDescription ?? "")" )
-//                }
-//                return
-//            }
-//
-//            guard response?.statusCode ?? 0 >= 200 && response?.statusCode ?? 0 < 300   else {
-//                DispatchQueue.main.async {
-//                    print ("delete cart Response \n \(response ?? HTTPURLResponse())" )
-//                }
-//                return
-//            }
-//            self.increaseCounter()
-//            print("lineItem was added successfully")
-//        }
-//    }
-//    func deleteCart(){
-//        shoppingCartVM.deleteCart { error in
-//            if error != nil {
-//                UserDefaultsManager.sharedInstance.setUserCart(cartId: nil)
-//                UserDefaultsManager.sharedInstance.setCartState(cartState:false)
-//                self.increaseCounter()
-//                self.subTotalPrice.text = "0"
-//
-//            }
-//            else
-//            {
-//                print(error?.localizedDescription ?? "")
-//            }
-//        }
-//    }
-//}
-//
-//extension ShoppingCardViewController: CounterProtocol {
-//
-//    func setItemQuantityToPut(quantity: Int, index: Int) {
-//        self.cartArray?[index].quantity = quantity
-//    }
-//
-//    func increaseCounter() {
-//        Self.subTotalPrice = 0.0
-//        for index in  0...(cartArray?.count ?? 0) - 1
-//        {
-//            let itemPrice = (Double(cartArray?[index].price ?? "") ?? 0.0) * (Double (cartArray?[index].quantity ?? 0))
-//            ShoppingCardViewController.subTotalPrice = Self.subTotalPrice + itemPrice
-//        }
-//        print("subtotal :\(Self.subTotalPrice)")
-//      //  setSubTotal()
-//    }
-//
-//    func decreaseCounter(price: String) {
-//
-//
-//        let itemPrice = Double(price) ?? 0.0
-//            Self.subTotalPrice = Self.subTotalPrice - itemPrice
-//
-//        print("subtotal :\(Self.subTotalPrice)")
-//        //setSubTotal()
-//    }
-//
-//
-//}

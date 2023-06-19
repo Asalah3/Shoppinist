@@ -69,18 +69,6 @@ class ShoppingCardTableViewCell: UITableViewCell {
             counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
         }
         
-//        if counter < ((lineItem[indexPath.row].grams ?? 1) - 2) {
-//            counter = counter + 1
-//            quantityLabel.text = String (counter)
-//            lineItem[indexPath.row].quantity = counter
-//            counterProtocol?.increaseCounter()
-//            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
-//        }
-//         else
-//        {
-////             Utilites.displayAlert(title: "Warning", message: "", action: UIAlertAction, controller: UIViewController)
-//        }
-
         disableDecreaseBtn()
     }
     func disableDecreaseBtn (){
