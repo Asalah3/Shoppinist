@@ -188,6 +188,9 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         cell?.layer.borderWidth = 1
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
+        cell?.clipsToBounds = true
+        cell?.productImage?.layer.cornerRadius = 25.0
+        cell?.productImage?.clipsToBounds = true
         let product : Product?
         if searching == true {
             product = searchProducts[indexPath.row]
@@ -205,7 +208,7 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (categoriesCollectionView.frame.size.width - 10)/2
-        return CGSize(width: size, height: size * 1.2)
+        return CGSize(width: size, height: size * 1.4)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
@@ -213,7 +216,8 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     //----------------Navigate to details---------------
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if Utilites.isConnectedToNetwork(){
-            let detailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+            let storyboard = UIStoryboard(name: "CategoriesStoryboard", bundle: nil)
+            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
             if searching == true{
                 detailsViewController.product = self.searchProducts[indexPath.row]
 

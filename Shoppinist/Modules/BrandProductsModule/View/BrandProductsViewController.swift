@@ -108,6 +108,9 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
         cell?.layer.borderWidth = 1
         cell?.layer.cornerRadius = 25
         cell?.layer.borderColor = UIColor.systemGray.cgColor
+        cell?.clipsToBounds = true
+        cell?.productImage?.layer.cornerRadius = 25.0
+        cell?.productImage?.clipsToBounds = true
         var product : Product?
         if searching == true{
             product = searchBrandProducts[indexPath.row]
@@ -125,7 +128,7 @@ extension BrandProductsViewController : UICollectionViewDataSource, UICollection
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (productsCollectionView.frame.size.width - 10)/2
-        return CGSize(width: size, height: size * 1.2)
+        return CGSize(width: size, height: size * 1.4)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5

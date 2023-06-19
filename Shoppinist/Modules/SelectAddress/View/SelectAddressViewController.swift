@@ -62,13 +62,17 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         return customerAddressTable?.addresses?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "selectAddress", for: indexPath)
-      
-        cell.imageView?.image=UIImage(systemName: "homekit")
-        cell.imageView?.tintColor = .systemPurple
-        cell.textLabel?.text = "\(customerAddressTable?.addresses![indexPath.row].address1 ?? "") , \(customerAddressTable?.addresses![indexPath.row].city ?? "") , \(customerAddressTable?.addresses![indexPath.row].country ?? "") "
-       
-        cell.accessoryType = .disclosureIndicator
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectAddress", for: indexPath) as! SelectAddressTableViewCell
+//      
+//        cell.imageView?.image=UIImage(systemName: "homekit")
+//        cell.imageView?.tintColor = .systemPurple
+//        cell.textLabel?.text = "\(customerAddressTable?.addresses![indexPath.row].address1 ?? "") , \(customerAddressTable?.addresses![indexPath.row].city ?? "") , \(customerAddressTable?.addresses![indexPath.row].country ?? "") "
+//       
+//        cell.accessoryType = .disclosureIndicator
+        
+        cell.countryLabel.text = "\(customerAddressTable?.addresses![indexPath.row].address1 ?? "") , \(customerAddressTable?.addresses![indexPath.row].city ?? "") , \(customerAddressTable?.addresses![indexPath.row].country ?? "") "
+        
+        cell.phoneLabel.text = customerAddressTable?.addresses![indexPath.row].phone
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

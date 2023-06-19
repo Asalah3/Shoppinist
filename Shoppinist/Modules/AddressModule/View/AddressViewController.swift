@@ -60,7 +60,8 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressTableViewCell
         
-        cell.countryLabel.text = customerAddressTable?.addresses![indexPath.row].country ?? ""
+        cell.countryLabel.text = "\(customerAddressTable?.addresses![indexPath.row].address1 ?? "") , \(customerAddressTable?.addresses![indexPath.row].city ?? "") , \(customerAddressTable?.addresses![indexPath.row].country ?? "") "
+        
         cell.phoneLabel.text = customerAddressTable?.addresses![indexPath.row].phone
         return cell
     }
@@ -117,7 +118,7 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 280
+        return 150
     }
 
 
