@@ -7,12 +7,7 @@
 
 import UIKit
 
-protocol CounterProtocol {
-    func increaseCounter()
-    func decreaseCounter(price: String)
-    func setItemQuantityToPut(quantity: Int , index: Int)
-    
-}
+
 
 class ShoppingCardTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
@@ -22,60 +17,37 @@ class ShoppingCardTableViewCell: UITableViewCell {
     @IBOutlet weak var plusButton: UIView!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var increaseItem: UIButton!
-    var counterProtocol: CounterProtocol?
     @IBOutlet weak var decreseItem: UIButton!
     var indexPath: IndexPath!
-    var lineItem : [LineItem]!
+    var lineItem : LineItem!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        counterProtocol = CounterProtocol.self as? CounterProtocol
     }
-
+    
     @IBAction func minusButton(_ sender: Any) {
-        if counter > 1 {
-            counter = counter - 1
-            lineItem[indexPath.row].quantity = counter
-            quantityLabel.text = String (counter)
-            counterProtocol?.decreaseCounter(price: lineItem[indexPath.row].price ?? "")
-            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
-        }
-
-        disableDecreaseBtn()
-        
     }
  
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
   
+    func setUpCell(){
+        var unwrappedImage : String = ""
+//        var productID : Int = 0
+        priceButton.text = lineItem?.price
+        let myString = lineItem?.sku ?? ""
+        print("myString\(myString)")
+        let myArray = myString.split(separator: ",")
+//        productID = Int(myArray[0]) ?? 0
+        unwrappedImage = String(myArray[1])
+        print("unwrappedImage\(unwrappedImage)")
+//        productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
+        name.text = lineItem?.title
+        quantityLabel.text = "\(lineItem?.quantity ?? 1)"
+        img.sd_setImage(with: URL(string: unwrappedImage), placeholderImage: UIImage(named: "placeHolder"))
+    }
     @IBAction func plusButton(_ sender: Any) {
         
-        if counter < ((lineItem[indexPath.row].grams ?? 1) - 2) {
-            counter = counter + 1
-            quantityLabel.text = String (counter)
-            lineItem[indexPath.row].quantity = counter
-            counterProtocol?.increaseCounter()
-            counterProtocol?.setItemQuantityToPut(quantity: counter, index: indexPath.row)
-        }
-         else
-        {
-//             Utilites.displayAlert(title: "Warning", message: "", action: UIAlertAction, controller: UIViewController)
-        }
-
-        disableDecreaseBtn()
-    }
-    func disableDecreaseBtn (){
-        if counter < 2
-        {
-            decreseItem.isEnabled = true
-            decreseItem.alpha = 0.5
-        }
-        else {
-            decreseItem.isEnabled = true
-            decreseItem.alpha = 1
-        }
     }
 }

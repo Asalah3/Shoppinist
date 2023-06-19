@@ -31,15 +31,6 @@ class CartNetwork: CartNetworkProtocol{
                     
                 ]
               ],
-              
-              "applied_discount": [
-                "description": "Custom discount",
-                "value": "10.0",
-                "title": "Custom",
-                "amount": "10.00",
-                "value_type": "fixed_amount"
-              ],
-              
               "customer": [
                 "id": UserDefaults.standard.integer(forKey:"customerID"),
                 
