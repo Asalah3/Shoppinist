@@ -71,7 +71,7 @@ class OrderModuleViewController: UIViewController {
         
         let order = Order(id: nil, confirmed: true, discountCodes: nil, createdAt: nil, email: nil, name: nil, note: "\(grand ?? 0.0)", taxLines: nil, customer: Customer(id: UserDefaultsManager.sharedInstance.getUserID()), lineItems: lineItems, shippingAddress: address, shippingLines: nil)
         let payementVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-        payementVC.order = PostOrdersModel(order: order)
+       // payementVC.order = PostOrdersModel(order: order)
         self.navigationController?.pushViewController(payementVC, animated: true)
     }
     
