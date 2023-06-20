@@ -8,10 +8,9 @@
 import UIKit
 import Cosmos
 
-class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var detailsReviewTable: UITableView!
-    
     @IBOutlet weak var detailsSlider: UIPageControl!
     @IBOutlet weak var detailsCollectionView: UICollectionView!
     @IBOutlet weak var detailsName: UILabel!
@@ -62,7 +61,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         draftViewModel?.getAllDrafts()
         draftViewModel?.bindingAllDrafts = {[weak self] in
             DispatchQueue.main.async { [self] in
-                var isFav = self?.draftViewModel?.checkIfItemIsFav(productID: self?.product?.id ?? 0)
+                let isFav = self?.draftViewModel?.checkIfItemIsFav(productID: self?.product?.id ?? 0)
                 if isFav ?? false{
                     self?.detailsFavButton.tintColor = UIColor.red
                 }else{
@@ -107,8 +106,6 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as? DetailsCollectionViewCell
-        cell?.contentMode = .scaleAspectFill
-        cell?.clipsToBounds = true
         cell?.detailsImage.sd_setImage(with: URL(string:(product?.images?[indexPath.row].src)!), placeholderImage: UIImage(named: "placeHolder"))
 
 
@@ -163,7 +160,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                     } else {
                         self?.detailsFavButton.tintColor = UIColor.red
                         let favDraft = self?.draftViewModel?.getMyFavouriteDraft()
-                        var isHasDraft = self?.draftViewModel?.checkIfCustomerHasFavDraft()
+                        let isHasDraft = self?.draftViewModel?.checkIfCustomerHasFavDraft()
                         print("hasDraft\(String(describing: isHasDraft))")
                         if isHasDraft ?? false{
                             self?.addItemToFavourite(favDraft: favDraft ?? [DrafOrder]())
