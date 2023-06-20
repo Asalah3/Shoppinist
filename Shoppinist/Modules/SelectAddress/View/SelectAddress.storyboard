@@ -339,7 +339,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Place Order">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
                                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 </buttonConfiguration>
@@ -488,15 +488,12 @@
             <point key="canvasLocation" x="3664.8854961832058" y="4.9295774647887329"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Q2C-Lo-aL8"/>
-    </designables>
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="order" width="2000" height="2000"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="move">
-            <color red="0.31764705882352939" green="0.26666666666666666" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.30196078431372547" green="0.0078431372549019607" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
