@@ -231,7 +231,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="351" height="170"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="121" translatesAutoresizingMaskIntoConstraints="NO" id="1ZJ-iZ-daL">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="121" translatesAutoresizingMaskIntoConstraints="NO" id="1ZJ-iZ-daL">
                                                             <rect key="frame" x="0.0" y="0.0" width="351" height="162"/>
                                                         </imageView>
                                                     </subviews>
