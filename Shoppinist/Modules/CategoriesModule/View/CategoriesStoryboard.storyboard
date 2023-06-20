@@ -78,21 +78,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-9R-spi">
-                                        <rect key="frame" x="0.0" y="261" width="353" height="21"/>
+                                        <rect key="frame" x="0.0" y="261" width="353" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUR-Ge-wom">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="48"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6E-HO-BeU" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="181.66666666666663" y="0.0" width="171.33333333333337" height="21"/>
+                                                <rect key="frame" x="181.66666666666663" y="0.0" width="171.33333333333337" height="48"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yme-iu-HtJ">
-                                        <rect key="frame" x="0.0" y="287" width="353" height="136.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="314" width="353" height="136.33333333333337"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TaV-GZ-RhQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="102"/>
@@ -131,7 +131,6 @@
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="Ibj-vH-fTD" secondAttribute="trailing" constant="6" id="4Ef-km-RoQ"/>
                                                                 <constraint firstItem="NqL-pg-fCl" firstAttribute="leading" secondItem="UA0-Z1-ZaH" secondAttribute="trailing" constant="23" id="4hS-5l-C2j"/>
@@ -149,7 +148,6 @@
                                                                 <constraint firstItem="Ibj-vH-fTD" firstAttribute="top" secondItem="XUO-jC-eVS" secondAttribute="top" constant="5" id="u2b-BJ-2Bx"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
-                                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                         <connections>
                                                             <outlet property="backView" destination="Ibj-vH-fTD" id="rca-Fy-qKT"/>
                                                             <outlet property="reviewImage" destination="UA0-Z1-ZaH" id="AoQ-kg-SVh"/>
@@ -165,7 +163,7 @@
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caj-Mh-ZAL">
                                                 <rect key="frame" x="0.0" y="102" width="353" height="34.333333333333343"/>
-                                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" name="move"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Show more"/>
                                                 <connections>
@@ -175,13 +173,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErM-3h-ab6">
-                                        <rect key="frame" x="0.0" y="428.33333333333331" width="353" height="34.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="455.33333333333337" width="353" height="34.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
                                         <color key="textColor" name="move"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MiZ-EF-ND1">
-                                        <rect key="frame" x="0.0" y="468" width="353" height="180"/>
+                                        <rect key="frame" x="0.0" y="495" width="353" height="180"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="0hZ-m3-xvi"/>
@@ -192,10 +190,10 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6cq-Ci-knt">
-                                        <rect key="frame" x="0.0" y="653" width="353" height="71"/>
+                                        <rect key="frame" x="0.0" y="680" width="353" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVv-Nf-PXo">
-                                                <rect key="frame" x="0.0" y="18.333333333333375" width="50.666666666666664" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="5" width="50.666666666666664" height="34.333333333333336"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
@@ -204,14 +202,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5F-Xt-TTy">
-                                                <rect key="frame" x="70.666666666666657" y="14.000000000000004" width="282.33333333333337" height="43.333333333333343"/>
+                                                <rect key="frame" x="70.666666666666657" y="0.0" width="282.33333333333337" height="44"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Add To Bag">
+                                                <buttonConfiguration key="configuration" style="plain" title="Add To Cart">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="addToBag:" destination="Ssi-9z-PEo" eventType="touchUpInside" id="egY-Wo-5vQ"/>
@@ -224,7 +222,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BWM-en-DiV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" name="move"/>
                         <constraints>
                             <constraint firstItem="vT7-mM-kMY" firstAttribute="top" secondItem="BWM-en-DiV" secondAttribute="top" id="Aba-uA-IBO"/>
                             <constraint firstItem="BWM-en-DiV" firstAttribute="bottom" secondItem="vT7-mM-kMY" secondAttribute="bottom" constant="35" id="L0r-fs-FHe"/>
@@ -289,7 +287,6 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="TcB-Og-v7n" firstAttribute="leading" secondItem="hIf-4P-XIn" secondAttribute="trailing" constant="23" id="09U-ut-rFY"/>
                                                 <constraint firstItem="7J9-Sg-ZFt" firstAttribute="leading" secondItem="hIf-4P-XIn" secondAttribute="trailing" constant="23" id="9dN-uY-Y1e"/>
@@ -307,7 +304,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="fLR-bP-GRR" secondAttribute="trailing" constant="6" id="xEb-vj-I8Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         <connections>
                                             <outlet property="backView" destination="fLR-bP-GRR" id="BzI-xd-quc"/>
                                             <outlet property="reviewImage" destination="hIf-4P-XIn" id="9cf-0D-W89"/>
@@ -340,31 +336,17 @@
             <point key="canvasLocation" x="3199" y="-27"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="OK3-NV-EhN">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="TcB-Og-v7n">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="c6E-HO-BeU">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
-    <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" name="move"/>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <namedColor name="move">
-            <color red="0.31764705882352939" green="0.26666666666666666" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.30196078431372547" green="0.0078431372549019607" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="myDarkBlue">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
