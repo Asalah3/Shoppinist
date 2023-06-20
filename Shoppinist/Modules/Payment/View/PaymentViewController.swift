@@ -40,6 +40,8 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        shoppingCartVM = ShoppingCartViewModel()
+        
         remoteDataSource = OrderRemoteDataSource()
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
         
@@ -69,14 +71,17 @@ class PaymentViewController: UIViewController {
                 }else{
                     let alert : UIAlertController = UIAlertController(title: "Warnning", message: "Do You Want To Processed This order", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Yes", style: .default , handler: { action in
-                        self.shoppingCartVM?.delDraft(draftId: UserDefaults.standard.integer(forKey: "draftID"))
-                        print("draftID\(UserDefaults.standard.integer(forKey: "draftID"))")
+//                        self.shoppingCartVM?.delDraft(draftId: UserDefaults.standard.integer(forKey: "draftID"))
+//                        print("draftID\(UserDefaults.standard.integer(forKey: "draftID"))")
                         self.orderModuleViewModel?.createOrder(order: self.order!)
                         self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
                             DispatchQueue.main.async {
                                 if self?.orderModuleViewModel?.observableCreateOrder == 201{
                                     print("Order Inserted Successfully")
                                     self?.deleteMyDraft()
+                                    if let navigationController = self?.navigationController {
+                                        navigationController.popToRootViewController(animated: true)
+                                    }
                                     
                                 }else{
                                     print("Failed To Insert Order")
@@ -137,24 +142,20 @@ extension PaymentViewController : PKPaymentAuthorizationViewControllerDelegate {
 
 
 extension PaymentViewController{
-    
-    func deleteMyDraft(){
-        
-        self.shoppingCartVM?.bindingDraftDelete = { [weak self] in
-            print("view created")
-            DispatchQueue.main.async {
-                if self?.shoppingCartVM?.ObservableDraftDelete  == 200{
-                    Utilites.displayToast(message: "deleted successfully", seconds: 2.0, controller: self ?? ShoppingCardViewController())
-                    if let navigationController = self?.navigationController {
-                        navigationController.popToRootViewController(animated: true)
-                    }
-                    
-                }
-                else{
-                    Utilites.displayToast(message: "delete failed", seconds: 2.0, controller: self ?? ShoppingCardViewController())
-                }
+    func renderView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.shoppingCartVM?.getMyCartDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                print("draft not nil")
+                self.myDraftOrder = draftOrders?[0]
+                self.shoppingCartVM?.delDraft(draftId: self.myDraftOrder?.id ?? 0)
             }
         }
+    }
+    
+    func deleteMyDraft(){
+        shoppingCartVM?.getAllDrafts()
+        shoppingCartVM?.bindingAllDrafts = {() in self.renderView()}
     }
         
 }

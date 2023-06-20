@@ -7,10 +7,7 @@
 
 import UIKit
 import Lottie
-//struct BrandModel{
-//    var brandName: String
-//    var brandImage: String
-//}
+
 class HomeViewController: UIViewController {
     @IBOutlet weak var favButtonRight: UIBarButtonItem!
     @IBOutlet weak var cartButtonRight: UIBarButtonItem!
@@ -53,10 +50,7 @@ class HomeViewController: UIViewController {
         cartViewModel?.getAllDrafts()
         cartViewModel?.bindingAllDrafts = {() in self.renderCartView()}
         
-//        let rightBarButton = self.navigationItem.rightBarButtonItem
-//        let count = cartArray?.count ?? 0
-//
-//        rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
+
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }

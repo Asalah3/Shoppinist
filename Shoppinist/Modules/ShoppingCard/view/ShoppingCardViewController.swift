@@ -70,7 +70,6 @@ class ShoppingCardViewController: UIViewController {
             if draftOrders != nil && draftOrders?.count != 0{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
-                UserDefaults.standard.set(self.myDraftOrder?.id, forKey: "draftID")
                 if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                     let cur = (UserDefaults.standard.double(forKey: "EGP"))
                     let price = floor((Double(self.myDraftOrder?.subtotalPrice ?? "0.0") ?? 0.0) * cur)
