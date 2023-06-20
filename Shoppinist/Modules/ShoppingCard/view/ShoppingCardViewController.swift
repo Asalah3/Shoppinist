@@ -14,6 +14,7 @@ class ShoppingCardViewController: UIViewController {
     @IBOutlet weak var proccess_btn: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var noData: AnimationView!
+    
     private var productsList: [LineItem]?
     var lineItem = LineItem()
     private var shoppingCartVM: ShoppingCartViewModel?
@@ -21,6 +22,7 @@ class ShoppingCardViewController: UIViewController {
     var draft : Drafts? = Drafts()
     var currency = 0.0
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    
     @IBOutlet weak var subTotalPrice: UILabel!
     @IBOutlet weak var checkOutButton: UIButton!
     @IBOutlet weak var totalPriceLabel: UILabel!
@@ -35,7 +37,12 @@ class ShoppingCardViewController: UIViewController {
         }
     }
     @IBAction func CheckOutButton(_ sender: Any) {
+        let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectedAddress") as! SelectAddressViewController
+        
+        self.navigationController?.pushViewController(addresVC, animated: true)
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.shoppingCartVM?.checkNetwork()
         noData.isHidden = true
@@ -63,6 +70,7 @@ class ShoppingCardViewController: UIViewController {
             if draftOrders != nil && draftOrders?.count != 0{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
+                UserDefaults.standard.set(self.myDraftOrder?.id, forKey: "draftID")
                 if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                     let cur = (UserDefaults.standard.double(forKey: "EGP"))
                     let price = floor((Double(self.myDraftOrder?.subtotalPrice ?? "0.0") ?? 0.0) * cur)

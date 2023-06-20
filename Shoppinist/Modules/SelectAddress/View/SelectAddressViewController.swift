@@ -19,7 +19,6 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     var price:Int = 0
     @IBOutlet weak var pageAddressLabel: UILabel!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    var LineItems: [LineItem]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator = UIActivityIndicatorView(style: .large)
@@ -99,7 +98,6 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         }
         
         orderVc?.shippingAddress = customerAddressTable?.addresses?[indexPath.row]
-        orderVc?.lineItems = LineItems
         self.navigationController?.pushViewController(orderVc ?? OrderModuleViewController(), animated: true)
     
     }
