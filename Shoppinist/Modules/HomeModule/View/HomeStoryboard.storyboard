@@ -28,7 +28,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bI7-AH-whp">
                                 <rect key="frame" x="10" y="178" width="305" height="31"/>
                                 <color key="tintColor" red="0.6766191721" green="0.72304660080000005" blue="0.99312585590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="thumbTintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" name="move"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="doller"/>
                                 </userDefinedRuntimeAttributes>
@@ -324,7 +324,6 @@
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="6Vd-jV-dSo" firstAttribute="leading" secondItem="WHg-mx-78u" secondAttribute="leading" constant="6" id="6mz-UN-Bsy"/>
                                                                 <constraint firstItem="lIx-v9-7Yc" firstAttribute="top" secondItem="WHg-mx-78u" secondAttribute="top" constant="11" id="7LR-Ba-YsW"/>
@@ -342,7 +341,6 @@
                                                                 <constraint firstItem="k0I-Wf-X5t" firstAttribute="top" secondItem="51T-7V-gia" secondAttribute="bottom" constant="8" symbolic="YES" id="u5F-tF-x4s"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
-                                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                         <connections>
                                                             <outlet property="backView" destination="6Vd-jV-dSo" id="fYS-ib-dds"/>
                                                             <outlet property="reviewImage" destination="lIx-v9-7Yc" id="N29-z3-Oro"/>
@@ -358,7 +356,7 @@
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcZ-Jk-Uvh">
                                                 <rect key="frame" x="0.0" y="102.00000000000003" width="353" height="34.333333333333343"/>
-                                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" name="move"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Show more"/>
                                                 <connections>
@@ -397,14 +395,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMW-7R-hch">
-                                                <rect key="frame" x="70.666666666666657" y="75" width="282.33333333333337" height="43.333333333333343"/>
+                                                <rect key="frame" x="70.666666666666657" y="74.666666666666742" width="282.33333333333337" height="44"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Add To Bag">
+                                                <buttonConfiguration key="configuration" style="plain" title="Add To Cart">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="addToBag:" destination="lOF-aK-sru" eventType="touchUpInside" id="Fin-vt-dqO"/>
@@ -417,7 +415,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L5A-Il-Xfc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" name="move"/>
                         <constraints>
                             <constraint firstItem="L5A-Il-Xfc" firstAttribute="trailing" secondItem="Vfp-YF-7b0" secondAttribute="trailing" constant="20" id="V1E-RG-F3g"/>
                             <constraint firstItem="L5A-Il-Xfc" firstAttribute="bottom" secondItem="Vfp-YF-7b0" secondAttribute="bottom" constant="35" id="W7Z-BW-w9e"/>
@@ -482,7 +480,6 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="S5y-6h-gkG" firstAttribute="top" secondItem="n1E-h4-KHg" secondAttribute="top" constant="5" id="Ar0-pU-jTp"/>
                                                 <constraint firstItem="igg-tX-7co" firstAttribute="leading" secondItem="h4Q-e2-mtb" secondAttribute="trailing" constant="23" id="MAb-M4-k6y"/>
@@ -500,7 +497,6 @@
                                                 <constraint firstItem="h4Q-e2-mtb" firstAttribute="top" secondItem="n1E-h4-KHg" secondAttribute="top" constant="11" id="vpd-Yl-6Jr"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         <connections>
                                             <outlet property="backView" destination="S5y-6h-gkG" id="cuf-s6-rnV"/>
                                             <outlet property="reviewImage" destination="h4Q-e2-mtb" id="2hM-mX-vzH"/>
@@ -546,22 +542,19 @@
             <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
     </designables>
-    <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" name="move"/>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="doller" width="5000" height="5000"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <namedColor name="move">
-            <color red="0.31764705882352939" green="0.26666666666666666" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.30196078431372547" green="0.0078431372549019607" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="myDarkBlue">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

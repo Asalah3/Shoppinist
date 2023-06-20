@@ -20,8 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" name="move"/>
+                        <color key="selectedImageTintColor" name="move"/>
                     </tabBar>
                     <connections>
                         <segue destination="5xb-Fz-iNu" kind="relationship" relationship="viewControllers" id="aQb-VY-RSz"/>
@@ -104,7 +104,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Shoppinist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBx-sU-clc">
                                         <rect key="frame" x="64.000000000000014" y="0.0" width="225.33333333333337" height="50.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
-                                        <color key="textColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="move"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LoginImg" translatesAutoresizingMaskIntoConstraints="NO" id="o0C-hl-vLZ">
@@ -125,9 +125,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Continue as a Guest">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="enterAsGuest:" destination="Fp0-u4-Wld" eventType="touchUpInside" id="crq-hy-RNL"/>
@@ -139,9 +139,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="navigateToSignUp:" destination="Fp0-u4-Wld" eventType="touchUpInside" id="q7Z-zp-8kY"/>
@@ -158,7 +158,7 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKh-2p-LcN">
                                                         <rect key="frame" x="164" y="0.0" width="64" height="47.666666666666664"/>
-                                                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" name="move"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
@@ -245,31 +245,31 @@
                                         <rect key="frame" x="62.666666666666686" y="616.33333333333337" width="228" height="102.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzG-YF-GmC">
-                                                <rect key="frame" x="0.0" y="0.0" width="228" height="43.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="44"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="signUpCustomer:" destination="254-bv-GT5" eventType="touchUpInside" id="HQi-kn-6MT"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NQs-ut-Ryg">
-                                                <rect key="frame" x="0.0" y="43.333333333333258" width="228" height="59.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="44" width="228" height="58.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNG-rC-v57">
-                                                        <rect key="frame" x="0.0" y="20" width="164" height="19.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="19.666666666666629" width="164" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyI-tE-Wjc">
-                                                        <rect key="frame" x="164" y="13.666666666666742" width="64" height="32"/>
-                                                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="164" y="13.333333333333258" width="64" height="32"/>
+                                                        <color key="tintColor" name="move"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
@@ -387,18 +387,18 @@
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-HD-Sf6">
                                 <rect key="frame" x="0.0" y="731" width="393" height="26"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGrayColor"/>
-                                <color key="currentPageIndicatorTintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" name="move"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLq-5d-Ikl">
                                 <rect key="frame" x="30" y="767" width="333" height="51"/>
                                 <color key="tintColor" red="0.99607843139999996" green="0.95686274510000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Next" subtitle="" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Next " subtitle="" titleAlignment="center">
                                     <imageReference key="image" image="arrowshape.right.fill" catalog="system" symbolScale="large"/>
                                     <backgroundConfiguration key="background" cornerRadius="25">
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="move"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="skipButton:" destination="gR9-v8-KXf" eventType="touchUpInside" id="ETE-bw-oO6"/>
@@ -502,31 +502,31 @@
                                         <rect key="frame" x="62" y="616.33333333333337" width="229" height="102.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awV-A6-BxA">
-                                                <rect key="frame" x="0.0" y="0.0" width="229" height="43.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="229" height="44"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
-                                                        <color key="backgroundColor" red="0.23921568627450979" green="0.1764705882352941" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="loginCustomer:" destination="GCt-9n-6U6" eventType="touchUpInside" id="pZ3-qB-9yh"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pft-gI-Zx7">
-                                                <rect key="frame" x="0.0" y="43.333333333333258" width="229" height="59.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="44" width="229" height="58.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yi2-Cm-lqW">
-                                                        <rect key="frame" x="0.0" y="20" width="148.66666666666666" height="19.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="19.666666666666629" width="148.66666666666666" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwX-wG-adh">
-                                                        <rect key="frame" x="148.66666666666666" y="13.666666666666742" width="80.333333333333343" height="32"/>
-                                                        <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="148.66666666666666" y="13.333333333333258" width="80.333333333333343" height="32"/>
+                                                        <color key="tintColor" name="move"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
@@ -727,8 +727,8 @@
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="b3g-vz-ZAK">
                                 <rect key="frame" x="10" y="341.66666666666669" width="373" height="26"/>
-                                <color key="pageIndicatorTintColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" name="AccentColor"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" name="move"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ajk-DU-En6"/>
@@ -999,8 +999,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ecY-wb-oNh">
+
                                 <rect key="frame" x="20" y="114" width="68" height="49.666666666666671"/>
                                 <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+
+                                <rect key="frame" x="20" y="114" width="68" height="49.666666666666686"/>
+                                <color key="tintColor" name="move"/>
+
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asalah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sK-h1-Gym">
                                 <rect key="frame" x="113" y="113" width="270" height="51"/>
@@ -1156,7 +1161,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                            <color key="tintColor" name="move"/>
                                             <constraints>
                                                 <constraint firstItem="hs1-uA-RbT" firstAttribute="leading" secondItem="oDe-Gg-4tT" secondAttribute="leading" constant="11" id="1FW-Wb-S7t"/>
                                                 <constraint firstAttribute="bottom" secondItem="oVG-0Q-GLF" secondAttribute="bottom" constant="5" id="24H-D9-Pgl"/>
@@ -1174,7 +1179,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="mPy-sg-zha" secondAttribute="trailing" constant="43" id="t5z-Uh-ffK"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         <connections>
                                             <outlet property="backView" destination="oVG-0Q-GLF" id="hiY-QR-K1n"/>
                                             <outlet property="productImage" destination="hs1-uA-RbT" id="eem-E1-Z1z"/>
@@ -1248,13 +1252,13 @@
                     <navigationItem key="navigationItem" id="msQ-lf-6cc">
                         <rightBarButtonItems>
                             <barButtonItem title="settings" image="gearshape.fill" catalog="system" id="Wvz-Ju-4RA">
-                                <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="move"/>
                                 <connections>
                                     <segue destination="9fA-ws-F1e" kind="push" id="WG9-jn-daU"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="shoppingCart" image="cart.fill" catalog="system" id="8pQ-jZ-453">
-                                <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="move"/>
                                 <connections>
                                     <segue destination="dIc-xb-SyX" kind="push" id="ymJ-bi-fkt"/>
                                 </connections>
@@ -1293,11 +1297,7 @@
             <point key="canvasLocation" x="5614" y="1353"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="YXX-3R-Lyw"/>
-        <designable name="ty2-Zf-YPK"/>
-        <designable name="x7L-F4-x7w"/>
-    </designables>
+    <color key="tintColor" name="move"/>
     <resources>
         <image name="1" width="2000" height="2000"/>
         <image name="LoginImg" width="626" height="626"/>
@@ -1309,18 +1309,12 @@
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="113"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="move">
-            <color red="0.31764705882352939" green="0.26666666666666666" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.30196078431372547" green="0.0078431372549019607" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="myDarkBlue">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
