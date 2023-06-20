@@ -22,15 +22,17 @@ class AddNewAddressViewController: UIViewController {
     var ViewModel : AddAddressviewModel?
     var newAddress : Address?
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        textfieldsStyles()
+        setPopupButton()
+        fillTextFields()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewModel = AddAddressviewModel()
         newAddress = Address()
-        textfieldsStyles()
-        setPopupButton()
-        fillTextFields()
+        
         
     }
     

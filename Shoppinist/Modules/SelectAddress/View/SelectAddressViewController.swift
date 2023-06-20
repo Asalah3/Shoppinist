@@ -28,7 +28,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
        
     }
     override func viewWillAppear(_ animated: Bool) {
-        checkCartIsEmpty()
+        
         addressViewModel = AddressViewModel()
         addressViewModel?.getAddress()
         addressViewModel?.bindingGet = { [weak self] in
@@ -36,11 +36,13 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
                 self?.customerAddressTable = self?.addressViewModel?.ObservableGet
                      self?.selectTableView.reloadData()
                 self?.activityIndicator.stopAnimating()
+                self?.checkCartIsEmpty()
             }
         }
+       
     }
     func checkCartIsEmpty() {
-     if customerAddressTable?.addresses?.count == 0{
+     if customerAddressTable?.addresses?.count == nil || customerAddressTable?.addresses?.count == 0{
          self.activityIndicator.stopAnimating()
          selectTableView.isHidden = true
          pageAddressLabel.text = "ADD Your Address"

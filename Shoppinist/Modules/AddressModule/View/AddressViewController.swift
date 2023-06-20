@@ -23,22 +23,24 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
         activityIndicator.center = view.center
                 activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
+        checkCartIsEmpty()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        checkCartIsEmpty()
+       
         addressViewModel?.getAddress()
         addressViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
                 self?.customerAddressTable = self?.addressViewModel?.ObservableGet
                 self?.addressTableView.reloadData()
                 self?.activityIndicator.stopAnimating()
+                self?.checkCartIsEmpty()
             }
         }
     }
 
     func checkCartIsEmpty() {
-     if customerAddressTable?.addresses?.count == 0{
+     if customerAddressTable?.addresses?.count == nil || customerAddressTable?.addresses?.count == 0 {
          
          self.activityIndicator.stopAnimating()
          addressTableView.isHidden = true
