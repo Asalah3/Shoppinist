@@ -19,16 +19,19 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var noData: AnimationView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var categoriesSegment: UISegmentedControl!
+    
+    @IBOutlet weak var shoppingRightItem: UIBarButtonItem!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var remoteDataSource: CategoriesRemoteDataSourceProtocol?
     var categoriesViewModel : CategoriesViewModelProtocol?
-//    var localData: FavLocalDataSourceProtocol?
-//    var remoteData : ProductDetailsDataSourceProtocol?
+    var myCartDraftOrder : DrafOrder?
+    var cartViewModel : ShoppingCartViewModel?
+    var cartDraft : Drafts? = Drafts()
+    var productsListCart : [LineItem]?
     var favViewModel : DraftViewModel?
     var productsList : [Product]?
     var filteredList : [Product]?
     var isFiltered : Bool = false
-//    var currency = 0.0
     var searchProducts = [Product]()
     var searching = false
     var myDraftOrder : DrafOrder?
@@ -39,22 +42,6 @@ class CategoriesViewController: UIViewController {
     private var shoppingCartVM = ShoppingCartViewModel()
   
     
-    func getData(){
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            self.renderViewCart()
-            
-        }
-    }
-    func renderViewCart(){
-        DispatchQueue.main.async {
-            
-            self.cartArray = self.shoppingCartVM.cartList
-          
-           
-            }
-   
-    }
     override func viewWillAppear(_ animated: Bool) {
         
         //Favourites Logic
@@ -63,16 +50,17 @@ class CategoriesViewController: UIViewController {
         favViewModel?.getAllDrafts()
         favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
         
+        //Cart Logic
+        productsListCart = [LineItem]()
+        cartViewModel = ShoppingCartViewModel()
+        cartViewModel?.getAllDrafts()
+        cartViewModel?.bindingAllDrafts = {() in self.renderCartView()}
+        
         //-------------------------------------------
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
-        getData()
-        let rightBarButton = self.navigationItem.rightBarButtonItem
-        var count = cartArray?.count ?? 0
-        
-        rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
-        
+
         noData.isHidden = true
     }
     
@@ -312,6 +300,17 @@ extension CategoriesViewController{
                 self.myDraftOrder = draftOrders?[0]
                 self.productList = draftOrders?[0].lineItems
                 self.favButtonRight.addBadge(text: "\(String(describing: self.productList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+            }
+        }
+    }
+    
+    func renderCartView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.cartViewModel?.getMyCartDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                self.myCartDraftOrder = draftOrders?[0]
+                self.productsListCart = draftOrders?[0].lineItems
+                self.shoppingRightItem.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
             }
         }
     }

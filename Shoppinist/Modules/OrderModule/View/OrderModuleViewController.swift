@@ -17,70 +17,47 @@ class OrderModuleViewController: UIViewController {
     var grand: Float!
     var lineItems: [LineItem]?
     var shippingAddress: Address?
+    var cartVM : ShoppingCartViewModel = ShoppingCartViewModel()
     var remoteDataSource: OrderRemoteDataSourceProtocol?
     var orderModuleViewModel: OrderModuleViewModelProtocol?
     
-    var price: Float?
+    var price: Double?
     
     
     override func viewWillAppear(_ animated: Bool) {
+        cartVM.getAllDrafts()
+        cartVM.bindingAllDrafts = {() in self.renderView()}
+        
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
-        let userCoupon = UserDefaultsManager.sharedInstance.getUserCoupon()
-        if userCoupon == "" {
-            coupon.text = "No copoun"
-        }else{
-            coupon.text = "\(UserDefaultsManager.sharedInstance.getUserCoupon())"
-        }
-        
-        let sub = checkCoupon(coupon: UserDefaultsManager.sharedInstance.getUserCoupon())
-        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-            var cur = (UserDefaults.standard.double(forKey: "EGP"))
-            let total = sub * Float(cur)
-            subTotal.text = "\(total) EPG"
-            let shipping = 10.0 * Float(cur)
-            shippingFees.text = "\(shipping) EPG"
-            grandTotal.text = "\(total + shipping) EPG"
-            UserDefaults.standard.set((total + shipping), forKey: "final")
-        }else{
-            subTotal.text = "\(sub) $"
-            shippingFees.text = "10 $"
-            grandTotal.text = "\(sub + 10) $"
-            UserDefaults.standard.set(sub + 10, forKey: "final")
-        }
-        grand = sub + 10
-       
-        
-        print("grandTotal\( UserDefaults.standard.integer(forKey: "final"))")
-        
     }
 
     func checkCoupon(coupon: String) -> Float{
-        let price = (UserDefaultsManager.sharedInstance.getTotalPrice())
+        let price = self.price
         var cur = 1.0
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
             cur = (UserDefaults.standard.double(forKey: "EGP"))
         }
         switch coupon{
         case "10%offer":
-            discountAmount.text = "\((price * 0.10) * cur) "
-            return Float((price - ( price * 0.10)))
+            discountAmount.text = "\(((price ?? 0.0) * 0.10) * cur) "
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.10)))
         case "20%offer":
-            discountAmount.text = "\((price * 0.20) * cur)"
-            return Float((price - ( price * 0.20)))
+            discountAmount.text = "\(((price ?? 0.0) * 0.20) * cur)"
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.20)))
         case "30%offer":
-            discountAmount.text = "\((price * 0.30) * cur)"
-            return Float((price - ( price * 0.30)))
+            discountAmount.text = "\(((price ?? 0.0) * 0.30) * cur)"
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.30)))
         case "40%offer":
-            discountAmount.text = "\((price * 0.40) * cur)"
-            return Float((price - ( price * 0.40)))
+            discountAmount.text = "\(((price ?? 0.0) * 0.40) * cur)"
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.40)))
         case "50%offer":
-            discountAmount.text = "\((price * 0.50) * cur)"
-            return Float((price - ( price * 0.40)))
+            discountAmount.text = "\(((price ?? 0.0) * 0.50) * cur)"
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.40)))
         default:
             discountAmount.text = "\(0.0)"
-            return Float((price))
+            return Float(((price ?? 0.0)))
         }
     }
     override func viewDidLoad() {
@@ -99,4 +76,46 @@ class OrderModuleViewController: UIViewController {
     }
     
    
+}
+
+extension OrderModuleViewController{
+    func renderView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.cartVM.getMyCartDraft()
+            if draftOrders != nil && draftOrders.count != 0{
+                print("draft not nil")
+                self.lineItems = draftOrders[0].lineItems
+                self.price = Double(draftOrders[0].subtotalPrice ?? "0")
+                let userCoupon = UserDefaultsManager.sharedInstance.getUserCoupon()
+                if userCoupon == "" {
+                    self.coupon.text = "No copoun"
+                }else{
+                    self.coupon.text = "\(UserDefaultsManager.sharedInstance.getUserCoupon())"
+                }
+                
+                let sub = self.checkCoupon(coupon: UserDefaultsManager.sharedInstance.getUserCoupon())
+                if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                    var cur = (UserDefaults.standard.double(forKey: "EGP"))
+                    let total = sub * Float(cur)
+                    self.subTotal.text = "\(total) EPG"
+                    let shipping = 10.0 * Float(cur)
+                    self.shippingFees.text = "\(shipping) EPG"
+                    self.grandTotal.text = "\(total + shipping) EPG"
+                    UserDefaults.standard.set((total + shipping), forKey: "final")
+                }else{
+                    self.subTotal.text = "\(sub) $"
+                    self.shippingFees.text = "10 $"
+                    self.grandTotal.text = "\(sub + 10) $"
+                    UserDefaults.standard.set(sub + 10, forKey: "final")
+                }
+                self.grand = sub + 10
+               
+                
+                print("grandTotal\( UserDefaults.standard.integer(forKey: "final"))")
+            }else{
+                self.lineItems = nil
+                print("draft is nil")
+            }
+        }
+    }
 }

@@ -18,7 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTY-h7-GiN" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="739"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
                                 </userDefinedRuntimeAttributes>
@@ -138,7 +139,7 @@
                                     <action selector="CheckOutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3wV-52-PCa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-Tk-LU5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-Tk-LU5">
                                 <rect key="frame" x="111" y="649" width="236" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="OQM-f4-AVz"/>
@@ -154,7 +155,6 @@
                             <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="qzo-fF-DSt" secondAttribute="leading" id="1iD-zW-jd3"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.435115" id="43X-7R-OzW"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="111" id="5Hg-1M-v0q"/>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="WTY-h7-GiN" secondAttribute="bottom" constant="-203" id="7cQ-By-MeD"/>
                             <constraint firstItem="qzo-fF-DSt" firstAttribute="top" secondItem="eJR-Tk-LU5" secondAttribute="bottom" constant="38" id="Caw-xw-HQ5"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="D0J-kc-Upu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dim-8e-hIf" secondAttribute="bottom" constant="129" id="ELd-Xb-m8W"/>
@@ -170,15 +170,18 @@
                             <constraint firstItem="WTY-h7-GiN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="l53-dZ-TqT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eJR-Tk-LU5" secondAttribute="trailing" constant="46" id="tGF-PY-1ZK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qzo-fF-DSt" secondAttribute="bottom" constant="36" id="v7n-oo-mW6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WTY-h7-GiN" secondAttribute="bottom" constant="20" id="zJY-IF-Dmb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YbC-jI-O7H"/>
                     <connections>
                         <outlet property="cardTableView" destination="YV9-gt-Dzu" id="foN-IT-q0r"/>
+                        <outlet property="checkOutButton" destination="qzo-fF-DSt" id="dcz-gv-def"/>
                         <outlet property="noData" destination="WTY-h7-GiN" id="Jts-3l-AsE"/>
                         <outlet property="priceLabel" destination="Dim-8e-hIf" id="55X-9G-h5e"/>
                         <outlet property="proccess_btn" destination="qzo-fF-DSt" id="Ofp-jq-4bP"/>
                         <outlet property="subTotalPrice" destination="eJR-Tk-LU5" id="BZc-mx-9KH"/>
+                        <outlet property="totalPriceLabel" destination="Dim-8e-hIf" id="CiS-TS-a9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

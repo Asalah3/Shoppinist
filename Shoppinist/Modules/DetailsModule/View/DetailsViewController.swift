@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     var currency = 0.0
     var favViewModel : DraftViewModel?
     var cart : DrafOrder = DrafOrder()
-    var cartVM = ShoppingCartViewModel()
+    var cartVM: ShoppingCartViewModel?
     var lineitem = LineItem()
     var newLineItem : LineItem?
     var itemtitle : String?
@@ -41,6 +41,8 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     var cartcount = AllDrafts()
     var myDraftOrder : DrafOrder?
     var draft : Drafts? = Drafts()
+    var myCartDraftOrder : DrafOrder?
+    var cartDraft : Drafts? = Drafts()
     var productsList : [LineItem]?
     var AllDraftsUrl = "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json"
     
@@ -48,7 +50,6 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        renderCartData()
         detailsRate.isUserInteractionEnabled = false
         
         reviewViewModel = ReviewViewModel()
@@ -69,6 +70,8 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             }
         }
+        cartVM = ShoppingCartViewModel()
+        
         self.favViewModel?.changeCurrency()
         self.favViewModel?.fetchCurrencyToCell = { [weak self] in
             DispatchQueue.main.async {
@@ -81,19 +84,6 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             }
         }
-        
-       // draftViewModel = DraftViewModel()
-
-//        localData = FavLocalDataSource()
-//        remoteData = ProductDetailsDataSource()
-//        favViewModel = FavViewModel(localDataSource: localData!, remoteDataSource: remoteData!)
-//        if let favID = product?.id,
-//           let _ = draftViewModel, ((draftViewModel?.isExist(favouriteId:favID)) != nil){
-//            detailsFavButton.tintColor = UIColor.red
-//        } else {
-//            detailsFavButton.tintColor = UIColor.darkGray
-//
-//        }
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -189,36 +179,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
             let confirmAction = UIAlertAction(title: "OK", style: .default)
             Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
         }
-
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        if let favouriteViewModel = favViewModel,
-//           favouriteViewModel.isExist(favouriteId: product?.id ?? 0){
-//            detailsFavButton.tintColor = UIColor.darkGray
-//            favouriteViewModel.deleteItemById(favouriteId: product?.id ?? 0)
-//        } else {
-//            detailsFavButton.tintColor = UIColor.red
-//            favViewModel?.localDataSource?.insertItem(favouriteName: product?.title ?? "", favouriteId: product?.id ?? 0, favouriteImage: product?.image?.src ?? "", favouritePrice: detailsPrice.text ?? "")
-//        }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        cartVM.cartsUrl = self.AllDraftsUrl
-        cartVM.getCart()
-        cartVM.bindingCartt = {()in
-            self.renderCart()
-            
-        }
     }
     
     
@@ -229,69 +190,32 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     @IBAction func addToBag(_ sender: Any) {
-        
-        renderCartData ()
-        
-        cartcount.draftOrders?.forEach({ email in
-
-            if  email.email ==  UserDefaultsManager.sharedInstance.getUserEmail()! && email.note == nil
-            {
-        
-        renderCartData ()
-        
-        addtoLine = email
-        UserDefaultsManager.sharedInstance.setUserCart(cartId: email.id)
-        lineAppend = email.lineItems
-        renderCartData ()
-        lineAppend?.forEach({itemm in
-            if itemm.title == self.product?.title  {
-                renderCartData ()
-                
-                itemtitle = itemm.title
-                Utilites.displayToast(message: "Already in cart" , seconds: 1.0, controller: self)
-                print ("done")
-                renderCartData ()
+        if Utilites.isConnectedToNetwork(){
+            cartVM?.getAllDrafts()
+            cartVM?.bindingAllDrafts = { [weak self] in
+                DispatchQueue.main.async {
+                    if let cartViewModel = self?.cartVM,
+                       cartViewModel.checkIfItemInCart(productID: self?.product?.id ?? 0){
+                        Utilites.displayToast(message: "The Product Already In Cart", seconds: 5, controller: self ?? DetailsViewController())
+                    } else {
+                        let cartDraft = self?.cartVM?.getMyCartDraft()
+                        let isHasDraft = self?.cartVM?.checkIfCustomerHasCartDraft()
+                        print("hasDraft\(String(describing: isHasDraft))")
+                        if isHasDraft ?? false{
+                            self?.addItemToCart(favDraft: cartDraft ?? [DrafOrder]())
+                            
+                        }else{
+                            self?.createCartDraftOrder()
+                            
+                        }
+                    }
+                }
             }
-        })
-            if itemtitle == nil {
-                renderCartData ()
-        newLineItem = LineItem()
-        newLineItem?.title = product?.title
-        newLineItem?.price = product?.variants![0].price
-        newLineItem?.sku = product?.image?.src
-        newLineItem?.vendor = product?.vendor
-        newLineItem?.productID = product?.id
-        newLineItem?.grams = product?.variants![0].inventory_quantity
-        newLineItem?.quantity = 1
-        lineAppend?.append(newLineItem!)
-        var draftOrder = DrafOrder()
-        draftOrder.lineItems = lineAppend
-        addtoLine = draftOrder
-        let draftOrderAppend : Drafts = Drafts(draftOrder:draftOrder)
-        putCart(cartt: draftOrderAppend)
-        Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
-                renderCartData ()
-        UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-        print ("already used")
-                print ("put")
-                renderCartData ()
-                    }
-                   
-                    }
-                  
-                })
-           
-            if addtoLine == nil
-                                {
-                                self.postCart()
-                renderCartData ()
-                print ("posted")
-                Utilites.displayToast(message: "Added to cart" , seconds: 2.0, controller: self )
-                UserDefaultsManager.sharedInstance.setCartState(cartState: true)
-                    }
-      
-        renderCartData ()
-  }
+        }else{
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
+        }
+    }
 }
 
 extension DetailsViewController: UITabBarDelegate,UITableViewDataSource{
@@ -329,110 +253,7 @@ extension DetailsViewController: UITabBarDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
-    
 }
-
-extension DetailsViewController {
-    func renderCart() {
-        DispatchQueue.main.async {
-            self.cartcount = self.cartVM.cartResult ?? AllDrafts()
-        }
-    }
-}
-
-extension DetailsViewController {
-    
-    func renderCartData () {
-        cartVM.cartsUrl = self.AllDraftsUrl
-        cartVM.getCart()
-        cartVM.bindingCartt = {()in
-            self.renderCart()
-            
-        }
-    }
-}
-
-extension DetailsViewController {
-    
-    func putCart(cartt:Drafts){
-        self.cartVM.putNewCart(userCart: cartt) { data, response, error in
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    print ("carrt Error \n \(error)" )
-                }
-                return
-            }
-            guard response?.statusCode ?? 0 >= 200 && response?.statusCode ?? 0 < 300   else {
-                DispatchQueue.main.async {
-                    print ("cart Response \n \(response ?? HTTPURLResponse())" )
-                }
-                return
-            }
-            print("cart was added successfully")
-            DispatchQueue.main.async {
-                print("cart Saved")
-            }
-        }
-    }
-}
-
-extension DetailsViewController {
-    func postCart(){
-        let newdraft  : [String : Any] =  [ "draft_order" :
-                                                [
-                                                    
-                                                    "email": UserDefaultsManager.sharedInstance.getUserEmail()!,
-                                                    
-                                                    "currency": "Egp",
-                                                    
-                                                    "line_items" : [
-                                                        [
-                                                            
-                                                            "product_id": (self.product?.id)!,
-                                                            "title": (self.product?.title)! ,
-                                                            
-                                                            "sku": (product?.image?.src)!,
-                                                            "vender" : (self.product?.vendor)!,
-                                                            "quantity": 1,
-                                                            
-                                                            "grams":self.product!.variants![0].inventory_quantity!,
-                                                            
-                                                            "price": (self.product?.variants![0].price)!,
-                                                            
-                                                        ]
-                                                    ],
-                                                    "customer": [
-                                                        "id":UserDefaultsManager.sharedInstance.getUserID()
-                                                    ]
-                                                    
-                                                ]
-        ]
-        self.cartVM.postNewCart(userCart:newdraft){ data, response, error in
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    print ("cart Error \n \(error?.localizedDescription ?? "")" )
-                }
-                return
-            }
-            
-            guard response?.statusCode ?? 0 >= 200 && response?.statusCode ?? 0 < 300   else {
-                DispatchQueue.main.async {
-                    print ("cart Response \n \(response ?? HTTPURLResponse())" )
-                    
-                }
-                return
-            }
-            print ("this is response\(String(describing: response?.statusCode))")
-            print("cart was added successfully")
-            
-            DispatchQueue.main.async {
-                print("cart Saved")
-            }
-        }
-    }
-}
-
 extension DetailsViewController{
     func delProduct(itemId: Int){
         if self.productsList != nil && self.productsList?.count != 0{
@@ -464,7 +285,7 @@ extension DetailsViewController{
     func addItemToFavourite(favDraft: [DrafOrder]){
         self.draft?.draftOrder = favDraft[0]
         print(self.draft ?? "nil draft")
-        let lineItem = LineItem(id: nil, variantID: nil, productID: self.product?.id, title: self.product?.title, variantTitle: "", sku:"\((self.product?.id)!),\((self.product?.image?.src)!)"  , vendor: "", quantity: 2, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.product?.variants?[0].price)
+        let lineItem = LineItem(id: nil, variantID: nil, productID: self.product?.id, title: self.product?.title, variantTitle: "", sku:"\((self.product?.id)!),\((self.product?.image?.src)!)"  , vendor: "", quantity: 1, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:20, taxLines: [TaxLine](), name: "", custom: false, price: self.product?.variants?[0].price)
         self.draft?.draftOrder?.lineItems?.append(lineItem)
         self.draftViewModel?.updateDraft(updatedDraft: (self.draft)!)
         self.draftViewModel?.bindingDraftUpdate = { [weak self] in
@@ -522,6 +343,42 @@ extension DetailsViewController{
     }
     
     
+}
+extension DetailsViewController{
+    func createCartDraftOrder(){
+        self.cartVM?.saveDraft(product: product!, note: "cart")
+        self.cartVM?.bindingDraft = { [weak self] in
+            print("view created")
+            DispatchQueue.main.async {
+                if self?.cartVM?.ObservableDraft  == 201{
+                    Utilites.displayToast(message: "product added succeessfully", seconds: 2, controller: self ?? DetailsViewController())
+                    self?.isHasDraft = self?.cartVM?.checkIfCustomerHasCartDraft()
+                }
+                else{
+                    Utilites.displayToast(message: "product add failed", seconds: 2, controller: self ?? DetailsViewController())
+                }
+            }
+        }
+    }
+    
+    func addItemToCart(favDraft: [DrafOrder]){
+        self.cartDraft?.draftOrder = favDraft[0]
+        print(self.cartDraft ?? "nil draft")
+        let lineItem = LineItem(id: nil, variantID: nil, productID: self.product?.id, title: self.product?.title, variantTitle: "", sku:"\((self.product?.id)!),\((self.product?.image?.src)!)"  , vendor: "", quantity: 1, requiresShipping: false, taxable: false, giftCard: false, fulfillmentService: "", grams:self.product?.variants?.first?.inventory_quantity, taxLines: [TaxLine](), name: "", custom: false, price: self.product?.variants?[0].price)
+        self.cartDraft?.draftOrder?.lineItems?.append(lineItem)
+        self.cartVM?.updateDraft(updatedDraft: (self.cartDraft)!)
+        self.cartVM?.bindingDraftUpdate = { [weak self] in
+            print("view createddd")
+            DispatchQueue.main.async {
+                if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
+                    Utilites.displayToast(message: "product added succeessfully", seconds: 2, controller: self ?? DetailsViewController())
+                }else{
+                    Utilites.displayToast(message: "product add failed", seconds: 2, controller: self ?? DetailsViewController())
+                }
+            }
+        }
+        isHasDraft = self.cartVM?.checkIfCustomerHasCartDraft()
+    }
 }
 
 

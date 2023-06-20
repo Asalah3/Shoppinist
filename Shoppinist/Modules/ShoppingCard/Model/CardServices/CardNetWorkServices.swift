@@ -7,158 +7,139 @@
 //
 import Foundation
 import Alamofire
-
-class CartNetwork {
-   
-    
-  static  func fetchUserCart (handlerComplition : @escaping (Drafts?)->Void) {
-        let draftOrderID = UserDefaultsManager.sharedInstance.getUserCart() ?? 0
-        print("draftOrderID \(draftOrderID)")
-        print("email\(UserDefaultsManager.sharedInstance.getUserEmail())")
-        print("id\(UserDefaultsManager.sharedInstance.getUserID())")
-       let requestURL: NSURL = NSURL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders/\(draftOrderID).json")!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
-        let session = URLSession.shared
-        let task = session.dataTask(with: urlRequest as URLRequest) {
-            (data, response, error) -> Void in
-            
-            if let data = data {
-                let httpResponse = response as! HTTPURLResponse
-                let statusCode = httpResponse.statusCode
+protocol CartNetworkProtocol{
+    static func CreateDraft(product: Product,note: String, complication:@escaping (Int) -> Void)
+    static func updateDraft(draft: Drafts, complication:@escaping (Int) -> Void)
+    static func deleteDraft(draftID: Int, complication:@escaping (Int) -> Void)
+    static func getAllDraftOrders( completionHandeler: @escaping ((AllDrafts?), Error?) -> Void)
+}
+class CartNetwork: CartNetworkProtocol{
+    static func CreateDraft(product: Product, note: String, complication:@escaping (Int) -> Void) {
+        let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "POST"
+        let userDictionary =  [
+            "draft_order": [
+                "note": note,
+              "line_items": [
+                [
+                    "id": product.id ?? 0,
+                    "title": product.title ?? "",
+                    "quantity": 1,
+                    "price": product.variants?[0].price ?? "20",
+                    "sku": "\(product.id ?? 0),\((product.image?.src)!)",
+                    "grams": product.variants?.first?.inventory_quantity
+                    
+                ]
+              ],
+              "customer": [
+                "id": UserDefaults.standard.integer(forKey:"customerID"),
                 
-                if (statusCode == 200 && statusCode < 300) {
-                    print("Everyone is fine, file downloaded successfully.")
-                    do{
-                        let json = try JSONDecoder().decode(Drafts.self , from: data) as? Drafts
-                        
-                        //print(json)
-                         handlerComplition(json)
-                    }
-                    catch{ print("erroMsg") }
-                    handlerComplition(nil)
-                } else  {
-                    print("Failed: \(String(describing: response) )")
-                    handlerComplition(nil)
-                }
-            }
-        }
-                task.resume()
-    }
-    
-    
-   static func postCart(userCart: [String:Any], completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
-        guard let url = URL(string: URLService.draftCart()) else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let session = URLSession.shared
-        request.httpShouldHandleCookies = false
+                "default_address": [
+                  "default": true
+                ]
+              ]
+            ]
+          ]
+
+        
+        urlRequest.httpShouldHandleCookies = false
         
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: userCart, options: .prettyPrinted)
+            
+            let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary,options: .prettyPrinted)
+            urlRequest.httpBody = bodyDictionary
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         } catch let error {
             print(error.localizedDescription)
         }
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if (data != nil && data?.count != 0){
+                if let httpResponse = response as? HTTPURLResponse {
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
+                   }
+            }
+        }.resume()
+    }
+    
+    
+    static func updateDraft(draft: Drafts, complication: @escaping (Int) -> Void) {
+        let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders/\(draft.draftOrder?.id ?? 0).json")
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "PUT"
         
-        //HTTP Headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        session.dataTask(with: request) { (data, response, error) in
-            completionHandler(data, response, error)
+        do {
+            let userDictionary = try draft.asDictionary()
+            urlRequest.httpShouldHandleCookies = false
+            let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary,options: .prettyPrinted)
+            urlRequest.httpBody = bodyDictionary
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        } catch let error {
+            print("updated error\(error)")
+        }
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if (data != nil && data?.count != 0){
+                if let httpResponse = response as? HTTPURLResponse {
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
+                   }
+            }
+            
+        }.resume()
+       
+    }
+    
+
+    
+    static func deleteDraft(draftID: Int, complication: @escaping (Int) -> Void) {
+        let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders/\(draftID).json")
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.httpShouldHandleCookies = false
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if (data != nil && data?.count != 0){
+                if let httpResponse = response as? HTTPURLResponse {
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
+                   }
+            }
             
         }.resume()
     }
     
-    static func CartfetchData(url : String?,handlerComplition : @escaping (AllDrafts?)->Void) {
-    request("\(url!)").responseData {response in
-            guard let data = response.data else {
-                return
-            }
-            
+    
+    static func getAllDraftOrders(completionHandeler: @escaping ((AllDrafts?), Error?) -> Void) {
+        let url = URL(string: "https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/draft_orders.json")
+        guard let newUrl = url else {
+            return
+        }
+        print("newUrl\(newUrl)")
+        let request = URLRequest(url: newUrl)
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: request){ data ,response , error in
             do{
-                let result = try JSONDecoder().decode(AllDrafts.self, from: data)
-                handlerComplition(result)
-            }catch let error {
+                let result = try JSONDecoder().decode(AllDrafts.self, from: data ?? Data())
+                completionHandeler(result, nil)
+                print("success in getDrafts")
+                print(result.draftOrders?.count ?? 0)
+
+
+            }catch let error{
                 print(error.localizedDescription)
-                handlerComplition(nil)
+                print("error in getDrafts")
+                completionHandeler(nil, error)
             }
             
-          }
-      }
-    
- static   func putCart(userCart: Drafts , completionHandler:@escaping (Data?, URLResponse? , Error?)->()){
-        let cartId = UserDefaultsManager.sharedInstance.getUserCart()!
-        guard let url = URL(string: URLService.putCart(lineId:cartId)) else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        let session = URLSession.shared
-        request.httpShouldHandleCookies = false
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: userCart.asDictionarys(), options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
         }
-        
-        //HTTP Headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        session.dataTask(with: request) { (data, response, error) in
-            completionHandler(data, response, error)
-        }.resume()
+        task.resume()
     }
     
-    static func deleteCart(completion: @escaping ( Error?) -> ()){
-       let draftOrderID = UserDefaults.standard.integer(forKey: "Cart_ID")
-        let url = URLService.deleteCart(cartID: draftOrderID)
-        guard let baseURL = URL(string : url ) else { return }
-        var request = URLRequest(url: baseURL)
-        request.httpMethod = "DELETE"
-        request.allHTTPHeaderFields = [
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        ]
-        request.httpShouldHandleCookies = false
-        
-        do{
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                guard error == nil else {
-                    print("Error: error calling DELETE")
-                    print(error!)
-                    return
-                }
-                guard let data = data else {
-                    print("Error: Did not receive data")
-                    return
-                }
-                guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
-                    print(response)
-                    print("Error: HTTP request failed")
-                    return
-                }
-                do {
-                    guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                        print("Error: Cannot convert data to JSON")
-                        return
-                    }
-                    guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-                        print("Error: Cannot convert JSON object to Pretty JSON data")
-                        return
-                    }
-                    guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-                        print("Error: Could print JSON in String")
-                        return
-                    }
-                    print("Draft order successfully deleted")
-                    print(prettyPrintedJson)
-                } catch {
-                    print("Error: Trying to convert JSON data to string")
-                    return
-                }
-            }.resume()
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
+  
 }

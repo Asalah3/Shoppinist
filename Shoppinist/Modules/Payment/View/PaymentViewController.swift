@@ -17,6 +17,9 @@ class PaymentViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var totalprice :Int = 0
     var finalPrice: Int = 0
+    private var shoppingCartVM: ShoppingCartViewModel?
+    var myDraftOrder : DrafOrder?
+    
     private var paymentRequest : PKPaymentRequest = {
       let request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.com.pushpendra.pay"
@@ -36,6 +39,9 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shoppingCartVM = ShoppingCartViewModel()
+        
         remoteDataSource = OrderRemoteDataSource()
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
         
@@ -59,32 +65,31 @@ class PaymentViewController: UIViewController {
     
     @IBAction func processedToConfirm(_ sender: Any) {
         print("presssed")
+        
         if ((self.applePaymentButton.isSelected) == false) && ((self.cashPaymentButton.isSelected) == false){
                     self.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
                 }else{
                     let alert : UIAlertController = UIAlertController(title: "Warnning", message: "Do You Want To Processed This order", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Yes", style: .default , handler: { action in
+//                        self.shoppingCartVM?.delDraft(draftId: UserDefaults.standard.integer(forKey: "draftID"))
+//                        print("draftID\(UserDefaults.standard.integer(forKey: "draftID"))")
                         self.orderModuleViewModel?.createOrder(order: self.order!)
                         self.orderModuleViewModel?.bindingOrderCreated = {[weak self] in
                             DispatchQueue.main.async {
                                 if self?.orderModuleViewModel?.observableCreateOrder == 201{
                                     print("Order Inserted Successfully")
-                                    self?.orderModuleViewModel?.deleteShoppingCart{ deleted in
-                                        if deleted == nil{
-                                            print("ShoppingCart Deleted Successfully")
-                                        }else{
-                                            print("Failed To Delete ShoppingCart")
-                                        }
-                                    }
+                                    self?.deleteMyDraft()
                                     if let navigationController = self?.navigationController {
                                         navigationController.popToRootViewController(animated: true)
                                     }
+                                    
                                 }else{
                                     print("Failed To Insert Order")
                                 }
                                 
                             }
                         }
+
                     }))
                     alert.addAction(UIAlertAction(title: "Cancel", style: .default , handler: nil))
                     
@@ -135,3 +140,22 @@ extension PaymentViewController : PKPaymentAuthorizationViewControllerDelegate {
     }
 }
 
+
+extension PaymentViewController{
+    func renderView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.shoppingCartVM?.getMyCartDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                print("draft not nil")
+                self.myDraftOrder = draftOrders?[0]
+                self.shoppingCartVM?.delDraft(draftId: self.myDraftOrder?.id ?? 0)
+            }
+        }
+    }
+    
+    func deleteMyDraft(){
+        shoppingCartVM?.getAllDrafts()
+        shoppingCartVM?.bindingAllDrafts = {() in self.renderView()}
+    }
+        
+}

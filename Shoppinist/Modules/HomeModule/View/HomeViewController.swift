@@ -7,12 +7,10 @@
 
 import UIKit
 import Lottie
-//struct BrandModel{
-//    var brandName: String
-//    var brandImage: String
-//}
+
 class HomeViewController: UIViewController {
     @IBOutlet weak var favButtonRight: UIBarButtonItem!
+    @IBOutlet weak var cartButtonRight: UIBarButtonItem!
     @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
@@ -34,6 +32,10 @@ class HomeViewController: UIViewController {
     var favViewModel : DraftViewModel?
     var draft : Drafts? = Drafts()
     var productsList : [LineItem]?
+    var myCartDraftOrder : DrafOrder?
+    var cartViewModel : ShoppingCartViewModel?
+    var cartDraft : Drafts? = Drafts()
+    var productsListCart : [LineItem]?
     
     override func viewWillAppear( _ animated: Bool){
         
@@ -42,42 +44,20 @@ class HomeViewController: UIViewController {
         favViewModel = DraftViewModel()
         favViewModel?.getAllDrafts()
         favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
+        //Cart Logic
+        productsListCart = [LineItem]()
+        cartViewModel = ShoppingCartViewModel()
+        cartViewModel?.getAllDrafts()
+        cartViewModel?.bindingAllDrafts = {() in self.renderCartView()}
         
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            DispatchQueue.main.async {
-                self.cartArray = self.shoppingCartVM.cartList
-            }
-        }
-        getData()
-        let rightBarButton = self.navigationItem.rightBarButtonItem
-        let count = cartArray?.count ?? 0
-        
-        rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
+
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
     }
     
-    func getData(){
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            self.renderViewCart()
-            
-        }
-    }
-    func renderViewCart(){
-        DispatchQueue.main.async {
-            
-            self.cartArray = self.shoppingCartVM.cartList
-          
-           
-            }
-   
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
         NoData.isHidden = true
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -122,7 +102,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == brandsCollectionView{
             if searching == true{
-                return searchBrands.count 
+                return searchBrands.count
 
             }else{
                 return brandsList?.smartCollections?.count ?? 0
@@ -235,6 +215,16 @@ extension HomeViewController{
                 self.productsList = draftOrders?[0].lineItems
                 self.favButtonRight.addBadge(text: "\(String(describing: self.productsList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
                 
+            }
+        }
+    }
+    func renderCartView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.cartViewModel?.getMyCartDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                self.myCartDraftOrder = draftOrders?[0]
+                self.productsListCart = draftOrders?[0].lineItems
+                self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
             }
         }
     }

@@ -42,15 +42,15 @@ class MeViewController: UIViewController {
     }
     
     func getData(){
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            self.renderView()
-        }
+//        shoppingCartVM.getShoppingCart()
+//        shoppingCartVM.bindingCart = {
+//            self.renderView()
+//        }
     }
     func renderView(){
-        DispatchQueue.main.async {
-            self.cartArray = self.shoppingCartVM.cartList
-        }
+//        DispatchQueue.main.async {
+//            self.cartArray = self.shoppingCartVM.cartList
+//        }
     }
 
     @IBAction func seeMoreOrdersButton(_ sender: Any) {
@@ -76,12 +76,12 @@ class MeViewController: UIViewController {
     
     override func viewWillAppear( _ animated: Bool){
 
-        shoppingCartVM.getShoppingCart()
-        shoppingCartVM.bindingCart = {
-            DispatchQueue.main.async {
-                self.cartArray = self.shoppingCartVM.cartList
-            }
-        }
+//        shoppingCartVM.getShoppingCart()
+//        shoppingCartVM.bindingCart = {
+//            DispatchQueue.main.async {
+//                self.cartArray = self.shoppingCartVM.cartList
+//            }
+//        }
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
 

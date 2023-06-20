@@ -774,6 +774,7 @@
                         <outlet property="CouponsCollectionView" destination="baC-Du-Yi0" id="eZC-qy-tmJ"/>
                         <outlet property="NoData" destination="YXX-3R-Lyw" id="Ekl-H8-lZm"/>
                         <outlet property="brandsCollectionView" destination="7bI-l4-8JN" id="Qjc-yz-3He"/>
+                        <outlet property="cartButtonRight" destination="bd2-Eg-yfe" id="MUJ-f1-WdR"/>
                         <outlet property="favButtonRight" destination="DEJ-jm-vf1" id="nYn-Nv-6yv"/>
                         <outlet property="pageControl" destination="b3g-vz-ZAK" id="AzJ-Pt-30a"/>
                         <outlet property="searchBar" destination="aJ0-HX-dTf" id="zlF-mT-IrK"/>
@@ -952,6 +953,7 @@
                         <outlet property="favButtonRight" destination="hPw-b0-Lio" id="aMP-9F-ldC"/>
                         <outlet property="noData" destination="x7L-F4-x7w" id="zun-bX-db2"/>
                         <outlet property="searchBar" destination="ims-5p-XvG" id="mtZ-U4-A7D"/>
+                        <outlet property="shoppingRightItem" destination="c4c-SY-aBL" id="Qwm-GN-5hF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQQ-hw-HET" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
