@@ -63,7 +63,15 @@ class ShoppingCardViewController: UIViewController {
             if draftOrders != nil && draftOrders?.count != 0{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
-                self.subTotalPrice.text = self.myDraftOrder?.subtotalPrice
+                if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                    let cur = (UserDefaults.standard.double(forKey: "EGP"))
+                    let price = floor((Double(self.myDraftOrder?.subtotalPrice ?? "0.0") ?? 0.0) * cur)
+                    self.subTotalPrice.text = "\(String(price)) EGP"
+
+                }else{
+                    self.subTotalPrice.text = "\(self.myDraftOrder?.subtotalPrice ?? "") $"
+                    
+                }
                 self.productsList = draftOrders?[0].lineItems
                 self.cardTableView.reloadData()
             }else{
@@ -176,6 +184,25 @@ extension ShoppingCardViewController: UITableViewDataSource ,UITableViewDelegate
 }
 
 extension ShoppingCardViewController: CartCellDelegate{
+    func renderTotalPrice() {
+        shoppingCartVM?.getAllDrafts()
+        shoppingCartVM?.bindingAllDrafts = {
+            DispatchQueue.main.async {
+                let draftOrders = self.shoppingCartVM?.getMyCartDraft()
+                let totalDraft = draftOrders?[0]
+                if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+                    let cur = (UserDefaults.standard.double(forKey: "EGP"))
+                    let price = floor((Double(totalDraft?.subtotalPrice ?? "0.0") ?? 0.0) * cur)
+                    self.subTotalPrice.text = "\(String(price)) EGP"
+
+                }else{
+                    self.subTotalPrice.text = "\(totalDraft?.subtotalPrice ?? "") $"
+                    
+                }
+            }
+        }
+    }
+    
     func startAnimating() {
         self.view.isUserInteractionEnabled = false
         activityIndicator.center = view.center

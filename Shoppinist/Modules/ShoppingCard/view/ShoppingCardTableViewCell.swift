@@ -11,6 +11,7 @@ protocol CartCellDelegate: AnyObject{
     func showToast(message: String)
     func startAnimating()
     func stopAnimating()
+    func renderTotalPrice()
 }
 
 class ShoppingCardTableViewCell: UITableViewCell {
@@ -49,9 +50,18 @@ class ShoppingCardTableViewCell: UITableViewCell {
         }else{
             decreseItem.isEnabled = true
         }
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            let cur = (UserDefaults.standard.double(forKey: "EGP"))
+            let price = floor((Double(lineItem?.price ?? "0.0") ?? 0.0) * cur)
+            self.priceButton.text = "\(String(price)) EGP"
+
+        }else{
+            self.priceButton.text = "\(lineItem?.price ?? "") $"
+            
+        }
+        
         cartVM = ShoppingCartViewModel()
         var unwrappedImage : String = ""
-        priceButton.text = lineItem?.price
         let myString = lineItem?.sku ?? ""
         print("myString\(myString)")
         let myArray = myString.split(separator: ",")
@@ -93,6 +103,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
                     DispatchQueue.main.async {
                         if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
                             self?.delegate?.stopAnimating()
+                            self?.delegate?.renderTotalPrice()
                         }else{
                             self?.delegate?.stopAnimating()
                         }
@@ -132,6 +143,7 @@ class ShoppingCardTableViewCell: UITableViewCell {
                     DispatchQueue.main.async {
                         if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
                             self?.delegate?.stopAnimating()
+                            self?.delegate?.renderTotalPrice()
                         }else{
                             self?.delegate?.stopAnimating()
                         }
