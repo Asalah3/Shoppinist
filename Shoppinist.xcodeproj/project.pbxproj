@@ -69,6 +69,10 @@
 		C9CF17192A2E140900C5F723 /* OrderModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF17182A2E140900C5F723 /* OrderModuleViewModel.swift */; };
 		C9CF171B2A2E197200C5F723 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9CF171A2A2E197200C5F723 /* Order.storyboard */; };
 		C9D20F042A3E11AA00E06030 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D20F032A3E11AA00E06030 /* SplashViewModel.swift */; };
+		C9E4E7662A4254AD001B7B93 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C9E4E7652A4254AD001B7B93 /* FirebaseAnalytics */; };
+		C9E4E7682A4254AD001B7B93 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C9E4E7672A4254AD001B7B93 /* FirebaseAuth */; };
+		C9E4E76A2A4254AD001B7B93 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C9E4E7692A4254AD001B7B93 /* FirebaseCrashlytics */; };
+		C9E4E76C2A4254AD001B7B93 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C9E4E76B2A4254AD001B7B93 /* FirebaseRemoteConfig */; };
 		C9EE42E12A38968600F91FA9 /* BrandProductsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE42E02A38968600F91FA9 /* BrandProductsRemoteDataSource.swift */; };
 		C9EE42E42A38987900F91FA9 /* CategoriesNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE42E32A38987900F91FA9 /* CategoriesNetworkLayer.swift */; };
 		CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591C8E38B0EB944B4CF55CA /* Pods_Shoppinist.framework */; };
@@ -333,9 +337,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB02FD012A39B963002C0505 /* NVActivityIndicatorViewExtended in Frameworks */,
+				C9E4E7682A4254AD001B7B93 /* FirebaseAuth in Frameworks */,
 				DB02FCFF2A39B963002C0505 /* NVActivityIndicatorView in Frameworks */,
+				C9E4E76A2A4254AD001B7B93 /* FirebaseCrashlytics in Frameworks */,
 				DB02FD042A39BC39002C0505 /* BadgeSwift in Frameworks */,
+				C9E4E7662A4254AD001B7B93 /* FirebaseAnalytics in Frameworks */,
 				CB6F6533280A42DD5F4991A6 /* Pods_Shoppinist.framework in Frameworks */,
+				C9E4E76C2A4254AD001B7B93 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1355,6 +1363,10 @@
 				DB02FCFE2A39B963002C0505 /* NVActivityIndicatorView */,
 				DB02FD002A39B963002C0505 /* NVActivityIndicatorViewExtended */,
 				DB02FD032A39BC39002C0505 /* BadgeSwift */,
+				C9E4E7652A4254AD001B7B93 /* FirebaseAnalytics */,
+				C9E4E7672A4254AD001B7B93 /* FirebaseAuth */,
+				C9E4E7692A4254AD001B7B93 /* FirebaseCrashlytics */,
+				C9E4E76B2A4254AD001B7B93 /* FirebaseRemoteConfig */,
 			);
 			productName = Shoppinist;
 			productReference = C98726122A27CF0900EB0A40 /* Shoppinist.app */;
@@ -1434,6 +1446,7 @@
 			packageReferences = (
 				DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				DB02FD022A39BC39002C0505 /* XCRemoteSwiftPackageReference "swift-badge" */,
+				C9E4E7642A4254AD001B7B93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C98726132A27CF0900EB0A40 /* Products */;
 			projectDirPath = "";
@@ -2065,6 +2078,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C9E4E7642A4254AD001B7B93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
@@ -2084,6 +2105,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C9E4E7652A4254AD001B7B93 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9E4E7642A4254AD001B7B93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C9E4E7672A4254AD001B7B93 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9E4E7642A4254AD001B7B93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C9E4E7692A4254AD001B7B93 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9E4E7642A4254AD001B7B93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		C9E4E76B2A4254AD001B7B93 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9E4E7642A4254AD001B7B93 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
 		DB02FCFE2A39B963002C0505 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DB02FCFD2A39B963002C0505 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
