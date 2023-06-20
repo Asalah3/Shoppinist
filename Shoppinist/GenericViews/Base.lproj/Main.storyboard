@@ -999,8 +999,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ecY-wb-oNh">
+
+                                <rect key="frame" x="20" y="114" width="68" height="49.666666666666671"/>
+                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+
                                 <rect key="frame" x="20" y="114" width="68" height="49.666666666666686"/>
                                 <color key="tintColor" name="move"/>
+
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asalah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sK-h1-Gym">
                                 <rect key="frame" x="113" y="113" width="270" height="51"/>
@@ -1261,6 +1266,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="cartButtonRight" destination="8pQ-jZ-453" id="WRy-XW-Yvl"/>
                         <outlet property="customerName" destination="2sK-h1-Gym" id="QRB-3d-ToF"/>
                         <outlet property="favouritesTableView" destination="3Tb-k7-ZPZ" id="l6Z-T7-Erw"/>
                         <outlet property="ordersTableView" destination="xGP-q0-7f4" id="T64-Bj-npX"/>
