@@ -37,7 +37,7 @@
                                     <constraint firstItem="Fu8-PC-UAa" firstAttribute="top" secondItem="e2B-OT-ZQG" secondAttribute="top" constant="116" id="wZz-T7-dAe"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-dw-yeX">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-dw-yeX">
                                 <rect key="frame" x="25" y="293.33333333333331" width="342" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Dkr-0M-uXu"/>
@@ -74,26 +74,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5p-50-z2p">
-                                <rect key="frame" x="225" y="246.00000000000003" width="142" height="39.333333333333343"/>
-                                <color key="tintColor" name="move"/>
-                                <menu key="menu" id="B0C-E7-397">
-                                    <menuOptions key="menuOptions" displayInline="YES"/>
-                                    <children>
-                                        <command title="Item 1" id="YxL-35-Bd8"/>
-                                        <command title="Item 2" id="2IT-yn-LJs"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button" image="list.star" catalog="system">
-                                    <color key="titleColor" name="move"/>
-                                    <color key="titleShadowColor" name="move"/>
-                                </state>
-                                <buttonConfiguration key="configuration" style="gray" title="Button">
-                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                    <color key="baseForegroundColor" name="move"/>
-                                    <color key="baseBackgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBw-Ae-ndk">
                                 <rect key="frame" x="70" y="676.33333333333337" width="252" height="51"/>
                                 <constraints>
@@ -110,6 +90,25 @@
                                     <action selector="addNewAddressButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ui5-3D-LfN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5p-50-z2p">
+                                <rect key="frame" x="162" y="210" width="178" height="39"/>
+                                <color key="tintColor" name="move"/>
+                                <menu key="menu" id="B0C-E7-397">
+                                    <menuOptions key="menuOptions" displayInline="YES"/>
+                                    <children>
+                                        <command title="Item 1" id="YxL-35-Bd8"/>
+                                        <command title="Item 2" id="2IT-yn-LJs"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button" image="list.star" catalog="system">
+                                    <color key="titleColor" name="move"/>
+                                    <color key="titleShadowColor" name="move"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                    <color key="baseForegroundColor" name="move"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -117,11 +116,11 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tD4-A0-dSd" secondAttribute="trailing" constant="26" id="1Cu-Cj-NkW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7pi-dw-yeX" secondAttribute="trailing" constant="26" id="20H-kx-j1F"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qBw-Ae-ndk" secondAttribute="trailing" constant="71" id="3kZ-WN-Olm"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="C5p-50-z2p" secondAttribute="trailing" constant="26" id="94t-2g-d1R"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="C5p-50-z2p" secondAttribute="trailing" constant="53" id="94t-2g-d1R"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TJD-Yb-XHc" secondAttribute="trailing" constant="26" id="Fza-Mr-Jm7"/>
                             <constraint firstItem="tD4-A0-dSd" firstAttribute="top" secondItem="J6O-WF-7RN" secondAttribute="bottom" constant="49.333333333333258" id="GHQ-Ps-3J2"/>
                             <constraint firstItem="tD4-A0-dSd" firstAttribute="height" secondItem="J6O-WF-7RN" secondAttribute="height" id="HKw-Y6-SxB"/>
-                            <constraint firstItem="C5p-50-z2p" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="225" id="MN4-sD-RQR"/>
+                            <constraint firstItem="C5p-50-z2p" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="162" id="MN4-sD-RQR"/>
                             <constraint firstItem="J6O-WF-7RN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="Nwu-Mh-UE6"/>
                             <constraint firstItem="e2B-OT-ZQG" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.262911" constant="-22.000171999999992" id="NyC-zh-sen"/>
                             <constraint firstItem="TJD-Yb-XHc" firstAttribute="width" secondItem="7pi-dw-yeX" secondAttribute="width" id="Qls-db-RhB"/>
@@ -135,10 +134,10 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J6O-WF-7RN" secondAttribute="trailing" constant="26" id="dWe-1g-ASi"/>
                             <constraint firstItem="TJD-Yb-XHc" firstAttribute="top" secondItem="7pi-dw-yeX" secondAttribute="bottom" constant="33" id="dv7-2u-kdS"/>
                             <constraint firstItem="tD4-A0-dSd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="eAO-d2-YBf"/>
-                            <constraint firstItem="C5p-50-z2p" firstAttribute="top" secondItem="e2B-OT-ZQG" secondAttribute="bottom" constant="44" id="fI8-bB-qj5"/>
+                            <constraint firstItem="C5p-50-z2p" firstAttribute="top" secondItem="e2B-OT-ZQG" secondAttribute="bottom" constant="8" id="fI8-bB-qj5"/>
                             <constraint firstItem="qBw-Ae-ndk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="fxv-r4-Epz"/>
                             <constraint firstItem="tD4-A0-dSd" firstAttribute="width" secondItem="J6O-WF-7RN" secondAttribute="width" id="fyg-Ir-d2G"/>
-                            <constraint firstItem="7pi-dw-yeX" firstAttribute="top" secondItem="C5p-50-z2p" secondAttribute="bottom" constant="8" id="nOO-IU-mWe"/>
+                            <constraint firstItem="7pi-dw-yeX" firstAttribute="top" secondItem="C5p-50-z2p" secondAttribute="bottom" constant="44.333333333333314" id="nOO-IU-mWe"/>
                             <constraint firstItem="e2B-OT-ZQG" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="z8F-Pz-eeA"/>
                         </constraints>
                     </view>

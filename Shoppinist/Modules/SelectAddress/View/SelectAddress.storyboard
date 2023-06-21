@@ -405,8 +405,11 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                             <color key="baseBackgroundColor" name="move"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="processedToConfirm:" destination="AeT-Hg-MxX" eventType="touchUpInside" id="gAJ-3q-gWh"/>
+                                        </connections>
                                     </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="B2F-i0-12j">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B2F-i0-12j">
                                         <rect key="frame" x="27" y="415.66666666666669" width="360" height="90.666666666666686"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
@@ -483,6 +486,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="YuX-9a-3TH"/>
+                    <connections>
+                        <outlet property="paymentSegment" destination="B2F-i0-12j" id="1lR-Va-s4r"/>
+                        <outlet property="price" destination="NcD-Kr-bZF" id="9fs-BB-mBD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bR-8l-ZQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
