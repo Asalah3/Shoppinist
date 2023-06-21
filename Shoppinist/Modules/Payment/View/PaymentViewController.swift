@@ -22,18 +22,18 @@ class PaymentViewController: UIViewController {
 
     @IBOutlet weak var price: UILabel!
     private var paymentRequest : PKPaymentRequest = {
-      let request = PKPaymentRequest()
+        let request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.com.pushpendra.pay"
         request.supportedNetworks = [.quicPay, .masterCard, .visa]
         request.supportedCountries = ["EG", "US"]
         request.merchantCapabilities = .capability3DS
         request.countryCode = "EG"
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-         request.currencyCode = "EGP"
-     } else {
-         request.currencyCode = "US"
-       }
-        request.currencyCode = "USD"
+            request.currencyCode = "EGP"
+        } else {
+            request.currencyCode = "USD"
+        }
+        //        request.currencyCode = "USD"
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shoppinist", amount: NSDecimalNumber(value: UserDefaults.standard.integer(forKey: "final")))]
         return request
     }()
@@ -44,7 +44,7 @@ class PaymentViewController: UIViewController {
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             price.text = " \(UserDefaults.standard.integer(forKey: "final")) EGP"
         }else{
-            price.text = " \(UserDefaults.standard.integer(forKey: "final")) US"
+            price.text = " \(UserDefaults.standard.integer(forKey: "final")) USD"
         }
         
         shoppingCartVM = ShoppingCartViewModel()

@@ -27,7 +27,8 @@ class ProductOrderTableViewCell: UITableViewCell {
         self.containerView.layer.borderWidth = 1
         self.containerView.layer.cornerRadius = 25
         self.containerView.layer.borderColor = UIColor.systemGray.cgColor
-        
+        self.productImage.clipsToBounds = true
+        self.productImage.layer.cornerRadius = 25
         let myString = lineItem.sku ?? ""
         let myArray = myString.split(separator: ",")
         let img = String(myArray[1])
