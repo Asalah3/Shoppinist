@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController {
     override func viewWillAppear( _ animated: Bool){
         if flag == true{
             self.navigationItem.setHidesBackButton(true, animated: true)
+            self.tabBarController?.tabBar.isHidden = true
         }
     }
     

@@ -18,7 +18,7 @@ class AddNewAddressViewController: UIViewController {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var countryTextField: UITextField!
-    
+    var defaultAddress: Bool?
     var ViewModel : AddAddressviewModel?
     var newAddress : Address?
     
@@ -177,6 +177,7 @@ class AddNewAddressViewController: UIViewController {
                 newAddress?.phone = phoneTextField.text
                 newAddress?.city = cityTextField.text
                 guard let address = newAddress else { return }
+                newAddress?.default = defaultAddress
                 ViewModel?.CreateAddress(createAddress : address)
                 self.showDone(title: "Congrats", message: "You added a new address")
             }

@@ -171,11 +171,12 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             }else{
                 let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
-                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                    let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
-                                    self.navigationController?.pushViewController(viewController, animated: true)
-                                }
-                                Utilites.displayAlert(title: "You must Sign up", message: "You must Sign up?", action: confirmAction, controller: self )
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+                    viewController.flag = true
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+                Utilites.displayAlert(title: "You must Sign up", message: "You must Sign up?", action: confirmAction, controller: self )
             }
         }else{
             let confirmAction = UIAlertAction(title: "OK", style: .default)
@@ -214,8 +215,13 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                     }
                 }
             }else{
-                let confirmAction = UIAlertAction(title: "OK", style: .default)
-                Utilites.displayAlert(title: "Warrning", message: "you must Sign Up", action: confirmAction, controller: self)
+                let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+                    viewController.flag = true
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+                Utilites.displayAlert(title: "You must Sign up", message: "You must Sign up?", action: confirmAction, controller: self )
             }
         }else{
             let confirmAction = UIAlertAction(title: "OK", style: .default)

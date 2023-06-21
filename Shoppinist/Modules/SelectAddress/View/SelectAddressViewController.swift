@@ -99,7 +99,12 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     @IBAction func addNewAddressButton(_ sender: Any) {
         
         let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddress") as! AddNewAddressViewController
-    
+        if customerAddressTable?.addresses?.count == nil || customerAddressTable?.addresses?.count == 0 {
+            addresVC.defaultAddress = true
+        }else{
+            addresVC.defaultAddress = false
+        }
+
         self.navigationController?.pushViewController(addresVC, animated: true)
     }
     

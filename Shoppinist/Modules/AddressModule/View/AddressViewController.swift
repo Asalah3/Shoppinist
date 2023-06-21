@@ -126,7 +126,11 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
 
     @IBAction func addNewaddress(_ sender: Any) {
         let AddNewAddress = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddress") as! AddNewAddressViewController
-        
+        if customerAddressTable?.addresses?.count == nil || customerAddressTable?.addresses?.count == 0 {
+            AddNewAddress.defaultAddress = true
+        }else{
+            AddNewAddress.defaultAddress = false
+        }
         navigationController?.pushViewController(AddNewAddress, animated: true)
         
         
