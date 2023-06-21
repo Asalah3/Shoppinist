@@ -41,7 +41,7 @@ class PaymentViewController: UIViewController {
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             price.text = "\(UserDefaults.standard.integer(forKey: "final")) EGP"
         }else{
-            price.text = " \(UserDefaults.standard.integer(forKey: "final")) USD"
+            price.text = " \(UserDefaults.standard.integer(forKey: "final")) $"
         }
     }
     override func viewDidLoad() {

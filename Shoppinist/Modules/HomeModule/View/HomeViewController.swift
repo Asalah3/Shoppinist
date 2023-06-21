@@ -40,27 +40,17 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear( _ animated: Bool){
         if UserDefaults.standard.bool(forKey: "Dark"){
-            
             appDelegate?.overrideUserInterfaceStyle = .dark
-
         }
         else{
-           
             appDelegate?.overrideUserInterfaceStyle = .light
-
         }
-        //Favourites Logic
-        productsList = [LineItem]()
-        favViewModel = DraftViewModel()
-        favViewModel?.getAllDrafts()
-        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
+        
         //Cart Logic
         productsListCart = [LineItem]()
         cartViewModel = ShoppingCartViewModel()
         cartViewModel?.getAllDrafts()
         cartViewModel?.bindingAllDrafts = {() in self.renderCartView()}
-        
-
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
@@ -224,7 +214,9 @@ extension HomeViewController{
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
                 self.favButtonRight.addBadge(text: "\(String(describing: self.productsList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
-                
+            }
+            else{
+                self.favButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -10, y: 0))
             }
         }
     }
@@ -235,6 +227,9 @@ extension HomeViewController{
                 self.myCartDraftOrder = draftOrders?[0]
                 self.productsListCart = draftOrders?[0].lineItems
                 self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+            }
+            else{
+                self.cartButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -10, y: 0))
             }
         }
     }

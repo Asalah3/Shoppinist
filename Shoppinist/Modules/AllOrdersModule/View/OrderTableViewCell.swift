@@ -23,9 +23,13 @@ class OrderTableViewCell: UITableViewCell {
 
     }
     func setUpCell(order: Order) {
-        self.orderCreationDate.text = order.createdAt
+        
+        let myString = order.createdAt ?? ""
+        let myArray = myString.split(separator: "T")
+        let date = String(myArray[0])
+        self.orderCreationDate.text = date
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-            var cur = (UserDefaults.standard.double(forKey: "EGP"))
+            let cur = (UserDefaults.standard.double(forKey: "EGP"))
            
             self.orderTotalPrice.text = "\((Float(order.note ?? "0.0") ?? 0.0) * Float(cur)) EGP"
         }else{

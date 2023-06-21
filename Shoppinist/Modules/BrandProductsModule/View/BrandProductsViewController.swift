@@ -13,7 +13,7 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var NoData: AnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsCollectionView: UICollectionView!
-    
+    @IBOutlet weak var cartButtonRight: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderRange: UILabel!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
@@ -32,16 +32,13 @@ class BrandProductsViewController: UIViewController {
     var myDraftOrder : DrafOrder?
     var draft : Drafts? = Drafts()
     var productList : [LineItem]?
-    
+    var myCartDraftOrder : DrafOrder?
+    var cartViewModel : ShoppingCartViewModel?
+    var cartDraft : Drafts? = Drafts()
+    var productsListCart : [LineItem]?
     override func viewWillAppear(_ animated: Bool) {
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
-            
-            //Favourites Logic
-            productList = [LineItem]()
-            favViewModel = DraftViewModel()
-            favViewModel?.getAllDrafts()
-            favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
         }
     }
     override func viewDidLoad() {
@@ -219,16 +216,3 @@ extension BrandProductsViewController: MyCustomCellDelegate{
     
 }
 
-extension BrandProductsViewController{
-    func renderFavView(){
-        DispatchQueue.main.async {
-            let draftOrders = self.favViewModel?.getMyFavouriteDraft()
-            if draftOrders != nil && draftOrders?.count != 0{
-                self.myDraftOrder = draftOrders?[0]
-                self.productList = draftOrders?[0].lineItems
-                print("myfavlist\(String(describing: self.productsList?.count ?? 0))")
-                self.favButtonRight.addBadge(text: "\(String(describing: self.productsList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
-            }
-        }
-    }
-}
