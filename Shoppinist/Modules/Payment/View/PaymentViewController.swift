@@ -101,7 +101,11 @@ class PaymentViewController: UIViewController {
 
 extension PaymentViewController : PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion:{
+            if let navigationController = self.navigationController {
+                navigationController.popToRootViewController(animated: true)
+            }
+        })
 
     }
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePayment payment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
@@ -145,9 +149,7 @@ extension PaymentViewController{
             if draftOrders != nil && draftOrders?.count != 0{
                 self.myDraftOrder = draftOrders?[0]
                 self.shoppingCartVM?.delDraft(draftId: self.myDraftOrder?.id ?? 0)
-                if let navigationController = self.navigationController {
-                    navigationController.popToRootViewController(animated: true)
-                }
+               
             }
         }
     }

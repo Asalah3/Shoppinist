@@ -469,7 +469,7 @@
 		04086F1D5CC2DC655575FE8C36D1046F /* UIView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCache.h"; path = "SDWebImage/Core/UIView+WebCache.h"; sourceTree = "<group>"; };
 		04AFB792D8031EFB99F1442DAA0B1AC6 /* UIImage+ExtendedCacheData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ExtendedCacheData.m"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.m"; sourceTree = "<group>"; };
 		04F29DE792FC53A7498DB198F19B767D /* SDImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoder.h; path = SDWebImage/Core/SDImageCoder.h; sourceTree = "<group>"; };
-		0516215E4C1D5AFF1335EA311FE9BC8B /* Pods_Shoppinist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppinist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0516215E4C1D5AFF1335EA311FE9BC8B /* Pods-Shoppinist */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Shoppinist"; path = Pods_Shoppinist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FF53B46C1F038BC53F8D5B43D7A87 /* JJCircleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JJCircleView.swift; path = Sources/JJCircleView.swift; sourceTree = "<group>"; };
 		05807687FAF54CDB71E69E499F48FA8A /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cosmos; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -716,7 +716,7 @@
 		9BC1CD339867D371117BB920B17E2ADA /* CosmosText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosText.swift; path = Cosmos/CosmosText.swift; sourceTree = "<group>"; };
 		9BE862BC7851A7B1CB217993C77AF220 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/Core/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		9D39B2555D66C6CA8D236FD832DB37EA /* JJFloatingActionButton+Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JJFloatingActionButton+Animation.swift"; path = "Sources/JJFloatingActionButton+Animation.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DAC2FBFF6A365EE7341A04592D32CC6 /* LayerTransformNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerTransformNode.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/LayerTransformNode.swift"; sourceTree = "<group>"; };
 		9F839B3977480C05479F9D50F6123E48 /* ReachabilitySwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-umbrella.h"; sourceTree = "<group>"; };
 		A0A30438C4B023843744515123409C0D /* AnyNodeProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyNodeProperty.swift; path = "lottie-swift/src/Private/NodeRenderSystem/NodeProperties/Protocols/AnyNodeProperty.swift"; sourceTree = "<group>"; };
@@ -1206,6 +1206,7 @@
 				161AD1A1B11B20548B26A8798EA0EEC6 /* Validation.swift */,
 				485754F69FB960739DC87AEAE4327DD1 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1227,6 +1228,7 @@
 				14571F09B2698FFB78F54E636C8CB324 /* UIView+JJFloatingActionButton.swift */,
 				5077050B32B9B2F58BD004ED78B4A44B /* Support Files */,
 			);
+			name = JJFloatingActionButton;
 			path = JJFloatingActionButton;
 			sourceTree = "<group>";
 		};
@@ -1236,6 +1238,7 @@
 				3F34007A1260C2F3B2BFCBF8ED032481 /* Core */,
 				A3B7CD0CB41935B87E6201A50D6DF9D4 /* Support Files */,
 			);
+			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1259,6 +1262,7 @@
 				05DF857A695B64A43D7363B159A60676 /* StarLayer.swift */,
 				F30A7B1C2BF0641259E803CA7EAD268D /* Support Files */,
 			);
+			name = Cosmos;
 			path = Cosmos;
 			sourceTree = "<group>";
 		};
@@ -1337,7 +1341,7 @@
 				05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */,
 				B39ECB203814E0B477049873DBEA123C /* JJFloatingActionButton */,
 				51BA97E8B5085EFFB47BC9C0B785CEA7 /* lottie-ios */,
-				0516215E4C1D5AFF1335EA311FE9BC8B /* Pods_Shoppinist.framework */,
+				0516215E4C1D5AFF1335EA311FE9BC8B /* Pods-Shoppinist */,
 				B1000D3ED8F977A42940085E73AE9CDA /* Pods-Shoppinist-ShoppinistUITests */,
 				8E82CC444181F4B2B5C2E8108C898738 /* Pods-ShoppinistTests */,
 				21B03CA622E690725A6626C088E1D09F /* ReachabilitySwift */,
@@ -1363,6 +1367,7 @@
 				0322F51432B4B92BA31A5E6C87984673 /* Reachability.swift */,
 				4642D7BDF46553E57F35DDAD0C976F46 /* Support Files */,
 			);
+			name = ReachabilitySwift;
 			path = ReachabilitySwift;
 			sourceTree = "<group>";
 		};
@@ -1501,6 +1506,7 @@
 				8EA22E47793A200253CE0479666E4167 /* VectorsExtensions.swift */,
 				3A66BFD405303C4DCE473BDBEB92A067 /* Support Files */,
 			);
+			name = "lottie-ios";
 			path = "lottie-ios";
 			sourceTree = "<group>";
 		};
@@ -1824,7 +1830,7 @@
 			);
 			name = "Pods-Shoppinist";
 			productName = Pods_Shoppinist;
-			productReference = 0516215E4C1D5AFF1335EA311FE9BC8B /* Pods_Shoppinist.framework */;
+			productReference = 0516215E4C1D5AFF1335EA311FE9BC8B /* Pods-Shoppinist */;
 			productType = "com.apple.product-type.framework";
 		};
 		E109C6B6B466F202BA0B94E76B45D72B /* JJFloatingActionButton */ = {
