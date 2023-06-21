@@ -12,7 +12,7 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
     @IBOutlet weak var modeSwitch: UISwitch!
     @IBOutlet weak var modeLabel: UILabel!
     let reachability = try! Reachability()
-    
+    weak var delegate : MyCustomCellDelegate?
     let appDelegate = UIApplication.shared.windows.first
     
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us" , "Logout"]
@@ -78,7 +78,12 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
             cell.accessoryType = .disclosureIndicator
         case 4:
             cell.imageView?.image=UIImage(systemName: "lock")
-            cell.textLabel?.text=SettingsArr[indexPath.row]
+            if UserDefaults.standard.integer(forKey:"customerID") != 0{
+                
+                cell.textLabel?.text=SettingsArr[indexPath.row]
+            }else{
+                cell.textLabel?.text = "SignUp"
+            }
             cell.imageView?.tintColor = .label
             cell.accessoryType = .disclosureIndicator
             
@@ -97,8 +102,17 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
     case .wifi , .cellular:
         switch (indexPath.row){
         case 0:
-            let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
-            navigationController?.pushViewController(addressVC, animated: true)
+            if UserDefaults.standard.integer(forKey:"customerID") != 0{
+                let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+                navigationController?.pushViewController(addressVC, animated: true)
+            }else{
+                let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+                                    self.navigationController?.pushViewController(viewController, animated: true)
+                                }
+                                Utilites.displayAlert(title: "You must Sign up", message: "You must Sign up?", action: confirmAction, controller: self )
+            }
         case 1 :
              let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
              
@@ -137,7 +151,13 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
                     navigationController?.setNavigationBarHidden(true ,animated: false)
                 }
     }
-   
+    func showAlert(title: String , message: String){
+        let alert = UIAlertController(title: title ,message : message
+                                      , preferredStyle: .alert)
+        let OkAction = UIAlertAction(title: "OK", style: .destructive)
+        alert.addAction(OkAction)
+        self.present(alert, animated: true)
+    }
 
     @IBAction func modeButton(_ sender: UISwitch) {
         
