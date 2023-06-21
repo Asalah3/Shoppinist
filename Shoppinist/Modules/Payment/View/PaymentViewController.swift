@@ -37,23 +37,19 @@ class PaymentViewController: UIViewController {
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shoppinist", amount: NSDecimalNumber(value: UserDefaults.standard.integer(forKey: "final")))]
         return request
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-            price.text = " \(UserDefaults.standard.integer(forKey: "final")) EGP"
+            price.text = "\(UserDefaults.standard.integer(forKey: "final")) EGP"
         }else{
             price.text = " \(UserDefaults.standard.integer(forKey: "final")) USD"
         }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         shoppingCartVM = ShoppingCartViewModel()
-
         remoteDataSource = OrderRemoteDataSource()
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
-        
-   
-        
     }
     func Payment(){
         let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
@@ -90,30 +86,30 @@ class PaymentViewController: UIViewController {
     
     @IBAction func processedToConfirm(_ sender: Any) {
         if  self.paymentSegment.selectedSegmentIndex == 0{
-                    if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-                        if UserDefaults.standard.integer(forKey: "final") > 5000
-                        {
-                            showAlert(title: "Stop" , message: "your total price greater than 5000EGP")
-                        }
-                        else{
-                            placeOrder()
-                        }
-                    }
-                    if UserDefaults.standard.string(forKey: "Currency") != "EGP" {
-                        if UserDefaults.standard.integer(forKey: "final") > 1000
-                        {
-                            showAlert(title: "Stop" , message: "your total price greater than 1000$")
-                        }
-                        else{
-                            placeOrder()
-                        }
-                    }
-
-                }else{
+            if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                if UserDefaults.standard.integer(forKey: "final") > 5000
+                {
+                    showAlert(title: "Stop" , message: "your total price greater than 5000EGP")
+                }
+                else{
                     placeOrder()
                 }
+            }
+            if UserDefaults.standard.string(forKey: "Currency") != "EGP" {
+                if UserDefaults.standard.integer(forKey: "final") > 1000
+                {
+                    showAlert(title: "Stop" , message: "your total price greater than 1000$")
+                }
+                else{
+                    placeOrder()
+                }
+            }
+            
+        }else if self.paymentSegment.selectedSegmentIndex == 1{
+            placeOrder()
+        }
     }
-  }
+}
 
 
 
