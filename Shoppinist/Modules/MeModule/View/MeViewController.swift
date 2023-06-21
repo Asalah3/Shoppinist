@@ -10,6 +10,7 @@ import NVActivityIndicatorView
 import BadgeSwift
 class MeViewController: UIViewController {
     
+    @IBOutlet weak var cartButtonRight: UIBarButtonItem!
     @IBOutlet weak var ordersTableView: UITableView!
     @IBOutlet weak var favouritesTableView: UITableView!
     @IBOutlet weak var customerName: UILabel!
@@ -25,9 +26,13 @@ class MeViewController: UIViewController {
     var idList = [String]()
     var productID : Int?
     let meStoryboard = UIStoryboard(name: "Order", bundle: nil)
+    var myCartDraftOrder : DrafOrder?
+    var cartViewModel : ShoppingCartViewModel?
+    var cartDraft : Drafts? = Drafts()
+    var productsListCart : [LineItem]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+     
         customerName.text = UserDefaults.standard.string(forKey:"customerFirsttName")
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
 //        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
@@ -41,17 +46,8 @@ class MeViewController: UIViewController {
         
     }
     
-    func getData(){
-//        shoppingCartVM.getShoppingCart()
-//        shoppingCartVM.bindingCart = {
-//            self.renderView()
-//        }
-    }
-    func renderView(){
-//        DispatchQueue.main.async {
-//            self.cartArray = self.shoppingCartVM.cartList
-//        }
-    }
+
+
 
     @IBAction func seeMoreOrdersButton(_ sender: Any) {
         
@@ -76,12 +72,12 @@ class MeViewController: UIViewController {
     
     override func viewWillAppear( _ animated: Bool){
 
-//        shoppingCartVM.getShoppingCart()
-//        shoppingCartVM.bindingCart = {
-//            DispatchQueue.main.async {
-//                self.cartArray = self.shoppingCartVM.cartList
-//            }
-//        }
+        productsListCart = [LineItem]()
+        cartViewModel = ShoppingCartViewModel()
+        cartViewModel?.getAllDrafts()
+        cartViewModel?.bindingAllDrafts = {() in self.renderCartView()}
+        
+        
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
 
@@ -90,11 +86,7 @@ class MeViewController: UIViewController {
         allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
         favViewModel?.getAllDrafts()
         favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
-        getData()
-        let rightBarButton = self.navigationItem.rightBarButtonItem
-        var count = cartArray?.count ?? 0
-
-        rightBarButton?.addBadge(text: "\(count)" , withOffset: CGPoint(x: -60, y: 0))
+        
       
     }
   
@@ -207,6 +199,16 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension MeViewController{
     
+    func renderCartView(){
+        DispatchQueue.main.async {
+            let draftOrders = self.cartViewModel?.getMyCartDraft()
+            if draftOrders != nil && draftOrders?.count != 0{
+                self.myCartDraftOrder = draftOrders?[0]
+                self.productsListCart = draftOrders?[0].lineItems
+                self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+            }
+        }
+    }
     func renderViewToNavigate(){
         DispatchQueue.main.async {
             
