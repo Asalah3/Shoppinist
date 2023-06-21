@@ -18,7 +18,10 @@ class OrderDetailsViewController: UIViewController {
     var order: Order?
     override func viewDidLoad() {
         super.viewDidLoad()
-        orderDate.text = order?.createdAt
+        let myString = order?.createdAt ?? ""
+        let myArray = myString.split(separator: "T")
+        let date = String(myArray[0])
+        orderDate.text = date
         if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
             var cur = (UserDefaults.standard.double(forKey: "EGP"))
            

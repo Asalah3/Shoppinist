@@ -145,7 +145,7 @@ extension ShoppingCardViewController: UITableViewDataSource ,UITableViewDelegate
                     }
                 }
             }
-            Utilites.displayAlert(title: "You are about to delete product!!", message: "Do you want to delete this product from favourite?", action: confirmAction, controller: self)
+            Utilites.displayAlert(title: "You are about to delete product!!", message: "Do you want to delete this product from Shopping Cart?", action: confirmAction, controller: self)
         }else{
             let confirmAction = UIAlertAction(title: "OK", style: .default)
             Utilites.displayAlert(title: "Check internet connection", message: "you are offline?", action: confirmAction, controller: self)
@@ -158,12 +158,12 @@ extension ShoppingCardViewController: UITableViewDataSource ,UITableViewDelegate
             print("view created")
             DispatchQueue.main.async {
                 if self?.shoppingCartVM?.ObservableDraftDelete  == 200{
-                    Utilites.displayToast(message: "deleted successfully", seconds: 2.0, controller: self ?? ShoppingCardViewController())
+                    Utilites.displayToast(message: "Product Delete From Cart succeessfully", seconds: 2.0, controller: self ?? ShoppingCardViewController())
                     self?.shoppingCartVM?.getAllDrafts()
 
                 }
                 else{
-                    Utilites.displayToast(message: "delete failed", seconds: 2.0, controller: self ?? ShoppingCardViewController())
+                    Utilites.displayToast(message: "Failed To Dalete The Product", seconds: 2.0, controller: self ?? ShoppingCardViewController())
                 }
             }
         }

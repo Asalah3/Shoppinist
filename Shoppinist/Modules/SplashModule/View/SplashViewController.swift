@@ -21,7 +21,6 @@ class SplashViewController: UIViewController {
             DispatchQueue.main.async {
                 let currency = Double(self?.ViewModel?.fetchCurrencyData?.rates.egp ?? "0") ?? 0.0
                 UserDefaults.standard.set(currency, forKey: "EGP")
-                print("EPG = \(UserDefaults.standard.double(forKey: "EGP"))")
             }
         }
         splashView.contentMode = .scaleAspectFit

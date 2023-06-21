@@ -24,7 +24,7 @@ class OrderModuleViewController: UIViewController {
     var price: Double?
     var activityIndicator: NVActivityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballClipRotatePulse,color: UIColor(named: "move"))
     override func viewWillAppear(_ animated: Bool) {
-        
+
         cartVM.getAllDrafts()
         cartVM.bindingAllDrafts = {() in self.renderView()}
         if Utilites.isConnectedToNetwork() == false{
@@ -90,7 +90,6 @@ extension OrderModuleViewController{
         DispatchQueue.main.async {
             let draftOrders = self.cartVM.getMyCartDraft()
             if draftOrders != nil && draftOrders.count != 0{
-                print("draft not nil")
                 self.activityIndicator.stopAnimating()
                 self.lineItems = draftOrders[0].lineItems
                 self.price = Double(draftOrders[0].subtotalPrice ?? "0")

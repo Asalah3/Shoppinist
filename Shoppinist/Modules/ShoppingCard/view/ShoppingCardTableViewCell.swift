@@ -91,15 +91,13 @@ class ShoppingCardTableViewCell: UITableViewCell {
                             self?.quantityLabel.text = "\((self?.cartDraft?.draftOrder?.lineItems?[i].quantity!)!)"
                             self?.decreseItem.isEnabled = true
                         }else{
-                            self?.delegate?.showToast(message: "Out of stock")
+                            self?.delegate?.showToast(message: "The Product is Out of stock")
                             self?.increaseItem.isEnabled = false
                         }
                     }
                 }
-                print("cartdraft\(self?.cartDraft)")
                 self?.cartVM?.updateDraft(updatedDraft: self?.cartDraft ?? Drafts())
                 self?.cartVM?.bindingDraftUpdate = { [weak self] in
-                    print("view createddd")
                     DispatchQueue.main.async {
                         if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
                             self?.delegate?.stopAnimating()
@@ -136,10 +134,8 @@ class ShoppingCardTableViewCell: UITableViewCell {
                         }
                     }
                 }
-                print("cartdraft\(self?.cartDraft)")
                 self?.cartVM?.updateDraft(updatedDraft: self?.cartDraft ?? Drafts())
                 self?.cartVM?.bindingDraftUpdate = { [weak self] in
-                    print("view createddd")
                     DispatchQueue.main.async {
                         if self?.cartVM?.ObservableDraftUpdate  == 200 || self?.cartVM?.ObservableDraftUpdate  == 201{
                             self?.delegate?.stopAnimating()

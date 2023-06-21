@@ -31,8 +31,8 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Address " textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrR-Y6-F6O">
-                                <rect key="frame" x="45" y="117" width="302" height="33"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
+                                <rect key="frame" x="45" y="117.00000000000001" width="302" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="26"/>
                                 <color key="textColor" name="move"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -45,7 +45,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-3Y-hJM">
-                                <rect key="frame" x="0.0" y="171" width="393" height="681"/>
+                                <rect key="frame" x="0.0" y="166.66666666666669" width="393" height="685.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectAddress" rowHeight="113" id="eNH-TJ-mbm" customClass="SelectAddressTableViewCell" customModule="Shoppinist" customModuleProvider="target">
@@ -55,58 +55,48 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2DJ-To-uR6">
-                                                    <rect key="frame" x="101" y="0.0" width="292" height="113"/>
-                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snD-ox-tY2">
-                                                    <rect key="frame" x="20" y="11" width="81" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="81" id="ZuO-lx-TjA"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="10" width="117" height="44"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                     <color key="textColor" name="move"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAz-Vb-Z62">
-                                                    <rect key="frame" x="115" y="11" width="251" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buw-3j-msG">
-                                                    <rect key="frame" x="20" y="61" width="65" height="22"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="65" id="o67-o3-uCE"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <rect key="frame" x="10" y="62" width="117" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                     <color key="textColor" name="move"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzA-68-w2S">
-                                                    <rect key="frame" x="108" y="56" width="251" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="132" y="60" width="241" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAz-Vb-Z62">
+                                                    <rect key="frame" x="132" y="11" width="251" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZAz-Vb-Z62" firstAttribute="top" secondItem="kWO-sn-Avc" secondAttribute="top" constant="11" id="4bU-aT-zcx"/>
-                                                <constraint firstItem="snD-ox-tY2" firstAttribute="top" secondItem="kWO-sn-Avc" secondAttribute="top" constant="11" id="5WH-Sj-f46"/>
-                                                <constraint firstItem="ZzA-68-w2S" firstAttribute="top" secondItem="ZAz-Vb-Z62" secondAttribute="bottom" constant="24" id="5Xl-gJ-p74"/>
-                                                <constraint firstItem="snD-ox-tY2" firstAttribute="leading" secondItem="kWO-sn-Avc" secondAttribute="leading" constant="20" symbolic="YES" id="D3Y-z3-gZ5"/>
-                                                <constraint firstItem="ZAz-Vb-Z62" firstAttribute="leading" secondItem="snD-ox-tY2" secondAttribute="trailing" constant="14" id="JZG-Ji-Dmz"/>
-                                                <constraint firstItem="buw-3j-msG" firstAttribute="top" secondItem="snD-ox-tY2" secondAttribute="bottom" constant="29" id="USP-cr-XbU"/>
-                                                <constraint firstItem="buw-3j-msG" firstAttribute="leading" secondItem="kWO-sn-Avc" secondAttribute="leading" constant="20" symbolic="YES" id="Wtn-f3-2PG"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZzA-68-w2S" secondAttribute="bottom" constant="30" id="YE3-fK-Wi1"/>
-                                                <constraint firstItem="2DJ-To-uR6" firstAttribute="top" secondItem="kWO-sn-Avc" secondAttribute="top" id="YST-fQ-Ja4"/>
-                                                <constraint firstItem="2DJ-To-uR6" firstAttribute="leading" secondItem="snD-ox-tY2" secondAttribute="trailing" id="aMI-NG-gPw"/>
-                                                <constraint firstItem="snD-ox-tY2" firstAttribute="centerY" secondItem="ZAz-Vb-Z62" secondAttribute="centerY" id="hti-fe-fAV"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZzA-68-w2S" secondAttribute="trailing" constant="34" id="kCv-F4-VfT"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZAz-Vb-Z62" secondAttribute="trailing" constant="27" id="kFF-l3-5rN"/>
-                                                <constraint firstItem="ZzA-68-w2S" firstAttribute="leading" secondItem="buw-3j-msG" secondAttribute="trailing" constant="23" id="thF-0d-UWc"/>
-                                                <constraint firstAttribute="trailing" secondItem="2DJ-To-uR6" secondAttribute="trailing" id="uB4-rT-2Nd"/>
-                                                <constraint firstAttribute="bottom" secondItem="2DJ-To-uR6" secondAttribute="bottom" id="vYv-qM-jnz"/>
-                                                <constraint firstAttribute="bottom" secondItem="buw-3j-msG" secondAttribute="bottom" constant="30" id="wer-UA-Gft"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZAz-Vb-Z62" secondAttribute="trailing" constant="10" id="0v7-KA-dV7"/>
+                                                <constraint firstItem="buw-3j-msG" firstAttribute="leading" secondItem="snD-ox-tY2" secondAttribute="leading" id="1hl-gV-hMU"/>
+                                                <constraint firstItem="ZzA-68-w2S" firstAttribute="leading" secondItem="buw-3j-msG" secondAttribute="trailing" constant="5" id="2L6-Ri-PwQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZzA-68-w2S" secondAttribute="trailing" constant="20" id="6oN-ap-5Mk"/>
+                                                <constraint firstItem="ZzA-68-w2S" firstAttribute="top" secondItem="ZAz-Vb-Z62" secondAttribute="bottom" constant="8" symbolic="YES" id="AZn-Oz-pE8"/>
+                                                <constraint firstItem="snD-ox-tY2" firstAttribute="leading" secondItem="kWO-sn-Avc" secondAttribute="leading" constant="10" id="Efj-MQ-Mum"/>
+                                                <constraint firstItem="snD-ox-tY2" firstAttribute="height" secondItem="kWO-sn-Avc" secondAttribute="height" multiplier="0.389381" id="FWK-Bq-aqe"/>
+                                                <constraint firstItem="ZAz-Vb-Z62" firstAttribute="top" secondItem="kWO-sn-Avc" secondAttribute="top" constant="11" id="Nlu-rH-hEe"/>
+                                                <constraint firstItem="ZAz-Vb-Z62" firstAttribute="leading" secondItem="snD-ox-tY2" secondAttribute="trailing" constant="5" id="OQd-Z3-qq5"/>
+                                                <constraint firstItem="ZAz-Vb-Z62" firstAttribute="height" secondItem="snD-ox-tY2" secondAttribute="height" constant="-3" id="RyZ-kN-VJG"/>
+                                                <constraint firstItem="buw-3j-msG" firstAttribute="width" secondItem="snD-ox-tY2" secondAttribute="width" id="Znb-s7-v8G"/>
+                                                <constraint firstItem="ZzA-68-w2S" firstAttribute="height" secondItem="buw-3j-msG" secondAttribute="height" id="fVD-pK-8Ed"/>
+                                                <constraint firstItem="buw-3j-msG" firstAttribute="height" secondItem="snD-ox-tY2" secondAttribute="height" multiplier="0.931818" id="gVL-Up-LXl"/>
+                                                <constraint firstItem="snD-ox-tY2" firstAttribute="width" secondItem="kWO-sn-Avc" secondAttribute="width" multiplier="0.29771" id="i83-g2-91l"/>
+                                                <constraint firstItem="buw-3j-msG" firstAttribute="top" secondItem="snD-ox-tY2" secondAttribute="bottom" constant="8" symbolic="YES" id="uEy-Vo-3Tr"/>
+                                                <constraint firstItem="snD-ox-tY2" firstAttribute="top" secondItem="kWO-sn-Avc" secondAttribute="top" constant="10" id="zsA-J5-l7i"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -187,13 +177,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZ8-iS-t7U">
                                                 <rect key="frame" x="10" y="0.0" width="157.33333333333334" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcK-6d-S9q">
                                                 <rect key="frame" x="167" y="0.0" width="216" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -216,13 +206,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTotal :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rq-6Z-cq4">
                                                 <rect key="frame" x="10" y="0.0" width="157.33333333333334" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugP-Uh-ZDw">
                                                 <rect key="frame" x="167" y="0.0" width="216" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -245,13 +235,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discount : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9F-R8-CZw">
                                                 <rect key="frame" x="10" y="0.0" width="157.33333333333334" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXC-kn-2dD">
                                                 <rect key="frame" x="167" y="0.0" width="216" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -275,13 +265,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Fees :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7b-oo-o8m">
                                                 <rect key="frame" x="10" y="0.0" width="157.33333333333334" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0Z-G0-7pk">
                                                 <rect key="frame" x="167" y="0.0" width="216" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -305,13 +295,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Total :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-nK-Q9u">
                                                 <rect key="frame" x="10" y="0.0" width="157.33333333333334" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-2o-dRA">
                                                 <rect key="frame" x="167" y="0.0" width="216" height="53.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -340,7 +330,7 @@
                                                     <backgroundConfiguration key="background" cornerRadius="50">
                                                         <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="placeOrderButton:" destination="gdU-Ut-OjB" eventType="touchUpInside" id="QCK-ou-Qa3"/>
@@ -399,7 +389,7 @@
                                 <color key="textColor" name="move"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                 </variation>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cash 1" translatesAutoresizingMaskIntoConstraints="NO" id="5Db-CU-jql">
@@ -415,31 +405,25 @@
                                     <segment title="COD"/>
                                     <segment title="ApplePay"/>
                                 </segments>
-                                <color key="selectedSegmentTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="choosePayment:" destination="Vd1-nx-BlD" eventType="valueChanged" id="VDL-9R-xCG"/>
-                                </connections>
+                                <color key="selectedSegmentTintColor" systemColor="systemGray2Color"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD4-fI-wW6">
                                 <rect key="frame" x="20" y="348" width="353" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" name="move"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay9-ki-md4">
                                 <rect key="frame" x="20" y="411" width="353" height="84"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-dj-gMK">
                                 <rect key="frame" x="43" y="523" width="310.66666666666669" height="51"/>
-                                <buttonConfiguration key="configuration" style="filled" title="process to Confirm" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="filled" title="Confirm Order" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                     <color key="baseBackgroundColor" name="move"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -503,6 +487,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

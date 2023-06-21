@@ -24,11 +24,9 @@ class BrandProductsRemoteDataSource :BrandProductsRemoteDataSourceProtocol{
             do{
                 let result = try JSONDecoder().decode(ProductModel.self, from: data ?? Data())
                 compilitionHandler(result)
-                print("sucsses ")
             } catch let error{
                 print(error)
                 compilitionHandler(nil)
-                print("fail ")
             }
         }
         task.resume()

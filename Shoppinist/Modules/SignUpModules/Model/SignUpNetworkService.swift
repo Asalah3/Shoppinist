@@ -44,7 +44,6 @@ class SignUpNetworkService : SignUpNetworkServiceProtocol{
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data ?? Data(),encoding: .utf8)
-                     print(response!)
                     complication(httpResponse.statusCode)
                     
                    }

@@ -19,8 +19,6 @@ class AllOrderRemoteDataSource: AllOrderRemoteDataSourceProtocol{
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
-                    let response = String(data:data!,encoding: .utf8)
-                    print(response!)
                     complication(httpResponse.statusCode)
                 }
             }
@@ -39,10 +37,8 @@ class AllOrderRemoteDataSource: AllOrderRemoteDataSourceProtocol{
             do{
                 let result = try JSONDecoder().decode(OrdersModel.self, from: data ?? Data())
                 completionHandeler(result)
-                print("success in getOrders")
             }catch let error{
                 print(error.localizedDescription)
-                print("error in getOrders")
                 completionHandeler(nil)
             }
         }

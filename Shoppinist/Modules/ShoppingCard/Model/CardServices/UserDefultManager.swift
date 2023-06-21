@@ -53,7 +53,7 @@ class UserDefaultsManager {
         UserDefaults.standard.set(totalPrice, forKey: "TotalPrice")
     }
     func getTotalPrice()-> Double{
-        return UserDefaults.standard.double(forKey: "TotalPrice") ?? 0.0
+        return UserDefaults.standard.double(forKey: "TotalPrice") 
     }
     func clearUserDefaults() {
             let domain = Bundle.main.bundleIdentifier!

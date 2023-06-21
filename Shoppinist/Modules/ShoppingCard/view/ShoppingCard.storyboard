@@ -42,7 +42,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wK-U0-SG9">
                                                     <rect key="frame" x="145" y="24" width="228" height="71"/>
-                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -66,13 +66,13 @@
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000.EG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kid-bc-xd7">
                                                     <rect key="frame" x="158" y="181" width="155" height="32"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="18"/>
                                                     <color key="textColor" systemColor="systemRedColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7D-Pd-eMV">
                                                     <rect key="frame" x="229" y="133" width="60" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <color key="highlightedColor" name="move"/>
                                                 </label>
@@ -120,55 +120,54 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dim-8e-hIf">
-                                <rect key="frame" x="16" y="656" width="85" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="649" width="112" height="47"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="18"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-Tk-LU5">
+                                <rect key="frame" x="136" y="649" width="237" height="47"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzo-fF-DSt">
-                                <rect key="frame" x="111" y="734" width="171" height="48"/>
+                                <rect key="frame" x="30" y="731" width="333" height="51"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="CheckOut">
+                                <buttonConfiguration key="configuration" style="plain" title="Processed To Buy">
                                     <backgroundConfiguration key="background" cornerRadius="50">
                                         <color key="backgroundColor" name="move"/>
                                     </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="CheckOutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3wV-52-PCa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-Tk-LU5">
-                                <rect key="frame" x="111" y="649" width="236" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="OQM-f4-AVz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="qzo-fF-DSt" secondAttribute="leading" id="1iD-zW-jd3"/>
-                            <constraint firstItem="qzo-fF-DSt" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.435115" id="43X-7R-OzW"/>
-                            <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="111" id="5Hg-1M-v0q"/>
-                            <constraint firstItem="qzo-fF-DSt" firstAttribute="top" secondItem="eJR-Tk-LU5" secondAttribute="bottom" constant="38" id="Caw-xw-HQ5"/>
+                            <constraint firstItem="qzo-fF-DSt" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.06" id="58m-MC-E2U"/>
+                            <constraint firstItem="qzo-fF-DSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="5Hg-1M-v0q"/>
+                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="height" secondItem="Dim-8e-hIf" secondAttribute="height" id="9bf-OI-ZUE"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="D0J-kc-Upu"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dim-8e-hIf" secondAttribute="bottom" constant="129" id="ELd-Xb-m8W"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ehu-Uq-2yr"/>
                             <constraint firstItem="Dim-8e-hIf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OKj-hc-KXY"/>
+                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="Dim-8e-hIf" secondAttribute="top" id="PII-GX-k53"/>
                             <constraint firstItem="YV9-gt-Dzu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qnv-sv-Ucp"/>
                             <constraint firstItem="WTY-h7-GiN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UCX-BE-pv9"/>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="top" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="38" id="WKO-3t-WwC"/>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="centerY" secondItem="Dim-8e-hIf" secondAttribute="centerY" id="cCR-81-0JW"/>
-                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="Dim-8e-hIf" secondAttribute="trailing" constant="10" id="cbS-So-OK6"/>
+                            <constraint firstItem="eJR-Tk-LU5" firstAttribute="leading" secondItem="Dim-8e-hIf" secondAttribute="trailing" constant="8" id="VgU-a3-Zdb"/>
+                            <constraint firstItem="Dim-8e-hIf" firstAttribute="top" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="38" id="bNF-sw-nQ6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YV9-gt-Dzu" secondAttribute="bottom" constant="207" id="gwy-aQ-UZK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WTY-h7-GiN" secondAttribute="trailing" id="hJg-gj-ep6"/>
+                            <constraint firstItem="Dim-8e-hIf" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.284987" id="iGc-4P-kVa"/>
                             <constraint firstItem="WTY-h7-GiN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="l53-dZ-TqT"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eJR-Tk-LU5" secondAttribute="trailing" constant="46" id="tGF-PY-1ZK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eJR-Tk-LU5" secondAttribute="trailing" constant="20" id="t5R-pO-SHX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qzo-fF-DSt" secondAttribute="trailing" constant="30" id="uXX-Gk-odG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qzo-fF-DSt" secondAttribute="bottom" constant="36" id="v7n-oo-mW6"/>
+                            <constraint firstItem="Dim-8e-hIf" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.0551643" id="wfb-sm-iUc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WTY-h7-GiN" secondAttribute="bottom" constant="20" id="zJY-IF-Dmb"/>
                         </constraints>
                     </view>
@@ -196,6 +195,9 @@
             <point key="canvasLocation" x="1557" y="-34"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="WTY-h7-GiN"/>
+    </designables>
     <resources>
         <image name="LoginImg" width="626" height="626"/>
         <image name="minus.circle" catalog="system" width="128" height="123"/>

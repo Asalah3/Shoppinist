@@ -190,6 +190,13 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
     func renderOrdersView(){
         DispatchQueue.main.async {
             self.ordersList = self.allOrdersViewModel?.fetchAllOrdersData ?? [Order]()
+            if self.ordersList.isEmpty{
+                self.noOrdersLabel.isHidden = false
+                self.ordersTableView.isHidden = true
+            }else{
+                self.noOrdersLabel.isHidden = true
+                self.ordersTableView.isHidden = false
+            }
             self.ordersTableView.reloadData()
         }
     }
@@ -212,6 +219,9 @@ extension MeViewController{
                 self.productsListCart = draftOrders?[0].lineItems
                 self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
             }
+            else{
+                self.cartButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -10, y: 0))
+            }
         }
     }
     func renderViewToNavigate(){
@@ -233,17 +243,11 @@ extension MeViewController{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
-                if self.productsList?.count == 0{
-                    self.noFavLabel.isHidden = false
-                    self.favouritesTableView.isHidden = true
-                }else{
-                    self.noFavLabel.isHidden = true
-                    self.favouritesTableView.isHidden = false
-                }
                 self.favouritesTableView.reloadData()
             }else{
                 self.productsList = nil
-                print("draft is nil")
+                self.noFavLabel.isHidden = false
+                self.favouritesTableView.isHidden = true
             }
         }
     }

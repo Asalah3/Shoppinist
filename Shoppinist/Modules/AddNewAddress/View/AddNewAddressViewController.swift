@@ -162,7 +162,6 @@ class AddNewAddressViewController: UIViewController {
                 AddressNetworkServices.editAddress(customerId: id, addressID: addressID, address: params) { [weak self] code in
                     self?.statusCode = code
                     if self?.statusCode == 200{
-                        print("edit successfully")
                     }else{
                         print(self?.statusCode?.description ?? "")
                     }

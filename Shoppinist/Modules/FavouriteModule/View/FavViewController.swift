@@ -123,11 +123,9 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
                 cell.productPrice.text = "\(productsList?[indexPath.row].price ?? "") $"
             }
             let myString = productsList?[indexPath.row].sku ?? ""
-            print("myString\(myString)")
             let myArray = myString.split(separator: ",")
             productID = Int(myArray[0]) ?? 0
             unwrappedImage = String(myArray[1])
-            print("unwrappedImage\(unwrappedImage)")
             productID = Int(productsList?[indexPath.row].sku ?? "") ?? 0
             cell.productName.text = productsList?[indexPath.row].title
         }
@@ -143,7 +141,6 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
         if Utilites.isConnectedToNetwork(){
             
             let myString = productsList?[indexPath.row].sku ?? ""
-            print("myString\(myString)")
             let myArray = myString.split(separator: ",")
             let productid = Int(myArray[0]) ?? 0
             favViewModel?.getProductDetails(productID: productid)
@@ -180,13 +177,11 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
         DispatchQueue.main.async {
             let draftOrders = self.favViewModel?.getMyFavouriteDraft()
             if draftOrders != nil && draftOrders?.count != 0{
-                print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
                 self.favTableView.reloadData()
             }else{
                 self.productsList = nil
-                print("draft is nil")
             }
             self.activityIndicator.stopAnimating()
             self.checkListCount()
@@ -219,15 +214,14 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
     func deleteMyDraft(){
         self.favViewModel?.delDraft(draftId: (myDraftOrder?.id)!)
         self.favViewModel?.bindingDraftDelete = { [weak self] in
-            print("view created")
             DispatchQueue.main.async {
                 if self?.favViewModel?.ObservableDraftDelete  == 200{
-                    Utilites.displayToast(message: "deleted successfully", seconds: 2.0, controller: self ?? ViewController())
+                    Utilites.displayToast(message: "The Product Deleted Successfully", seconds: 2.0, controller: self ?? ViewController())
                     self?.favViewModel?.getAllDrafts()
 
                 }
                 else{
-                    Utilites.displayToast(message: "delete failed", seconds: 2.0, controller: self ?? ViewController())
+                    Utilites.displayToast(message: "Failed To Delete The Product", seconds: 2.0, controller: self ?? ViewController())
                 }
             }
         }
@@ -236,20 +230,18 @@ extension FavViewController : UITableViewDelegate, UITableViewDataSource{
     
     func deleteItemFromMyDraft(index : Int){
         self.draft?.draftOrder = myDraftOrder
-        print("mydraftdraft\(String(describing: self.draft?.draftOrder?.lineItems))")
         let productId: String = "\((productsList?[index].sku)!)"
         self.draft?.draftOrder?.lineItems?.removeAll(where: { item in
             item.sku! == productId
         })
         self.favViewModel?.updateDraft(updatedDraft: (self.draft)!)
         self.favViewModel?.bindingDraftUpdate = { [weak self] in
-            print("view createddd")
             DispatchQueue.main.async {
                 if self?.favViewModel?.ObservableDraftUpdate  == 200 || self?.favViewModel?.ObservableDraftUpdate  == 201{
-                    Utilites.displayToast(message: "deleted successfully", seconds: 2.0, controller: self ?? ViewController())
+                    Utilites.displayToast(message: "The Product Deleted Successfully", seconds: 2.0, controller: self ?? ViewController())
                     self?.favViewModel?.getAllDrafts()
                 }else{
-                    Utilites.displayToast(message: "delete failed", seconds: 2.0, controller: self ?? ViewController())
+                    Utilites.displayToast(message: "Failed To Delete The Product", seconds: 2.0, controller: self ?? ViewController())
                 }
             }
         }

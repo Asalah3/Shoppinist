@@ -126,8 +126,6 @@ class ShoppingCartViewModel{
             for i in 0..<(observable.draftOrders?.count ?? 0){
                 if UserDefaults.standard.integer(forKey:"customerID") == observable.draftOrders?[i].customer?.id && observable.draftOrders?[i].note == "cart"{
                     for n in 0..<(observable.draftOrders?[i].lineItems?.count ?? 0){
-                        print("proID \(observable.draftOrders?[i].lineItems?[n].sku)")
-                        print("proId\(productID)")
                         let myString = observable.draftOrders?[i].lineItems?[n].sku ?? ""
                         let myArray = myString.split(separator: ",")
                         let productid = Int(myArray[0]) ?? 0

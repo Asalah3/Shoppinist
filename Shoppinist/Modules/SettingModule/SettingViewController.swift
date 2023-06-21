@@ -103,10 +103,10 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
              let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
              
              
-             alert.addAction(UIAlertAction(title: "EGP", style: .default ,handler: {  [weak self ] _ in
+             alert.addAction(UIAlertAction(title: "EGP", style: .default ,handler: { _ in
                  UserDefaults.standard.set("EGP", forKey: "Currency")
              }))
-            alert.addAction(UIAlertAction(title: "USD", style: .cancel ,handler: {  [weak self] _ in
+            alert.addAction(UIAlertAction(title: "USD", style: .cancel ,handler: { _ in
                 UserDefaults.standard.set("USD", forKey: "Currency")
             }))
              
@@ -136,7 +136,6 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
                     self.tabBarController!.tabBar.isHidden = true
                     navigationController?.setNavigationBarHidden(true ,animated: false)
                 }
-        print(UserDefaults.standard.string(forKey: "Currency"))
     }
    
 

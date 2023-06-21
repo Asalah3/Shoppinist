@@ -40,7 +40,7 @@ func setBadge(text: String?, withOffsetFromTopRight offset: CGPoint = CGPoint.ze
     addBadge(text: text!, withOffset: offset, andColor: color, andFilled: filled)
 }
 
- func addBadge(text: String, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.white, andFilled filled: Bool = true, andFontSize fontSize: CGFloat = 8)
+ func addBadge(text: String, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor(named: "move") ?? UIColor.white, andFilled filled: Bool = true, andFontSize fontSize: CGFloat = 8)
 {
     guard let view = self.value(forKey: "view") as? UIView else { return }
 
@@ -75,8 +75,8 @@ func setBadge(text: String?, withOffsetFromTopRight offset: CGPoint = CGPoint.ze
     label.font = font
     label.fontSize = font.pointSize
     label.frame = badgeFrame
-    label.foregroundColor = filled ? UIColor.black.cgColor : color.cgColor
     
+    label.foregroundColor = filled ? UIColor.white.cgColor : color.cgColor
     label.backgroundColor = UIColor.clear.cgColor
     label.contentsScale = UIScreen.main.scale
     badge.addSublayer(label)

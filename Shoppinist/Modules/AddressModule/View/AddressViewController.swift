@@ -84,7 +84,7 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
                     addressViewModel?.bindingStatusCode = { [weak self] code in
                         self?.statusCode = code
                         if self?.statusCode == 200{
-                            print("delete successfully")
+                            Utilites.displayToast(message: "The Address Deleted Successfully", seconds: 5, controller: AddressViewController())
                         }else{
                             print(self?.statusCode?.description ?? "")
                         }

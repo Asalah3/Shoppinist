@@ -22,11 +22,9 @@ class RemoteDataSource: RemoteDataSourceProtocol{
             do{
                 let result = try JSONDecoder().decode(CurrenyModel.self, from: data ?? Data())
                 compilitionHandler(result)
-                print("sucsses")
             } catch let error{
                 print(error)
                 compilitionHandler(nil)
-                print("fail ")
             }
         }
         task.resume()

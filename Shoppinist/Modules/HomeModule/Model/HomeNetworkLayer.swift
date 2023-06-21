@@ -24,11 +24,9 @@ class HomeRemoteDataSource : HomeRemoteDataSourceProtocol{
             do{
                 let result = try JSONDecoder().decode(BrandModel.self, from: data ?? Data())
                 compilitionHandler(result)
-                print("sucsses ")
             } catch let error{
                 print(error)
                 compilitionHandler(nil)
-                print("fail ")
             }
         }
         task.resume()
