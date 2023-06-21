@@ -9,6 +9,7 @@ import UIKit
 import Lottie
 
 class HomeViewController: UIViewController {
+    let appDelegate = UIApplication.shared.windows.first
     @IBOutlet weak var favButtonRight: UIBarButtonItem!
     @IBOutlet weak var cartButtonRight: UIBarButtonItem!
     @IBOutlet weak var NoData: AnimationView!
@@ -38,7 +39,16 @@ class HomeViewController: UIViewController {
     var productsListCart : [LineItem]?
     
     override func viewWillAppear( _ animated: Bool){
-        
+        if UserDefaults.standard.bool(forKey: "Dark"){
+            
+            appDelegate?.overrideUserInterfaceStyle = .dark
+
+        }
+        else{
+           
+            appDelegate?.overrideUserInterfaceStyle = .light
+
+        }
         //Favourites Logic
         productsList = [LineItem]()
         favViewModel = DraftViewModel()
