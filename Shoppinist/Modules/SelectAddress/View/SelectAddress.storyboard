@@ -436,7 +436,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-dj-gMK">
-                                <rect key="frame" x="43" y="523" width="310.66666666666669" height="62.666666666666629"/>
+                                <rect key="frame" x="43" y="523" width="310.66666666666669" height="51"/>
                                 <buttonConfiguration key="configuration" style="filled" title="process to Confirm" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
@@ -477,7 +477,7 @@
                             <constraint firstItem="qy9-cE-FWP" firstAttribute="top" secondItem="ERs-zQ-87U" secondAttribute="top" constant="20" id="pLG-27-A3a"/>
                             <constraint firstItem="ERs-zQ-87U" firstAttribute="trailing" secondItem="qy9-cE-FWP" secondAttribute="trailing" constant="43" id="pgY-y0-QLU"/>
                             <constraint firstItem="ERs-zQ-87U" firstAttribute="trailing" secondItem="DSq-wS-49k" secondAttribute="trailing" constant="16" id="qNR-fm-9TF"/>
-                            <constraint firstItem="wCf-dj-gMK" firstAttribute="height" secondItem="pia-T2-ujI" secondAttribute="height" multiplier="0.0735524" id="qSs-JN-8fL"/>
+                            <constraint firstItem="wCf-dj-gMK" firstAttribute="height" secondItem="pia-T2-ujI" secondAttribute="height" multiplier="0.06" id="qSs-JN-8fL"/>
                         </constraints>
                     </view>
                     <connections>

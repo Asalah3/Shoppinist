@@ -33,7 +33,7 @@ class PaymentViewController: UIViewController {
      } else {
          request.currencyCode = "US"
        }
-        request.currencyCode = "US"
+        request.currencyCode = "USD"
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shoppinist", amount: NSDecimalNumber(value: UserDefaults.standard.integer(forKey: "final")))]
         return request
     }()
