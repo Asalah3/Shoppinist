@@ -28,7 +28,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
        
     }
     override func viewWillAppear(_ animated: Bool) {
-        checkCartIsEmpty()
+        
         addressViewModel = AddressViewModel()
         addressViewModel?.getAddress()
         addressViewModel?.bindingGet = { [weak self] in
@@ -38,6 +38,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
                 self?.activityIndicator.stopAnimating()
             }
         }
+        checkCartIsEmpty()
     }
     func checkCartIsEmpty() {
      if customerAddressTable?.addresses?.count == 0{
