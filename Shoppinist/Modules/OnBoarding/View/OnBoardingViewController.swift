@@ -8,6 +8,7 @@
 import UIKit
 
 class OnBoardingViewController: UIViewController {
+    let appDelegate = UIApplication.shared.windows.first
     var slides : [OnBoardingSlide] = [
         OnBoardingSlide(title: "Order for Items", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: UIImage(named: "1")!),
         OnBoardingSlide(title: "Payment Process", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: UIImage(named: "2")!),
@@ -38,6 +39,16 @@ class OnBoardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "Dark"){
+            
+            appDelegate?.overrideUserInterfaceStyle = .dark
+
+        }
+        else{
+           
+            appDelegate?.overrideUserInterfaceStyle = .light
+
+        }
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
