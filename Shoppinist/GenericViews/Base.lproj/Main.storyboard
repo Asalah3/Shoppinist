@@ -619,7 +619,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="no-data-found"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJ0-HX-dTf">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aJ0-HX-dTf">
                                 <rect key="frame" x="0.0" y="99" width="393" height="56"/>
                                 <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -812,7 +812,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ims-5p-XvG">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ims-5p-XvG">
                                 <rect key="frame" x="0.0" y="103" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -999,13 +999,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ecY-wb-oNh">
-
                                 <rect key="frame" x="20" y="114" width="68" height="49.666666666666671"/>
-                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-
-                                <rect key="frame" x="20" y="114" width="68" height="49.666666666666686"/>
                                 <color key="tintColor" name="move"/>
-
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asalah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sK-h1-Gym">
                                 <rect key="frame" x="113" y="113" width="270" height="51"/>
@@ -1117,7 +1112,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7j-oy-K6o">
                                 <rect key="frame" x="292.66666666666669" y="184" width="84.333333333333314" height="32"/>
-                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="move"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More">
                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
@@ -1151,12 +1146,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-sg-zha">
-                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.666666666666664"/>
+                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-i2-Ukr">
-                                                    <rect key="frame" x="122" y="65.333333333333329" width="208" height="20"/>
+                                                    <rect key="frame" x="122" y="65" width="208" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1200,7 +1195,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKc-w7-xkA">
                                 <rect key="frame" x="292" y="400" width="84.333333333333314" height="32"/>
-                                <color key="tintColor" red="0.24106719209999999" green="0.1765423975" blue="0.32970913969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="move"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More">
                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -1297,6 +1292,11 @@
             <point key="canvasLocation" x="5614" y="1353"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="YXX-3R-Lyw"/>
+        <designable name="ty2-Zf-YPK"/>
+        <designable name="x7L-F4-x7w"/>
+    </designables>
     <color key="tintColor" name="move"/>
     <resources>
         <image name="1" width="2000" height="2000"/>

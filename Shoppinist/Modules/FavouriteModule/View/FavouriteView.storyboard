@@ -416,7 +416,7 @@
                                     <outlet property="delegate" destination="VpU-xQ-WuN" id="bla-zN-07K"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ss1-IK-kF8">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ss1-IK-kF8">
                                 <rect key="frame" x="0.0" y="79" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
