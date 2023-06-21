@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -52,13 +53,8 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 if self?.loginViewModel?.checkCustomerAuth(customerEmail: self?.loginEmail.text ?? "", customerPasssword: self?.loginPassword.text ?? "") == "Login Success" {
+                    self?.loginToFireBase(email: self?.loginEmail.text ?? "", password: self?.loginPassword.text ?? "")
                     
-                    let tabBar = self?.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
-                    tabBar?.modalTransitionStyle = .crossDissolve
-                    tabBar?.modalPresentationStyle = .fullScreen
-                    self?.present(tabBar!, animated: true)
-                    self?.getCartId()
-                                        
                 }
                 else if self?.loginViewModel?.checkCustomerAuth(customerEmail: self?.loginEmail.text ?? "", customerPasssword: self?.loginPassword.text ?? "") == "Uncorrect Email or Password"{
                     Utilites.displayToast(message: "Uncorrect Email or Password" , seconds: 2.0, controller: self ?? UIViewController())
@@ -81,16 +77,6 @@ class LoginViewController: UIViewController {
     }
 }
 
-
-extension LoginViewController {
-//    func renderCart() {
-//        DispatchQueue.main.async {
-//            self.cartcount = self.cartVM.cartResult!
-//        }
-//
-//    }
-    
-}
 extension LoginViewController {
     func getCartId()
     {
@@ -110,4 +96,25 @@ extension LoginViewController {
             
             
         })}
+}
+extension LoginViewController{
+    func loginToFireBase(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password, completion:{[weak self] result, error in
+            guard let strongSelf = self else{
+                return
+            }
+            guard error == nil else{
+                
+                
+                return
+            }
+            let tabBar = self?.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
+            tabBar?.modalTransitionStyle = .crossDissolve
+            tabBar?.modalPresentationStyle = .fullScreen
+            self?.present(tabBar!, animated: true)
+            self?.getCartId()
+        })
+    }
+    
+
 }
