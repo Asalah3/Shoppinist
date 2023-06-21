@@ -102,7 +102,7 @@ extension OrderModuleViewController{
                 }
                 let sub = self.checkCoupon(coupon: UserDefaultsManager.sharedInstance.getUserCoupon())
                 if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-                    var cur = (UserDefaults.standard.double(forKey: "EGP"))
+                    let cur = (UserDefaults.standard.double(forKey: "EGP"))
                     self.discountAmount.text = "\(Float(self.discount * Double(cur))) EPG"
                     let total = sub * Float(cur)
                     self.subTotal.text = "\(total) EPG"
