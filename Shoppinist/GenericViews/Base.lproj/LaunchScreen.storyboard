@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shoppinist" translatesAutoresizingMaskIntoConstraints="NO" id="Vcc-gK-oXl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shoppinist" translatesAutoresizingMaskIntoConstraints="NO" id="Vcc-gK-oXl">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BA1-f7-CFU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Vcc-gK-oXl" firstAttribute="top" secondItem="BA1-f7-CFU" secondAttribute="top" constant="-59" id="avS-im-E9P"/>
-                            <constraint firstItem="Vcc-gK-oXl" firstAttribute="leading" secondItem="BA1-f7-CFU" secondAttribute="leading" id="bEN-Gl-gbK"/>
-                            <constraint firstItem="BA1-f7-CFU" firstAttribute="bottom" secondItem="Vcc-gK-oXl" secondAttribute="bottom" constant="-34" id="mcN-mV-poC"/>
-                            <constraint firstItem="BA1-f7-CFU" firstAttribute="trailing" secondItem="Vcc-gK-oXl" secondAttribute="trailing" id="s44-D0-92q"/>
+                            <constraint firstAttribute="bottom" secondItem="Vcc-gK-oXl" secondAttribute="bottom" id="T94-hA-OQE"/>
+                            <constraint firstItem="Vcc-gK-oXl" firstAttribute="top" secondItem="DBn-43-LFN" secondAttribute="top" id="eSg-rS-swj"/>
+                            <constraint firstItem="Vcc-gK-oXl" firstAttribute="leading" secondItem="BA1-f7-CFU" secondAttribute="leading" id="egH-eQ-UHU"/>
+                            <constraint firstItem="Vcc-gK-oXl" firstAttribute="trailing" secondItem="BA1-f7-CFU" secondAttribute="trailing" id="zS8-H7-iZZ"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -406,9 +406,6 @@
                                     <segment title="ApplePay"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemGray2Color"/>
-                                <connections>
-                                    <action selector="choosePayment:" destination="Vd1-nx-BlD" eventType="valueChanged" id="VDL-9R-xCG"/>
-                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD4-fI-wW6">
                                 <rect key="frame" x="20" y="348" width="353" height="34"/>
@@ -477,6 +474,9 @@
             <point key="canvasLocation" x="3318" y="-2"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Q2C-Lo-aL8"/>
+    </designables>
     <resources>
         <image name="apple" width="720" height="576"/>
         <image name="cash 1" width="512" height="512"/>

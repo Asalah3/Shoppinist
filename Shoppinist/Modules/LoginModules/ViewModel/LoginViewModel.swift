@@ -42,7 +42,6 @@ class LoginViewModel{
                     UserDefaults.standard.set(observable.customers[i].id, forKey: "customerID")
                     
                     let userDefultId = UserDefaultsManager.sharedInstance.getUserID()
-                    print("User id is", userDefultId)
                     break
                 }
             }

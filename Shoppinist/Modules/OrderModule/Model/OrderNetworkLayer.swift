@@ -19,9 +19,6 @@ class OrderRemoteDataSource:OrderRemoteDataSourceProtocol{
         do {
             let userDictionary = try? order.asDictionary()
             let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary ?? [],options: .prettyPrinted)
-            
-            print(userDictionary)
-            print(bodyDictionary)
             urlRequest.httpBody = bodyDictionary
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         } catch let error {
@@ -31,7 +28,6 @@ class OrderRemoteDataSource:OrderRemoteDataSourceProtocol{
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data!,encoding: .utf8)
-                    print("Inserted")
                     complication(httpResponse.statusCode)
                 }
             }

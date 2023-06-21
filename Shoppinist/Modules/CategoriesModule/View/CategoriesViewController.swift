@@ -66,10 +66,8 @@ class CategoriesViewController: UIViewController {
         actionButton.buttonColor = UIColor(red: CGFloat(0.61), green: CGFloat(0.45), blue: CGFloat(0.84), alpha: CGFloat(1.0))
         actionButton.buttonImage = UIImage(named: "filter")
         actionButton.addItem(title: "All", image: UIImage(named: "all")?.withRenderingMode(.alwaysTemplate)) { item in
-          // do something
             self.searching = false
             self.searchBar.text = ""
-            print("all")
             self.isFiltered = false
             self.renderView()
         }
@@ -77,7 +75,6 @@ class CategoriesViewController: UIViewController {
           // do something
             self.searching = false
             self.searchBar.text = ""
-            print("Shoes")
             self.filterBySubFilters(filterType: "SHOES")
         }
 
@@ -85,15 +82,12 @@ class CategoriesViewController: UIViewController {
           // do something
             self.searching = false
             self.searchBar.text = ""
-            print("T-Shirt")
             self.filterBySubFilters(filterType: "T-SHIRTS")
         }
 
         actionButton.addItem(title: "Accessories", image: UIImage(named: "accessories")?.withRenderingMode(.alwaysTemplate)) { item in
-          // do something
             self.searching = false
             self.searchBar.text = ""
-            print("Socks")
             self.filterBySubFilters(filterType: "ACCESSORIES")
         }
         

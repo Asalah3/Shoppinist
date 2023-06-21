@@ -28,7 +28,7 @@ class CartNetwork: CartNetworkProtocol{
                     "quantity": 1,
                     "price": product.variants?[0].price ?? "20",
                     "sku": "\(product.id ?? 0),\((product.image?.src)!)",
-                    "grams": product.variants?.first?.inventory_quantity
+                    "grams": product.variants?.first?.inventory_quantity ?? 2
                     
                 ]
               ],
@@ -57,7 +57,6 @@ class CartNetwork: CartNetworkProtocol{
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data!,encoding: .utf8)
-                     print(response!)
                     complication(httpResponse.statusCode)
                     
                    }
@@ -84,7 +83,6 @@ class CartNetwork: CartNetworkProtocol{
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data!,encoding: .utf8)
-                     print(response!)
                     complication(httpResponse.statusCode)
                     
                    }
@@ -105,7 +103,6 @@ class CartNetwork: CartNetworkProtocol{
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data!,encoding: .utf8)
-                     print(response!)
                     complication(httpResponse.statusCode)
                     
                    }
@@ -127,7 +124,6 @@ class CartNetwork: CartNetworkProtocol{
             do{
                 let result = try JSONDecoder().decode(AllDrafts.self, from: data ?? Data())
                 completionHandeler(result, nil)
-                print("success in getDrafts")
                 print(result.draftOrders?.count ?? 0)
 
 

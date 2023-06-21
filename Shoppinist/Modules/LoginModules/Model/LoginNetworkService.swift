@@ -22,9 +22,6 @@ class LoginNetworkService : LoginNetworkServiceProtocol{
             do{
                 let result = try JSONDecoder().decode(AllLoginedCustomers.self, from: data ?? Data())
                 completionHandeler(result, nil)
-                print("success in login")
-
-
             }catch let error{
                 print(error.localizedDescription)
                 print("error in login")

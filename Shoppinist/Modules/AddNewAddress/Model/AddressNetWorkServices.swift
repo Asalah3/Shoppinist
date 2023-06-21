@@ -42,7 +42,6 @@ class AddressNetworkServices : AddressProtocol{
         URLSession.shared.dataTask(with: urlRequest) { (data , response, error) in
             if(data != nil && data?.count != 0) {
                 let response = String(data: data! , encoding: .utf8)
-                print( response!)
             }
             
         }.resume()
@@ -65,7 +64,6 @@ class AddressNetworkServices : AddressProtocol{
         URLSession.shared.dataTask(with: urlRequest) { (data , response, error) in
             if(data != nil && data?.count != 0) {
                 let response = String(data: data! , encoding: .utf8)
-                print( response!)
             }
             
         }.resume()
@@ -95,7 +93,6 @@ class AddressNetworkServices : AddressProtocol{
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data!,encoding: .utf8)
-                     print(response!)
                     complication(httpResponse.statusCode)
                     
                    }
@@ -110,14 +107,12 @@ class AddressNetworkServices : AddressProtocol{
         
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "DELETE"
-//        urlRequest.httpShouldHandleCookies = false
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
                     let response = String(data:data!,encoding: .utf8)
-                     print(response!)
                     complication(httpResponse.statusCode)
                     
                    }
@@ -139,9 +134,7 @@ class AddressNetworkServices : AddressProtocol{
             }else{
                 let json = try? JSONDecoder().decode(CustomerAddress.self, from: data!)
                 completion(json, nil)
-            }
-            
-                
+            }                
         }
         task.resume()
     }
