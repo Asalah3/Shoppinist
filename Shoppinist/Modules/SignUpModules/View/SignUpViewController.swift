@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
@@ -73,9 +74,7 @@ class SignUpViewController: UIViewController {
             DispatchQueue.main.async {
                                 
                 if self?.signViewModel?.ObservableSignUp  == 201{
-                    
-                    let loginViewController = self?.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                    self?.navigationController?.pushViewController(loginViewController, animated: true)
+                    self?.createFirebaseAccount()
                 }
                 else{
                     Utilites.displayToast(message: "This email was used before", seconds: 2.0, controller: self ?? UIViewController())
@@ -127,5 +126,26 @@ extension UITextField {
         }else{
             tappedImage?.image = UIImage(systemName: "eye")
         }
+    }
+}
+
+
+extension SignUpViewController{
+    func createFirebaseAccount(){
+        Auth.auth().createUser(withEmail: newCustomer?.email ?? "", password: newCustomer?.note ?? "", completion: {[weak self] result, error in
+            
+            guard let strongSelf = self else{
+                return
+            }
+            guard error == nil else{
+                return
+            }
+            strongSelf.navigateToLoginFirebase()
+        })
+    }
+    
+    func navigateToLoginFirebase(){
+        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(loginViewController, animated: true)
     }
 }
