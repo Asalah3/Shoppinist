@@ -10,6 +10,8 @@ import NVActivityIndicatorView
 import BadgeSwift
 class MeViewController: UIViewController {
     
+    @IBOutlet weak var noOrdersLabel: UILabel!
+    @IBOutlet weak var noFavLabel: UILabel!
     @IBOutlet weak var cartButtonRight: UIBarButtonItem!
     @IBOutlet weak var ordersTableView: UITableView!
     @IBOutlet weak var favouritesTableView: UITableView!
@@ -32,12 +34,12 @@ class MeViewController: UIViewController {
     var productsListCart : [LineItem]?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noOrdersLabel.isHidden = true
+        noFavLabel.isHidden = true
      
         customerName.text = UserDefaults.standard.string(forKey:"customerFirsttName")
         allOrdersViewModel = AllOrdersViewModel(remote: remoteDataSource ?? AllOrderRemoteDataSource())
-//        allOrdersViewModel?.fetchOrdersData(customerId: UserDefaultsManager.sharedInstance.getUserID() ?? 0)
-//        allOrdersViewModel?.fetchOrdersToAllOrdersViewController = {() in self.renderOrdersView()}
-        
         
         //Favourites Logic
         productsList = [LineItem]()
@@ -45,29 +47,22 @@ class MeViewController: UIViewController {
         
         
     }
-    
-
-
-
+   
     @IBAction func seeMoreOrdersButton(_ sender: Any) {
         
         let allOrdersViewController = meStoryboard.instantiateViewController(withIdentifier: "AllOrdersViewController") as? AllOrdersViewController
         self.navigationController?.pushViewController(allOrdersViewController ?? AllOrdersViewController(), animated: true)
     }
     @IBAction func seeMoreFavouritesButton(_ sender: Any) {
-//        let favViewController = self.storyboard?.instantiateViewController(withIdentifier: "FavViewController") as? FavViewController
-//        self.navigationController?.pushViewController(favViewController ?? FavViewController(), animated: true)
+
     }
     //ShoppingCard
     @IBAction func shoppingButton(_ sender: Any) {
-//        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShoppingCard") as! ShoppingCardViewController
-//
-//        navigationController?.pushViewController(cart, animated: true)
+
         
     }
     @IBAction func settingButton(_ sender: Any) {
-//        let setting = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
-//        navigationController?.pushViewController(setting, animated: true)
+
     }
     
     override func viewWillAppear( _ animated: Bool){
@@ -95,15 +90,25 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == ordersTableView{
             if ordersList.count == 0{
+                noOrdersLabel.isHidden = false
                 return 0
             }else{
+                noOrdersLabel.isHidden = true
                 return 1
             }
         }else{
             //Favourites Logic
-            if productsList?.count ?? 0 <= 2{
+            if productsList?.count == 0{
+                noFavLabel.isHidden = false
+                self.favouritesTableView.isHidden = true
+                return 0
+            }else if productsList?.count ?? 1 <= 2{
+                noFavLabel.isHidden = true
+                self.favouritesTableView.isHidden = false
                 return productsList?.count ?? 0
             }else{
+                noFavLabel.isHidden = true
+                self.favouritesTableView.isHidden = false
                 return 2
             }
         }
@@ -228,6 +233,13 @@ extension MeViewController{
                 print("draft not nil")
                 self.myDraftOrder = draftOrders?[0]
                 self.productsList = draftOrders?[0].lineItems
+                if self.productsList?.count == 0{
+                    self.noFavLabel.isHidden = false
+                    self.favouritesTableView.isHidden = true
+                }else{
+                    self.noFavLabel.isHidden = true
+                    self.favouritesTableView.isHidden = false
+                }
                 self.favouritesTableView.reloadData()
             }else{
                 self.productsList = nil

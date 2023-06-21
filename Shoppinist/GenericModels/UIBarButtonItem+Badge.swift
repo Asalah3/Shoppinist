@@ -74,9 +74,9 @@ func setBadge(text: String?, withOffsetFromTopRight offset: CGPoint = CGPoint.ze
     label.alignmentMode = CATextLayerAlignmentMode.center
     label.font = font
     label.fontSize = font.pointSize
-
     label.frame = badgeFrame
     label.foregroundColor = filled ? UIColor.black.cgColor : color.cgColor
+    
     label.backgroundColor = UIColor.clear.cgColor
     label.contentsScale = UIScreen.main.scale
     badge.addSublayer(label)
