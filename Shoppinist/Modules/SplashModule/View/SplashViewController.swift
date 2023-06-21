@@ -10,9 +10,11 @@ import Lottie
 
 class SplashViewController: UIViewController {
     var ViewModel: SplashViewModel!
+    let appDelegate = UIApplication.shared.windows.first
     @IBOutlet weak var splashView: AnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         ViewModel = SplashViewModel()
         ViewModel.changeCurrency()
         self.ViewModel?.fetchCurrencyToCell = { [weak self] in
@@ -27,7 +29,18 @@ class SplashViewController: UIViewController {
         splashView.play()
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(navigate), userInfo: nil, repeats: false)
     }
-    
+    override func viewWillAppear( _ animated: Bool){
+        if UserDefaults.standard.bool(forKey: "Dark"){
+            
+            appDelegate?.overrideUserInterfaceStyle = .dark
+            
+        }
+        else{
+            
+            appDelegate?.overrideUserInterfaceStyle = .light
+            
+        }
+    }
 
     @objc func navigate(){
         if UserDefaults.standard.hasOnboarded {
