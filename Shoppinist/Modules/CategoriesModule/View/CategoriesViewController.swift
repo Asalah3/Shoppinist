@@ -269,7 +269,8 @@ extension CategoriesViewController : UISearchBarDelegate{
 extension CategoriesViewController: MyCustomCellDelegate{
     func navigateToSign() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        viewController.flag = true
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

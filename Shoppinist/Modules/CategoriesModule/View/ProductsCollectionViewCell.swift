@@ -88,7 +88,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
                 self.delegate?.navigateToSign()
             }
-            self.delegate?.showAlert(title: "You must Sign up", message: "you are offline?", confirmAction: confirmAction)
+            self.delegate?.showAlert(title: "WarrningYou must Sign up", message: "You must Sign up", confirmAction: confirmAction)
         }
     }
     
