@@ -43,7 +43,11 @@ class CategoriesViewController: UIViewController {
   
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        //Favourites Logic
+        productList = [LineItem]()
+        favViewModel = DraftViewModel()
+        favViewModel?.getAllDrafts()
+        favViewModel?.bindingAllDrafts = {() in self.renderFavView()}
         //Cart Logic
         productsListCart = [LineItem]()
         cartViewModel = ShoppingCartViewModel()
@@ -287,10 +291,6 @@ extension CategoriesViewController{
             if draftOrders != nil && draftOrders?.count != 0{
                 self.myDraftOrder = draftOrders?[0]
                 self.productList = draftOrders?[0].lineItems
-                self.favButtonRight.addBadge(text: "\(String(describing: self.productList?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
-            }
-            else{
-                self.favButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -10, y: 0))
             }
         }
     }
