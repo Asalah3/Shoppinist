@@ -118,7 +118,7 @@
                                     <outlet property="delegate" destination="TeA-QY-08E" id="kl2-TN-JTZ"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkG-aI-0LM">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NkG-aI-0LM">
                                 <rect key="frame" x="0.0" y="108" width="393" height="56"/>
                                 <color key="tintColor" red="0.23921568630000001" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>

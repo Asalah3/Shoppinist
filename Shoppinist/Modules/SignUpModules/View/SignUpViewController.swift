@@ -79,11 +79,8 @@ class SignUpViewController: UIViewController {
                 else{
                     Utilites.displayToast(message: "This email was used before", seconds: 2.0, controller: self ?? UIViewController())
                 }
-                
             }
-            
         }
-        
     }
     
     @IBAction func navigateToLogin(_ sender: Any) {
@@ -140,6 +137,7 @@ extension SignUpViewController{
             guard error == nil else{
                 return
             }
+            strongSelf.sendVerificationLink()
             strongSelf.navigateToLoginFirebase()
         })
     }
@@ -147,5 +145,18 @@ extension SignUpViewController{
     func navigateToLoginFirebase(){
         let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(loginViewController, animated: true)
+    }
+    
+    func sendVerificationLink(){
+        if let user = Auth.auth().currentUser {
+            user.sendEmailVerification { error in
+                if let error = error {
+                    // Handle the error
+                    print("Error sending verification email: \(error.localizedDescription)")
+                } else {
+                    print("Verification email sent successfully")
+                }
+            }
+        }
     }
 }
