@@ -1205,6 +1205,20 @@
                                     <segue destination="jhd-Sw-01K" kind="push" id="Ex8-MV-bXC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No favourites yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5M-rm-ste">
+                                <rect key="frame" x="58" y="560" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No orders yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xao-M5-S9h">
+                                <rect key="frame" x="44" y="343" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lzu-mB-fAw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1264,6 +1278,8 @@
                         <outlet property="cartButtonRight" destination="8pQ-jZ-453" id="WRy-XW-Yvl"/>
                         <outlet property="customerName" destination="2sK-h1-Gym" id="QRB-3d-ToF"/>
                         <outlet property="favouritesTableView" destination="3Tb-k7-ZPZ" id="l6Z-T7-Erw"/>
+                        <outlet property="noFavLabel" destination="D5M-rm-ste" id="2Ka-4J-1Tq"/>
+                        <outlet property="noOrdersLabel" destination="Xao-M5-S9h" id="D4G-QK-lAX"/>
                         <outlet property="ordersTableView" destination="xGP-q0-7f4" id="T64-Bj-npX"/>
                     </connections>
                 </viewController>
@@ -1292,11 +1308,6 @@
             <point key="canvasLocation" x="5614" y="1353"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="YXX-3R-Lyw"/>
-        <designable name="ty2-Zf-YPK"/>
-        <designable name="x7L-F4-x7w"/>
-    </designables>
     <color key="tintColor" name="move"/>
     <resources>
         <image name="1" width="2000" height="2000"/>
