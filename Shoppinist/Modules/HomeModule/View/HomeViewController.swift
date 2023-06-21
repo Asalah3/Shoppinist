@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
         
-        couponArr = [coupon(img: UIImage(named: "10Offer")!, id: "10%offer") , coupon(img: UIImage(named: "20Offer")!, id: "20%offer") ,coupon(img: UIImage(named: "30Offer")!, id: "30%offer"),coupon(img: UIImage(named: "40Offer")!, id: "40%offer"),coupon(img: UIImage(named: "50Offer")!, id: "50%offer") ]
+        couponArr = [coupon(img: UIImage(named: "10Offer")!, id: "10% offer") , coupon(img: UIImage(named: "20Offer")!, id: "20% offer") ,coupon(img: UIImage(named: "30Offer")!, id: "30 %offer"),coupon(img: UIImage(named: "40Offer")!, id: "40% offer"),coupon(img: UIImage(named: "50Offer")!, id: "50% offer") ]
     }
     @objc func slideToNext(){
         if currentCellIndex < 4 {

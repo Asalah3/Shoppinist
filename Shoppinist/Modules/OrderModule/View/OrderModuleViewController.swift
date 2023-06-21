@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+import NVActivityIndicatorView
 class OrderModuleViewController: UIViewController {
-
+    
     @IBOutlet weak var coupon: UILabel!
     @IBOutlet weak var subTotal: UILabel!
     @IBOutlet weak var discountAmount: UILabel!
@@ -20,48 +20,28 @@ class OrderModuleViewController: UIViewController {
     var cartVM : ShoppingCartViewModel = ShoppingCartViewModel()
     var remoteDataSource: OrderRemoteDataSourceProtocol?
     var orderModuleViewModel: OrderModuleViewModelProtocol?
-    
+    var discount = 0.0
     var price: Double?
-    
-    
+    var activityIndicator: NVActivityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballClipRotatePulse,color: UIColor(named: "move"))
     override func viewWillAppear(_ animated: Bool) {
+        
         cartVM.getAllDrafts()
         cartVM.bindingAllDrafts = {() in self.renderView()}
-        
         if Utilites.isConnectedToNetwork() == false{
             Utilites.displayToast(message: "you are offline", seconds: 5, controller: self)
         }
     }
-
-    func checkCoupon(coupon: String) -> Float{
-        let price = self.price
-        var cur = 1.0
-        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
-            cur = (UserDefaults.standard.double(forKey: "EGP"))
-        }
-        switch coupon{
-        case "10%offer":
-            discountAmount.text = "\(((price ?? 0.0) * 0.10) * cur) "
-            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.10)))
-        case "20%offer":
-            discountAmount.text = "\(((price ?? 0.0) * 0.20) * cur)"
-            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.20)))
-        case "30%offer":
-            discountAmount.text = "\(((price ?? 0.0) * 0.30) * cur)"
-            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.30)))
-        case "40%offer":
-            discountAmount.text = "\(((price ?? 0.0) * 0.40) * cur)"
-            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.40)))
-        case "50%offer":
-            discountAmount.text = "\(((price ?? 0.0) * 0.50) * cur)"
-            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.40)))
-        default:
-            discountAmount.text = "\(0.0)"
-            return Float(((price ?? 0.0)))
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.widthAnchor.constraint(equalToConstant: 40),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 40),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        activityIndicator.startAnimating()
         remoteDataSource = OrderRemoteDataSource()
         orderModuleViewModel = OrderModuleViewModel(remote: remoteDataSource ?? OrderRemoteDataSource())
     }
@@ -74,16 +54,44 @@ class OrderModuleViewController: UIViewController {
         payementVC.order = PostOrdersModel(order: order)
         self.navigationController?.pushViewController(payementVC, animated: true)
     }
-    
-   
 }
 
+extension OrderModuleViewController{
+    func checkCoupon(coupon: String) -> Float{
+        let price = self.price
+        var cur = 1.0
+        if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
+            cur = (UserDefaults.standard.double(forKey: "EGP"))
+        }
+        switch coupon{
+        case "10% offer":
+            discount = (((price ?? 0.0) * 0.10) * cur)
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.10)))
+        case "20% offer":
+            discount = (((price ?? 0.0) * 0.20) * cur)
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.20)))
+        case "30% offer":
+            discount = (((price ?? 0.0) * 0.30) * cur)
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.30)))
+        case "40% offer":
+            discount = (((price ?? 0.0) * 0.40) * cur)
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.40)))
+        case "50% offer":
+            discount = (((price ?? 0.0) * 0.50) * cur)
+            return Float(((price ?? 0.0) - ( (price ?? 0.0) * 0.40)))
+        default:
+            discount = 0.0
+            return Float(((price ?? 0.0)))
+        }
+    }
+}
 extension OrderModuleViewController{
     func renderView(){
         DispatchQueue.main.async {
             let draftOrders = self.cartVM.getMyCartDraft()
             if draftOrders != nil && draftOrders.count != 0{
                 print("draft not nil")
+                self.activityIndicator.stopAnimating()
                 self.lineItems = draftOrders[0].lineItems
                 self.price = Double(draftOrders[0].subtotalPrice ?? "0")
                 let userCoupon = UserDefaultsManager.sharedInstance.getUserCoupon()
@@ -92,10 +100,10 @@ extension OrderModuleViewController{
                 }else{
                     self.coupon.text = "\(UserDefaultsManager.sharedInstance.getUserCoupon())"
                 }
-                
                 let sub = self.checkCoupon(coupon: UserDefaultsManager.sharedInstance.getUserCoupon())
                 if UserDefaults.standard.string(forKey:"Currency") == "EGP"{
                     var cur = (UserDefaults.standard.double(forKey: "EGP"))
+                    self.discountAmount.text = "\(Float(self.discount * Double(cur))) EPG"
                     let total = sub * Float(cur)
                     self.subTotal.text = "\(total) EPG"
                     let shipping = 10.0 * Float(cur)
@@ -103,14 +111,13 @@ extension OrderModuleViewController{
                     self.grandTotal.text = "\(total + shipping) EPG"
                     UserDefaults.standard.set((total + shipping), forKey: "final")
                 }else{
+                    self.discountAmount.text = "\(self.discount) $"
                     self.subTotal.text = "\(sub) $"
                     self.shippingFees.text = "10 $"
                     self.grandTotal.text = "\(sub + 10) $"
                     UserDefaults.standard.set(sub + 10, forKey: "final")
                 }
                 self.grand = sub + 10
-               
-                
                 print("grandTotal\( UserDefaults.standard.integer(forKey: "final"))")
             }else{
                 self.lineItems = nil
