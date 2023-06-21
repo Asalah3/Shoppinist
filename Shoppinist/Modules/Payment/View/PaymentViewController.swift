@@ -33,7 +33,7 @@ class PaymentViewController: UIViewController {
      } else {
          request.currencyCode = "US"
        }
-        request.currencyCode = "EGP"
+        request.currencyCode = "US"
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shoppinist", amount: NSDecimalNumber(value: UserDefaults.standard.integer(forKey: "final")))]
         return request
     }()
@@ -67,7 +67,18 @@ class PaymentViewController: UIViewController {
 
     @IBAction func choosePayment(_ sender: Any) {
         switch self.paymentSegment.selectedSegmentIndex{
-        case 0 :
+           case 0 :
+               if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                  if UserDefaults.standard.integer(forKey: "final") > 5000
+                   {
+                      showAlert(title: "Stop" , message: "your total price greater than 5000EGP")
+                  }
+               }else{
+                   if UserDefaults.standard.integer(forKey: "final") > 1000
+                    {
+                       showAlert(title: "Stop" , message: "your total price greater than 1000$")
+                   }
+               }
             Utilites.displayToast(message: "You Choose COD", seconds: 3, controller: PaymentViewController())
         case 1:
             self.Payment()
@@ -78,7 +89,29 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func processedToConfirm(_ sender: Any) {
-        placeOrder()
+        if  self.paymentSegment.selectedSegmentIndex == 0{
+                    if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                        if UserDefaults.standard.integer(forKey: "final") > 5000
+                        {
+                            showAlert(title: "Stop" , message: "your total price greater than 5000EGP")
+                        }
+                        else{
+                            placeOrder()
+                        }
+                    }
+                    if UserDefaults.standard.string(forKey: "Currency") != "EGP" {
+                        if UserDefaults.standard.integer(forKey: "final") > 1000
+                        {
+                            showAlert(title: "Stop" , message: "your total price greater than 1000$")
+                        }
+                        else{
+                            placeOrder()
+                        }
+                    }
+
+                }else{
+                    placeOrder()
+                }
     }
   }
 
