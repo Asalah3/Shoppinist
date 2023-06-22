@@ -16,11 +16,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signEmail: UITextField!
     @IBOutlet weak var signPassword: UITextField!
     @IBOutlet weak var signConfirmPassword: UITextField!
-    
+    var flag :Bool = false
     var signViewModel:SignViewModel?
     var newCustomer:Customer?
     var checkConfirmPassword :String?
     
+    override func viewWillAppear( _ animated: Bool){
+        if flag == true{
+            self.navigationItem.setHidesBackButton(true, animated: true)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

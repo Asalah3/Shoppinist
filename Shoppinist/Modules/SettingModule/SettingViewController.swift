@@ -21,7 +21,7 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         let reachability = note.object as! Reachability
     }
     override func viewWillAppear( _ animated: Bool){
-        
+       
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         do {
             try reachability.stopNotifier()
@@ -135,8 +135,16 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         case 4:
             UserDefaultsManager.sharedInstance.clearUserDefaults()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
-            self.navigationController?.pushViewController(viewController, animated: true)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
+            viewController.flag = true
+           self.navigationController?.pushViewController(viewController, animated: true)
+           
+            
+            
+//            let logOut = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+//            let navigationController = UINavigationController(rootViewController: logOut)
+//            navigationController.modalPresentationStyle = .fullScreen
+//            self.present(navigationController, animated: true)
             
         default:
             break
