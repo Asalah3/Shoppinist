@@ -52,3 +52,16 @@ customer.
 - Soha Ahmed
 
 <hr>
+
+splash 
+
+
+
+<img src="![splash](https://github.com/Asalah3/Shoppinist/assets/86933863/3e275a9b-abff-4c4e-8493-d0a7e14c95bf)" width=30% height=30%>
+
+onBorading
+
+
+<img src="![onBoarding1](https://github.com/Asalah3/Shoppinist/assets/86933863/62d71fe9-2fc7-422b-935e-247050bf17cf).jpg" width=30% height=30%>
+
+
