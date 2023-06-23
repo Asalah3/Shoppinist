@@ -96,5 +96,29 @@ Me
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/a0318750-73c9-4bed-851f-661b81560323.jpg" width=30% height=30%>
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/b7682ada-bd91-4193-bcb9-b83b2dcb2308.jpg" width=30% height=30%>
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/a21af941-e6a3-4f18-b32d-ef8c72b2024e.jpg" width=30% height=30%>
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/e8052fdf-a849-46d2-be1b-ae58930c827d.jpg" width=30% height=30%>
+
+Setting
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/3dd00749-9bcb-4f98-8b9e-ed0e17722ba9.jpg" width=30% height=30%>
+
+Shopping Cart
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/45938d91-05c5-4e42-983b-508aecf272b3.jpg" width=30% height=30%>
+
+Select Address
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/fc0c0b95-398f-4121-a944-2f918292adb2.jpg" width=30% height=30%>
+
+
+Place Order
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/742057b8-595d-4929-a6d2-8a3ce1829fb1.jpg" width=30% height=30%>
+
+
+Payment
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/b457f6f0-0f16-4df9-8613-84a7300f6248.jpg" width=30% height=30%>
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/bac484ef-3214-4f04-a4f2-f23f0e5af519.jpg" width=30% height=30%>
 
 
