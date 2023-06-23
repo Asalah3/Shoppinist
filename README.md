@@ -64,4 +64,8 @@ onBorading
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/62d71fe9-2fc7-422b-935e-247050bf17cf.jpg" width=30% height=30%>
 
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/448a65de-d8c3-4d90-a9aa-29b446b81f89.jpg" width=30% height=30%>
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/bc4d7d94-ccbc-4cfa-aaf8-5add0d751e53.jpg" width=30% height=30%>
+
 
