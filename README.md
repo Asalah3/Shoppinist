@@ -40,17 +40,29 @@ customer.
 - Lottie
   
 - SDWebImage
-  
+
+- Alamofire
+
+- Cosmos
+
+- Firebase
+
+- JJFloatingActionButton
+
+- BadgeSwift
+
 - Trello
   <hr>
 <h2>Contributors:</h2>
 
 - Esraa AbdElfatah Mahmoud
+ (Set2 : Cupons ,Shopping Cart , Payment ,Ads ,Setting)
 
 - Asalah Sayed
- 
-- Soha Ahmed
+ (Set1 : Brands , Caregories , Orders , Home Design)
 
+- Soha Ahmed
+(Set3 : Product info , Search , Favorites , Auth With varification email)
 <hr>
 
 <h2>splash</h2> 
