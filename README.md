@@ -80,7 +80,7 @@ Login
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/d4125f0a-b482-4172-b723-cb5b14f8f741.jpg" width=30% height=30%>
 
 Home
-
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/50a56c76-8e70-4d86-b234-bf2d1b77e9fe.jpg" width=30% height=30%>
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/0f6c826f-584b-497c-9a45-e3746fff908b.jpg" width=30% height=30%>
 
 Category
