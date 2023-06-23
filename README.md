@@ -86,7 +86,5 @@ Home
 Category
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/6c594ac1-abce-485d-9368-877df46a2370.jpg" width=30% height=30%>
-
-<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/4b1a8887-1fae-4bac-b468-46c22d3dcc53
-.jpg" width=30% height=30%>
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/4b1a8887-1fae-4bac-b468-46c22d3dcc53.jpg" width=30% height=30%>
 
