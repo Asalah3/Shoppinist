@@ -88,11 +88,14 @@ class PaymentViewController: UIViewController {
                 }
                 else{
                     placeOrder()
+                    
+                    
                 }
             }
             
         }else if self.paymentSegment.selectedSegmentIndex == 1{
             Payment()
+            
         }
     }
 }
@@ -149,6 +152,11 @@ extension PaymentViewController{
             if draftOrders != nil && draftOrders?.count != 0{
                 self.myDraftOrder = draftOrders?[0]
                 self.shoppingCartVM?.delDraft(draftId: self.myDraftOrder?.id ?? 0)
+                if self.paymentSegment.selectedSegmentIndex == 0{
+                    if let navigationController = self.navigationController {
+                        navigationController.popToRootViewController(animated: true)
+                    }
+                }
                
             }
         }
