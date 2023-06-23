@@ -79,4 +79,14 @@ Login
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/d4125f0a-b482-4172-b723-cb5b14f8f741.jpg" width=30% height=30%>
 
+Home
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/0f6c826f-584b-497c-9a45-e3746fff908b.jpg" width=30% height=30%>
+
+Category
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/6c594ac1-abce-485d-9368-877df46a2370.jpg" width=30% height=30%>
+
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/4b1a8887-1fae-4bac-b468-46c22d3dcc53
+.jpg" width=30% height=30%>
 
