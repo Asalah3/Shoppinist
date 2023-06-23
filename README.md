@@ -93,3 +93,8 @@ Category
 Me
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/2cb971a7-0c53-457b-b7b6-a4030828ce63.jpg" width=30% height=30%>
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/a0318750-73c9-4bed-851f-661b81560323.jpg" width=30% height=30%>
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/b7682ada-bd91-4193-bcb9-b83b2dcb2308.jpg" width=30% height=30%>
+<img src="https://github.com/Asalah3/Shoppinist/assets/86933863/a21af941-e6a3-4f18-b32d-ef8c72b2024e.jpg" width=30% height=30%>
+
+
