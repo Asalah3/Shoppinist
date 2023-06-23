@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
         brandsCollectionView.showsHorizontalScrollIndicator = false
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = view.center
-                activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
         remoteDataSource = HomeRemoteDataSource()
@@ -107,7 +107,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         if collectionView == brandsCollectionView{
             if searching == true{
                 return searchBrands.count
-
+                
             }else{
                 return brandsList?.smartCollections?.count ?? 0
             }
@@ -167,19 +167,28 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             let brandProductsViewController = storyboard.instantiateViewController(withIdentifier: "BrandProductsViewController") as! BrandProductsViewController
             if searching == true{
                 brandProductsViewController.brandId = searchBrands[indexPath.row].id ?? 0
-
             }else{
                 brandProductsViewController.brandId = brandsList?.smartCollections?[indexPath.row].id ?? 0
             }
             self.navigationController?.pushViewController(brandProductsViewController, animated: true)
         }
         else{
-            UIPasteboard.general.string = couponArr![indexPath.row].id
-        
-            Utilites.displayToast(message: "Congratulations! you get a \(couponArr![indexPath.row].id) " , seconds: 2.0, controller: self )
-            
-            UserDefaultsManager.sharedInstance.setUserCoupon(userCoupon: couponArr![indexPath.row].id)
-            print("user defult for coupon \(UserDefaultsManager.sharedInstance.getUserCoupon())")
+            if UserDefaults.standard.integer(forKey:"customerID") != 0{
+                UIPasteboard.general.string = couponArr![indexPath.row].id
+                Utilites.displayToast(message: "Congratulations! you get a \(couponArr![indexPath.row].id) " , seconds: 2.0, controller: self )
+                
+                UserDefaultsManager.sharedInstance.setUserCoupon(userCoupon: couponArr![indexPath.row].id)
+                print("user defult for coupon \(UserDefaultsManager.sharedInstance.getUserCoupon())")
+            }else{
+                
+                let confirmAction = UIAlertAction(title: "Sign up", style: .default){ action  in
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+                    viewController.flag = true
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+                Utilites.displayAlert(title: "You must Sign up", message: "You must Sign up?", action: confirmAction, controller: self )
+            }
         }
     }
 }
@@ -226,10 +235,10 @@ extension HomeViewController{
             if draftOrders != nil && draftOrders?.count != 0{
                 self.myCartDraftOrder = draftOrders?[0]
                 self.productsListCart = draftOrders?[0].lineItems
-                self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+                self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -5, y: 0))
             }
             else{
-                self.cartButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -10, y: 0))
+                self.cartButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -5, y: 0))
             }
         }
     }

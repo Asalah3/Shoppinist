@@ -40,7 +40,7 @@ func setBadge(text: String?, withOffsetFromTopRight offset: CGPoint = CGPoint.ze
     addBadge(text: text!, withOffset: offset, andColor: color, andFilled: filled)
 }
 
- func addBadge(text: String, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor(named: "move") ?? UIColor.white, andFilled filled: Bool = true, andFontSize fontSize: CGFloat = 8)
+ func addBadge(text: String, withOffset offset: CGPoint = CGPoint.zero, andColor color: UIColor = UIColor.red, andFilled filled: Bool = true, andFontSize fontSize: CGFloat = 11)
 {
     guard let view = self.value(forKey: "view") as? UIView else { return }
 
@@ -52,7 +52,7 @@ func setBadge(text: String?, withOffsetFromTopRight offset: CGPoint = CGPoint.ze
     // Initialize Badge
     let badge = CAShapeLayer()
 
-    let height = badgeSize.height;
+    let height = badgeSize.height ;
     var width = badgeSize.width + 2 /* padding */
 
     //make sure we have at least a circle

@@ -27,7 +27,7 @@ class AddressNetworkServices : AddressProtocol{
         let url = URL(string:"https://47f947d8be40bd3129dbe1dbc0577a11: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@mad-ism-43-1.myshopify.com/admin/api/2023-04/customers/\(customerId).json")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "PUT"
-        let AddressDictionary : [String : Any] = ["customer" : [ "addresses" : [["address1" : address.address1 ,"city" : address.city , "country" : address.country , "phone" : address.phone ]]]]
+        let AddressDictionary : [String : Any] = ["customer" : [ "addresses" : [["address1" : address.address1 ,"city" : address.city , "country" : address.country , "phone" : address.phone , "default": address.default]]]]
         urlRequest.httpShouldHandleCookies = false
         
         do {

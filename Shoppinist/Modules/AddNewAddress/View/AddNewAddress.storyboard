@@ -23,7 +23,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Your Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fu8-PC-UAa">
                                         <rect key="frame" x="28" y="116" width="343" height="50"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="27"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="27"/>
                                         <color key="textColor" name="move"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -43,7 +43,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Dkr-0M-uXu"/>
                                 </constraints>
                                 <color key="textColor" name="move"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJD-Yb-XHc">
@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="width" constant="342" id="hZU-Zp-8dW"/>
                                 </constraints>
                                 <color key="textColor" name="move"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6O-WF-7RN">
@@ -62,7 +62,7 @@
                                     <constraint firstAttribute="width" constant="342" id="PkV-xW-RRd"/>
                                 </constraints>
                                 <color key="textColor" name="move"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tD4-A0-dSd">
@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="width" constant="342" id="G0T-9t-GHs"/>
                                 </constraints>
                                 <color key="textColor" name="move"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBw-Ae-ndk">
@@ -85,7 +85,7 @@
                                     <backgroundConfiguration key="background" cornerRadius="50">
                                         <color key="backgroundColor" name="move"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="18"/>
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addNewAddressButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ui5-3D-LfN"/>

@@ -217,10 +217,10 @@ extension MeViewController{
             if draftOrders != nil && draftOrders?.count != 0{
                 self.myCartDraftOrder = draftOrders?[0]
                 self.productsListCart = draftOrders?[0].lineItems
-                self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -10, y: 0))
+                self.cartButtonRight.addBadge(text: "\(String(describing: self.productsListCart?.count ?? 0))" , withOffset: CGPoint(x: -5, y: 0))
             }
             else{
-                self.cartButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -10, y: 0))
+                self.cartButtonRight.addBadge(text: "0" , withOffset: CGPoint(x: -5, y: 0))
             }
         }
     }

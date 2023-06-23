@@ -10,9 +10,9 @@ import UIKit
 class OnBoardingViewController: UIViewController {
     let appDelegate = UIApplication.shared.windows.first
     var slides : [OnBoardingSlide] = [
-        OnBoardingSlide(title: "Order for Items", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: UIImage(named: "1")!),
-        OnBoardingSlide(title: "Payment Process", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: UIImage(named: "2")!),
-        OnBoardingSlide(title: "Items Delivery", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: UIImage(named: "3")!)]
+        OnBoardingSlide(title: "Order for Items", description: "Shoppinest is an online store focuses on clothes, accessories, shoes, bags and other fashion items.", image: UIImage(named: "1")!),
+        OnBoardingSlide(title: "Payment Process", description: "Customer Can pay with Apple Pay or Cash On Delivery.", image: UIImage(named: "2")!),
+        OnBoardingSlide(title: "Items Delivery", description: "Customer Can Deliver His Order Any Where.", image: UIImage(named: "3")!)]
     
     var currentPage = 0 {
         didSet {

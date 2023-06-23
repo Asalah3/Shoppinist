@@ -54,7 +54,7 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath)
-        
+        cell.textLabel?.font = UIFont(name: "Avenir Next Demi Bold", size: 16)
         switch indexPath.row {
         case 0:
             cell.imageView?.image=UIImage(systemName: "homekit")

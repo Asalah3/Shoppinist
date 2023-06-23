@@ -111,57 +111,57 @@
                                         <rect key="frame" x="0.0" y="52.666666666666657" width="353" height="417.33333333333337"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store of Dreams. You will find here what you need." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjg-4p-ydz">
-                                        <rect key="frame" x="7.3333333333333428" y="471.99999999999994" width="338.33333333333326" height="82.333333333333314"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
+                                        <rect key="frame" x="3.6666666666666572" y="471.99999999999994" width="345.66666666666674" height="82.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bji-Sd-hOB">
-                                        <rect key="frame" x="63.333333333333329" y="556.33333333333337" width="226.33333333333337" height="162.66666666666663"/>
+                                        <rect key="frame" x="61.000000000000014" y="556.33333333333337" width="231.33333333333337" height="162.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="150" verticalHuggingPriority="150" horizontalCompressionResistancePriority="600" verticalCompressionResistancePriority="600" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Co-sY-9JI">
-                                                <rect key="frame" x="0.0" y="0.0" width="226.33333333333334" height="47.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="231.33333333333334" height="47.666666666666664"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Continue as a Guest">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
                                                         <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="enterAsGuest:" destination="Fp0-u4-Wld" eventType="touchUpInside" id="crq-hy-RNL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g02-FP-j4o">
-                                                <rect key="frame" x="0.0" y="57.666666666666629" width="226.33333333333334" height="47.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="57.666666666666629" width="231.33333333333334" height="47.333333333333343"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
                                                         <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="navigateToSignUp:" destination="Fp0-u4-Wld" eventType="touchUpInside" id="q7Z-zp-8kY"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-ve-jdC">
-                                                <rect key="frame" x="0.0" y="115.00000000000001" width="226.33333333333334" height="47.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="115.00000000000001" width="231.33333333333334" height="47.666666666666671"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-M2-FVd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="47.666666666666664"/>
-                                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="47.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKh-2p-LcN">
-                                                        <rect key="frame" x="162" y="0.0" width="64.333333333333314" height="47.666666666666664"/>
+                                                        <rect key="frame" x="166.66666666666666" y="0.0" width="64.666666666666657" height="47.666666666666664"/>
                                                         <color key="tintColor" name="move"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login">
-                                                            <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="15"/>
+                                                            <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="navigateToLogin:" destination="Fp0-u4-Wld" eventType="touchUpInside" id="Ohv-sJ-K2W"/>
@@ -242,37 +242,37 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QFB-7t-y9o">
-                                        <rect key="frame" x="63.333333333333329" y="616.33333333333337" width="226.33333333333337" height="102.66666666666663"/>
+                                        <rect key="frame" x="61.000000000000014" y="616.33333333333337" width="231.33333333333337" height="102.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzG-YF-GmC">
-                                                <rect key="frame" x="0.0" y="0.0" width="226.33333333333334" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="231.33333333333334" height="40"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
                                                         <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="signUpCustomer:" destination="254-bv-GT5" eventType="touchUpInside" id="HQi-kn-6MT"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NQs-ut-Ryg">
-                                                <rect key="frame" x="0.0" y="35.000000000000007" width="226.33333333333334" height="67.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="40" width="231.33333333333334" height="62.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNG-rC-v57">
-                                                        <rect key="frame" x="0.0" y="25" width="162" height="17.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333258" width="166.66666666666666" height="22"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyI-tE-Wjc">
-                                                        <rect key="frame" x="162" y="18.333333333333258" width="64.333333333333314" height="30.666666666666671"/>
+                                                        <rect key="frame" x="166.66666666666666" y="14" width="64.666666666666657" height="34.666666666666664"/>
                                                         <color key="tintColor" name="move"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login">
-                                                            <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="15"/>
+                                                            <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="navigateToLogin:" destination="254-bv-GT5" eventType="touchUpInside" id="eMW-jT-Vaj"/>
@@ -343,13 +343,13 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcp-ha-cZP">
                                                     <rect key="frame" x="10" y="486.66666666666669" width="353.33333333333331" height="136.33333333333331"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
-                                                    <color key="textColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order For Items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HS5-Pl-NKh">
                                                     <rect key="frame" x="10" y="444" width="353.33333333333331" height="34"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -444,7 +444,7 @@
                                 <rect key="frame" x="10" y="113" width="373" height="695"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="splash5"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="splash"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -499,37 +499,37 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h94-tq-YMa">
-                                        <rect key="frame" x="64.666666666666671" y="616.33333333333337" width="223.66666666666663" height="102.66666666666663"/>
+                                        <rect key="frame" x="60.666666666666671" y="616.33333333333337" width="231.66666666666663" height="102.66666666666663"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awV-A6-BxA">
-                                                <rect key="frame" x="0.0" y="0.0" width="223.66666666666666" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="231.66666666666666" height="40"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                                     <backgroundConfiguration key="background" cornerRadius="50">
                                                         <color key="backgroundColor" name="move"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="19"/>
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="loginCustomer:" destination="GCt-9n-6U6" eventType="touchUpInside" id="pZ3-qB-9yh"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pft-gI-Zx7">
-                                                <rect key="frame" x="0.0" y="35.000000000000007" width="223.66666666666666" height="67.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="40" width="231.66666666666666" height="62.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yi2-Cm-lqW">
-                                                        <rect key="frame" x="0.0" y="25" width="143.33333333333334" height="17.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333258" width="150.33333333333334" height="22"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwX-wG-adh">
-                                                        <rect key="frame" x="143.33333333333331" y="18.333333333333258" width="80.333333333333314" height="30.666666666666671"/>
+                                                        <rect key="frame" x="150.33333333333331" y="14" width="81.333333333333314" height="34.666666666666664"/>
                                                         <color key="tintColor" name="move"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up">
-                                                            <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="15"/>
+                                                            <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="navigateToSignUp:" destination="GCt-9n-6U6" eventType="touchUpInside" id="qGQ-Vn-Pd2"/>
@@ -668,13 +668,13 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79D-N0-r3i">
-                                <rect key="frame" x="10" y="377.66666666666669" width="373" height="26.666666666666686"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="24"/>
+                                <rect key="frame" x="10" y="377.66666666666669" width="373" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7bI-l4-8JN">
-                                <rect key="frame" x="5" y="409.33333333333326" width="383" height="359.66666666666674"/>
+                                <rect key="frame" x="5" y="415.66666666666674" width="383" height="353.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K8T-a6-RJ4">
                                     <size key="itemSize" width="150" height="161"/>
@@ -696,7 +696,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EqR-AT-8nl">
                                                     <rect key="frame" x="13" y="125.66666666666667" width="127" height="25.333333333333329"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -860,7 +860,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMJ-YZ-xzo">
                                                     <rect key="frame" x="20" y="184.66666666666666" width="90" height="29.333333333333343"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -875,7 +875,7 @@
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Wq-Zfk">
                                                     <rect key="frame" x="5" y="141" width="170" height="33.666666666666657"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1004,13 +1004,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asalah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sK-h1-Gym">
                                 <rect key="frame" x="113" y="113" width="270" height="51"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No orders yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xao-M5-S9h">
                                 <rect key="frame" x="20" y="229.66666666666663" width="353" height="150.33333333333337"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1033,25 +1033,25 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzx-Sb-8tW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creation Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrZ-Gy-ziX">
                                                                     <rect key="frame" x="0.0" y="37" width="161.66666666666666" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipped To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIl-sd-l4i">
                                                                     <rect key="frame" x="0.0" y="74" width="161.66666666666666" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJU-ci-922">
                                                                     <rect key="frame" x="0.0" y="111" width="161.66666666666666" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1062,26 +1062,26 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B37-gh-1vW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-06-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJA-w3-bw2">
                                                                     <rect key="frame" x="0.0" y="37" width="161.33333333333334" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt, Ismailia, Elsheikh Zayed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dVf-dw-vvJ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt, Ismailia, Elsheikh Zayed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dVf-dw-vvJ">
                                                                     <rect key="frame" x="0.0" y="74" width="161.33333333333334" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="12"/>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sf-pc-zez">
                                                                     <rect key="frame" x="0.0" y="111" width="161.33333333333334" height="37"/>
-                                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -1112,7 +1112,7 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k84-z7-65g">
                                 <rect key="frame" x="20" y="184" width="262.66666666666669" height="25.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1121,7 +1121,7 @@
                                 <color key="tintColor" name="move"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More">
-                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="13"/>
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="seeMoreOrdersButton:" destination="MzK-Tk-bry" eventType="touchUpInside" id="BNv-iF-uin"/>
@@ -1151,14 +1151,14 @@
                                                         <constraint firstAttribute="width" constant="88" id="d7p-D2-Ej7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-sg-zha">
-                                                    <rect key="frame" x="122" y="34.666666666666664" width="208" height="20.333333333333336"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-sg-zha">
+                                                    <rect key="frame" x="122" y="20.000000000000004" width="208" height="45.333333333333343"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-i2-Ukr">
-                                                    <rect key="frame" x="122" y="65" width="208" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                    <rect key="frame" x="122" y="75.333333333333329" width="208" height="23.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1167,14 +1167,14 @@
                                                 <constraint firstItem="hs1-uA-RbT" firstAttribute="leading" secondItem="oDe-Gg-4tT" secondAttribute="leading" constant="11" id="1FW-Wb-S7t"/>
                                                 <constraint firstAttribute="bottom" secondItem="oVG-0Q-GLF" secondAttribute="bottom" constant="5" id="24H-D9-Pgl"/>
                                                 <constraint firstItem="mPy-sg-zha" firstAttribute="leading" secondItem="hs1-uA-RbT" secondAttribute="trailing" constant="23" id="7Cc-fS-9VZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="V2c-i2-Ukr" secondAttribute="bottom" constant="37.666666666666671" id="B7w-aa-nrJ"/>
-                                                <constraint firstItem="mPy-sg-zha" firstAttribute="top" secondItem="oDe-Gg-4tT" secondAttribute="top" constant="34.666666666666629" id="BXe-wR-B5A"/>
+                                                <constraint firstItem="mPy-sg-zha" firstAttribute="top" secondItem="oDe-Gg-4tT" secondAttribute="top" constant="20" id="BXe-wR-B5A"/>
                                                 <constraint firstAttribute="bottom" secondItem="hs1-uA-RbT" secondAttribute="bottom" constant="11" id="CCn-YL-dyc"/>
                                                 <constraint firstItem="hs1-uA-RbT" firstAttribute="top" secondItem="oDe-Gg-4tT" secondAttribute="top" constant="11" id="ECp-su-koK"/>
                                                 <constraint firstAttribute="trailing" secondItem="oVG-0Q-GLF" secondAttribute="trailing" constant="6" id="RXo-67-MSc"/>
+                                                <constraint firstItem="V2c-i2-Ukr" firstAttribute="height" secondItem="oVG-0Q-GLF" secondAttribute="height" multiplier="0.20649" id="UUh-GP-YQc"/>
                                                 <constraint firstItem="oVG-0Q-GLF" firstAttribute="top" secondItem="oDe-Gg-4tT" secondAttribute="top" constant="5" id="cpe-p6-f6e"/>
                                                 <constraint firstAttribute="trailing" secondItem="V2c-i2-Ukr" secondAttribute="trailing" constant="43" id="ebM-fw-9b0"/>
-                                                <constraint firstItem="mPy-sg-zha" firstAttribute="height" secondItem="oVG-0Q-GLF" secondAttribute="height" multiplier="0.179941" id="gCc-bt-At9"/>
+                                                <constraint firstItem="mPy-sg-zha" firstAttribute="height" secondItem="oVG-0Q-GLF" secondAttribute="height" multiplier="0.4" id="gCc-bt-At9"/>
                                                 <constraint firstItem="V2c-i2-Ukr" firstAttribute="leading" secondItem="hs1-uA-RbT" secondAttribute="trailing" constant="23" id="hC8-wO-uD9"/>
                                                 <constraint firstItem="V2c-i2-Ukr" firstAttribute="top" secondItem="mPy-sg-zha" secondAttribute="bottom" constant="10" id="kfm-R2-A3a"/>
                                                 <constraint firstItem="oVG-0Q-GLF" firstAttribute="leading" secondItem="oDe-Gg-4tT" secondAttribute="leading" constant="6" id="mri-Md-R5e"/>
@@ -1196,7 +1196,7 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WishList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLQ-b5-WU3">
                                 <rect key="frame" x="20" y="400" width="262" height="32"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1205,7 +1205,7 @@
                                 <color key="tintColor" name="move"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More">
-                                    <fontDescription key="titleFontDescription" name="Palatino-Bold" family="Palatino" pointSize="13"/>
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="seeMoreFavouritesButton:" destination="MzK-Tk-bry" eventType="touchUpInside" id="OzZ-wU-qSU"/>
@@ -1213,8 +1213,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favourites yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5M-rm-ste">
-                                <rect key="frame" x="58" y="532" width="300" height="21"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <rect key="frame" x="58" y="532" width="300" height="25.666666666666629"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1250,7 +1250,7 @@
                             <constraint firstItem="D5M-rm-ste" firstAttribute="leading" secondItem="Lzu-mB-fAw" secondAttribute="leading" constant="58" id="dUy-B9-mwd"/>
                             <constraint firstItem="3Tb-k7-ZPZ" firstAttribute="leading" secondItem="Lzu-mB-fAw" secondAttribute="leading" constant="10" id="e7e-Xl-wBi"/>
                             <constraint firstItem="3Tb-k7-ZPZ" firstAttribute="top" secondItem="uLQ-b5-WU3" secondAttribute="bottom" constant="10" id="eof-aF-fx1"/>
-                            <constraint firstItem="D5M-rm-ste" firstAttribute="height" secondItem="uLQ-b5-WU3" secondAttribute="height" multiplier="0.65625" id="fqn-nC-0QH"/>
+                            <constraint firstItem="D5M-rm-ste" firstAttribute="height" secondItem="uLQ-b5-WU3" secondAttribute="height" multiplier="0.8" id="fqn-nC-0QH"/>
                             <constraint firstItem="Xao-M5-S9h" firstAttribute="top" secondItem="k84-z7-65g" secondAttribute="bottom" constant="20" id="gaP-fP-olc"/>
                             <constraint firstItem="cKc-w7-xkA" firstAttribute="height" secondItem="jKi-Yh-D37" secondAttribute="height" multiplier="0.0375587" id="h3B-ZW-8Xw"/>
                             <constraint firstItem="xGP-q0-7f4" firstAttribute="height" secondItem="jKi-Yh-D37" secondAttribute="height" multiplier="0.2" id="hws-SJ-qEd"/>

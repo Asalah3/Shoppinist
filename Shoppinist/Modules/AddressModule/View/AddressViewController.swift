@@ -15,7 +15,7 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
     var customerAddressTable : CustomerAddress?
     var addressViewModel : AddressViewModel?
     var statusCode : Int?
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         addressViewModel = AddressViewModel()
@@ -23,7 +23,6 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
         activityIndicator.center = view.center
                 activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
-        checkCartIsEmpty()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +83,7 @@ class AddressViewController: UIViewController , UITableViewDelegate , UITableVie
                     addressViewModel?.bindingStatusCode = { [weak self] code in
                         self?.statusCode = code
                         if self?.statusCode == 200{
-                            Utilites.displayToast(message: "The Address Deleted Successfully", seconds: 5, controller: AddressViewController())
+//                            Utilites.displayToast(message: "The Address Deleted Successfully", seconds: 5, controller: AddressViewController())
                         }else{
                             print(self?.statusCode?.description ?? "")
                         }
