@@ -51,7 +51,9 @@ customer.
 
 - BadgeSwift
 
-- Trello
+- Trello(https://trello.com/b/kahEF0lJ/final-project-tasks)
+
+- Github(https://github.com/Asalah3/Shoppinist/tree/main)
   <hr>
 <h2>Contributors:</h2>
 
