@@ -43,7 +43,7 @@ customer.
   
 - Trello
   <hr>
-<h2>Contributers:</h2>
+<h2>Contributors:</h2>
 
 - Esraa AbdElfatah Mahmoud
 
@@ -53,13 +53,13 @@ customer.
 
 <hr>
 
-splash 
+<h2>splash</h2> 
 
 
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/3e275a9b-abff-4c4e-8493-d0a7e14c95bf.jpg" width=30% height=30%>
 
-onBorading
+<h2>onBorading</h2> 
 
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/62d71fe9-2fc7-422b-935e-247050bf17cf.jpg" width=30% height=30%>
@@ -69,13 +69,13 @@ onBorading
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/bc4d7d94-ccbc-4cfa-aaf8-5add0d751e53.jpg" width=30% height=30%>
 
 
-Register
+<h2>Register</h2> 
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/29169c13-31ab-4a72-ad13-31bf59fc5db4.jpg" width=30% height=30%>
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/bdf3bf31-6d4d-4e53-8d22-e1ef65e082fd.jpg" width=30% height=30%>
 
-Login
+<h2>Login</h2> 
 
 <img src="https://github.com/Asalah3/Shoppinist/assets/86933863/d4125f0a-b482-4172-b723-cb5b14f8f741.jpg" width=30% height=30%>
 
